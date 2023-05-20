@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283890101137",
+    "project_id": "connectcard-a073e",
+    "storage_bucket": "connectcard-a073e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283890101137:android:54f6fb03ef0b2968b88830",
+        "android_client_info": {
+          "package_name": "com.orbital.connectcard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283890101137-5gt6mo9rd84h829hb9v8qn6vjafhg0q3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCq8TkBbH6Q0_HZJX8NZirwCJS2r8vmlhE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283890101137-5gt6mo9rd84h829hb9v8qn6vjafhg0q3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
