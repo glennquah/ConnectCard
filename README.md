@@ -1,10 +1,10 @@
 # ConnectCard
 
-ConnectCard App
+ConnectCard is a mobile application that allows users to scan, store, and manage their name cards digitally. 
 
 ## Description
 
-ConnectCard is a mobile application that allows users to scan, store, and manage their name cards digitally. The app utilizes Firebase for data storage and manipulation, and Flutter for the user interface design. It offers various features such as scanning and storing name card information, linking the app to communication platforms like Telegram, Whatsapp, Phone, and Email, updating existing data, NFC technology for easy name card exchange, and a membership/reward card feature.
+ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for the user interface design. It offers various features such as scanning and storing name card information, linking the app to communication platforms like Telegram, Whatsapp, Phone, and Email, updating existing data, NFC technology for easy name card exchange, and a membership/reward card feature.
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@ ConnectCard is a mobile application that allows users to scan, store, and manage
 
 ### The following functionality is complete:
 
-1. [x] **UI/UX of Application:** Flutter is utilized to create an intuitive and visually appealing user interface, enhancing the overall user experience.
+1. [x] **UI/UX of Application:** Finalized the design using FIGMA to be used as a template to guide
 
 ### The following functionality is incomplete:
 
@@ -40,6 +40,8 @@ To watch the video of ConnectCard & view the poster, click the following link
 Video: https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link
 
 Poster: https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link
+
+Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1
 
 ## Project Log
 
