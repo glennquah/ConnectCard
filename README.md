@@ -15,11 +15,11 @@ ConnectCard is a mobile application that allows users to scan, store, and manage
 
 ## Features
 
-# The following functionality is complete:
+### The following functionality is complete:
 
 1. [x] **UI/UX of Application:** Flutter is utilized to create an intuitive and visually appealing user interface, enhancing the overall user experience.
 
-# The following functionality is incomplete:
+### The following functionality is incomplete:
 
 1. [] **Database:** The app uses Firebase as the backend database to store and manipulate data, ensuring efficient data management and retrieval. 
 
@@ -33,16 +33,17 @@ ConnectCard is a mobile application that allows users to scan, store, and manage
 
 6. [] **Membership/Reward Card Feature:** Users can convert their physical membership or milestone reward cards into digital versions. Vendors can access and update users' progress using the app, providing a seamless and centralized way to manage loyalty programs.
 
-## Poster + Video of ConnectCard
+## Poster & Video
 
 To watch the video of ConnectCard & view the poster, click the following link
 
 Video: https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link
+
 Poster: https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link
 
 ## Project Log
 
-# May
+### May
 **[2023-05-09]** 
 - Did A4 Poster & Video
 
