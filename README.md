@@ -47,10 +47,11 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 
 ### May
 **[2023-05-09]** 
-- Did A4 Poster & Video
+- A4 Poster (LiftOff)
+- Video (LiftOff)
 
 **[2023-05-10]** 
-- Set up Flutter for the user interface design.
+- Finalized user interface design using Figma.
 
 **[2023-05-16]** 
 - Created the repository
