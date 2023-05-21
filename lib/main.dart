@@ -1,25 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:connectcard/widget_tree.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+import 'packages:connectcard/services/auth.dart';
+import 'package:connectcard/screens/wrapper.dart';
+import 'package:connectcard/models/TheUser.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({
-    Key? key,
-  }) : super(key: key);
-
+  //Root of the app
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.orange,
-        ),
-        home: const WidgetTree());
+    return StreamProvider.value(
+      value: Auth().user,
+      child: MaterialApp(
+        home: Wrapper(),
+      ),
+    );
   }
 }

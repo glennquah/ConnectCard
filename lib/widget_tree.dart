@@ -1,6 +1,6 @@
-import 'package:connectcard/auth.dart';
-import 'package:connectcard/pages/home_page.dart';
-import 'package:connectcard/pages/login_register_page.dart';
+import 'package:connectcard/services/auth.dart';
+import 'package:connectcard/screens/home_page.dart';
+import 'package:connectcard/screens/login_register_page.dart';
 import 'package:flutter/material.dart';
 
 class WidgetTree extends StatefulWidget {

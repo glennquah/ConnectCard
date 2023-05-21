@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:connectcard/auth.dart';
+import 'package:connectcard/services/auth.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({Key? key}) : super(key: key);
