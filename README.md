@@ -57,4 +57,3 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 - Created the repository
 - initialized Firebase for database management.
 - Splash Screen
-- Login & Registration Page
