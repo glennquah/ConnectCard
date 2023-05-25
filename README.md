@@ -55,5 +55,9 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 
 **[2023-05-16]** 
 - Created the repository
-- initialized Firebase for database management.
 - Splash Screen
+
+**[2023-05-24 - 2023-05-25]** 
+- initialized Firebase for database management.
+- Registration Screen
+- Login Screen
