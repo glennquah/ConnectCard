@@ -1,44 +1,50 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  //create user obj based no FirebaseUser
+  // Create user object based on User
   TheUser? _userFromFirebaseUser(User user) {
     return user != null ? TheUser(uid: user.uid) : null;
   }
 
   User? get currentUser => _firebaseAuth.currentUser;
 
-  //auth change user stream
+  // Auth change user stream
   Stream<TheUser?> get user {
     return _firebaseAuth
         .authStateChanges()
         .map((User? user) => _userFromFirebaseUser(user!));
   }
 
-  Future<void> signInWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    await _firebaseAuth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  Future<User?> signInWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential result = await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      User user = result.user!;
+      return user;
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
   }
 
-  Future<void> createUserWithEmailAndPassword({
-    required String email,
-    required String password,
-  }) async {
-    await _firebaseAuth.createUserWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+  Future<TheUser?> registerWithEmailAndPassword(
+      String email, String password) async {
+    try {
+      UserCredential result = await _firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password);
+      User user = result.user!;
+      return _userFromFirebaseUser(user);
+    } catch (error) {
+      print(error.toString());
+      return null;
+    }
   }
 
-  Future signOut() async {
+  Future<void> signOut() async {
     try {
       return await _firebaseAuth.signOut();
     } catch (e) {

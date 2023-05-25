@@ -1,9 +1,9 @@
 class TheUser {
   final String uid;
 
-  User({this.uid});
+  TheUser({required this.uid});
 
-  getUserId() {
+  String getUserId() {
     return uid;
   }
 }
