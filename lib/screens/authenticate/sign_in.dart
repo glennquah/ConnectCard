@@ -22,77 +22,114 @@ class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.brown[100],
-      appBar: AppBar(
-        backgroundColor: Colors.brown[400],
-        elevation: 0.0,
-        title: Text('Sign in to Brew Crew'),
-        actions: <Widget>[
-          TextButton.icon(
-            icon: Icon(Icons.person),
-            label: Text('Register'),
-            onPressed: () => widget.toggleView(),
-          ),
-        ],
-      ),
-      body: Container(
-        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
-        child: Form(
-          key: _formKey,
+      backgroundColor: Colors.yellow[800],
+      body: SingleChildScrollView(
+        // Wrap with SingleChildScrollView
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
           child: Column(
             children: <Widget>[
-              SizedBox(height: 20.0),
-              TextFormField(
-                decoration: textInputDecoration.copyWith(hintText: 'email'),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Enter an email';
-                  }
-                  return null;
-                },
-                onChanged: (val) {
-                  setState(() => email = val);
-                },
-              ),
-              SizedBox(height: 20.0),
-              TextFormField(
-                obscureText: true,
-                decoration: textInputDecoration.copyWith(hintText: 'password'),
-                validator: (val) {
-                  if (val == null || val.length < 6) {
-                    return 'Enter a password 6+ chars long';
-                  }
-                  return null;
-                },
-                onChanged: (val) {
-                  setState(() => password = val);
-                },
-              ),
-              SizedBox(height: 20.0),
-              ElevatedButton(
-                style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.pink[400]),
+              SizedBox(height: 40.0),
+              Container(
+                width: 200.0,
+                height: 200.0,
+                child: Image(
+                  image: AssetImage('assets/ConnectCardLogo.jpg'),
+                  fit: BoxFit.contain,
                 ),
-                child: Text(
-                  'Sign In',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    dynamic result =
-                        await _auth.signInWithEmailAndPassword(email, password);
-                    if (result == null) {
-                      setState(() {
-                        error = 'Could not sign in with those credentials';
-                      });
-                    }
-                  }
-                },
               ),
-              SizedBox(height: 12.0),
-              Text(
-                error,
-                style: TextStyle(color: Colors.red, fontSize: 14.0),
+              Text('Login',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 30.0,
+                      fontWeight: FontWeight.bold)),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: <Widget>[
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                      decoration: textInputDecoration.copyWith(
+                        hintText: 'Email',
+                        prefixIcon: Icon(Icons.email),
+                      ),
+                      validator: (val) {
+                        if (val == null || val.isEmpty) {
+                          return 'Enter an email';
+                        }
+                        return null;
+                      },
+                      onChanged: (val) {
+                        setState(() => email = val);
+                      },
+                    ),
+                    SizedBox(height: 20.0),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: textInputDecoration.copyWith(
+                        hintText: 'Password',
+                        prefixIcon: Icon(Icons.lock),
+                      ),
+                      validator: (val) {
+                        if (val == null || val.length < 6) {
+                          return 'Enter a password 6+ chars long';
+                        }
+                        return null;
+                      },
+                      onChanged: (val) {
+                        setState(() => password = val);
+                      },
+                    ),
+                    SizedBox(height: 20.0),
+                    ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.black),
+                      ),
+                      child: Text(
+                        'Login',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onPressed: () async {
+                        if (_formKey.currentState!.validate()) {
+                          dynamic result = await _auth
+                              .signInWithEmailAndPassword(email, password);
+                          if (result == null) {
+                            setState(() {
+                              error =
+                                  'Could not sign in with those credentials';
+                            });
+                          }
+                        }
+                      },
+                    ),
+                    SizedBox(height: 12.0),
+                    Text(
+                      error,
+                      style: TextStyle(color: Colors.red, fontSize: 14.0),
+                    ),
+                    SizedBox(height: 12.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          'Don\'t have an account?',
+                          style: TextStyle(color: Colors.black, fontSize: 14.0),
+                        ),
+                        TextButton(
+                          child: Text(
+                            'Sign Up',
+                            style: TextStyle(
+                                color: Colors.red,
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () => widget.toggleView(),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

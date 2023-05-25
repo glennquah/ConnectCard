@@ -1,32 +1,31 @@
+import 'package:connectcard/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
+  final Auth _auth = Auth();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.yellow[800],
       appBar: AppBar(
-        //change to user ID using user obj
-        title: Text('abc'),
+        title: Text('UserName'),
         backgroundColor: Colors.yellow[800],
         elevation: 0.0,
         actions: <Widget>[
-          ElevatedButton.icon(
+          TextButton.icon(
+            icon: Icon(Icons.person),
+            label: Text('Logout'),
             onPressed: () async {
-              //go to edit page
+              await _auth.signOut();
             },
-            icon: Icon(
-              Icons.edit,
-              color: Colors.black,
-              size: 24.0,
-            ),
-            label: Text('Edit'),
           ),
         ],
       ),
     );
   }
 }
+
 
   //when pressed the edit button then has this button to sign out
   /*

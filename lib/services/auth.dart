@@ -44,12 +44,13 @@ class Auth {
     }
   }
 
+  //dont work...
   Future<void> signOut() async {
-    try {
-      return await _firebaseAuth.signOut();
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+    //try {
+    return await _firebaseAuth.signOut();
+    // } catch (e) {
+    //  print(e.toString());
+    //  return null;
+    // }
   }
 }
