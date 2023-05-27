@@ -1,5 +1,6 @@
 import 'package:connectcard/models/userDetails.dart';
-import 'package:connectcard/screens/home/profile.dart';
+import 'package:connectcard/screens/home/card_list.dart';
+import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:flutter/material.dart';
@@ -12,17 +13,20 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     void _showCardsPanel() {
       showModalBottomSheet(
-          context: context,
-          builder: (context) {
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-              child: CardsForm(),
-            );
-          });
+        context: context,
+        builder: (context) {
+          return Container(
+            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+            child: CardsForm(),
+          );
+        },
+      );
     }
 
     return StreamProvider<List<UserDetails>>.value(
-      value: DatabaseService().profiles,
+      //change this to get uid
+      value: DatabaseService(uid: 'uid').profile,
+      initialData: [],
       child: Scaffold(
         backgroundColor: Colors.yellow[800],
         appBar: AppBar(
@@ -34,17 +38,17 @@ class Home extends StatelessWidget {
               icon: Icon(Icons.person),
               label: Text('Logout'),
               onPressed: () async {
-                await _auth.signOut();
+                //await _auth.signOut();
               },
             ),
             TextButton.icon(
               icon: Icon(Icons.edit),
-              label: Text('edit'),
+              label: Text('Edit'),
               onPressed: () => _showCardsPanel(),
             )
           ],
         ),
-        body: ProfileList(),
+        body: CardList(),
       ),
     );
   }

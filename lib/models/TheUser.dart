@@ -3,7 +3,7 @@ class TheUser {
 
   TheUser({required this.uid});
 
-  String getUserId() {
+  Future<String> getUserId() async {
     return uid;
   }
 }
@@ -11,6 +11,7 @@ class TheUser {
 class UserData {
   final String uid;
   final String name;
+  final String email;
   final String phoneNum;
   final String address;
   final String jobTitle;
@@ -19,6 +20,7 @@ class UserData {
   UserData(
       {required this.uid,
       required this.name,
+      required this.email,
       required this.phoneNum,
       required this.address,
       required this.jobTitle,

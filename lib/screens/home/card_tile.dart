@@ -2,17 +2,22 @@ import 'package:connectcard/models/userDetails.dart';
 import 'package:flutter/material.dart';
 
 class CardTile extends StatelessWidget {
-  final UserDetails userd;
-  CardTile({this.userd});
+  final UserDetails userdetails;
+  const CardTile({required this.userdetails});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 8.0),
       child: Card(
-        margin: EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
+        margin: const EdgeInsets.fromLTRB(20.0, 6.0, 20.0, 0.0),
         child: ListTile(
-          title: Text(userd.name),
+          leading: CircleAvatar(
+            radius: 25.0,
+            backgroundColor: Colors.brown[100],
+          ),
+          title: Text(userdetails.name),
+          subtitle: Text('${userdetails.name}'),
         ),
       ),
     );

@@ -16,7 +16,7 @@ class _CardListState extends State<CardList> {
     return ListView.builder(
       itemCount: userDetails.length,
       itemBuilder: (context, index) {
-        return CardTile(userd: userDetails[index]);
+        return CardTile(userdetails: userDetails[index]);
       },
     );
   }
