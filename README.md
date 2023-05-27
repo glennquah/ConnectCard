@@ -61,3 +61,9 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 - initialized Firebase for database management.
 - Registration Screen
 - Login Screen
+
+**[2023-05-27 - 2023-05-28]** 
+- Loading Screen
+- Settomg up profile data, linking to firebase
+- Editing profile data
+- adding more cards
