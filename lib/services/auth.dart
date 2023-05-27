@@ -1,5 +1,7 @@
-import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -32,11 +34,16 @@ class Auth {
   }
 
   Future<TheUser?> registerWithEmailAndPassword(
-      String email, String password) async {
+      String phoneNum, String email, String password) async {
     try {
       UserCredential result = await _firebaseAuth
           .createUserWithEmailAndPassword(email: email, password: password);
       User user = result.user!;
+
+      // create a new document for the user with the uid
+      await DatabaseService(uid: user.uid).updateUserData('name', email,
+          phoneNum, 'Insert Address', 'ConnectCard User', 'Insert more info');
+
       return _userFromFirebaseUser(user);
     } catch (error) {
       print(error.toString());
@@ -44,13 +51,12 @@ class Auth {
     }
   }
 
-  //dont work...
-  Future<void> signOut() async {
-    //try {
-    return await _firebaseAuth.signOut();
-    // } catch (e) {
-    //  print(e.toString());
-    //  return null;
-    // }
+  //error
+  Future<void> signOut(BuildContext context) async {
+    try {
+      await _firebaseAuth.signOut();
+    } catch (e) {
+      print(e.toString());
+    }
   }
 }
