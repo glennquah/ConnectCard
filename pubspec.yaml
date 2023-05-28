@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -47,12 +48,27 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  flutter_native_splash: ^2.2.19
+  
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+flutter_native_splash:
+  color: "#feaa1b"
+  color_dark: "#feaa1b"
+  image: assets/images/ConnectCardLogoPng.png
+  image_dark: assets/images/ConnectCardLogoPng.png
+
+  android_12:
+    image: assets/images/ConnectCardLogoPng.png
+    icon_background_color: "#feaa1b"
+    image_dark: assets/images/ConnectCardLogoPng.png
+    icon_background_color_dark: "#feaa1b"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
