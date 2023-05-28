@@ -96,17 +96,17 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 **Optical Character Recognition (OCR)**:
 ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
 
-**Image Processing**
+**Image Processing**:
 Image processing techniques are employed to enhance the scanned name card images, improve readability, and optimize the visual quality of the digitized cards. This helps in creating clear and professional-looking digital name cards.
 
-**Mobile Camera Integration**
+**Mobile Camera Integration**:
 ConnectCard seamlessly integrates with the mobile device's camera functionality, allowing users to capture images of physical name cards directly within the app. This integration simplifies the scanning process, making it convenient for users to convert physical cards into digital format effortlessly.
 
-**Near Field Communication (NFC)**
+**Near Field Communication (NFC)**:
 ConnectCard leverages on NFC technology for the seamless exchange of digital name cards between users. By tapping their devices together, users can instantly share their contact information, fostering efficient networking and eliminating the need for manual contact input.
 
-**Cloud Storage and Synchronization (Firebase)**
+**Cloud Storage and Synchronization (Firebase)**:
 To ensure data accessibility across multiple devices, our application integrates with cloud storage services. The digital name cards and associated data are securely stored in the cloud, enabling users to access and manage their cards from any device with the application installed. Synchronization functionality ensures that any updates made to the cards are reflected across all devices.
 
-**Sharing digital name cards through a link**
+**Sharing digital name cards through a link**:
 ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
