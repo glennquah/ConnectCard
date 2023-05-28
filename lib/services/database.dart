@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/models/userDetails.dart';
@@ -60,3 +61,13 @@ class DatabaseService {
     return profileCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
 }
+=======
+//import 'package:cloud_firestore/cloud_firestore.dart';
+
+//class DatabaseService {
+
+  //collection reference
+ // final CollectionReference profileCollection = Firestore.instance.collection('profile');
+
+//}
+>>>>>>> main
