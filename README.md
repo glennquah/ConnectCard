@@ -55,7 +55,6 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 
 **[2023-05-16]** 
 - Created the repository
-- Splash Screen
 
 **[2023-05-24 - 2023-05-25]** 
 - initialized Firebase for database management.
@@ -67,3 +66,4 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 - Settomg up profile data, linking to firebase
 - Editing profile data
 - adding more cards
+- Splash Screen Update
