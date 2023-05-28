@@ -106,7 +106,7 @@ ConnectCard encodes your digital name card, including contact details, such as n
 
 **[2023-05-27 - 2023-05-28]** 
 - Loading Screen
-- Settomg up profile data, linking to firebase
+- Setting up profile data, linking to firebase
 - Editing profile data
 - adding more cards
 - Splash Screen Update
