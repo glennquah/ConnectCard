@@ -12,11 +12,16 @@ Carrying physical name cards and membership/loyalty cards can be burdensome, lea
 
 ### Need:
 
-There is a need for a digital platform that allows users to store and manage their personal name cards, as well as name cards from others or businesses. Additionally, users require a solution to store and access membership or loyalty reward cards without the need for physical cards.
+Currently, there are existing name cards applications that provide features such as storing and managing digital name cards of self and others. However, there are some few applications that satisfy some features that are important in a digital name card application.
+
+Existing name card applications have limited functionality in these areas
+Converting current physical name cards into digital name cards easily
+Sharing digital name cards with others easily
+Store and access membership or loyalty reward cards digitally, eliminating the reliance on physical cards.
 
 ### Solution:
 
-Our mobile application provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
+ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly, through sending it through a link and using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
 
 ## Table of Contents
 
@@ -85,3 +90,23 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 - Editing profile data
 - adding more cards
 - Splash Screen Update
+
+##Key Technologies
+
+**Optical Character Recognition (OCR)**
+ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
+
+**Image Processing**
+Image processing techniques are employed to enhance the scanned name card images, improve readability, and optimize the visual quality of the digitized cards. This helps in creating clear and professional-looking digital name cards.
+
+**Mobile Camera Integration**
+ConnectCard seamlessly integrates with the mobile device's camera functionality, allowing users to capture images of physical name cards directly within the app. This integration simplifies the scanning process, making it convenient for users to convert physical cards into digital format effortlessly.
+
+**Near Field Communication (NFC)**
+ConnectCard leverages on NFC technology for the seamless exchange of digital name cards between users. By tapping their devices together, users can instantly share their contact information, fostering efficient networking and eliminating the need for manual contact input.
+
+**Cloud Storage and Synchronization (Firebase)**
+To ensure data accessibility across multiple devices, our application integrates with cloud storage services. The digital name cards and associated data are securely stored in the cloud, enabling users to access and manage their cards from any device with the application installed. Synchronization functionality ensures that any updates made to the cards are reflected across all devices.
+
+**Sharing digital name cards through a link**
+ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
