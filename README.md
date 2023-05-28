@@ -99,7 +99,7 @@ ConnectCard encodes your digital name card, including contact details, such as n
 **[2023-05-11 - 2023-05-13]** : 10 Hours
 - Flutter tutorial
 
-**[2023-05-16]** : 2 Hour
+**[2023-05-16]** : 2 Hours
 - GIT Crash Course
 - Created the repository
 
