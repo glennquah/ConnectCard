@@ -118,3 +118,7 @@ ConnectCard encodes your digital name card, including contact details, such as n
 - Editing profile data
 - adding more cards
 - Splash Screen Update
+
+**[2023-05-28]** : 2 Hours on Discord
+- Meeting alignment
+- Submission of milestone 1
