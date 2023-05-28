@@ -91,9 +91,9 @@ Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?typ
 - adding more cards
 - Splash Screen Update
 
-##Key Technologies
+### Key Technologies
 
-**Optical Character Recognition (OCR)**
+**Optical Character Recognition (OCR)**:
 ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
 
 **Image Processing**
