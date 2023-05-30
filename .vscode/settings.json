@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "java.configuration.updateBuildConfiguration": "interactive",
 <<<<<<< HEAD
     "cSpell.words": [
@@ -7,4 +8,7 @@
 =======
     "cmake.sourceDirectory": "C:/Users/Lenovo/OneDrive - National University of Singapore/Documents/GitHub/ConnectCard/ConnectCard/linux"
 >>>>>>> main
+=======
+    "java.configuration.updateBuildConfiguration": "interactive"
+>>>>>>> parent of c0202f3 (Fixing of profile editing)
 }
