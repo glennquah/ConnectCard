@@ -90,37 +90,4 @@ ConnectCard encodes your digital name card, including contact details, such as n
 
 ## Project Log
 
-### May
-**[2023-05-09]** : 4 Hours @ Zhiwei House
-- A4 Poster (LiftOff)
-- Video (LiftOff)
-
-**[2023-05-10]** : 4 Hours @ Zhiwei House
-- Finalized user interface design using Figma.
-
-**[2023-05-11 - 2023-05-13]** : 10 Hours
-- Flutter tutorial
-
-**[2023-05-16]** : 2 Hours
-- GIT Crash Course
-- Created the repository
-
-**[2023-05-18 - 2023-05-22]** : 10 Hours
-- Flutter tutorial
-- Firebase integration tutorial
-
-**[2023-05-24 - 2023-05-25]** : 5 Hours @ Zhiwei House
-- initialized Firebase for database management.
-- Registration Screen
-- Login Screen
-
-**[2023-05-27 - 2023-05-28]** : 8 Hours
-- Loading Screen
-- Setting up profile data, linking to firebase
-- Editing profile data
-- adding more cards
-- Splash Screen Update
-
-**[2023-05-28]** : 2 Hours on Discord
-- Meeting alignment
-- Submission of milestone 1
+Link: https://docs.google.com/spreadsheets/d/1aPRcCrV2DgaXbIsEnaVfjLGABb_CIqXqBk_hmSb5DgI/edit?usp=sharing
