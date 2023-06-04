@@ -1,5 +1,5 @@
 import 'package:connectcard/models/userDetails.dart';
-import 'package:connectcard/screens/home/card_list.dart';
+import 'package:connectcard/screens/authenticate/sign_in.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
@@ -16,39 +16,57 @@ class Home extends StatelessWidget {
         context: context,
         builder: (context) {
           return Container(
-            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
             child: CardsForm(),
           );
         },
       );
     }
 
+    void _signOut(BuildContext context) async {
+      await _auth.signOut();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => SignIn(toggleView: null)),
+      );
+    }
+
     return StreamProvider<List<UserDetails>>.value(
       //change this to get uid
-      value: DatabaseService(uid: 'uid').profile,
+      value: DatabaseService(uid: '123').profile,
       initialData: [],
       child: Scaffold(
         backgroundColor: Colors.yellow[800],
         appBar: AppBar(
-          title: Text('UserName'),
+          title: const Text('UserName'),
           backgroundColor: Colors.yellow[800],
           elevation: 0.0,
           actions: <Widget>[
             TextButton.icon(
-              icon: Icon(Icons.person),
-              label: Text('Logout'),
-              onPressed: () async {
-                //await _auth.signOut();
+              icon: const Icon(Icons.person),
+              label: const Text('Logout'),
+              onPressed: () {
+                _signOut(context);
               },
             ),
             TextButton.icon(
-              icon: Icon(Icons.edit),
-              label: Text('Edit'),
+              icon: const Icon(Icons.edit),
+              label: const Text('Edit'),
               onPressed: () => _showCardsPanel(),
             )
           ],
         ),
-        body: CardList(),
+        //body: CardList(),
+        body: const ListTile(
+          leading: CircleAvatar(
+            radius: 25.0,
+            backgroundColor: Colors.white,
+            child: Icon(Icons.add_a_photo, color: Colors.black),
+          ),
+          title: Text("First Card: Insert name"),
+          subtitle: Text("Insert Job Title"),
+        ),
       ),
     );
   }

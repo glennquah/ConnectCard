@@ -1,7 +1,6 @@
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -51,12 +50,7 @@ class Auth {
     }
   }
 
-  //error
-  Future<void> signOut(BuildContext context) async {
-    try {
-      await _firebaseAuth.signOut();
-    } catch (e) {
-      print(e.toString());
-    }
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
   }
 }

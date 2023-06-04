@@ -1,3 +1,5 @@
+//not working
+
 import 'package:connectcard/models/userDetails.dart';
 import 'package:flutter/material.dart';
 
@@ -16,8 +18,10 @@ class CardTile extends StatelessWidget {
             radius: 25.0,
             backgroundColor: Colors.brown[100],
           ),
-          title: Text(userdetails.name),
-          subtitle: Text('${userdetails.name}'),
+          //title: Text(userdetails.name),
+          title: Text('abc'),
+          subtitle: Text('xyz'),
+          //subtitle: Text('${userdetails.name}'),
         ),
       ),
     );

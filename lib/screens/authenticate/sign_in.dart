@@ -4,7 +4,7 @@ import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
-  final Function toggleView;
+  final Function? toggleView;
   SignIn({required this.toggleView});
 
   @override
@@ -132,7 +132,7 @@ class _SignInState extends State<SignIn> {
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                onPressed: () => widget.toggleView(),
+                                onPressed: () => widget.toggleView!(),
                               ),
                             ],
                           ),
