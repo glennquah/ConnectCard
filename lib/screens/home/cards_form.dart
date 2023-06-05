@@ -1,5 +1,5 @@
 import 'package:connectcard/models/theUser.dart';
-import 'package:connectcard/services/database.dart';
+import 'package:connectcard/screens/home/card_editor.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,76 +11,72 @@ class CardsForm extends StatefulWidget {
 
 class _CardsFormState extends State<CardsForm> {
   final _formKey = GlobalKey<FormState>();
-  final List<String> cards = ['BusinessCard']; // List of available cards
-  List<String> selectedCards = []; // List of selected cards
+  List<String> cards = ['NewCard', 'NewCard2']; // List of available cards
+  String selectedCard = 'NewCard'; // Selected card
+  TheUser? user; // User object
 
   @override
   Widget build(BuildContext context) {
-    TheUser user = Provider.of<TheUser>(context);
+    user = Provider.of<TheUser?>(context); // Retrieve user object
 
-    return StreamBuilder<UserData>(
-      stream: DatabaseService(uid: user.uid).userProfile,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          UserData? userData = snapshot.data;
-          //check below
-          //selectedCards = userData.name; // Update selected cards from user data
-          selectedCards = userData?.name as List<String>;
+    void _showEditorPage() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CardEditorScreen()),
+      );
+    }
 
-          return Form(
-            key: _formKey,
-            child: Column(
-              children: <Widget>[
-                Text(
-                  'Select your cards',
-                  style: TextStyle(fontSize: 18.0),
-                ),
-                SizedBox(height: 20.0),
-                ListView.builder(
-                  shrinkWrap: true,
-                  itemCount: cards.length,
-                  itemBuilder: (context, index) {
-                    String card = cards[index];
-                    bool value = selectedCards.contains(card);
-
-                    return CheckboxListTile(
-                      title: Text(card),
-                      value: value,
-                      onChanged: (isChecked) {
-                        setState(() {
-                          if (value) {
-                            selectedCards.add(card);
-                          } else {
-                            selectedCards.remove(card);
-                          }
-                        });
-                      },
-                    );
-                  },
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    if (_formKey.currentState!.validate()) {
-                      await DatabaseService(uid: user.uid).updateUserData(
-                        "abc",
-                        "abc@abc",
-                        "abc",
-                        "abc",
-                        "abc",
-                        "moreInfo",
-                      );
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: Text('Save'),
-                ),
-              ],
+    if (user != null) {
+      return Form(
+        key: _formKey,
+        child: Column(
+          children: <Widget>[
+            Text(
+              'Select your cards',
+              style: TextStyle(fontSize: 18.0),
             ),
-          );
-        } else {
-          return Loading();
-        }
-      },
-    );
+            SizedBox(height: 20.0),
+            DropdownButtonFormField(
+              value: selectedCard,
+              items: cards.map((card) {
+                return DropdownMenuItem(
+                  value: card,
+                  child: Text('$card Card'),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedCard = value.toString();
+                });
+              },
+            ),
+            SizedBox(height: 12.0),
+            Center(
+              // Wrap the Row with Center widget
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  ElevatedButton(
+                    onPressed: () => _showEditorPage(),
+                    child: Text('Edit Card',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  SizedBox(width: 12.0),
+                  ElevatedButton(
+                    onPressed: () async {
+                      // Another form to add a new card
+                    },
+                    child:
+                        Text('Add Card', style: TextStyle(color: Colors.white)),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return Loading();
+    }
   }
 }

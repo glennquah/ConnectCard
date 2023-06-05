@@ -56,6 +56,7 @@ class DatabaseService {
   }
 
   // get user profile stream
+  // to get the object of the user profile
   Stream<UserData> get userProfile {
     return profileCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
   }
