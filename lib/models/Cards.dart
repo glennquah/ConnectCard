@@ -1,7 +1,5 @@
-import 'dart:io';
-
 class Cards {
-  final File? profileImage;
+  final String imageUrl;
   final String cardName;
   final String companyName;
   final String jobTitle;
@@ -15,7 +13,7 @@ class Cards {
   final String moreInfo3;
 
   Cards(
-      {required this.profileImage,
+      {required this.imageUrl,
       required this.cardName,
       required this.companyName,
       required this.jobTitle,
@@ -30,6 +28,7 @@ class Cards {
 
   Map<String, dynamic> toJson() {
     return {
+      'imageUrl': imageUrl,
       'cardName': cardName,
       'companyName': companyName,
       'jobTitle': jobTitle,

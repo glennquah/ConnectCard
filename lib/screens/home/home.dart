@@ -35,16 +35,7 @@ class Home extends StatelessWidget {
       );
     }*/
 
-    return StreamBuilder<UserData>(
-      stream: DatabaseService(uid: Provider.of<TheUser?>(context)!.uid)
-          .userProfile, // Assuming you have a userData stream in your DatabaseService
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          UserData userData = snapshot.data!;
-          return StreamProvider<List<Cards>>.value(
-            value: DatabaseService(uid: userData.uid).cardList,
-            initialData: [],
-            child: Scaffold(
+    return Scaffold(
               backgroundColor: Colors.yellow[800],
               appBar: AppBar(
                 title: Text(userData.name),
@@ -53,7 +44,7 @@ class Home extends StatelessWidget {
                 actions: <Widget>[
                   TextButton.icon(
                     icon: const Icon(Icons.person),
-                    label: const Text('Logout'),
+                    label: const Text('Log Out'),
                     onPressed: () {
                       //_signOut(context);
                     },

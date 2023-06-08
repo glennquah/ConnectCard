@@ -24,7 +24,7 @@ class DatabaseService {
   List<Cards> _cardListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Cards(
-          profileImage: null, // Replace with the actual image file
+          imageUrl: doc['imageUrl'] ?? '', // Replace with the actual image file
           cardName: doc['companyName'] ?? '',
           companyName: doc['companyName'] ?? '',
           jobTitle: doc['jobTitle'] ?? '',
@@ -47,7 +47,8 @@ class DatabaseService {
       listOfCards: List<Cards>.from(
         (snapshot['cards'] as List<dynamic> ?? []).map(
           (card) => Cards(
-            profileImage: null, // Replace with the actual image file
+            imageUrl:
+                card['imageUrl'] ?? '', // Replace with the actual image file
             cardName: card['cardName'] ?? '',
             companyName: card['companyName'] ?? '',
             jobTitle: card['jobTitle'] ?? '',
