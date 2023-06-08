@@ -20,6 +20,7 @@ class _SignInState extends State<SignIn> {
   String error = '';
   String email = '';
   String password = '';
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
