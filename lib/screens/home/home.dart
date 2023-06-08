@@ -1,5 +1,4 @@
-import 'package:connectcard/models/userDetails.dart';
-import 'package:connectcard/screens/authenticate/sign_in.dart';
+import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
@@ -24,17 +23,17 @@ class Home extends StatelessWidget {
       );
     }
 
-    void _signOut(BuildContext context) async {
+    /*void _signOut(BuildContext context) async {
       await _auth.signOut();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SignIn(toggleView: null)),
       );
-    }
+    }*/
 
-    return StreamProvider<List<UserDetails>>.value(
+    return StreamProvider<List<Cards>>.value(
       //change this to get uid
-      value: DatabaseService(uid: '123').profile,
+      value: DatabaseService(uid: '123').cardList,
       initialData: [],
       child: Scaffold(
         backgroundColor: Colors.yellow[800],
@@ -47,7 +46,7 @@ class Home extends StatelessWidget {
               icon: const Icon(Icons.person),
               label: const Text('Logout'),
               onPressed: () {
-                _signOut(context);
+                //_signOut(context);
               },
             ),
             TextButton.icon(
