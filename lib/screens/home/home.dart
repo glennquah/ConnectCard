@@ -7,6 +7,8 @@ import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+//updated it without splash screen
+
 class Home extends StatelessWidget {
   final Auth _auth = Auth();
 
@@ -25,13 +27,13 @@ class Home extends StatelessWidget {
       );
     }
 
-    void _signOut(BuildContext context) async {
+    /*void _signOut(BuildContext context) async {
       await _auth.signOut();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SignIn(toggleView: null)),
       );
-    }
+    }*/
 
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: Provider.of<TheUser?>(context)!.uid)
