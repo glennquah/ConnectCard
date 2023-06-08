@@ -3,6 +3,7 @@ import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
+import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,13 +25,13 @@ class Home extends StatelessWidget {
       );
     }
 
-    void _signOut(BuildContext context) async {
+    /*void _signOut(BuildContext context) async {
       await _auth.signOut();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SignIn(toggleView: null)),
       );
-    }
+    }*/
 
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: Provider.of<TheUser?>(context)!.uid)
@@ -52,7 +53,7 @@ class Home extends StatelessWidget {
                     icon: const Icon(Icons.person),
                     label: const Text('Logout'),
                     onPressed: () {
-                      // _signOut(context);
+                      //_signOut(context);
                     },
                   ),
                   TextButton.icon(
@@ -73,24 +74,11 @@ class Home extends StatelessWidget {
                 subtitle: Text("Insert Job Title"),
               ),
             ),
-            TextButton.icon(
-              icon: const Icon(Icons.edit),
-              label: const Text('Edit'),
-              onPressed: () => _showCardsPanel(),
-            )
-          ],
-        ),
-        //body: CardList(),
-        body: const ListTile(
-          leading: CircleAvatar(
-            radius: 25.0,
-            backgroundColor: Colors.white,
-            child: Icon(Icons.add_a_photo, color: Colors.black),
-          ),
-          title: Text("First Card: Insert name"),
-          subtitle: Text("Insert Job Title"),
-        ),
-      ),
+          );
+        } else {
+          return Loading();
+        }
+      },
     );
   }
 }
