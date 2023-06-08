@@ -1,82 +1,63 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/userDetails.dart';
 
 class DatabaseService {
   final String uid;
 
   DatabaseService({required this.uid});
 
-  // Collection reference
+  // collection reference
   final CollectionReference profileCollection =
       FirebaseFirestore.instance.collection('profile');
 
-  Future<void> updateUserData(String name, List<Cards> listOfCards) async {
-    final cardsData = listOfCards.map((card) => card.toJson()).toList();
-
+  Future<void> updateUserData(String name, String email, String phoneNum,
+      String address, String jobTitle, String moreInfo) async {
     await profileCollection.doc(uid).set({
       'name': name,
-      'cards': cardsData,
+      'email': email,
+      'phoneNum': phoneNum,
+      'address': address,
+      'jobTitle': jobTitle,
+      'moreInfo': moreInfo,
     });
   }
 
-  // Get card list from snapshot
-  List<Cards> _cardListFromSnapshot(QuerySnapshot snapshot) {
+  // get profile from snapshot
+  List<UserDetails> _profileListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
-      return Cards(
-          profileImage: null, // Replace with the actual image file
-          cardName: doc['companyName'] ?? '',
-          companyName: doc['companyName'] ?? '',
-          jobTitle: doc['jobTitle'] ?? '',
-          phoneNum: doc['phoneNum'] ?? '',
-          email: doc['email'] ?? '',
-          companyWebsite: doc['companyWebsite'] ?? '',
-          companyAddress: doc['companyAddress'] ?? '',
-          personalStatement: doc['personalStatement'] ?? '',
-          moreInfo1: doc['moreInfo1'] ?? '',
-          moreInfo2: doc['moreInfo2'] ?? '',
-          moreInfo3: doc['moreInfo3'] ?? '');
+      return UserDetails(
+        name: doc['name'] ?? '',
+        email: doc['email'] ?? '',
+        phoneNum: doc['phoneNum'] ?? '',
+        address: doc['address'] ?? '',
+        jobTitle: doc['jobTitle'] ?? '',
+        moreInfo: doc['moreInfo'] ?? '',
+      );
     }).toList();
   }
 
-  // UserData from snapshot
+  // userData from snapshot
   UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
       uid: uid,
       name: snapshot['name'],
-      listOfCards: List<Cards>.from(
-        (snapshot['cards'] as List<dynamic> ?? []).map(
-          (card) => Cards(
-            profileImage: null, // Replace with the actual image file
-            cardName: card['cardName'] ?? '',
-            companyName: card['companyName'] ?? '',
-            jobTitle: card['jobTitle'] ?? '',
-            phoneNum: card['phoneNum'] ?? '',
-            email: card['email'] ?? '',
-            companyWebsite: card['companyWebsite'] ?? '',
-            companyAddress: card['companyAddress'] ?? '',
-            personalStatement: card['personalStatement'] ?? '',
-            moreInfo1: card['moreInfo1'] ?? '',
-            moreInfo2: card['moreInfo2'] ?? '',
-            moreInfo3: card['moreInfo3'] ?? '',
-          ),
-        ),
-      ),
+      email: snapshot['email'],
+      phoneNum: snapshot['phoneNum'],
+      address: snapshot['address'],
+      jobTitle: snapshot['jobTitle'],
+      moreInfo: snapshot['moreInfo'],
     );
   }
 
-  // get cards stream
-  Stream<List<Cards>> get cardList {
-    return profileCollection.snapshots().map(_cardListFromSnapshot);
+  // get profile stream
+  Stream<List<UserDetails>> get profile {
+    return profileCollection.snapshots().map(_profileListFromSnapshot);
   }
 
   // get user profile stream
   // to get the object of the user profile
   Stream<UserData> get userProfile {
     return profileCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
-  }
-
-  String get userId {
-    return uid;
   }
 }

@@ -1,11 +1,7 @@
-import 'dart:io';
-
-import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 class CardEditorScreen extends StatefulWidget {
@@ -15,41 +11,20 @@ class CardEditorScreen extends StatefulWidget {
 
 class _CardEditorScreenState extends State<CardEditorScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _displayPictureKey = GlobalKey<FormState>();
-  final _cardName = GlobalKey<FormState>();
-  final _companyNameKey = GlobalKey<FormState>();
-  final _jobTitleKey = GlobalKey<FormState>();
-  final _phoneNumKey = GlobalKey<FormState>();
+  final _nameKey = GlobalKey<FormState>();
   final _emailKey = GlobalKey<FormState>();
-  final _websiteKey = GlobalKey<FormState>();
+  final _phoneNumKey = GlobalKey<FormState>();
   final _addressKey = GlobalKey<FormState>();
-  final _personalStatementKey = GlobalKey<FormState>();
-  final _moreInfo1Key = GlobalKey<FormState>();
-  final _moreInfo2Key = GlobalKey<FormState>();
-  final _moreInfo3Key = GlobalKey<FormState>();
+  final _jobTitleKey = GlobalKey<FormState>();
+  final _moreInfoKey = GlobalKey<FormState>();
 
   TheUser? user; // User object
-  File? newProfileImage;
-  String newCardName = '';
-  String newCompanyName = '';
-  String newJobTitle = '';
-  String newPhoneNum = '';
+  String newName = '';
   String newEmail = '';
-  String newWebsite = '';
+  String newPhoneNum = '';
   String newAddress = '';
-  String newPersonalStatement = '';
-  String newMoreInfo1 = '';
-  String newMoreInfo2 = '';
-  String newMoreInfo3 = '';
-
-  Future<void> _pickImage(ImageSource source) async {
-    final pickedImage = await ImagePicker().pickImage(source: source);
-    if (pickedImage != null) {
-      setState(() {
-        newProfileImage = File(pickedImage.path);
-      });
-    }
-  }
+  String newJobTitle = '';
+  String newMoreInfo = '';
 
   @override
   Widget build(BuildContext context) {
@@ -64,99 +39,33 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
             return Scaffold(
               backgroundColor: Colors.yellow[800],
               appBar: AppBar(
-                title: Text('Edit Your Card'),
+                title: Text('Edit Your Profile'),
                 backgroundColor: Colors.yellow[800],
               ),
-              body: SingleChildScrollView(
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
+              body: Padding(
+                padding: const EdgeInsets.all(20.0),
+                child: SingleChildScrollView(
                   child: Form(
                     key: _formKey, // Add _formKey here
                     child: Column(
                       children: <Widget>[
-                        GestureDetector(
-                          onTap: () => _pickImage(ImageSource.gallery),
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
-                            ),
-                            child: newProfileImage != null
-                                ? ClipOval(
-                                    child: Image.file(
-                                      newProfileImage!,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )
-                                : Icon(
-                                    Icons.add_a_photo,
-                                    size: 50,
-                                    color: Colors.white,
-                                  ),
-                          ),
-                        ),
-                        SizedBox(height: 12.0),
                         TextFormField(
-                          key: _cardName,
-                          initialValue: userData!.listOfCards.first.cardName,
+                          key: _nameKey,
+                          initialValue: userData!.name,
                           decoration: InputDecoration(
-                            hintText: 'New Card Name',
+                            hintText: 'New Name',
                             prefixIcon: Icon(Icons.person),
                           ),
                           validator: (val) =>
-                              val!.isEmpty ? 'Enter a Card name' : null,
+                              val!.isEmpty ? 'Enter a name' : null,
                           onChanged: (val) {
-                            setState(() => newCardName = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _companyNameKey,
-                          initialValue: userData!.listOfCards.first.companyName,
-                          decoration: InputDecoration(
-                            hintText: 'New Company Name',
-                            prefixIcon: Icon(Icons.business),
-                          ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a company name' : null,
-                          onChanged: (val) {
-                            setState(() => newCompanyName = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _jobTitleKey,
-                          initialValue: userData.listOfCards.first.jobTitle,
-                          decoration: InputDecoration(
-                            hintText: 'New Job Title',
-                            prefixIcon: Icon(Icons.work),
-                          ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a job title' : null,
-                          onChanged: (val) {
-                            setState(() => newJobTitle = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _phoneNumKey,
-                          initialValue: userData.listOfCards.first.phoneNum,
-                          decoration: InputDecoration(
-                            hintText: 'New Phone Number',
-                            prefixIcon: Icon(Icons.phone),
-                          ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a phone number' : null,
-                          onChanged: (val) {
-                            setState(() => newPhoneNum = val);
+                            setState(() => newName = val);
                           },
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _emailKey,
-                          initialValue: userData.listOfCards.first.email,
+                          initialValue: userData!.email,
                           decoration: InputDecoration(
                             hintText: 'New Email',
                             prefixIcon: Icon(Icons.mail),
@@ -169,93 +78,58 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
-                          key: _websiteKey,
-                          initialValue:
-                              userData.listOfCards.first.companyWebsite,
+                          key: _phoneNumKey,
+                          initialValue: userData!.phoneNum,
                           decoration: InputDecoration(
-                            hintText: 'New Website',
-                            prefixIcon: Icon(Icons.language),
+                            hintText: 'New Phone Number',
+                            prefixIcon: Icon(Icons.phone),
                           ),
                           validator: (val) =>
-                              val!.isEmpty ? 'Enter a website' : null,
+                              val!.isEmpty ? 'Enter a phone number' : null,
                           onChanged: (val) {
-                            setState(() => newWebsite = val);
+                            setState(() => newPhoneNum = val);
                           },
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _addressKey,
-                          initialValue:
-                              userData.listOfCards.first.companyAddress,
+                          initialValue: userData!.address,
                           decoration: InputDecoration(
-                            hintText: 'New Company Address',
+                            hintText: 'New Address',
                             prefixIcon: Icon(Icons.location_city),
                           ),
                           validator: (val) =>
-                              val!.isEmpty ? 'Enter a Address' : null,
+                              val!.isEmpty ? 'Enter an address' : null,
                           onChanged: (val) {
                             setState(() => newAddress = val);
                           },
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
-                          key: _personalStatementKey,
-                          initialValue:
-                              userData.listOfCards.first.personalStatement,
+                          key: _jobTitleKey,
+                          initialValue: userData!.jobTitle,
                           decoration: InputDecoration(
-                            hintText: 'New Personal Statement',
-                            prefixIcon: Icon(Icons.comment),
+                            hintText: 'New Job Title',
+                            prefixIcon: Icon(Icons.work),
                           ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter a personal statement'
-                              : null,
+                          validator: (val) =>
+                              val!.isEmpty ? 'Enter a job title' : null,
                           onChanged: (val) {
-                            setState(() => newPersonalStatement = val);
+                            setState(() => newJobTitle = val);
                           },
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
-                          key: _moreInfo1Key,
-                          initialValue: userData.listOfCards.first.moreInfo1,
+                          key: _moreInfoKey,
+                          initialValue: userData!.moreInfo,
                           decoration: InputDecoration(
-                            hintText: 'New Additional Information',
+                            hintText: 'New Information',
                             prefixIcon: Icon(Icons.info),
                           ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
+                          validator: (val) =>
+                              val!.isEmpty ? 'Enter information' : null,
                           onChanged: (val) {
-                            setState(() => newMoreInfo1 = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _moreInfo2Key,
-                          initialValue: userData.listOfCards.first.moreInfo2,
-                          decoration: InputDecoration(
-                            hintText: 'New Additional Information',
-                            prefixIcon: Icon(Icons.info),
-                          ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => newMoreInfo2 = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _moreInfo3Key,
-                          initialValue: userData.listOfCards.first.moreInfo3,
-                          decoration: InputDecoration(
-                            hintText: 'New Additional Information',
-                            prefixIcon: Icon(Icons.info),
-                          ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => newMoreInfo3 = val);
+                            setState(() => newMoreInfo = val);
                           },
                         ),
                         SizedBox(height: 12.0),
@@ -263,66 +137,33 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               // Check if each field is empty or not
-                              final updatedProfileImage = newProfileImage ??
-                                  userData.listOfCards.first.profileImage;
-                              final updatedCardName = newCardName.isNotEmpty
-                                  ? newCardName
-                                  : userData.listOfCards.first.cardName;
-                              final updatedCompanyName =
-                                  newCompanyName.isNotEmpty
-                                      ? newCompanyName
-                                      : userData.listOfCards.first.companyName;
-                              final updatedJobTitle = newJobTitle.isNotEmpty
-                                  ? newJobTitle
-                                  : userData.listOfCards.first.jobTitle;
-                              final updatedPhoneNum = newPhoneNum.isNotEmpty
-                                  ? newPhoneNum
-                                  : userData.listOfCards.first.phoneNum;
+                              final updatedName =
+                                  newName.isNotEmpty ? newName : userData!.name;
                               final updatedEmail = newEmail.isNotEmpty
                                   ? newEmail
-                                  : userData.listOfCards.first.email;
-                              final updatedWebsite = newWebsite.isNotEmpty
-                                  ? newWebsite
-                                  : userData.listOfCards.first.companyWebsite;
+                                  : userData!.email;
+                              final updatedPhoneNum = newPhoneNum.isNotEmpty
+                                  ? newPhoneNum
+                                  : userData!.phoneNum;
                               final updatedAddress = newAddress.isNotEmpty
                                   ? newAddress
-                                  : userData.listOfCards.first.companyAddress;
-                              final updatedPersonalStatement =
-                                  newPersonalStatement.isNotEmpty
-                                      ? newPersonalStatement
-                                      : userData
-                                          .listOfCards.first.personalStatement;
-                              final updatedMoreInfo1 = newMoreInfo1.isNotEmpty
-                                  ? newMoreInfo1
-                                  : userData.listOfCards.first.moreInfo1;
-                              final updatedMoreInfo2 = newMoreInfo2.isNotEmpty
-                                  ? newMoreInfo2
-                                  : userData.listOfCards.first.moreInfo2;
-                              final updatedMoreInfo3 = newMoreInfo3.isNotEmpty
-                                  ? newMoreInfo3
-                                  : userData.listOfCards.first.moreInfo3;
-
-                              Cards updatedCard = Cards(
-                                profileImage: updatedProfileImage,
-                                cardName: updatedCardName,
-                                companyName: updatedCompanyName,
-                                jobTitle: updatedJobTitle,
-                                phoneNum: updatedPhoneNum,
-                                email: updatedEmail,
-                                companyWebsite: updatedWebsite,
-                                companyAddress: updatedAddress,
-                                personalStatement: updatedPersonalStatement,
-                                moreInfo1: updatedMoreInfo1,
-                                moreInfo2: updatedMoreInfo2,
-                                moreInfo3: updatedMoreInfo3,
-                              );
-
-                              List<Cards> newListOfCards = [updatedCard];
-                              //userData.listOfCards[0] = updatedCard;
+                                  : userData!.address;
+                              final updatedJobTitle = newJobTitle.isNotEmpty
+                                  ? newJobTitle
+                                  : userData!.jobTitle;
+                              final updatedMoreInfo = newMoreInfo.isNotEmpty
+                                  ? newMoreInfo
+                                  : userData!.moreInfo;
 
                               await DatabaseService(uid: user!.uid)
                                   .updateUserData(
-                                      userData.name, newListOfCards);
+                                updatedName,
+                                updatedEmail,
+                                updatedPhoneNum,
+                                updatedAddress,
+                                updatedJobTitle,
+                                updatedMoreInfo,
+                              );
                               Navigator.pop(context);
                             }
                           },
