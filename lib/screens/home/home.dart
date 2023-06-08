@@ -1,5 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/screens/authenticate/sign_in.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
@@ -25,13 +26,13 @@ class Home extends StatelessWidget {
       );
     }
 
-    /*void _signOut(BuildContext context) async {
+    void _signOut(BuildContext context) async {
       await _auth.signOut();
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => SignIn(toggleView: null)),
       );
-    }*/
+    }
 
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: Provider.of<TheUser?>(context)!.uid)
