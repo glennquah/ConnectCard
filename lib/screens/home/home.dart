@@ -54,7 +54,7 @@ class Home extends StatelessWidget {
                     icon: const Icon(Icons.person),
                     label: const Text('Logout'),
                     onPressed: () {
-                      _signOut(context);
+                      // _signOut(context);
                     },
                   ),
                   TextButton.icon(
