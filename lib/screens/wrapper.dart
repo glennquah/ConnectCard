@@ -1,4 +1,4 @@
-import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/authenticate/authenticate.dart';
 import 'package:connectcard/screens/home/home.dart';
 import 'package:flutter/material.dart';

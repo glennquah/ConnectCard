@@ -19,6 +19,7 @@ class _RegisterState extends State<Register> {
   // text field state
   String email = '';
   String password = '';
+  String phoneNum = '';
   String error = '';
 
   @override
@@ -67,9 +68,9 @@ class _RegisterState extends State<Register> {
                               }
                               return null;
                             },
-                            //onChanged: (val) {
-                            //  setState(() => email = val);
-                            //},
+                            onChanged: (val) {
+                              setState(() => phoneNum = val);
+                            },
                           ),
                           SizedBox(height: 20.0),
                           TextFormField(
@@ -119,6 +120,7 @@ class _RegisterState extends State<Register> {
                                 dynamic result =
                                     await _auth.registerWithEmailAndPassword(
                                         email, password);
+                                        phoneNum, email, password);
                                 if (result == null) {
                                   setState(() {
                                     error = 'Please supply a valid email';
