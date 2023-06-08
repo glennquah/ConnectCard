@@ -4,6 +4,7 @@ import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +16,7 @@ class CardEditorScreen extends StatefulWidget {
 
 class _CardEditorScreenState extends State<CardEditorScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _displayPictureKey = GlobalKey<FormState>();
+  final _imageUrl = GlobalKey<FormState>();
   final _cardName = GlobalKey<FormState>();
   final _companyNameKey = GlobalKey<FormState>();
   final _jobTitleKey = GlobalKey<FormState>();
@@ -29,7 +30,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   final _moreInfo3Key = GlobalKey<FormState>();
 
   TheUser? user; // User object
-  File? newProfileImage;
+  String imageUrl = '';
   String newCardName = '';
   String newCompanyName = '';
   String newJobTitle = '';
@@ -41,14 +42,37 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   String newMoreInfo1 = '';
   String newMoreInfo2 = '';
   String newMoreInfo3 = '';
+  File? image;
 
   Future<void> _pickImage(ImageSource source) async {
-    final pickedImage = await ImagePicker().pickImage(source: source);
-    if (pickedImage != null) {
-      setState(() {
-        newProfileImage = File(pickedImage.path);
-      });
+    ImagePicker imagePicker = ImagePicker();
+    //XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
+    XFile? file = await imagePicker.pickImage(source: source);
+    if (file == null) {
+      return;
     }
+
+    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+    Reference referenceRoot = FirebaseStorage.instance.ref();
+    Reference referenceDirImages = referenceRoot.child('images');
+    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
+
+    try {
+      // Store the file
+      await referenceImageToUpload.putFile(File(file.path));
+
+      // Success: get the download URL
+      imageUrl = await referenceImageToUpload.getDownloadURL();
+    } catch (error) {
+      // Some error occurred
+      print(error);
+    }
+
+    setState(() {
+      if (file != null) {
+        image = File(file.path);
+      }
+    });
   }
 
   @override
@@ -83,10 +107,10 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                               shape: BoxShape.circle,
                               color: Colors.grey,
                             ),
-                            child: newProfileImage != null
+                            child: imageUrl.isNotEmpty
                                 ? ClipOval(
                                     child: Image.file(
-                                      newProfileImage!,
+                                      image!,
                                       fit: BoxFit.cover,
                                     ),
                                   )
@@ -263,8 +287,9 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           onPressed: () async {
                             if (_formKey.currentState!.validate()) {
                               // Check if each field is empty or not
-                              final updatedProfileImage = newProfileImage ??
-                                  userData.listOfCards.first.profileImage;
+                              final updateImageUrl = imageUrl.isNotEmpty
+                                  ? imageUrl
+                                  : userData.listOfCards.first.imageUrl;
                               final updatedCardName = newCardName.isNotEmpty
                                   ? newCardName
                                   : userData.listOfCards.first.cardName;
@@ -303,7 +328,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                   : userData.listOfCards.first.moreInfo3;
 
                               Cards updatedCard = Cards(
-                                profileImage: updatedProfileImage,
+                                imageUrl: imageUrl,
                                 cardName: updatedCardName,
                                 companyName: updatedCompanyName,
                                 jobTitle: updatedJobTitle,

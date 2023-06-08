@@ -45,7 +45,7 @@ class Auth {
         'name',
         [
           Cards(
-            profileImage: null,
+            imageUrl: '',
             cardName: 'Default card',
             companyName: '',
             jobTitle: '',
