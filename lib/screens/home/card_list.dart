@@ -1,24 +1,27 @@
-//not working
-
-import 'package:connectcard/models/userDetails.dart';
-import 'package:connectcard/screens/home/card_tile.dart';
+import 'package:connectcard/models/Cards.dart';
+import 'package:connectcard/models/theUser.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class CardList extends StatefulWidget {
-  @override
-  _CardListState createState() => _CardListState();
-}
-
-class _CardListState extends State<CardList> {
+class CardList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final userDetails = Provider.of<List<UserDetails>>(context) ?? [];
+    UserData? userData = Provider.of<UserData?>(context);
 
-    return ListView.builder(
-      itemCount: userDetails.length,
+    return ListView.separated(
+      itemCount: userData?.listOfCards.length ?? 0,
+      separatorBuilder: (context, index) => Divider(),
       itemBuilder: (context, index) {
-        return CardTile(userdetails: userDetails[index]);
+        Cards card = userData!.listOfCards[index];
+        return ListTile(
+          leading: CircleAvatar(
+            radius: 25.0,
+            backgroundColor: Colors.white,
+            child: Icon(Icons.add_a_photo, color: Colors.black),
+          ),
+          title: Text(card.phoneNum),
+          subtitle: Text(card.phoneNum),
+        );
       },
     );
   }

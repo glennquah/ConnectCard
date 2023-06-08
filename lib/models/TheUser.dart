@@ -1,3 +1,5 @@
+import 'package:connectcard/models/Cards.dart';
+
 class TheUser {
   final String uid;
 
@@ -11,18 +13,7 @@ class TheUser {
 class UserData {
   final String uid;
   final String name;
-  final String email;
-  final String phoneNum;
-  final String address;
-  final String jobTitle;
-  final String moreInfo;
+  final List<Cards> listOfCards;
 
-  UserData(
-      {required this.uid,
-      required this.name,
-      required this.email,
-      required this.phoneNum,
-      required this.address,
-      required this.jobTitle,
-      required this.moreInfo});
+  UserData({required this.uid, required this.name, required this.listOfCards});
 }
