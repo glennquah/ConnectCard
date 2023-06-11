@@ -58,7 +58,7 @@ ConnectCard provides a convenient solution by allowing users to scan physical na
 
 ## Poster & Video
 
-To watch the video of ConnectCard & view the poster, click the following link
+To watch the video of ConnectCard & view the poster, click the following link!
 
 Elevator Pitch Video: https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link
 
