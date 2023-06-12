@@ -35,7 +35,16 @@ class Home extends StatelessWidget {
       );
     }*/
 
-    return Scaffold(
+    return StreamBuilder<UserData>(
+      stream: DatabaseService(uid: Provider.of<TheUser?>(context)!.uid)
+          .userProfile, // Assuming you have a userData stream in your DatabaseService
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          UserData userData = snapshot.data!;
+          return StreamProvider<List<Cards>>.value(
+            value: DatabaseService(uid: userData.uid).cardList,
+            initialData: [],
+            child: Scaffold(
               backgroundColor: Colors.yellow[800],
               appBar: AppBar(
                 title: Text(userData.name),
