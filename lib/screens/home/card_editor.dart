@@ -85,6 +85,10 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
           if (snapshot.hasData) {
             UserData? userData = snapshot.data;
 
+            if (imageUrl.isEmpty) {
+              imageUrl = userData!.listOfCards.first.imageUrl;
+            }
+
             return Scaffold(
               backgroundColor: Colors.yellow[800],
               appBar: AppBar(
@@ -109,10 +113,15 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             ),
                             child: imageUrl.isNotEmpty
                                 ? ClipOval(
-                                    child: Image.file(
-                                      image!,
-                                      fit: BoxFit.cover,
-                                    ),
+                                    child: image != null
+                                        ? Image.file(
+                                            image!,
+                                            fit: BoxFit.cover,
+                                          )
+                                        : Image.network(
+                                            imageUrl,
+                                            fit: BoxFit.cover,
+                                          ),
                                   )
                                 : Icon(
                                     Icons.add_a_photo,
@@ -328,7 +337,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                   : userData.listOfCards.first.moreInfo3;
 
                               Cards updatedCard = Cards(
-                                imageUrl: imageUrl,
+                                imageUrl: updateImageUrl,
                                 cardName: updatedCardName,
                                 companyName: updatedCompanyName,
                                 jobTitle: updatedJobTitle,
