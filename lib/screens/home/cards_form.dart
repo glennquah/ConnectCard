@@ -44,7 +44,7 @@ class _CardsFormState extends State<CardsForm> {
                 cards = [
                   ...userData!.listOfCards.map((card) => card.cardName),
                 ]; // Update the list of available cards
-                if (selectedCard.isEmpty) {
+                if (cards.isNotEmpty && selectedCard.isEmpty) {
                   selectedCard = cards.first;
                 }
 
