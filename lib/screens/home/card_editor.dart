@@ -9,7 +9,12 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+import 'home.dart';
+
 class CardEditorScreen extends StatefulWidget {
+  final String selectedCard;
+  const CardEditorScreen({required this.selectedCard});
+
   @override
   _CardEditorScreenState createState() => _CardEditorScreenState();
 }
@@ -85,6 +90,15 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
           if (snapshot.hasData) {
             UserData? userData = snapshot.data;
 
+            // Find the selected card based on its name
+            Cards selectedCard = userData!.listOfCards.firstWhere(
+              (card) => card.cardName == widget.selectedCard,
+            );
+
+            if (imageUrl.isEmpty) {
+              imageUrl = selectedCard.imageUrl;
+            }
+
             return Scaffold(
               backgroundColor: Colors.yellow[800],
               appBar: AppBar(
@@ -109,10 +123,15 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             ),
                             child: imageUrl.isNotEmpty
                                 ? ClipOval(
-                                    child: Image.file(
-                                      image!,
-                                      fit: BoxFit.cover,
-                                    ),
+                                    child: image != null
+                                        ? Image.file(
+                                            image!,
+                                            fit: BoxFit.cover,
+                                          )
+                                        : Image.network(
+                                            imageUrl,
+                                            fit: BoxFit.cover,
+                                          ),
                                   )
                                 : Icon(
                                     Icons.add_a_photo,
@@ -124,7 +143,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _cardName,
-                          initialValue: userData!.listOfCards.first.cardName,
+                          initialValue: selectedCard.cardName,
                           decoration: InputDecoration(
                             hintText: 'New Card Name',
                             prefixIcon: Icon(Icons.person),
@@ -138,7 +157,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _companyNameKey,
-                          initialValue: userData!.listOfCards.first.companyName,
+                          initialValue: selectedCard.companyName,
                           decoration: InputDecoration(
                             hintText: 'New Company Name',
                             prefixIcon: Icon(Icons.business),
@@ -152,7 +171,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _jobTitleKey,
-                          initialValue: userData.listOfCards.first.jobTitle,
+                          initialValue: selectedCard.jobTitle,
                           decoration: InputDecoration(
                             hintText: 'New Job Title',
                             prefixIcon: Icon(Icons.work),
@@ -166,7 +185,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _phoneNumKey,
-                          initialValue: userData.listOfCards.first.phoneNum,
+                          initialValue: selectedCard.phoneNum,
                           decoration: InputDecoration(
                             hintText: 'New Phone Number',
                             prefixIcon: Icon(Icons.phone),
@@ -180,7 +199,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _emailKey,
-                          initialValue: userData.listOfCards.first.email,
+                          initialValue: selectedCard.email,
                           decoration: InputDecoration(
                             hintText: 'New Email',
                             prefixIcon: Icon(Icons.mail),
@@ -194,8 +213,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _websiteKey,
-                          initialValue:
-                              userData.listOfCards.first.companyWebsite,
+                          initialValue: selectedCard.companyWebsite,
                           decoration: InputDecoration(
                             hintText: 'New Website',
                             prefixIcon: Icon(Icons.language),
@@ -209,8 +227,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _addressKey,
-                          initialValue:
-                              userData.listOfCards.first.companyAddress,
+                          initialValue: selectedCard.companyAddress,
                           decoration: InputDecoration(
                             hintText: 'New Company Address',
                             prefixIcon: Icon(Icons.location_city),
@@ -224,8 +241,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _personalStatementKey,
-                          initialValue:
-                              userData.listOfCards.first.personalStatement,
+                          initialValue: selectedCard.personalStatement,
                           decoration: InputDecoration(
                             hintText: 'New Personal Statement',
                             prefixIcon: Icon(Icons.comment),
@@ -240,7 +256,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfo1Key,
-                          initialValue: userData.listOfCards.first.moreInfo1,
+                          initialValue: selectedCard.moreInfo1,
                           decoration: InputDecoration(
                             hintText: 'New Additional Information',
                             prefixIcon: Icon(Icons.info),
@@ -255,7 +271,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfo2Key,
-                          initialValue: userData.listOfCards.first.moreInfo2,
+                          initialValue: selectedCard.moreInfo2,
                           decoration: InputDecoration(
                             hintText: 'New Additional Information',
                             prefixIcon: Icon(Icons.info),
@@ -270,7 +286,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfo3Key,
-                          initialValue: userData.listOfCards.first.moreInfo3,
+                          initialValue: selectedCard.moreInfo3,
                           decoration: InputDecoration(
                             hintText: 'New Additional Information',
                             prefixIcon: Icon(Icons.info),
@@ -283,79 +299,173 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           },
                         ),
                         SizedBox(height: 12.0),
-                        ElevatedButton(
-                          onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
-                              // Check if each field is empty or not
-                              final updateImageUrl = imageUrl.isNotEmpty
-                                  ? imageUrl
-                                  : userData.listOfCards.first.imageUrl;
-                              final updatedCardName = newCardName.isNotEmpty
-                                  ? newCardName
-                                  : userData.listOfCards.first.cardName;
-                              final updatedCompanyName =
-                                  newCompanyName.isNotEmpty
-                                      ? newCompanyName
-                                      : userData.listOfCards.first.companyName;
-                              final updatedJobTitle = newJobTitle.isNotEmpty
-                                  ? newJobTitle
-                                  : userData.listOfCards.first.jobTitle;
-                              final updatedPhoneNum = newPhoneNum.isNotEmpty
-                                  ? newPhoneNum
-                                  : userData.listOfCards.first.phoneNum;
-                              final updatedEmail = newEmail.isNotEmpty
-                                  ? newEmail
-                                  : userData.listOfCards.first.email;
-                              final updatedWebsite = newWebsite.isNotEmpty
-                                  ? newWebsite
-                                  : userData.listOfCards.first.companyWebsite;
-                              final updatedAddress = newAddress.isNotEmpty
-                                  ? newAddress
-                                  : userData.listOfCards.first.companyAddress;
-                              final updatedPersonalStatement =
-                                  newPersonalStatement.isNotEmpty
-                                      ? newPersonalStatement
-                                      : userData
-                                          .listOfCards.first.personalStatement;
-                              final updatedMoreInfo1 = newMoreInfo1.isNotEmpty
-                                  ? newMoreInfo1
-                                  : userData.listOfCards.first.moreInfo1;
-                              final updatedMoreInfo2 = newMoreInfo2.isNotEmpty
-                                  ? newMoreInfo2
-                                  : userData.listOfCards.first.moreInfo2;
-                              final updatedMoreInfo3 = newMoreInfo3.isNotEmpty
-                                  ? newMoreInfo3
-                                  : userData.listOfCards.first.moreInfo3;
+                        Row(children: <Widget>[
+                          SizedBox(width: 130.0),
+                          ElevatedButton(
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                // Check if each field is empty or not
+                                final updateImageUrl = imageUrl.isNotEmpty
+                                    ? imageUrl
+                                    : selectedCard.imageUrl;
+                                final updatedCardName = newCardName.isNotEmpty
+                                    ? newCardName
+                                    : selectedCard.cardName;
+                                final updatedCompanyName =
+                                    newCompanyName.isNotEmpty
+                                        ? newCompanyName
+                                        : selectedCard.companyName;
+                                final updatedJobTitle = newJobTitle.isNotEmpty
+                                    ? newJobTitle
+                                    : selectedCard.jobTitle;
+                                final updatedPhoneNum = newPhoneNum.isNotEmpty
+                                    ? newPhoneNum
+                                    : selectedCard.phoneNum;
+                                final updatedEmail = newEmail.isNotEmpty
+                                    ? newEmail
+                                    : selectedCard.email;
+                                final updatedWebsite = newWebsite.isNotEmpty
+                                    ? newWebsite
+                                    : selectedCard.companyWebsite;
+                                final updatedAddress = newAddress.isNotEmpty
+                                    ? newAddress
+                                    : selectedCard.companyAddress;
+                                final updatedPersonalStatement =
+                                    newPersonalStatement.isNotEmpty
+                                        ? newPersonalStatement
+                                        : selectedCard.personalStatement;
+                                final updatedMoreInfo1 = newMoreInfo1.isNotEmpty
+                                    ? newMoreInfo1
+                                    : selectedCard.moreInfo1;
+                                final updatedMoreInfo2 = newMoreInfo2.isNotEmpty
+                                    ? newMoreInfo2
+                                    : selectedCard.moreInfo2;
+                                final updatedMoreInfo3 = newMoreInfo3.isNotEmpty
+                                    ? newMoreInfo3
+                                    : selectedCard.moreInfo3;
 
-                              Cards updatedCard = Cards(
-                                imageUrl: imageUrl,
-                                cardName: updatedCardName,
-                                companyName: updatedCompanyName,
-                                jobTitle: updatedJobTitle,
-                                phoneNum: updatedPhoneNum,
-                                email: updatedEmail,
-                                companyWebsite: updatedWebsite,
-                                companyAddress: updatedAddress,
-                                personalStatement: updatedPersonalStatement,
-                                moreInfo1: updatedMoreInfo1,
-                                moreInfo2: updatedMoreInfo2,
-                                moreInfo3: updatedMoreInfo3,
-                              );
+                                bool isDuplicateCardName = userData.listOfCards
+                                    .any((card) =>
+                                        card.cardName == updatedCardName &&
+                                        card.cardName != widget.selectedCard);
 
-                              List<Cards> newListOfCards = [updatedCard];
-                              //userData.listOfCards[0] = updatedCard;
+                                if (isDuplicateCardName) {
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                      content: Text(
+                                          'Card name already exists. Please enter a different card name.'),
+                                    ),
+                                  );
+                                  return;
+                                } else {
+                                  Cards updatedCard = Cards(
+                                    imageUrl: updateImageUrl,
+                                    cardName: updatedCardName,
+                                    companyName: updatedCompanyName,
+                                    jobTitle: updatedJobTitle,
+                                    phoneNum: updatedPhoneNum,
+                                    email: updatedEmail,
+                                    companyWebsite: updatedWebsite,
+                                    companyAddress: updatedAddress,
+                                    personalStatement: updatedPersonalStatement,
+                                    moreInfo1: updatedMoreInfo1,
+                                    moreInfo2: updatedMoreInfo2,
+                                    moreInfo3: updatedMoreInfo3,
+                                  );
 
-                              await DatabaseService(uid: user!.uid)
-                                  .updateUserData(
-                                      userData.name, newListOfCards);
-                              Navigator.pop(context);
-                            }
-                          },
-                          child: Text(
-                            'Confirm Edit',
-                            style: TextStyle(color: Colors.white),
+                                  //Cards selectedCard = userData!.listOfCards.firstWhere(
+                                  //(card) => card.cardName == widget.selectedCard,
+                                  //);
+                                  List<Cards> newListOfCards =
+                                      userData.listOfCards.map((card) {
+                                    final selectedCardName =
+                                        widget.selectedCard;
+                                    if (card.cardName == selectedCardName) {
+                                      return updatedCard;
+                                    } else {
+                                      return card;
+                                    }
+                                  }).toList();
+
+                                  await DatabaseService(uid: user!.uid)
+                                      .updateUserData(
+                                          userData.name, newListOfCards);
+                                  Navigator.pushReplacement(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Home()),
+                                  );
+                                }
+                              }
+                            },
+                            child: Text(
+                              'Confirm Edit',
+                              style: TextStyle(color: Colors.white),
+                            ),
                           ),
-                        ),
+                          SizedBox(width: 12.0),
+                          IconButton(
+                            icon: Icon(Icons.delete),
+                            onPressed: () {
+                              showDialog(
+                                context: context,
+                                builder: (BuildContext context) {
+                                  return AlertDialog(
+                                    title:
+                                        Center(child: Text('Confirm Delete')),
+                                    content: Text(
+                                        'Are you sure you want to delete?'),
+                                    actions: <Widget>[
+                                      Center(
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          children: [
+                                            TextButton(
+                                              child: Text('Yes'),
+                                              onPressed: () async {
+                                                try {
+                                                  List<Cards>
+                                                      updatedListOfCards =
+                                                      userData.listOfCards
+                                                          .where((card) =>
+                                                              card.cardName !=
+                                                              widget
+                                                                  .selectedCard)
+                                                          .toList();
+                                                  await DatabaseService(
+                                                          uid: user!.uid)
+                                                      .updateUserData(
+                                                          userData.name,
+                                                          updatedListOfCards);
+                                                  // Navigate to the Home screen
+                                                  Navigator.pushReplacement(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            Home()),
+                                                  );
+                                                } catch (error) {
+                                                  print('Loading');
+                                                }
+                                              },
+                                            ),
+                                            TextButton(
+                                              child: Text('No'),
+                                              onPressed: () {
+                                                Navigator.of(context).pop();
+                                              },
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            },
+                          )
+                        ]),
                       ],
                     ),
                   ),
