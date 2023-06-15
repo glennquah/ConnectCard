@@ -424,7 +424,18 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                             TextButton(
                                               child: Text('Yes'),
                                               onPressed: () async {
-                                                try {
+                                                if (userData
+                                                        .listOfCards.length ==
+                                                    1) {
+                                                  ScaffoldMessenger.of(context)
+                                                      .showSnackBar(
+                                                    SnackBar(
+                                                      content: Text(
+                                                          'You must have at least one card.'),
+                                                    ),
+                                                  );
+                                                  return;
+                                                } else {
                                                   List<Cards>
                                                       updatedListOfCards =
                                                       userData.listOfCards
@@ -445,8 +456,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                         builder: (context) =>
                                                             Home()),
                                                   );
-                                                } catch (error) {
-                                                  print('Loading');
                                                 }
                                               },
                                             ),

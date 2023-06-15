@@ -94,7 +94,7 @@ class _CardsFormState extends State<CardsForm> {
                         items: cards.map<DropdownMenuItem<String>>((card) {
                           return DropdownMenuItem<String>(
                             value: card,
-                            child: Text('$card Card'),
+                            child: Text('$card'),
                           );
                         }).toList(),
                         onChanged: (String? value) {
@@ -120,7 +120,7 @@ class _CardsFormState extends State<CardsForm> {
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   final cardName =
-                                      "newCard${userData.listOfCards.length + 1}"; // Set the card name
+                                      "New Card ${userData.listOfCards.length + 1}"; // Set the card name
 
                                   // Create a new card object
                                   final newCard = Cards(
