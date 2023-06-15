@@ -87,10 +87,11 @@ class Home extends StatelessWidget {
                 child: CircleAvatar(
                   radius: 15.0,
                   backgroundImage: NetworkImage(
-                      userData.listOfCards.isNotEmpty &&
-                              userData.listOfCards.first.imageUrl.isNotEmpty
-                          ? userData.listOfCards.first.imageUrl
-                          : ''),
+                    userData.listOfCards.isNotEmpty &&
+                            userData.listOfCards.first.imageUrl.isNotEmpty
+                        ? userData.listOfCards.first.imageUrl
+                        : '',
+                  ),
                   backgroundColor: Colors.white,
                   child: userData.listOfCards.isNotEmpty &&
                           userData.listOfCards.first.imageUrl.isNotEmpty
@@ -125,33 +126,97 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-            body: ListView.builder(
-              itemCount: cards.length,
-              itemBuilder: (context, index) {
-                Cards card = cards[index];
-                return ListTile(
-                  leading: CircleAvatar(
-                    radius: 25.0,
-                    backgroundColor: Colors.white,
-                    child: card.imageUrl.isNotEmpty
-                        ? ClipOval(
-                            child: Image.network(
-                              card.imageUrl,
-                              width: 60.0,
-                              height: 60.0,
-                              fit: BoxFit.cover,
-                            ),
-                          )
-                        : Icon(
-                            Icons.add,
-                            size: 40.0,
-                            color: Colors.black,
-                          ),
+            body: Column(
+              children: [
+                SizedBox(
+                  height: 5.0,
+                ),
+                SizedBox(height: 5.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'List of NameCards',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                        fontWeight: FontWeight.bold,
+                        //fontFamily: 'YourCustomFont',
+                        color: Colors.black,
+                      ),
+                      textAlign: TextAlign.left,
+                    ),
+                    SizedBox(width: 140.0),
+                    InkWell(
+                      onTap: () => {},
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.list,
+                                color: Colors.black), //icon for list view
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 5.0),
+                    InkWell(
+                      onTap: () => {},
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Row(
+                          children: const [
+                            Icon(Icons.grid_view,
+                                color: Colors.grey), //icon for grid view
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 10.0),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: cards.length,
+                    itemExtent: 60,
+                    itemBuilder: (context, index) {
+                      Cards card = cards[index];
+                      return ListTile(
+                        leading: CircleAvatar(
+                          radius: 40.0,
+                          backgroundColor: Colors.white,
+                          child: card.imageUrl.isNotEmpty
+                              ? ClipOval(
+                                  child: Image.network(
+                                    card.imageUrl,
+                                    width: 60.0,
+                                    height: 60.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                )
+                              : Icon(
+                                  Icons.add,
+                                  size: 40.0,
+                                  color: Colors.black,
+                                ),
+                        ),
+                        title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(userData.name),
+                              Text(card.companyName),
+                              Text(card.jobTitle),
+                            ]),
+                        subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(card.phoneNum),
+                              Text(card.email),
+                            ]),
+                      );
+                    },
                   ),
-                  title: Text(userData.name),
-                  subtitle: Text(card.jobTitle),
-                );
-              },
+                ),
+              ],
             ),
           );
         } else {
