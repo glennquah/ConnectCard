@@ -57,22 +57,72 @@ class Home extends StatelessWidget {
             ),
             backgroundColor: Colors.yellow[800],
             appBar: AppBar(
-              title: Text(userData.name),
+              title: TextButton(
+                onPressed: () {
+                  // Move to profile page
+                },
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      userData.name,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    Text(
+                      'View Profile',
+                      style: TextStyle(
+                        color: Colors.green,
+                        fontSize: 14.0,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              leading: Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: CircleAvatar(
+                  radius: 15.0,
+                  backgroundImage: NetworkImage(
+                      userData.listOfCards.isNotEmpty &&
+                              userData.listOfCards.first.imageUrl.isNotEmpty
+                          ? userData.listOfCards.first.imageUrl
+                          : ''),
+                  backgroundColor: Colors.white,
+                  child: userData.listOfCards.isNotEmpty &&
+                          userData.listOfCards.first.imageUrl.isNotEmpty
+                      ? ClipOval(
+                          child: Image.network(
+                            userData.listOfCards.first.imageUrl,
+                            width: 60.0,
+                            height: 60.0,
+                            fit: BoxFit.cover,
+                          ),
+                        )
+                      : Icon(
+                          Icons.add,
+                          size: 40.0,
+                          color: Colors.black,
+                        ),
+                ),
+              ),
               backgroundColor: Colors.yellow[800],
               elevation: 0.0,
               actions: <Widget>[
-                TextButton.icon(
-                  icon: const Icon(Icons.person),
-                  label: const Text('Log Out'),
-                  onPressed: () {
-                    //_signOut(context);
-                  },
+                InkWell(
+                  onTap: () => _showCardsPanel(),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Row(
+                      children: const [
+                        Icon(Icons.edit, color: Colors.black),
+                      ],
+                    ),
+                  ),
                 ),
-                TextButton.icon(
-                  icon: const Icon(Icons.edit),
-                  label: const Text('Edit'),
-                  onPressed: () => _showCardsPanel(),
-                )
               ],
             ),
             body: ListView.builder(

@@ -24,10 +24,12 @@ class _CardsFormState extends State<CardsForm> {
   Widget build(BuildContext context) {
     user = Provider.of<TheUser?>(context); // Retrieve user object
 
-    void _showEditorPage() {
+    void _showEditorPage(String selectedCard) {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => CardEditorScreen()),
+        MaterialPageRoute(
+          builder: (context) => CardEditorScreen(selectedCard: selectedCard),
+        ),
       );
     }
 
@@ -42,8 +44,9 @@ class _CardsFormState extends State<CardsForm> {
                 cards = [
                   ...userData!.listOfCards.map((card) => card.cardName),
                 ]; // Update the list of available cards
-                selectedCard = cards
-                    .first; // Set the selected card to the first card in the list
+                if (selectedCard.isEmpty) {
+                  selectedCard = cards.first;
+                }
 
                 return Form(
                   key: _formKey,
@@ -56,7 +59,7 @@ class _CardsFormState extends State<CardsForm> {
                       SizedBox(height: 20.0),
                       TextFormField(
                         key: _Name,
-                        initialValue: userData!.name,
+                        initialValue: userData.name,
                         decoration: InputDecoration(
                           hintText: 'New Name',
                           prefixIcon: Icon(Icons.person),
@@ -86,28 +89,27 @@ class _CardsFormState extends State<CardsForm> {
                         style: TextStyle(fontSize: 18.0),
                       ),
                       SizedBox(height: 20.0),
-                      DropdownButtonFormField(
+                      DropdownButtonFormField<String>(
                         value: selectedCard,
-                        items: cards.map((card) {
-                          return DropdownMenuItem(
+                        items: cards.map<DropdownMenuItem<String>>((card) {
+                          return DropdownMenuItem<String>(
                             value: card,
                             child: Text('$card Card'),
                           );
                         }).toList(),
-                        onChanged: (value) {
+                        onChanged: (String? value) {
                           setState(() {
-                            selectedCard = value.toString();
+                            selectedCard = value!;
                           });
                         },
                       ),
                       SizedBox(height: 12.0),
                       Center(
-                        // Wrap the Row with Center widget
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             ElevatedButton(
-                              onPressed: () => _showEditorPage(),
+                              onPressed: () => _showEditorPage(selectedCard),
                               child: Text(
                                 'Edit Card',
                                 style: TextStyle(color: Colors.white),
@@ -118,7 +120,7 @@ class _CardsFormState extends State<CardsForm> {
                               onPressed: () async {
                                 if (_formKey.currentState!.validate()) {
                                   final cardName =
-                                      "newCard"; // Set the card name
+                                      "newCard${userData.listOfCards.length + 1}"; // Set the card name
 
                                   // Create a new card object
                                   final newCard = Cards(
