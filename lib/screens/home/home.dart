@@ -75,7 +75,7 @@ class Home extends StatelessWidget {
                     Text(
                       'View Profile',
                       style: TextStyle(
-                        color: Colors.green,
+                        color: Colors.green[800],
                         fontSize: 14.0,
                       ),
                     ),
