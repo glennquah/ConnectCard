@@ -1,7 +1,8 @@
 import 'dart:io';
 
 import 'package:camera/camera.dart';
-import 'package:connectcard/screens/home/ocr/result_screen.dart';
+import 'package:connectcard/screens/scan/ocr/result_screen.dart';
+import 'package:connectcard/shared/navigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -80,7 +81,10 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
             Scaffold(
               appBar: AppBar(
                 title: const Text('Text Recognition Sample'),
+                automaticallyImplyLeading: false,
+                backgroundColor: Colors.yellow[800],
               ),
+              bottomNavigationBar: NaviBar(currentIndex: 1),
               // Set the background to transparent so you can see the camera preview
               backgroundColor: _isPermissionGranted ? Colors.transparent : null,
               body: _isPermissionGranted

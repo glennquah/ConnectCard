@@ -1,11 +1,12 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
+import 'package:connectcard/screens/home/home_listview.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
+import 'package:connectcard/shared/navigationbar.dart';
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -34,27 +35,7 @@ class Home extends StatelessWidget {
           UserData? userData = snapshot.data;
           List<Cards> cards = userData!.listOfCards;
           return Scaffold(
-            bottomNavigationBar: Container(
-              color: Colors.white,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: 15.0, vertical: 20.0),
-                child: GNav(
-                  backgroundColor: Colors.white,
-                  color: Colors.black,
-                  activeColor: Colors.white,
-                  tabBackgroundColor: Colors.grey.shade800,
-                  gap: 20,
-                  padding: const EdgeInsets.all(16),
-                  tabs: const [
-                    GButton(icon: Icons.home, text: 'Home'),
-                    GButton(icon: Icons.camera, text: 'Scan'),
-                    GButton(icon: Icons.card_giftcard, text: 'My Cards'),
-                    GButton(icon: Icons.people, text: 'Contacts'),
-                  ],
-                ),
-              ),
-            ),
+            bottomNavigationBar: NaviBar(currentIndex: 0),
             backgroundColor: Colors.yellow[800],
             appBar: AppBar(
               title: TextButton(
@@ -126,118 +107,7 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-            body: Column(
-              children: [
-                SizedBox(
-                  height: 5.0,
-                ),
-                SizedBox(height: 5.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'List of NameCards',
-                      style: TextStyle(
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold,
-                        //fontFamily: 'YourCustomFont',
-                        color: Colors.black,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    SizedBox(width: 140.0),
-                    InkWell(
-                      onTap: () => {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.list,
-                                color: Colors.black), //icon for list view
-                          ],
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 5.0),
-                    InkWell(
-                      onTap: () => {},
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Row(
-                          children: const [
-                            Icon(Icons.grid_view,
-                                color: Colors.grey), //icon for grid view
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10.0),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: cards.length,
-                    itemBuilder: (context, index) {
-                      Cards card = cards[index];
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(color: Colors.black),
-                          ),
-                        ),
-                        padding: EdgeInsets.only(
-                            bottom: 8.0), // Add spacing between cards
-                        child: ListTile(
-                          contentPadding: EdgeInsets
-                              .zero, // Remove default ListTile padding
-                          leading: CircleAvatar(
-                            radius: 40.0,
-                            backgroundColor: Colors.white,
-                            child: card.imageUrl.isNotEmpty
-                                ? ClipOval(
-                                    child: Image.network(
-                                      card.imageUrl,
-                                      width: 60.0,
-                                      height: 60.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )
-                                : Icon(
-                                    Icons.add,
-                                    size: 40.0,
-                                    color: Colors.black,
-                                  ),
-                          ),
-                          title: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(userData.name),
-                              Text(card.companyName.isNotEmpty
-                                  ? card.companyName
-                                  : "Insert Company Name"),
-                              Text(card.jobTitle.isNotEmpty
-                                  ? card.jobTitle
-                                  : "Insert Job Title"),
-                            ],
-                          ),
-                          subtitle: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(card.phoneNum.isNotEmpty
-                                  ? card.phoneNum
-                                  : "Insert Phone Number"),
-                              Text(card.email.isNotEmpty
-                                  ? card.email
-                                  : "Insert Email"),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
+            body: HomeListView(userData: userData, cards: cards),
           );
         } else {
           return Loading();

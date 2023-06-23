@@ -1,4 +1,7 @@
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/screens/contacts/contactpage.dart';
+import 'package:connectcard/screens/home/home.dart';
+import 'package:connectcard/screens/scan/ocr/ocr.dart';
 import 'package:connectcard/screens/wrapper.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,6 +22,13 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         home: Wrapper(),
+        routes: {
+          '/home': (context) => Home(),
+          '/scan': (context) => OcrScreen(),
+          //'/mycards': (context) => MyCardScreen(),
+          '/contacts': (context) => ContactPage(),
+          //'/profile': (context) => ProfilePage(),
+        },
       ),
     );
   }

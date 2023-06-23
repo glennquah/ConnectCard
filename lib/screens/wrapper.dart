@@ -1,7 +1,6 @@
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/authenticate/authenticate.dart';
 import 'package:connectcard/screens/home/home.dart';
-import 'package:connectcard/screens/home/ocr/ocr.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
