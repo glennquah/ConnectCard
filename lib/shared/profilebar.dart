@@ -1,7 +1,7 @@
 import 'package:connectcard/models/theUser.dart';
 import 'package:flutter/material.dart';
 
-class ProfileBar extends StatelessWidget {
+class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
   final UserData userData;
 
   ProfileBar({required this.userData});
@@ -66,4 +66,7 @@ class ProfileBar extends StatelessWidget {
       elevation: 0.0,
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

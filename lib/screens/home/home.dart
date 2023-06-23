@@ -40,7 +40,7 @@ class Home extends StatelessWidget {
             appBar: AppBar(
               title: TextButton(
                 onPressed: () {
-                  // Move to profile page
+                  Navigator.pushNamed(context, '/profile');
                 },
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,

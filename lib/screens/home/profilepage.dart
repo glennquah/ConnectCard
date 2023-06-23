@@ -15,57 +15,64 @@ class ProfilePage extends StatelessWidget {
         if (snapshot.hasData) {
           UserData? userData = snapshot.data;
           return Scaffold(
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                SizedBox(height: 100),
-                CircleAvatar(
-                  radius: 80,
-                  backgroundColor: Colors
-                      .grey, // Set a default background color for the CircleAvatar
-                  backgroundImage: userData!.listOfCards.isNotEmpty &&
-                          userData.listOfCards[0].imageUrl.isNotEmpty
-                      ? NetworkImage(userData.listOfCards[0].imageUrl)
-                      : null,
-                  child: userData.listOfCards.isEmpty ||
-                          userData.listOfCards[0].imageUrl.isEmpty
-                      ? Icon(Icons.add,
-                          size: 60) // Display "+" icon if no image URL
-                      : null,
-                ),
-                SizedBox(height: 20),
-                Text(
-                  userData.name,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 40),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    OvalButton(
+            backgroundColor: Colors.yellow[800],
+            body: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    radius: 80,
+                    backgroundColor: Colors.grey,
+                    backgroundImage: userData!.listOfCards.isNotEmpty &&
+                            userData.listOfCards[0].imageUrl.isNotEmpty
+                        ? NetworkImage(userData.listOfCards[0].imageUrl)
+                        : null,
+                    child: userData.listOfCards.isEmpty ||
+                            userData.listOfCards[0].imageUrl.isEmpty
+                        ? Icon(Icons.add, size: 60)
+                        : null,
+                  ),
+                  SizedBox(height: 20),
+                  Text(
+                    userData.name,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 40),
+                  SizedBox(
+                    width: 200,
+                    child: OvalButton(
                       icon: Icons.mail,
                       label: 'Contact Us',
                       onPressed: () {
                         // Handle contact us button press
                       },
                     ),
-                    OvalButton(
+                  ),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: 200,
+                    child: OvalButton(
                       icon: Icons.settings,
                       label: 'Settings',
                       onPressed: () {
                         // Handle settings button press
                       },
                     ),
-                    OvalButton(
+                  ),
+                  SizedBox(height: 20),
+                  SizedBox(
+                    width: 200,
+                    child: OvalButton(
                       icon: Icons.logout,
                       label: 'Log Out',
                       onPressed: () {
                         // Handle log out button press
                       },
                     ),
-                  ],
-                ),
-              ],
+                  ),
+                ],
+              ),
             ),
           );
         } else {
@@ -92,16 +99,15 @@ class OvalButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
+        padding: EdgeInsets.symmetric(vertical: 10),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Icon(icon, size: 40),
-            SizedBox(height: 8),
-            Text(label, style: TextStyle(fontSize: 16)),
-          ],
-        ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, size: 40),
+          SizedBox(width: 8),
+          Text(label, style: TextStyle(fontSize: 16)),
+        ],
       ),
     );
   }

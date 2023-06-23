@@ -1,6 +1,7 @@
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/contacts/contactpage.dart';
 import 'package:connectcard/screens/home/home.dart';
+import 'package:connectcard/screens/home/profilepage.dart';
 import 'package:connectcard/screens/scan/ocr/ocr.dart';
 import 'package:connectcard/screens/wrapper.dart';
 import 'package:connectcard/services/auth.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
           '/scan': (context) => OcrScreen(),
           //'/mycards': (context) => MyCardScreen(),
           '/contacts': (context) => ContactPage(),
-          //'/profile': (context) => ProfilePage(),
+          '/profile': (context) => ProfilePage(),
         },
       ),
     );
