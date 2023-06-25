@@ -48,6 +48,7 @@ dependencies:
   google_mlkit_text_recognition: ^0.8.1
   permission_handler: ^10.3.0
   flutter_launcher_icons: ^0.13.1
+  flutter_native_splash: ^2.2.19
   
 
 dev_dependencies:
@@ -67,6 +68,16 @@ flutter_launcher_icons:
   image_path: "assets/logo/connectCardIcon.jpg"
   min_sdk_android: 21 # android min sdk min:16, default 21
 
+flutter_native_splash:
+  color: "#FEAA1B"
+  image: assets/splash.png
+
+  android_12:
+    color: "#FEAA1B"
+    image: assets/splash.png
+    icon_background_color: "#FEAA1B"
+    icon_background_color_dark: "#FEAA1B"
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -80,11 +91,10 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+      - assets/logo/connectCardIcon.jpg
       - assets/logo/ConnectCardLogo.jpg
       - assets/logo/LogoName.jpg
-      - assets/logo/ConnectCardLogoNoBg.png
-      - assets/logo/ConnectCardLogoNoBg.jpg
-      - assets/logo/connectCardIcon.jpg
+      - assets/splash.png
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
