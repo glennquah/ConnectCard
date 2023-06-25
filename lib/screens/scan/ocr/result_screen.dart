@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+Color bgColor = const Color(0xffFEAA1B);
+
 class ResultScreen extends StatelessWidget {
   final String text;
 
@@ -8,6 +10,7 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
+          backgroundColor: bgColor,
           title: const Text('Result'),
         ),
         body: Container(
