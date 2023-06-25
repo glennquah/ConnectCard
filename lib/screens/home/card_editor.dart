@@ -49,6 +49,8 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   String newMoreInfo3 = '';
   File? image;
 
+  Color bgColor = const Color(0xffFEAA1B);
+
   Future<void> _pickImage(ImageSource source) async {
     ImagePicker imagePicker = ImagePicker();
     //XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
@@ -114,10 +116,10 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
             }
 
             return Scaffold(
-              backgroundColor: Colors.yellow[800],
+              backgroundColor: bgColor,
               appBar: AppBar(
                 title: Text('Edit Your Card'),
-                backgroundColor: Colors.yellow[800],
+                backgroundColor: bgColor,
               ),
               body: SingleChildScrollView(
                 child: Padding(

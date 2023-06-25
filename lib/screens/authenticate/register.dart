@@ -22,12 +22,14 @@ class _RegisterState extends State<Register> {
   String phoneNum = '';
   String error = '';
 
+  Color bgColor = const Color(0xffFEAA1B);
+
   @override
   Widget build(BuildContext context) {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: bgColor,
             body: SingleChildScrollView(
               // Wrap with SingleChildScrollView
               child: Container(
@@ -39,7 +41,7 @@ class _RegisterState extends State<Register> {
                       width: 200.0,
                       height: 200.0,
                       child: Image(
-                        image: AssetImage('assets/ConnectCardLogo.jpg'),
+                        image: AssetImage('assets/logo/ConnectCardLogo.jpg'),
                         fit: BoxFit.contain,
                       ),
                     ),

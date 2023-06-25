@@ -59,6 +59,8 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    Color bgColor = const Color(0xffFEAA1B);
+
     return FutureBuilder(
       future: _future,
       builder: (context, snapshot) {
@@ -82,7 +84,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
               appBar: AppBar(
                 title: const Text('Text Recognition Sample'),
                 automaticallyImplyLeading: false,
-                backgroundColor: Colors.yellow[800],
+                backgroundColor: bgColor,
               ),
               bottomNavigationBar: NaviBar(currentIndex: 1),
               // Set the background to transparent so you can see the camera preview
