@@ -103,6 +103,27 @@ ConnectCard encodes your digital name card, including contact details, such as n
 **Application Flow**
 ![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
 
+**Authentication**
+When the ConnectCard app is opened, it checks for persistent login information. If the user is already logged in, they are directed to the Home Page. Otherwise, they are brought to the Login Page to authenticate their credentials.
+
+On the Login Page, users have the option to toggle between the Login and Register pages. After inputting the correct email and password values, the app authenticates these values with Firebase. If the email and password are correct, the user is directed to the Home Page. If the authentication fails, the user is given the opportunity to try again.
+
+**Profile Editing + Displaying**
+In the Home Page, users can view their existing cards in either a list or card view. The cards display basic information such as the name, organization, position, phone number, and email address.
+
+Users have the ability to edit their card information, including changing their name, in the Edit Card section. They can also choose to delete a card if they no longer need it.
+
+Users can add a profile picture (DP) and update their card information in the Edit Page. These changes will be reflected both on the Home Page and in the database.
+
+**OCR Image to Text converter**
+The Scan Cards Page requires permission from the user to use the camera. Once permission is granted, users can take a photo of a name card. The app utilizes Google ML Kit and text recognition technology to convert the image into text, extracting relevant information from the name card.
+
+**Navigation Bar**
+The app features a navigation bar that allows users to easily navigate between different sections, including the Scan Cards Page, Friends Page, and Rewards Card Page. This provides a seamless user experience and quick access to different functionalities.
+
+**Profile Bar**
+Users can access the Profile Bar by clicking on their name. From there, they have several options. They can contact the app's support team, which will direct them to the email page. They can also go to the Settings Page to customize their app preferences. Additionally, users have the option to log out from the Profile Bar.
+
 **Class Relationship**
 ![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
 
