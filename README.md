@@ -66,43 +66,91 @@ ConnectCard provides a convenient solution by allowing users to scan physical na
 To watch the video of ConnectCard & view the poster, click the following link!
 
 **LiftOff**
+
 Elevator Pitch Video: https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link
+
 Poster: https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link
 
 **Milestone 1**
+
 Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1
+
 Project Demo: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing
+
 Milestone 1 Prototype: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing
 
 **Milestone 2**
+
 A1 Poster:
+
 Project Demo:
+
 Try it yourself:
 
 ### Key Technologies
 
-**Optical Character Recognition (OCR)**:
+**Optical Character Recognition (OCR)**
+
 ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
 
-**Image Processing**:
+**Image Processing**
+
 Image processing techniques are employed to enhance the scanned name card images, improve readability, and optimize the visual quality of the digitized cards. This helps in creating clear and professional-looking digital name cards.
 
-**Mobile Camera Integration**:
+**Mobile Camera Integration**
+
 ConnectCard seamlessly integrates with the mobile device's camera functionality, allowing users to capture images of physical name cards directly within the app. This integration simplifies the scanning process, making it convenient for users to convert physical cards into digital format effortlessly.
 
-**Near Field Communication (NFC)**:
+**Near Field Communication (NFC)**
+
 ConnectCard leverages on NFC technology for the seamless exchange of digital name cards between users. By tapping their devices together, users can instantly share their contact information, fostering efficient networking and eliminating the need for manual contact input.
 
-**Cloud Storage and Synchronization (Firebase)**:
+**Cloud Storage and Synchronization (Firebase)**
+
 To ensure data accessibility across multiple devices, our application integrates with cloud storage services. The digital name cards and associated data are securely stored in the cloud, enabling users to access and manage their cards from any device with the application installed. Synchronization functionality ensures that any updates made to the cards are reflected across all devices.
 
-**Sharing digital name cards through a link**:
+**Sharing digital name cards through a link**
+
 ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
 
-##Features
+### System Design
+**Application Flow**
 
-###Login Page
-![Login Page Preview](https://github.com/tallkoh/TheUnifiers/assets/110431837/6f821029-af55-40c7-b74e-dd8b1d922fd2)
+![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
+
+**Authentication**
+
+When the ConnectCard app is opened, it checks for persistent login information. If the user is already logged in, they are directed to the Home Page. Otherwise, they are brought to the Login Page to authenticate their credentials.
+
+On the Login Page, users have the option to toggle between the Login and Register pages. After inputting the correct email and password values, the app authenticates these values with Firebase. If the email and password are correct, the user is directed to the Home Page. If the authentication fails, the user is given the opportunity to try again.
+
+**Profile Editing + Displaying**
+
+In the Home Page, users can view their existing cards in either a list or card view. The cards display basic information such as the name, organization, position, phone number, and email address.
+
+Users have the ability to edit their card information, including changing their name, in the Edit Card section. They can also choose to delete a card if they no longer need it.
+
+Users can add a profile picture (DP) and update their card information in the Edit Page. These changes will be reflected both on the Home Page and in the database.
+
+**OCR Image to Text converter**
+
+The Scan Cards Page requires permission from the user to use the camera. Once permission is granted, users can take a photo of a name card. The app utilizes Google ML Kit and text recognition technology to convert the image into text, extracting relevant information from the name card.
+
+**Navigation Bar**
+
+The app features a navigation bar that allows users to easily navigate between different sections, including the Scan Cards Page, Friends Page, and Rewards Card Page. This provides a seamless user experience and quick access to different functionalities.
+
+**Profile Bar**
+
+Users can access the Profile Bar by clicking on their name. From there, they have several options. They can contact the app's support team, which will direct them to the email page. They can also go to the Settings Page to customize their app preferences. Additionally, users have the option to log out from the Profile Bar.
+
+**Class Relationship**
+
+![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
+
+## Features
+
+### Login Page
 
 ## Project Log
 
