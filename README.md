@@ -39,7 +39,7 @@ ConnectCard provides a convenient solution by allowing users to scan physical na
 
 6. As a user, I want to convert my physical membership or milestone reward cards into digital versions, so that I can simplify my wallet and take full advantage of loyalty programs without the hassle of carrying physical cards.
 
-As a user, I want to easily share my digital name card with others by sending a link, so that I can quickly exchange contact information and foster professional relationships.
+7. As a user, I want to easily share my digital name card with others by sending a link, so that I can quickly exchange contact information and foster professional relationships.
 
 ## Features
 
@@ -160,21 +160,51 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 ### Login Page
 ![Login Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_LogIn.png)
 
+Allows users to log in to their ConnectCard account using their email and password.
+Provides a toggle option to switch to the Registration page for new users.
+
 ### Registration Page
 ![Registration Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Register.png)
+
+Allows new users to create a ConnectCard account by providing their email and password.
+Validates the user's email and password to ensure they meet the necessary requirements.
 
 ### Home Page
 ![Home Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_HomePage.png)
 
+Displays a list or card view of the user's stored name cards, showing basic information such as name, organization, position, phone number, and email address for each card.
+Includes a navigation bar to access other pages.
+Provides a profile bar to access the user's profile page.
+
+### Card Editor Form Page
+![Card Edit Form](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_CardsEditForm.png)
+
+Allows users to edit their name and add, select, and edit name cards.
+Validates the entered information and displays error messages if required fields are not filled.
+
+### Card Editor Page
+![Card Editor](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_CardEditor.png)
+
+Loads the selected name card information from the database.
+Allows users to add a display picture and update various information fields.
+Provides an option to delete name cards, with a snack box appearing when attempting to delete the last card.
+
 ### Text Recog Page
 ![Text Recog Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_TextRecogCam.jpg)
+
+Requests permission to use the camera for name card scanning.
+Enables users to capture a photo of a name card.
+Utilizes Google ML Kit and text recognition technology to convert the image into text and extract relevant information.
 
 ### Text Recog Result Page
 ![Text Recog Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_TextRecogResults.jpg)
 
+Displays the results of the text conversion and extraction process.
+
 ### Profile Page
 ![Profile Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_ProfilePage.png)
 
+Allows users to select options such as contacting customer support, accessing settings, or logging out.
 
 ## Project Log
 
