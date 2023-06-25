@@ -88,11 +88,11 @@ Milestone 1 Prototype: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp
 
 **Milestone 2**
 
-A1 Poster:
+A1 Poster: https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing
 
 Project Demo:
 
-Try it yourself:
+Try it yourself: https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl
 
 ## Key Technologies
 
