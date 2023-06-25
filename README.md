@@ -66,41 +66,51 @@ ConnectCard provides a convenient solution by allowing users to scan physical na
 To watch the video of ConnectCard & view the poster, click the following link!
 
 **LiftOff**
+
 Elevator Pitch Video: https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link
 Poster: https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link
 
 **Milestone 1**
+
 Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1
 Project Demo: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing
 Milestone 1 Prototype: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing
 
 **Milestone 2**
+
 A1 Poster:
 Project Demo:
 Try it yourself:
 
 ### Key Technologies
 
-**Optical Character Recognition (OCR)**:
+**Optical Character Recognition (OCR)**
+
 ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
 
-**Image Processing**:
+**Image Processing**
+
 Image processing techniques are employed to enhance the scanned name card images, improve readability, and optimize the visual quality of the digitized cards. This helps in creating clear and professional-looking digital name cards.
 
-**Mobile Camera Integration**:
+**Mobile Camera Integration**
+
 ConnectCard seamlessly integrates with the mobile device's camera functionality, allowing users to capture images of physical name cards directly within the app. This integration simplifies the scanning process, making it convenient for users to convert physical cards into digital format effortlessly.
 
-**Near Field Communication (NFC)**:
+**Near Field Communication (NFC)**
+
 ConnectCard leverages on NFC technology for the seamless exchange of digital name cards between users. By tapping their devices together, users can instantly share their contact information, fostering efficient networking and eliminating the need for manual contact input.
 
-**Cloud Storage and Synchronization (Firebase)**:
+**Cloud Storage and Synchronization (Firebase)**
+
 To ensure data accessibility across multiple devices, our application integrates with cloud storage services. The digital name cards and associated data are securely stored in the cloud, enabling users to access and manage their cards from any device with the application installed. Synchronization functionality ensures that any updates made to the cards are reflected across all devices.
 
-**Sharing digital name cards through a link**:
+**Sharing digital name cards through a link**
+
 ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
 
 ### System Design
 **Application Flow**
+
 ![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
 
 **Authentication**
