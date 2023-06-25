@@ -100,14 +100,15 @@ To ensure data accessibility across multiple devices, our application integrates
 ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
 
 ### System Design
-
 **Application Flow**
 ![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
+
+**Class Relationship**
+![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
 
 ## Features
 
 ### Login Page
-![Login Page Preview](https://github.com/tallkoh/TheUnifiers/assets/110431837/6f821029-af55-40c7-b74e-dd8b1d922fd2)
 
 ## Project Log
 
