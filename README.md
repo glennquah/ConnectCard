@@ -26,13 +26,20 @@ Store and access membership or loyalty reward cards digitally, eliminating the r
 
 ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly, through sending it through a link and using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
 
-## Table of Contents
+## User Stories
+1. As a recruiter, I want to easily scan and store name cards digitally, so that I can manage and access contact information efficiently during the hiring process.
 
-- [Features](#features)
-- [Poster & Video](Key Technologies)
-- [ProjectLog](#projectlog)
-- [License](#license)
+2. As a working adult, I want to update my personal digital name card easily, so that I can keep my contact information up to date for seamless interactions with clients and colleagues.
 
+3. As a job seeker, I want to quickly exchange my digital name card with potential employers or networking contacts using NFC technology, so that I can make a lasting impression and enhance my job prospects.
+
+4. As a user, I want to link the ConnectCard app to popular communication platforms like Telegram, Whatsapp, Phone, and Email, so that I can easily connect with my contacts.
+
+5. As a business owner, I want to store and access my customers' membership or loyalty reward cards digitally, so that I can eliminate the reliance on physical cards and provide a convenient way for customers to access their rewards.
+
+6. As a user, I want to convert my physical membership or milestone reward cards into digital versions, so that I can simplify my wallet and take full advantage of loyalty programs without the hassle of carrying physical cards.
+
+As a user, I want to easily share my digital name card with others by sending a link, so that I can quickly exchange contact information and foster professional relationships.
 
 ## Features
 
@@ -73,7 +80,7 @@ Poster: https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?u
 
 **Milestone 1**
 
-Figma Deisgn: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1
+Figma Design: https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1
 
 Project Demo: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing
 
@@ -87,7 +94,7 @@ Project Demo:
 
 Try it yourself:
 
-### Key Technologies
+## Key Technologies
 
 **Optical Character Recognition (OCR)**
 
@@ -113,7 +120,7 @@ To ensure data accessibility across multiple devices, our application integrates
 
 ConnectCard encodes your digital name card, including contact details, such as name, phone number, email address, or social media profiles, into a link. This encoding process can be achieved with APIs available in various programming languages.
 
-### System Design
+## System Design
 **Application Flow**
 
 ![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
@@ -151,7 +158,22 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 ## Features
 
 ### Login Page
-![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
+![Login Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_LogIn.png)
+
+### Registration Page
+![Registration Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Register.png)
+
+### Home Page
+![Home Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_HomePage.png)
+
+### Text Recog Page
+![Text Recog Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_TextRecogCam.jpg)
+
+### Text Recog Result Page
+![Text Recog Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_TextRecogResults.jpg)
+
+### Profile Page
+![Profile Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_ProfilePage.png)
 
 
 ## Project Log
