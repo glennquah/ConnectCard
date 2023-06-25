@@ -12,6 +12,8 @@ import 'package:provider/provider.dart';
 class Home extends StatelessWidget {
   final Auth _auth = Auth();
 
+  Color bgColor = const Color(0xffFEAA1B);
+
   @override
   Widget build(BuildContext context) {
     void _showCardsPanel() {
@@ -36,7 +38,7 @@ class Home extends StatelessWidget {
           List<Cards> cards = userData!.listOfCards;
           return Scaffold(
             bottomNavigationBar: NaviBar(currentIndex: 0),
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: bgColor,
             appBar: AppBar(
               title: TextButton(
                 onPressed: () {
@@ -91,7 +93,7 @@ class Home extends StatelessWidget {
                         ),
                 ),
               ),
-              backgroundColor: Colors.yellow[800],
+              backgroundColor: bgColor,
               elevation: 0.0,
               actions: <Widget>[
                 InkWell(

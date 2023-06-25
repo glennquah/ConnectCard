@@ -20,6 +20,9 @@ class RewardCardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     TheUser? user;
     user = Provider.of<TheUser?>(context);
+
+    Color bgColor = const Color(0xffFEAA1B);
+
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: user!.uid).userProfile,
       builder: (context, snapshot) {
@@ -27,7 +30,7 @@ class RewardCardPage extends StatelessWidget {
           UserData? userData = snapshot.data;
           return Scaffold(
             appBar: ProfileBar(userData: userData!),
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: bgColor,
             bottomNavigationBar: NaviBar(currentIndex: 2),
             body: ListView.builder(
               itemCount: rewardCards.length,

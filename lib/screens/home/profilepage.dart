@@ -9,13 +9,16 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     TheUser? user;
     user = Provider.of<TheUser?>(context);
+
+    Color bgColor = const Color(0xffFEAA1B);
+
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: user!.uid).userProfile,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           UserData? userData = snapshot.data;
           return Scaffold(
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: bgColor,
             body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,

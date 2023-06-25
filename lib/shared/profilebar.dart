@@ -8,6 +8,8 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    Color bgColor = const Color(0xffFEAA1B);
+
     return AppBar(
       title: TextButton(
         onPressed: () {
@@ -62,7 +64,7 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
         ),
       ),
-      backgroundColor: Colors.yellow[800],
+      backgroundColor: bgColor,
       elevation: 0.0,
     );
   }
