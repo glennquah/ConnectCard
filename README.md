@@ -102,7 +102,7 @@ ConnectCard encodes your digital name card, including contact details, such as n
 ### System Design
 
 **Application Flow**
-![Application Flow Diagram]https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png
+![Application Flow Diagram](https://github.com/glenn2030/ConnectCard/blob/main/assets/System%20Design.png)
 
 ## Features
 
