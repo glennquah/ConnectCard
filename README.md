@@ -29,7 +29,7 @@ ConnectCard provides a convenient solution by allowing users to scan physical na
 ## Table of Contents
 
 - [Features](#features)
-- [About](#Video+Poster)
+- [Poster & Video](Key Technologies)
 - [ProjectLog](#projectlog)
 - [License](#license)
 
@@ -151,6 +151,8 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 ## Features
 
 ### Login Page
+![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
+
 
 ## Project Log
 
