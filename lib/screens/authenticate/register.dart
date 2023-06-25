@@ -22,15 +22,14 @@ class _RegisterState extends State<Register> {
   String phoneNum = '';
   String error = '';
 
-  Color bgColor =
-      const Color(0xffFEAA1B); // Second `const` is optional in assignments.
+  Color bgColor = const Color(0xffFEAA1B);
 
   @override
   Widget build(BuildContext context) {
     return loading
         ? Loading()
         : Scaffold(
-            backgroundColor: Colors.yellow[800],
+            backgroundColor: bgColor,
             body: SingleChildScrollView(
               // Wrap with SingleChildScrollView
               child: Container(

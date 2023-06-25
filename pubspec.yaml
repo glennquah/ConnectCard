@@ -47,6 +47,7 @@ dependencies:
   camera: ^0.10.5+2
   google_mlkit_text_recognition: ^0.8.1
   permission_handler: ^10.3.0
+  flutter_launcher_icons: ^0.13.1
   
 
 dev_dependencies:
@@ -59,6 +60,12 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo/connectCardIcon.jpg"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -77,6 +84,8 @@ flutter:
       - assets/logo/LogoName.jpg
       - assets/logo/ConnectCardLogoNoBg.png
       - assets/logo/ConnectCardLogoNoBg.jpg
+      - assets/logo/connectCardIcon.jpg
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
