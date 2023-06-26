@@ -88,11 +88,11 @@ Milestone 1 Prototype: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp
 
 **Milestone 2**
 
-A1 Poster:
+A1 Poster: https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing
 
 Project Demo:
 
-Try it yourself:
+Try it yourself: https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl
 
 ## Key Technologies
 
@@ -133,7 +133,7 @@ On the Login Page, users have the option to toggle between the Login and Registe
 
 **Profile Editing + Displaying**
 
-In the Home Page, users can view their existing cards in either a list or card view. The cards display basic information such as the name, organization, position, phone number, and email address.
+On the Home Page, users can view their existing cards in either a list or card view. The cards display basic information such as the name, organization, position, phone number, and email address.
 
 Users have the ability to edit their card information, including changing their name, in the Edit Card section. They can also choose to delete a card if they no longer need it.
 
@@ -157,43 +157,62 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 
 ## Features
 
+### App demo
+APK Download for Android devices: https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl
+
 ### Login Page
 ![Login Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_LogIn.png)
 
 Allows users to log in to their ConnectCard account using their email and password.
+
 Provides a toggle option to switch to the Registration page for new users.
 
 ### Registration Page
 ![Registration Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Register.png)
 
 Allows new users to create a ConnectCard account by providing their email and password.
+
 Validates the user's email and password to ensure they meet the necessary requirements.
 
 ### Home Page
 ![Home Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_HomePage.png)
 
 Displays a list or card view of the user's stored name cards, showing basic information such as name, organization, position, phone number, and email address for each card.
+
 Includes a navigation bar to access other pages.
+
 Provides a profile bar to access the user's profile page.
 
 ### Card Editor Form Page
 ![Card Edit Form](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_CardsEditForm.png)
 
 Allows users to edit their name and add, select, and edit name cards.
+
 Validates the entered information and displays error messages if required fields are not filled.
 
 ### Card Editor Page
 ![Card Editor](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_CardEditor.png)
 
 Loads the selected name card information from the database.
+
 Allows users to add a display picture and update various information fields.
+
 Provides an option to delete name cards, with a snack box appearing when attempting to delete the last card.
+
+### Updated data in Firebase
+![Firebase Results](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Firebase.png)
+
+After editing the card details, it is automatically updated on Firebase. 
+
+When adding new cards, the List of Cards will add on
 
 ### Text Recog Page
 ![Text Recog Page](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_TextRecogCam.jpg)
 
 Requests permission to use the camera for name card scanning.
+
 Enables users to capture a photo of a name card.
+
 Utilizes Google ML Kit and text recognition technology to convert the image into text and extract relevant information.
 
 ### Text Recog Result Page
