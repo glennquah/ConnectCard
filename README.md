@@ -155,6 +155,9 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 
 ![Class Relationship](https://github.com/glenn2030/ConnectCard/blob/main/assets/Objects%20Diagram.png)
 
+**Software Architecture**
+![Software Architecture](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Software%20Architect.png)
+
 ## Features
 
 ### App demo
