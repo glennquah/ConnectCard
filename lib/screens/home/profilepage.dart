@@ -72,7 +72,8 @@ class ProfilePage extends StatelessWidget {
                       icon: Icons.logout,
                       label: 'Log Out',
                       onPressed: () async {
-                        await _firebaseAuth.signOut();
+                        // or _firebaseAuth.signOut();
+                        await FirebaseAuth.instance.signOut();
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
