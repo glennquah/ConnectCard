@@ -90,7 +90,7 @@ Milestone 1 Prototype: https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp
 
 A1 Poster: https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing
 
-Project Demo:
+Project Demo: https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs/view?usp=sharing
 
 Try it yourself: https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl
 
