@@ -8,6 +8,8 @@ class TheUser {
   Future<String> getUserId() async {
     return uid;
   }
+
+  void reset() {}
 }
 
 class UserData {

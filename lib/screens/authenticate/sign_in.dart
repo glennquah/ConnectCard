@@ -15,6 +15,7 @@ class _SignInState extends State<SignIn> {
   final Auth _auth = Auth();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
+  bool showSignIn = true;
 
   // text field state
   String error = '';
@@ -22,6 +23,12 @@ class _SignInState extends State<SignIn> {
   String password = '';
 
   Color bgColor = const Color(0xffFEAA1B);
+
+  void toggleView() {
+    setState(() {
+      showSignIn = !showSignIn;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

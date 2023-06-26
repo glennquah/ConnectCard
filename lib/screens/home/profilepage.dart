@@ -1,16 +1,18 @@
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/screens/authenticate/authenticate.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    TheUser? user;
-    user = Provider.of<TheUser?>(context);
+    TheUser? user = Provider.of<TheUser?>(context);
 
     Color bgColor = const Color(0xffFEAA1B);
+    final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: user!.uid).userProfile,
@@ -69,8 +71,14 @@ class ProfilePage extends StatelessWidget {
                     child: OvalButton(
                       icon: Icons.logout,
                       label: 'Log Out',
-                      onPressed: () {
-                        // Handle log out button press
+                      onPressed: () async {
+                        await _firebaseAuth.signOut();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => Authenticate(),
+                          ),
+                        );
                       },
                     ),
                   ),
