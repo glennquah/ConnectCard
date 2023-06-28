@@ -17,6 +17,13 @@ class CarouselSliderWidget extends StatefulWidget {
 class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
   int _currentIndex = 0;
 
+  String? encodeQueryParameters(Map<String, String> params) {
+    return params.entries
+        .map((MapEntry<String, String> e) =>
+            '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+        .join('&');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -103,9 +110,18 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                         ),
                         SizedBox(height: 10.0),
                         GestureDetector(
-                          onTap: () {
-                            // Handle phone number click
-                            // Add your logic here
+                          onTap: () async {
+                            final Uri phoneurl =
+                                Uri(scheme: 'tel', path: card.phoneNum);
+                            if (await canLaunchUrl(phoneurl)) {
+                              await launchUrl(phoneurl);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Phone number not found'),
+                                ),
+                              );
+                            }
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 4.0),
@@ -123,9 +139,24 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                           ),
                         ),
                         GestureDetector(
-                          onTap: () {
-                            // Handle email click
-                            // Add your logic here
+                          onTap: () async {
+                            final Uri emailUri = Uri(
+                              scheme: 'mailto',
+                              path: card.email,
+                              query: encodeQueryParameters(<String, String>{
+                                'subject': 'From ConnectCard',
+                                'body': 'Dear ${widget.userData.name},\n\n',
+                              }),
+                            );
+                            if (await canLaunchUrl(emailUri)) {
+                              await launchUrl(emailUri);
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('No email client found'),
+                                ),
+                              );
+                            }
                           },
                           child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 4.0),
@@ -135,7 +166,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                   : "Insert Email",
                               style: TextStyle(
                                 color: Colors.blue,
-                                decoration: card.phoneNum.isNotEmpty
+                                decoration: card.email.isNotEmpty
                                     ? TextDecoration.underline
                                     : TextDecoration.none,
                               ),
@@ -144,11 +175,15 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            final Uri _url = Uri.parse('https://flutter.dev');
+                            final Uri _url = Uri.parse(card.companyWebsite);
                             if (await canLaunchUrl(_url)) {
                               await launchUrl(_url);
                             } else {
-                              print("can't launch this url");
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text('Website not found'),
+                                ),
+                              );
                             }
                           },
                           child: Container(
@@ -159,7 +194,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                   : "Insert Company Website",
                               style: TextStyle(
                                 color: Colors.blue,
-                                decoration: card.phoneNum.isNotEmpty
+                                decoration: card.companyWebsite.isNotEmpty
                                     ? TextDecoration.underline
                                     : TextDecoration.none,
                               ),
