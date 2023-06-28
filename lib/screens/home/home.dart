@@ -1,6 +1,7 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
+import 'package:connectcard/screens/home/home_cardview.dart';
 import 'package:connectcard/screens/home/home_listview.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
@@ -9,26 +10,38 @@ import 'package:connectcard/shared/navigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class Home extends StatelessWidget {
-  final Auth _auth = Auth();
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
 
+class _HomeState extends State<Home> {
+  final Auth _auth = Auth();
   Color bgColor = const Color(0xffFEAA1B);
+  bool isCardView = true;
+
+  void toggleView() {
+    if (isCardView) {
+      setState(() {
+        isCardView = false;
+      });
+    }
+  }
+
+  void _showCardsPanel() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
+          child: CardsForm(),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    void _showCardsPanel() {
-      showModalBottomSheet(
-        context: context,
-        builder: (context) {
-          return Container(
-            padding:
-                const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-            child: CardsForm(),
-          );
-        },
-      );
-    }
-
     return StreamBuilder<UserData>(
       stream:
           DatabaseService(uid: Provider.of<TheUser?>(context)!.uid).userProfile,
@@ -109,7 +122,78 @@ class Home extends StatelessWidget {
                 ),
               ],
             ),
-            body: HomeListView(userData: userData, cards: cards),
+            body: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(1.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          isCardView ? '  List View' : '  Card View',
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: Row(
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                if (!isCardView) {
+                                  setState(() {
+                                    isCardView = true;
+                                  });
+                                }
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Icon(
+                                  Icons.list,
+                                  color:
+                                      isCardView ? Colors.black : Colors.grey,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 5.0),
+                            InkWell(
+                              onTap: () {
+                                if (isCardView) {
+                                  setState(() {
+                                    isCardView = false;
+                                  });
+                                }
+                              },
+                              child: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Icon(
+                                  Icons.grid_view,
+                                  color:
+                                      isCardView ? Colors.grey : Colors.black,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: isCardView
+                      ? HomeListView(userData: userData, cards: cards)
+                      : HomeCardView(userData: userData, cards: cards),
+                ),
+              ],
+            ),
           );
         } else {
           return Loading();

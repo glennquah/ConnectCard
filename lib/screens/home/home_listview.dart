@@ -12,47 +12,6 @@ class HomeListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SizedBox(height: 5.0),
-        SizedBox(height: 5.0),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            Text(
-              'List of NameCards',
-              style: TextStyle(
-                fontSize: 18.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-              textAlign: TextAlign.left,
-            ),
-            SizedBox(width: 140.0),
-            InkWell(
-              onTap: () => {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  children: const [
-                    Icon(Icons.list, color: Colors.black),
-                  ],
-                ),
-              ),
-            ),
-            SizedBox(width: 5.0),
-            InkWell(
-              onTap: () => {},
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                child: Row(
-                  children: const [
-                    Icon(Icons.grid_view, color: Colors.grey),
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-        SizedBox(height: 10.0),
         Expanded(
           child: ListView.builder(
             itemCount: cards.length,
