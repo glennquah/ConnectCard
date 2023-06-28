@@ -12,9 +12,8 @@ Apollo II
 - [Poster & Video](#poster--video)
 - [Key Technologies](#key-technologies)
 - [System Design](#system-design)
+- [Application Walk Through](#application-walk-through)
 - [Project Log](#project-log)
-
-<!-- DESCRIPTION -->
 
 ## Description
 <a href="#description"></a>
@@ -174,7 +173,7 @@ Users can access the Profile Bar by clicking on their name. From there, they hav
 
 ![Software Architecture](https://github.com/glenn2030/ConnectCard/blob/main/assets/CC_Software%20Architect.png)
 
-## Features
+## Application Walk Through
 
 ### App demo
 APK Download for Android devices: https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl
