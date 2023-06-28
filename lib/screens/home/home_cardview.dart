@@ -23,7 +23,8 @@ class _HomeCardViewState extends State<HomeCardView> {
         SizedBox(
           height: 20,
         ),
-        CarouselSlider.builder(
+        Flexible(
+            child: CarouselSlider.builder(
           itemCount: widget.cards.length,
           itemBuilder: (context, index, _) {
             Cards card = widget.cards[index];
@@ -98,6 +99,23 @@ class _HomeCardViewState extends State<HomeCardView> {
                         card.email.isNotEmpty ? card.email : "Insert Email",
                         style: TextStyle(color: Colors.grey[700]),
                       ),
+                      Align(
+                        alignment: Alignment.bottomCenter,
+                        child: TextButton(
+                          onPressed: () {
+                            // Handle button press
+                            // Add your logic here
+                          },
+                          child: Text(
+                            'View More',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 10,
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -105,7 +123,7 @@ class _HomeCardViewState extends State<HomeCardView> {
             );
           },
           options: CarouselOptions(
-            height: 200.0,
+            height: 205.0,
             enableInfiniteScroll: false,
             viewportFraction: 0.8,
             enlargeCenterPage: true,
@@ -122,7 +140,7 @@ class _HomeCardViewState extends State<HomeCardView> {
               });
             },
           ),
-        ),
+        )),
         SizedBox(height: 20.0),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
