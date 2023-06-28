@@ -18,7 +18,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final Auth _auth = Auth();
   Color bgColor = const Color(0xffFEAA1B);
-  bool isCardView = true;
+  bool isCardView = false;
 
   void toggleView() {
     if (isCardView) {

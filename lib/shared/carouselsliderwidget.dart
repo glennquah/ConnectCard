@@ -33,8 +33,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
           height: 10,
         ),
         Text(
-          widget.cards[_currentIndex]
-              .cardName, // Show the type of the current card
+          widget.cards[_currentIndex].cardName,
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 15,
@@ -48,167 +47,208 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
             itemCount: widget.cards.length,
             itemBuilder: (context, index, _) {
               Cards card = widget.cards[index];
-              return Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.0),
-                  child: ListTile(
-                    contentPadding: EdgeInsets.all(8.0),
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            CircleAvatar(
-                              radius: 30.0,
-                              backgroundColor: Colors.white,
-                              child: card.imageUrl.isNotEmpty
-                                  ? ClipOval(
-                                      child: Image.network(
-                                        card.imageUrl,
-                                        width: 60.0,
-                                        height: 60.0,
-                                        fit: BoxFit.cover,
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CardDetailsPage(
+                        card: card,
+                        userData: widget.userData,
+                      ),
+                    ),
+                  );
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 10.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.0),
+                    child: ListTile(
+                      contentPadding: EdgeInsets.all(8.0),
+                      title: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              CircleAvatar(
+                                radius: 30.0,
+                                backgroundColor: Colors.white,
+                                child: card.imageUrl.isNotEmpty
+                                    ? ClipOval(
+                                        child: Image.network(
+                                          card.imageUrl,
+                                          width: 60.0,
+                                          height: 60.0,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      )
+                                    : Icon(
+                                        Icons.add,
+                                        size: 40.0,
+                                        color: Colors.black,
                                       ),
-                                    )
-                                  : Icon(
-                                      Icons.add,
-                                      size: 40.0,
-                                      color: Colors.black,
+                              ),
+                              SizedBox(width: 10.0),
+                              Align(
+                                alignment: Alignment.topLeft,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      widget.userData.name,
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
-                            ),
-                            SizedBox(width: 10.0),
-                            Align(
-                              alignment: Alignment.topLeft,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                                    Text(
+                                      card.companyName.isNotEmpty
+                                          ? card.companyName
+                                          : "Insert Company Name",
+                                      style: TextStyle(color: Colors.grey[700]),
+                                    ),
+                                    Text(
+                                      card.jobTitle.isNotEmpty
+                                          ? card.jobTitle
+                                          : "Insert Job Title",
+                                      style: TextStyle(color: Colors.grey[700]),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ],
+                          ),
+                          SizedBox(height: 10.0),
+                          GestureDetector(
+                            onTap: () async {
+                              final Uri phoneUrl =
+                                  Uri(scheme: 'tel', path: card.phoneNum);
+                              if (await canLaunchUrl(phoneUrl)) {
+                                await launchUrl(phoneUrl);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Phone app not found'),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Row(
                                 children: [
-                                  Text(
-                                    widget.userData.name,
-                                    style:
-                                        TextStyle(fontWeight: FontWeight.bold),
+                                  Icon(
+                                    Icons.phone,
+                                    color: Colors.blue,
                                   ),
+                                  SizedBox(width: 4.0),
                                   Text(
-                                    card.companyName.isNotEmpty
-                                        ? card.companyName
-                                        : "Insert Company Name",
-                                    style: TextStyle(color: Colors.grey[700]),
-                                  ),
-                                  Text(
-                                    card.jobTitle.isNotEmpty
-                                        ? card.jobTitle
-                                        : "Insert Job Title",
-                                    style: TextStyle(color: Colors.grey[700]),
+                                    card.phoneNum.isNotEmpty
+                                        ? card.phoneNum
+                                        : "Insert Phone Number",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      decoration: card.phoneNum.isNotEmpty
+                                          ? TextDecoration.underline
+                                          : TextDecoration.none,
+                                    ),
                                   ),
                                 ],
                               ),
-                            )
-                          ],
-                        ),
-                        SizedBox(height: 10.0),
-                        GestureDetector(
-                          onTap: () async {
-                            final Uri phoneurl =
-                                Uri(scheme: 'tel', path: card.phoneNum);
-                            if (await canLaunchUrl(phoneurl)) {
-                              await launchUrl(phoneurl);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('Phone app not found'),
-                                ),
+                            ),
+                          ),
+                          GestureDetector(
+                            onTap: () async {
+                              final Uri emailUri = Uri(
+                                scheme: 'mailto',
+                                path: card.email,
+                                query: encodeQueryParameters(<String, String>{
+                                  'subject': 'From ConnectCard',
+                                  'body': 'Dear ${widget.userData.name},\n\n',
+                                }),
                               );
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 4.0),
-                            child: Text(
-                              card.phoneNum.isNotEmpty
-                                  ? card.phoneNum
-                                  : "Insert Phone Number",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                decoration: card.phoneNum.isNotEmpty
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none,
+                              if (await canLaunchUrl(emailUri)) {
+                                await launchUrl(emailUri);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('No email client found'),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.email,
+                                    color: Colors.blue,
+                                  ),
+                                  SizedBox(width: 4.0),
+                                  Text(
+                                    card.email.isNotEmpty
+                                        ? card.email
+                                        : "Insert Email",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      decoration: card.email.isNotEmpty
+                                          ? TextDecoration.underline
+                                          : TextDecoration.none,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            final Uri emailUri = Uri(
-                              scheme: 'mailto',
-                              path: card.email,
-                              query: encodeQueryParameters(<String, String>{
-                                'subject': 'From ConnectCard',
-                                'body': 'Dear ${widget.userData.name},\n\n',
-                              }),
-                            );
-                            if (await canLaunchUrl(emailUri)) {
-                              await launchUrl(emailUri);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('No email client found'),
-                                ),
-                              );
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 4.0),
-                            child: Text(
-                              card.email.isNotEmpty
-                                  ? card.email
-                                  : "Insert Email",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                decoration: card.email.isNotEmpty
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            final String companyWebsite = card.companyWebsite;
-                            final String prefixedUrl =
-                                companyWebsite.startsWith('http')
-                                    ? companyWebsite
-                                    : 'https://$companyWebsite';
+                          GestureDetector(
+                            onTap: () async {
+                              final String companyWebsite = card.companyWebsite;
+                              final String prefixedUrl =
+                                  companyWebsite.startsWith('http')
+                                      ? companyWebsite
+                                      : 'https://$companyWebsite';
 
-                            final Uri _url = Uri.parse(prefixedUrl);
-                            if (await canLaunchUrl(_url)) {
-                              await launchUrl(_url);
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  content: Text('Website not found'),
-                                ),
-                              );
-                            }
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 4.0),
-                            child: Text(
-                              card.companyWebsite.isNotEmpty
-                                  ? card.companyWebsite
-                                  : "Insert Company Website",
-                              style: TextStyle(
-                                color: Colors.blue,
-                                decoration: card.companyWebsite.isNotEmpty
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none,
+                              final Uri _url = Uri.parse(prefixedUrl);
+                              if (await canLaunchUrl(_url)) {
+                                await launchUrl(_url);
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text('Website not found'),
+                                  ),
+                                );
+                              }
+                            },
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 4.0),
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.public,
+                                    color: Colors.blue,
+                                  ),
+                                  SizedBox(width: 4.0),
+                                  Text(
+                                    card.companyWebsite.isNotEmpty
+                                        ? card.companyWebsite
+                                        : "Insert Company Website",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      decoration: card.companyWebsite.isNotEmpty
+                                          ? TextDecoration.underline
+                                          : TextDecoration.none,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -232,22 +272,6 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                 });
               },
             ),
-          ),
-        ),
-        SizedBox(height: 10.0),
-        Container(
-          child: ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => CardDetailsPage(
-                      card: widget.cards[_currentIndex],
-                      userData: widget.userData),
-                ),
-              );
-            },
-            child: Text('View Card'),
           ),
         ),
         SizedBox(height: 10.0),
