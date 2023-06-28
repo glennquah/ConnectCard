@@ -118,7 +118,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBar(
-                                  content: Text('Phone number not found'),
+                                  content: Text('Phone app not found'),
                                 ),
                               );
                             }
@@ -175,7 +175,13 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                         ),
                         GestureDetector(
                           onTap: () async {
-                            final Uri _url = Uri.parse(card.companyWebsite);
+                            final String companyWebsite = card.companyWebsite;
+                            final String prefixedUrl =
+                                companyWebsite.startsWith('http')
+                                    ? companyWebsite
+                                    : 'https://$companyWebsite';
+
+                            final Uri _url = Uri.parse(prefixedUrl);
                             if (await canLaunchUrl(_url)) {
                               await launchUrl(_url);
                             } else {
@@ -225,6 +231,17 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                 });
               },
             ),
+          ),
+        ),
+        SizedBox(height: 10.0),
+        Container(
+          child: ElevatedButton(
+            onPressed: () {
+              // Perform the desired action when "View more" is tapped
+              print('View more tapped!');
+              // You can navigate to a new screen or execute any other logic here
+            },
+            child: Text('View Card'),
           ),
         ),
         SizedBox(height: 10.0),
