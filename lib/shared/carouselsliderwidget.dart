@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/shared/card_details.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -237,9 +238,14 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
         Container(
           child: ElevatedButton(
             onPressed: () {
-              // Perform the desired action when "View more" is tapped
-              print('View more tapped!');
-              // You can navigate to a new screen or execute any other logic here
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CardDetailsPage(
+                      card: widget.cards[_currentIndex],
+                      userData: widget.userData),
+                ),
+              );
             },
             child: Text('View Card'),
           ),
