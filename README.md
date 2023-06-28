@@ -5,7 +5,19 @@ ConnectCard is a mobile application that allows users to scan, store, and manage
 # Level of achievement
 Apollo II
 
+## Table of Contents
+- [Description](#description)
+- [User Stories](#user-stories)
+- [Features](#features)
+- [Poster & Video](#poster--video)
+- [Key Technologies](#key-technologies)
+- [System Design](#system-design)
+- [Project Log](#project-log)
+
+<!-- DESCRIPTION -->
+
 ## Description
+<a href="#description"></a>
 
 ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for the user interface design. It offers various features such as scanning and storing name card information, linking the app to communication platforms like Telegram, Whatsapp, Phone, and Email, updating existing data, NFC technology for easy name card exchange, and a membership/reward card feature.
 
@@ -27,6 +39,9 @@ Store and access membership or loyalty reward cards digitally, eliminating the r
 ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly, through sending it through a link and using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
 
 ## User Stories
+
+<a href="#description"></a>
+
 1. As a recruiter, I want to easily scan and store name cards digitally, so that I can manage and access contact information efficiently during the hiring process.
 
 2. As a working adult, I want to update my personal digital name card easily, so that I can keep my contact information up to date for seamless interactions with clients and colleagues.
