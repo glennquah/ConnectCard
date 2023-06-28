@@ -192,6 +192,29 @@ class _HomeState extends State<Home> {
                       ? HomeListView(userData: userData, cards: cards)
                       : HomeCardView(userData: userData, cards: cards),
                 ),
+                Align(
+                  alignment: Alignment.topCenter,
+                  child: Container(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          onPressed: () {
+                            // Handle connect button press
+                          },
+                          child: Text('Connect'),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            // Add your functionality here
+                          },
+                          icon: Icon(Icons.share),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ],
             ),
           );
