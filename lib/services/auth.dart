@@ -1,5 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/Friends.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -44,6 +45,8 @@ class Auth {
       // create a new document for the user with the uid
       await DatabaseService(uid: user.uid).updateUserData(
         'name',
+        '',
+        '',
         [
           Cards(
             imageUrl: '',
@@ -56,6 +59,16 @@ class Auth {
             companyAddress: '',
             personalStatement: '',
             moreInfo: '',
+          )
+        ],
+        [
+          Friends(
+            uid: '',
+          )
+        ],
+        [
+          Friends(
+            uid: '',
           )
         ],
       );

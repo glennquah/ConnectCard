@@ -1,4 +1,5 @@
 import 'package:connectcard/models/Cards.dart';
+import 'package:connectcard/models/Friends.dart';
 
 // TheUser class
 class TheUser {
@@ -15,12 +16,18 @@ class TheUser {
 class UserData {
   final String uid;
   final String name;
-  // final String headLine;
+  final String headLine;
+  final String profilePic;
   final List<Cards> listOfCards;
+  final List<Friends> listOfFriends;
+  final List<Friends> listOfFriendRequests;
 
   UserData(
       {required this.uid,
-      //    required this.headLine,
       required this.name,
-      required this.listOfCards});
+      required this.headLine,
+      required this.profilePic,
+      required this.listOfCards,
+      required this.listOfFriends,
+      required this.listOfFriendRequests});
 }

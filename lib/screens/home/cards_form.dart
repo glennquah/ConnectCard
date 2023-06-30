@@ -1,5 +1,5 @@
 import 'package:connectcard/models/Cards.dart';
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/card_editor.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
@@ -35,140 +35,113 @@ class _CardsFormState extends State<CardsForm> {
     }
 
     if (user != null) {
-      return Scaffold(
-        body: SingleChildScrollView(
-          child: StreamBuilder<UserData>(
-            stream: DatabaseService(uid: user!.uid).userProfile,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                UserData? userData = snapshot.data;
-                cards = [
-                  ...userData!.listOfCards.map((card) => card.cardName),
-                ]; // Update the list of available cards
-                if (cards.isNotEmpty && selectedCard.isEmpty) {
-                  selectedCard = cards.first;
+      return Container(
+        constraints: BoxConstraints(maxHeight: 200),
+        child: Scaffold(
+          body: SingleChildScrollView(
+            child: StreamBuilder<UserData>(
+              stream: DatabaseService(uid: user!.uid).userProfile,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  UserData? userData = snapshot.data;
+                  cards = [
+                    ...userData!.listOfCards.map((card) => card.cardName),
+                  ]; // Update the list of available cards
+                  if (cards.isNotEmpty && selectedCard.isEmpty) {
+                    selectedCard = cards.first;
+                  }
+
+                  //Edit Name
+                  return Form(
+                    key: _formKey,
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          'Select your cards',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                        SizedBox(height: 20.0),
+                        DropdownButtonFormField<String>(
+                          value: selectedCard,
+                          items: cards.map<DropdownMenuItem<String>>((card) {
+                            return DropdownMenuItem<String>(
+                              value: card,
+                              child: Text('$card'),
+                            );
+                          }).toList(),
+                          onChanged: (String? value) {
+                            setState(() {
+                              selectedCard = value!;
+                            });
+                          },
+                        ),
+                        SizedBox(height: 12.0),
+                        Center(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              ElevatedButton(
+                                onPressed: () => _showEditorPage(selectedCard),
+                                child: Text(
+                                  'Edit Card',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              SizedBox(width: 12.0),
+                              ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    final cardName =
+                                        "New Card ${userData.listOfCards.length + 1}"; // Set the card name
+
+                                    // Create a new card object
+                                    final newCard = Cards(
+                                      imageUrl: '',
+                                      cardName: cardName,
+                                      companyName: '',
+                                      jobTitle: '',
+                                      phoneNum: '',
+                                      email: '',
+                                      companyWebsite: '',
+                                      companyAddress: '',
+                                      personalStatement: '',
+                                      moreInfo: '',
+                                    );
+
+                                    // Update the list of cards in the user's document
+                                    userData.listOfCards.add(newCard);
+                                    await DatabaseService(uid: user!.uid)
+                                        .updateUserData(
+                                            userData.name,
+                                            userData.headLine,
+                                            userData.profilePic,
+                                            userData.listOfCards,
+                                            userData.listOfFriends,
+                                            userData.listOfFriendRequests);
+
+                                    ScaffoldMessenger.of(context).showSnackBar(
+                                      SnackBar(
+                                        content: Text('New card added!'),
+                                      ),
+                                    );
+                                  }
+                                },
+                                child: Text(
+                                  'Add Card',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                } else {
+                  return Loading();
                 }
-
-                //Edit Name
-                return Form(
-                  key: _formKey,
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Edit Name',
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                      SizedBox(height: 20.0),
-                      TextFormField(
-                        key: _Name,
-                        initialValue: userData.name,
-                        decoration: InputDecoration(
-                          hintText: 'New Name',
-                          prefixIcon: Icon(Icons.person),
-                        ),
-                        validator: (val) =>
-                            val!.isEmpty ? 'Enter a name' : null,
-                        onChanged: (val) {
-                          setState(() => newName = val);
-                        },
-                      ),
-                      SizedBox(height: 20.0),
-                      ElevatedButton(
-                        onPressed: () async {
-                          await DatabaseService(uid: user!.uid).updateUserData(
-                            newName,
-                            userData.listOfCards,
-                          );
-                        },
-                        child: Text(
-                          'Confirm Edit',
-                          style: TextStyle(color: Colors.white),
-                        ),
-                      ),
-                      SizedBox(height: 20.0),
-                      // Edit Cards
-                      Text(
-                        'Select your cards',
-                        style: TextStyle(fontSize: 18.0),
-                      ),
-                      SizedBox(height: 20.0),
-                      DropdownButtonFormField<String>(
-                        value: selectedCard,
-                        items: cards.map<DropdownMenuItem<String>>((card) {
-                          return DropdownMenuItem<String>(
-                            value: card,
-                            child: Text('$card'),
-                          );
-                        }).toList(),
-                        onChanged: (String? value) {
-                          setState(() {
-                            selectedCard = value!;
-                          });
-                        },
-                      ),
-                      SizedBox(height: 12.0),
-                      Center(
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            ElevatedButton(
-                              onPressed: () => _showEditorPage(selectedCard),
-                              child: Text(
-                                'Edit Card',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                            SizedBox(width: 12.0),
-                            ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  final cardName =
-                                      "New Card ${userData.listOfCards.length + 1}"; // Set the card name
-
-                                  // Create a new card object
-                                  final newCard = Cards(
-                                    imageUrl: '',
-                                    cardName: cardName,
-                                    companyName: '',
-                                    jobTitle: '',
-                                    phoneNum: '',
-                                    email: '',
-                                    companyWebsite: '',
-                                    companyAddress: '',
-                                    personalStatement: '',
-                                    moreInfo: '',
-                                  );
-
-                                  // Update the list of cards in the user's document
-                                  userData.listOfCards.add(newCard);
-                                  await DatabaseService(uid: user!.uid)
-                                      .updateUserData(
-                                    userData.name,
-                                    userData.listOfCards,
-                                  );
-
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text('New card added!'),
-                                    ),
-                                  );
-                                }
-                              },
-                              child: Text(
-                                'Add Card',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                );
-              } else {
-                return Loading();
-              }
-            },
+              },
+            ),
           ),
         ),
       );

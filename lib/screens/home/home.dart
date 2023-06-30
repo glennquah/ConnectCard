@@ -1,5 +1,5 @@
 import 'package:connectcard/models/Cards.dart';
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/screens/home/home_cardview.dart';
 import 'package:connectcard/screens/home/home_listview.dart';
@@ -84,17 +84,13 @@ class _HomeState extends State<Home> {
                 child: CircleAvatar(
                   radius: 15.0,
                   backgroundImage: NetworkImage(
-                    userData.listOfCards.isNotEmpty &&
-                            userData.listOfCards.first.imageUrl.isNotEmpty
-                        ? userData.listOfCards.first.imageUrl
-                        : '',
+                    userData.profilePic.isNotEmpty ? userData.profilePic : '',
                   ),
                   backgroundColor: Colors.white,
-                  child: userData.listOfCards.isNotEmpty &&
-                          userData.listOfCards.first.imageUrl.isNotEmpty
+                  child: userData.profilePic.isNotEmpty
                       ? ClipOval(
                           child: Image.network(
-                            userData.listOfCards.first.imageUrl,
+                            userData.profilePic,
                             width: 60.0,
                             height: 60.0,
                             fit: BoxFit.cover,

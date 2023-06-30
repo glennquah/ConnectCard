@@ -1,4 +1,4 @@
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:flutter/material.dart';
 
 // This class is used to display the profile bar
@@ -42,17 +42,13 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
         child: CircleAvatar(
           radius: 15.0,
           backgroundImage: NetworkImage(
-            userData.listOfCards.isNotEmpty &&
-                    userData.listOfCards.first.imageUrl.isNotEmpty
-                ? userData.listOfCards.first.imageUrl
-                : '',
+            userData.profilePic.isNotEmpty ? userData.profilePic : '',
           ),
           backgroundColor: Colors.white,
-          child: userData.listOfCards.isNotEmpty &&
-                  userData.listOfCards.first.imageUrl.isNotEmpty
+          child: userData.profilePic.isNotEmpty
               ? ClipOval(
                   child: Image.network(
-                    userData.listOfCards.first.imageUrl,
+                    userData.profilePic,
                     width: 60.0,
                     height: 60.0,
                     fit: BoxFit.cover,

@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:connectcard/models/Cards.dart';
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -434,7 +434,13 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
 
                                   await DatabaseService(uid: user!.uid)
                                       .updateUserData(
-                                          userData.name, newListOfCards);
+                                    userData.name,
+                                    userData.headLine,
+                                    userData.profilePic,
+                                    newListOfCards,
+                                    userData.listOfFriends,
+                                    userData.listOfFriendRequests,
+                                  );
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
@@ -493,8 +499,14 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                   await DatabaseService(
                                                           uid: user!.uid)
                                                       .updateUserData(
-                                                          userData.name,
-                                                          updatedListOfCards);
+                                                    userData.name,
+                                                    userData.headLine,
+                                                    userData.profilePic,
+                                                    updatedListOfCards,
+                                                    userData.listOfFriends,
+                                                    userData
+                                                        .listOfFriendRequests,
+                                                  );
                                                   // Navigate to the Home screen
                                                   Navigator.pushReplacement(
                                                     context,

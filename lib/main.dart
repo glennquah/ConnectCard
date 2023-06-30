@@ -1,4 +1,4 @@
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/profile/profilepage.dart';
 import 'package:connectcard/screens/contacts/contactpage.dart';
 import 'package:connectcard/screens/friendcards/friendcardspage.dart';

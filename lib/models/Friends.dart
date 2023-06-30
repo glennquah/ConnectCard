@@ -6,4 +6,11 @@ class Friends {
   Friends({
     required this.uid,
   });
+
+  // Convert the data to JSON format
+  Map<String, dynamic> toJson() {
+    return {
+      'uid': uid,
+    };
+  }
 }

@@ -1,4 +1,4 @@
-import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
