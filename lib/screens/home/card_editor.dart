@@ -30,9 +30,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   final _websiteKey = GlobalKey<FormState>();
   final _addressKey = GlobalKey<FormState>();
   final _personalStatementKey = GlobalKey<FormState>();
-  final _moreInfo1Key = GlobalKey<FormState>();
-  final _moreInfo2Key = GlobalKey<FormState>();
-  final _moreInfo3Key = GlobalKey<FormState>();
+  final _moreInfoKey = GlobalKey<FormState>();
 
   TheUser? user; // User object
   String imageUrl = '';
@@ -44,9 +42,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   String newWebsite = '';
   String newAddress = '';
   String newPersonalStatement = '';
-  String newMoreInfo1 = '';
-  String newMoreInfo2 = '';
-  String newMoreInfo3 = '';
+  String newMoreInfo = '';
   File? image;
 
   Color bgColor = const Color(0xffFEAA1B);
@@ -104,9 +100,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                 companyWebsite: '',
                 companyAddress: '',
                 personalStatement: '',
-                moreInfo1: '',
-                moreInfo2: '',
-                moreInfo3: '',
+                moreInfo: '',
                 imageUrl: '',
               ),
             );
@@ -162,7 +156,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           initialValue: selectedCard.cardName,
                           decoration: InputDecoration(
                             hintText: 'New Card Name',
-                            prefixIcon: Icon(Icons.person),
+                            prefixIcon: Icon(Icons.card_membership),
                           ),
                           validator: (val) =>
                               val!.isEmpty ? 'Enter a Card name' : null,
@@ -271,47 +265,20 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
-                          key: _moreInfo1Key,
-                          initialValue: selectedCard.moreInfo1,
+                          key: _moreInfoKey,
+                          initialValue: selectedCard.moreInfo,
                           decoration: InputDecoration(
-                            hintText: 'New Additional Information',
+                            hintText: 'More Information',
                             prefixIcon: Icon(Icons.info),
                           ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
+                          maxLines:
+                              10, // Set the number of lines you want to display
+                          keyboardType:
+                              TextInputType.multiline, // Enable multiline input
+                          textInputAction: TextInputAction
+                              .newline, // Enable the newline action
                           onChanged: (val) {
-                            setState(() => newMoreInfo1 = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _moreInfo2Key,
-                          initialValue: selectedCard.moreInfo2,
-                          decoration: InputDecoration(
-                            hintText: 'New Additional Information',
-                            prefixIcon: Icon(Icons.info),
-                          ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => newMoreInfo2 = val);
-                          },
-                        ),
-                        SizedBox(height: 12.0),
-                        TextFormField(
-                          key: _moreInfo3Key,
-                          initialValue: selectedCard.moreInfo3,
-                          decoration: InputDecoration(
-                            hintText: 'New Additional Information',
-                            prefixIcon: Icon(Icons.info),
-                          ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter additional information'
-                              : null,
-                          onChanged: (val) {
-                            setState(() => newMoreInfo3 = val);
+                            setState(() => newMoreInfo = val);
                           },
                         ),
                         SizedBox(height: 12.0),
@@ -350,15 +317,9 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     newPersonalStatement.isNotEmpty
                                         ? newPersonalStatement
                                         : selectedCard.personalStatement;
-                                final updatedMoreInfo1 = newMoreInfo1.isNotEmpty
-                                    ? newMoreInfo1
-                                    : selectedCard.moreInfo1;
-                                final updatedMoreInfo2 = newMoreInfo2.isNotEmpty
-                                    ? newMoreInfo2
-                                    : selectedCard.moreInfo2;
-                                final updatedMoreInfo3 = newMoreInfo3.isNotEmpty
-                                    ? newMoreInfo3
-                                    : selectedCard.moreInfo3;
+                                final updatedMoreInfo = newMoreInfo.isNotEmpty
+                                    ? newMoreInfo
+                                    : selectedCard.moreInfo;
 
                                 bool isDuplicateCardName = userData.listOfCards
                                     .any((card) =>
@@ -384,9 +345,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     companyWebsite: updatedWebsite,
                                     companyAddress: updatedAddress,
                                     personalStatement: updatedPersonalStatement,
-                                    moreInfo1: updatedMoreInfo1,
-                                    moreInfo2: updatedMoreInfo2,
-                                    moreInfo3: updatedMoreInfo3,
+                                    moreInfo: updatedMoreInfo,
                                   );
 
                                   //Cards selectedCard = userData!.listOfCards.firstWhere(

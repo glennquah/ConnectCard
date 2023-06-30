@@ -54,9 +54,7 @@ class Auth {
             companyWebsite: '',
             companyAddress: '',
             personalStatement: '',
-            moreInfo1: '',
-            moreInfo2: '',
-            moreInfo3: '',
+            moreInfo: '',
           )
         ],
       );

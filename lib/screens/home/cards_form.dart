@@ -133,9 +133,7 @@ class _CardsFormState extends State<CardsForm> {
                                     companyWebsite: '',
                                     companyAddress: '',
                                     personalStatement: '',
-                                    moreInfo1: '',
-                                    moreInfo2: '',
-                                    moreInfo3: '',
+                                    moreInfo: '',
                                   );
 
                                   // Update the list of cards in the user's document

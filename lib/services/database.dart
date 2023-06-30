@@ -24,18 +24,17 @@ class DatabaseService {
   List<Cards> _cardListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Cards(
-          imageUrl: doc['imageUrl'] ?? '', // Replace with the actual image file
-          cardName: doc['companyName'] ?? '',
-          companyName: doc['companyName'] ?? '',
-          jobTitle: doc['jobTitle'] ?? '',
-          phoneNum: doc['phoneNum'] ?? '',
-          email: doc['email'] ?? '',
-          companyWebsite: doc['companyWebsite'] ?? '',
-          companyAddress: doc['companyAddress'] ?? '',
-          personalStatement: doc['personalStatement'] ?? '',
-          moreInfo1: doc['moreInfo1'] ?? '',
-          moreInfo2: doc['moreInfo2'] ?? '',
-          moreInfo3: doc['moreInfo3'] ?? '');
+        imageUrl: doc['imageUrl'] ?? '', // Replace with the actual image file
+        cardName: doc['companyName'] ?? '',
+        companyName: doc['companyName'] ?? '',
+        jobTitle: doc['jobTitle'] ?? '',
+        phoneNum: doc['phoneNum'] ?? '',
+        email: doc['email'] ?? '',
+        companyWebsite: doc['companyWebsite'] ?? '',
+        companyAddress: doc['companyAddress'] ?? '',
+        personalStatement: doc['personalStatement'] ?? '',
+        moreInfo: doc['moreInfo1'] ?? '',
+      );
     }).toList();
   }
 
@@ -57,9 +56,7 @@ class DatabaseService {
             companyWebsite: card['companyWebsite'] ?? '',
             companyAddress: card['companyAddress'] ?? '',
             personalStatement: card['personalStatement'] ?? '',
-            moreInfo1: card['moreInfo1'] ?? '',
-            moreInfo2: card['moreInfo2'] ?? '',
-            moreInfo3: card['moreInfo3'] ?? '',
+            moreInfo: card['moreInfo1'] ?? '',
           ),
         ),
       ),

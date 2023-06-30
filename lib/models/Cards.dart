@@ -8,9 +8,7 @@ class Cards {
   final String companyWebsite;
   final String companyAddress;
   final String personalStatement;
-  final String moreInfo1;
-  final String moreInfo2;
-  final String moreInfo3;
+  final String? moreInfo; // optional
 
   Cards(
       {required this.imageUrl,
@@ -22,9 +20,7 @@ class Cards {
       required this.companyWebsite,
       required this.companyAddress,
       required this.personalStatement,
-      required this.moreInfo1,
-      required this.moreInfo2,
-      required this.moreInfo3});
+      required this.moreInfo});
 
   Map<String, dynamic> toJson() {
     return {
@@ -37,9 +33,7 @@ class Cards {
       'companyWebsite': companyWebsite,
       'companyAddress': companyAddress,
       'personalStatement': personalStatement,
-      'moreInfo1': moreInfo1,
-      'moreInfo2': moreInfo2,
-      'moreInfo3': moreInfo3,
+      'moreInfo1': moreInfo,
     };
   }
 }

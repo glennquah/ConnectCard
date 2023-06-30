@@ -22,8 +22,8 @@ class NaviBar extends StatelessWidget {
           tabs: const [
             GButton(icon: Icons.home, text: 'Home'),
             GButton(icon: Icons.camera, text: 'Scan'),
-            GButton(icon: Icons.card_giftcard, text: 'My Cards'),
-            GButton(icon: Icons.people, text: 'Contacts'),
+            GButton(icon: Icons.card_membership, text: 'Cards'),
+            GButton(icon: Icons.people, text: 'Friends'),
           ],
           selectedIndex: currentIndex,
           onTabChange: (index) {

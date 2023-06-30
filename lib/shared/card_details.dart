@@ -196,18 +196,23 @@ class CardDetailsPage extends StatelessWidget {
             ),
             SizedBox(height: 20.0),
             Text(
-              'Additional Information:',
+              'Details:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 16.0,
               ),
             ),
-            Text('Address: ${card.companyAddress}'),
+            Text('Work Address: ${card.companyAddress}'),
             Text('Personal Statement: ${card.personalStatement}'),
             SizedBox(height: 20.0),
-            Text(card.moreInfo1),
-            Text(card.moreInfo2),
-            Text(card.moreInfo3),
+            Text(
+              'More Information:',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 16.0,
+              ),
+            ),
+            Text(card.moreInfo!),
           ],
         ),
       ),
