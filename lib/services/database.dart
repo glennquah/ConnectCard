@@ -110,6 +110,11 @@ class DatabaseService {
     );
   }
 
+  Future<List<UserData>> getAllUsers() async {
+    QuerySnapshot snapshot = await profileCollection.get();
+    return snapshot.docs.map((doc) => _userDataFromSnapshot(doc)).toList();
+  }
+
   // get cards stream
   Stream<List<Cards>> get cardList {
     return profileCollection.snapshots().map(_cardListFromSnapshot);
