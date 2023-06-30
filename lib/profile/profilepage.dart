@@ -28,6 +28,10 @@ class ProfilePage extends StatelessWidget {
           UserData? userData = snapshot.data;
           return Scaffold(
             backgroundColor: bgColor,
+            appBar: AppBar(
+              title: Text('View Profile'),
+              backgroundColor: const Color(0xffFEAA1B),
+            ),
             body: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -47,6 +51,11 @@ class ProfilePage extends StatelessWidget {
                   Text(
                     userData.name,
                     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    userData.headLine,
+                    style: TextStyle(fontSize: 18),
                   ),
                   SizedBox(height: 40),
                   SizedBox(

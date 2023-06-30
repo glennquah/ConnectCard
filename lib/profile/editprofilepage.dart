@@ -81,9 +81,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       SizedBox(height: 20.0),
                       Text(
                         'Edit Name',
-                        style: TextStyle(fontSize: 18.0),
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      SizedBox(height: 20.0),
                       TextFormField(
                         initialValue: userData!.name,
                         decoration: InputDecoration(
@@ -97,9 +99,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       SizedBox(height: 20.0),
                       Text(
                         'Edit Headline',
-                        style: TextStyle(fontSize: 18.0),
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
-                      SizedBox(height: 20.0),
                       TextFormField(
                         initialValue: userData.headLine,
                         decoration: InputDecoration(
