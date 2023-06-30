@@ -250,8 +250,17 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'New Phone Number',
                             prefixIcon: Icon(Icons.phone),
                           ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a phone number' : null,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return 'Enter a phone number';
+                            }
+                            // Regular expression pattern to match the allowed format (+ and integers only)
+                            RegExp regex = RegExp(r'^\+?[0-9]+$');
+                            if (!regex.hasMatch(val)) {
+                              return 'Invalid phone number';
+                            }
+                            return null;
+                          },
                           onChanged: (val) {
                             setState(() => newPhoneNum = val);
                           },
@@ -264,8 +273,15 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'New Email',
                             prefixIcon: Icon(Icons.mail),
                           ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter an email' : null,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return 'Enter an email';
+                            }
+                            if (!val.contains('@')) {
+                              return 'Invalid email';
+                            }
+                            return null;
+                          },
                           onChanged: (val) {
                             setState(() => newEmail = val);
                           },
@@ -278,8 +294,15 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'New Website',
                             prefixIcon: Icon(Icons.language),
                           ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a website' : null,
+                          validator: (val) {
+                            if (val!.isEmpty) {
+                              return 'Enter a website';
+                            }
+                            if (!val.startsWith('www.')) {
+                              return 'Website must start with www.';
+                            }
+                            return null;
+                          },
                           onChanged: (val) {
                             setState(() => newWebsite = val);
                           },

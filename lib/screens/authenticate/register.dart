@@ -66,8 +66,13 @@ class _RegisterState extends State<Register> {
                               prefixIcon: Icon(Icons.phone),
                             ),
                             validator: (val) {
-                              if (val == null || val.isEmpty) {
+                              if (val!.isEmpty) {
                                 return 'Enter a phone number';
+                              }
+                              // Regular expression pattern to match the allowed format (+ and integers only)
+                              RegExp regex = RegExp(r'^\+?[0-9]+$');
+                              if (!regex.hasMatch(val)) {
+                                return 'Invalid phone number';
                               }
                               return null;
                             },
