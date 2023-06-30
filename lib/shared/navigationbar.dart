@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
+// This class is used to display the navigation bar
 class NaviBar extends StatelessWidget {
   final int currentIndex;
 

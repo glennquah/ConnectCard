@@ -65,6 +65,7 @@ class _RegisterState extends State<Register> {
                               hintText: 'Phone Number',
                               prefixIcon: Icon(Icons.phone),
                             ),
+                            // The validator receives the text that the user has entered, must fulfil the requirement of being integers
                             validator: (val) {
                               if (val!.isEmpty) {
                                 return 'Enter a phone number';

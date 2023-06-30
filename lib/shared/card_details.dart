@@ -3,6 +3,7 @@ import 'package:connectcard/models/theUser.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// This class is used to display the details of the user
 class CardDetailsPage extends StatelessWidget {
   final Cards card;
   final UserData userData;

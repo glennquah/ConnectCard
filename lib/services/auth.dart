@@ -3,6 +3,7 @@ import 'package:connectcard/models/theUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
+// This class is used to handle the authentication of the user
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 

@@ -6,6 +6,7 @@ import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// Form for user to see and edit their cards
 class CardsForm extends StatefulWidget {
   @override
   _CardsFormState createState() => _CardsFormState();
@@ -48,6 +49,7 @@ class _CardsFormState extends State<CardsForm> {
                   selectedCard = cards.first;
                 }
 
+                //Edit Name
                 return Form(
                   key: _formKey,
                   child: Column(
@@ -84,6 +86,7 @@ class _CardsFormState extends State<CardsForm> {
                         ),
                       ),
                       SizedBox(height: 20.0),
+                      // Edit Cards
                       Text(
                         'Select your cards',
                         style: TextStyle(fontSize: 18.0),

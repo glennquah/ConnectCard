@@ -4,6 +4,7 @@ import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// ProfilePage class
 class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

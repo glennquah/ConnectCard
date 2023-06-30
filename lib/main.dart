@@ -1,8 +1,8 @@
 import 'package:connectcard/models/theUser.dart';
+import 'package:connectcard/profile/profilepage.dart';
 import 'package:connectcard/screens/contacts/contactpage.dart';
+import 'package:connectcard/screens/friendcards/friendcardspage.dart';
 import 'package:connectcard/screens/home/home.dart';
-import 'package:connectcard/screens/home/profilepage.dart';
-import 'package:connectcard/screens/rewardcards/rewardcardpage.dart';
 import 'package:connectcard/screens/scan/ocr/ocr.dart';
 import 'package:connectcard/screens/wrapper.dart';
 import 'package:connectcard/services/auth.dart';
@@ -24,10 +24,11 @@ class MyApp extends StatelessWidget {
       initialData: null,
       child: MaterialApp(
         home: Wrapper(),
+        // to route to a page, use Navigator.pushNamed(context, '/pageName')
         routes: {
           '/home': (context) => Home(),
           '/scan': (context) => OcrScreen(),
-          '/rewardcards': (context) => RewardCardPage(),
+          '/rewardcards': (context) => FriendCardsPage(),
           '/contacts': (context) => ContactPage(),
           '/profile': (context) => ProfilePage(),
         },

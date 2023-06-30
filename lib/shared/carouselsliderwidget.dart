@@ -5,6 +5,7 @@ import 'package:connectcard/shared/card_details.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// This class is used to display the carousel slider widget
 class CarouselSliderWidget extends StatefulWidget {
   final UserData userData;
   final List<Cards> cards;

@@ -1,6 +1,7 @@
 import 'package:connectcard/models/theUser.dart';
 import 'package:flutter/material.dart';
 
+// This class is used to display the profile bar
 class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
   final UserData userData;
 

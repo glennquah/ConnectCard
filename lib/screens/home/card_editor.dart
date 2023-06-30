@@ -48,7 +48,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
 
   Color bgColor = const Color(0xffFEAA1B);
 
-  // Function to show the image picker dialog
+  // Function to show the image picker dialog (Pop up)
   Future<void> _showImagePickerDialog() async {
     showDialog(
       context: context,
@@ -254,7 +254,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             if (val!.isEmpty) {
                               return 'Enter a phone number';
                             }
-                            // Regular expression pattern to match the allowed format (+ and integers only)
+                            //(+ and integers only)
                             RegExp regex = RegExp(r'^\+?[0-9]+$');
                             if (!regex.hasMatch(val)) {
                               return 'Invalid phone number';
@@ -277,6 +277,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             if (val!.isEmpty) {
                               return 'Enter an email';
                             }
+                            // must contain @
                             if (!val.contains('@')) {
                               return 'Invalid email';
                             }
@@ -298,6 +299,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             if (val!.isEmpty) {
                               return 'Enter a website';
                             }
+                            //must contain www.
                             if (!val.startsWith('www.')) {
                               return 'Website must start with www.';
                             }
@@ -344,12 +346,9 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'More Information',
                             prefixIcon: Icon(Icons.info),
                           ),
-                          maxLines:
-                              10, // Set the number of lines you want to display
-                          keyboardType:
-                              TextInputType.multiline, // Enable multiline input
-                          textInputAction: TextInputAction
-                              .newline, // Enable the newline action
+                          maxLines: 10, // MAX LINE TO WRITE
+                          keyboardType: TextInputType.multiline,
+                          textInputAction: TextInputAction.newline,
                           onChanged: (val) {
                             setState(() => newMoreInfo = val);
                           },
@@ -360,7 +359,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           ElevatedButton(
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                // Check if each field is empty or not
+                                // Check if each field is empty, if not use previous values
                                 final updateImageUrl = imageUrl.isNotEmpty
                                     ? imageUrl
                                     : selectedCard.imageUrl;
@@ -399,6 +398,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                         card.cardName == updatedCardName &&
                                         card.cardName != widget.selectedCard);
 
+                                //Checker to see if card name already exists
                                 if (isDuplicateCardName) {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     SnackBar(
@@ -421,9 +421,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     moreInfo: updatedMoreInfo,
                                   );
 
-                                  //Cards selectedCard = userData!.listOfCards.firstWhere(
-                                  //(card) => card.cardName == widget.selectedCard,
-                                  //);
                                   List<Cards> newListOfCards =
                                       userData.listOfCards.map((card) {
                                     final selectedCardName =
@@ -458,6 +455,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
+                                  // Pop up to confirm delete
                                   return AlertDialog(
                                     title:
                                         Center(child: Text('Confirm Delete')),

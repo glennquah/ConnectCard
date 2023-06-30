@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/theUser.dart';
 
+// This class is used to update the user's data in the database
 class DatabaseService {
   final String uid;
 

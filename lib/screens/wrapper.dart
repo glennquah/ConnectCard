@@ -4,6 +4,7 @@ import 'package:connectcard/screens/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// This class is used to toggle between the sign in and register pages
 class Wrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

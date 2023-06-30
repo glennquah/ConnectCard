@@ -6,6 +6,7 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// ContactPage class
 class ContactPage extends StatelessWidget {
   final List<String> friends = [
     'John',

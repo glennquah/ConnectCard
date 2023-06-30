@@ -10,6 +10,7 @@ import 'package:connectcard/shared/navigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// This class is used to display the home page
 class Home extends StatefulWidget {
   @override
   _HomeState createState() => _HomeState();

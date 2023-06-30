@@ -6,7 +6,8 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class RewardCardPage extends StatelessWidget {
+// FriendCardsPage class
+class FriendCardsPage extends StatelessWidget {
   final List<String> rewardCards = [
     'acai',
     'mac',
