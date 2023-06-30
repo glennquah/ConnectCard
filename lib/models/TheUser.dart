@@ -1,5 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 
+// TheUser class
 class TheUser {
   final String uid;
 
@@ -10,15 +11,16 @@ class TheUser {
   }
 }
 
+// UserData class which stores the user's data
 class UserData {
   final String uid;
   final String name;
-  final String headLine;
+  // final String headLine;
   final List<Cards> listOfCards;
 
   UserData(
       {required this.uid,
-      required this.headLine,
+      //    required this.headLine,
       required this.name,
       required this.listOfCards});
 }

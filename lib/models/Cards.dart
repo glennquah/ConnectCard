@@ -1,3 +1,4 @@
+// Purpose: Create a Cards class to store the data of the Name card
 class Cards {
   final String imageUrl;
   final String cardName;
@@ -8,8 +9,9 @@ class Cards {
   final String companyWebsite;
   final String companyAddress;
   final String personalStatement;
-  final String? moreInfo; // optional
+  final String? moreInfo; // optional as people might not want to add more info
 
+// Cards Constructor
   Cards(
       {required this.imageUrl,
       required this.cardName,
@@ -22,6 +24,7 @@ class Cards {
       required this.personalStatement,
       required this.moreInfo});
 
+// Convert the data to JSON format
   Map<String, dynamic> toJson() {
     return {
       'imageUrl': imageUrl,

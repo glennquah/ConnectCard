@@ -3,6 +3,7 @@ import 'package:connectcard/shared/constants.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 
+// This class is used to sign in the user
 class SignIn extends StatefulWidget {
   final Function? toggleView;
   SignIn({required this.toggleView});

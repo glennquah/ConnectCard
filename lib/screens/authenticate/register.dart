@@ -3,6 +3,7 @@ import 'package:connectcard/shared/constants.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 
+// This class is used to register a user
 class Register extends StatefulWidget {
   final Function toggleView;
   Register({required this.toggleView});

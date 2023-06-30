@@ -11,6 +11,7 @@ import 'package:provider/provider.dart';
 
 import 'home.dart';
 
+// Screen for users to be able to edit the information of their cards
 class CardEditorScreen extends StatefulWidget {
   final String selectedCard;
   const CardEditorScreen({required this.selectedCard});
@@ -47,19 +48,67 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
 
   Color bgColor = const Color(0xffFEAA1B);
 
+  // Function to show the image picker dialog
+  Future<void> _showImagePickerDialog() async {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Center(child: Text('Select an Image')),
+          content: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              GestureDetector(
+                onTap: () async {
+                  Navigator.of(context).pop();
+                  await _pickImage(ImageSource.camera);
+                },
+                child: CircleAvatar(
+                  radius: 32.0,
+                  backgroundColor: Colors.transparent,
+                  child: Icon(
+                    Icons.camera_alt,
+                    size: 32.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              SizedBox(width: 16.0),
+              GestureDetector(
+                onTap: () async {
+                  Navigator.of(context).pop();
+                  await _pickImage(ImageSource.gallery);
+                },
+                child: CircleAvatar(
+                  radius: 32.0,
+                  backgroundColor: Colors.transparent,
+                  child: Icon(
+                    Icons.photo_library,
+                    size: 32.0,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  // Pick image from camera or gallery
   Future<void> _pickImage(ImageSource source) async {
     ImagePicker imagePicker = ImagePicker();
-    //XFile? file = await imagePicker.pickImage(source: ImageSource.camera);
     XFile? file = await imagePicker.pickImage(source: source);
     if (file == null) {
       return;
     }
-
     String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
     Reference referenceRoot = FirebaseStorage.instance.ref();
     Reference referenceDirImages = referenceRoot.child('images');
     Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
 
+    // Upload the file to Firebase Storage
     try {
       // Store the file
       await referenceImageToUpload.putFile(File(file.path));
@@ -67,10 +116,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
       // Success: get the download URL
       imageUrl = await referenceImageToUpload.getDownloadURL();
     } catch (error) {
-      // Some error occurred
+      // Incase some error occured
       print(error);
     }
 
+    // Update the UI
     setState(() {
       if (file != null) {
         image = File(file.path);
@@ -123,7 +173,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                     child: Column(
                       children: <Widget>[
                         GestureDetector(
-                          onTap: () => _pickImage(ImageSource.gallery),
+                          onTap: () => _showImagePickerDialog(),
                           child: Container(
                             height: 100,
                             width: 100,
