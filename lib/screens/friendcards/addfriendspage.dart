@@ -30,11 +30,16 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
   }
 
   void filterUsers(String query) {
-    List<UserData> filteredUsers = userList
-        .where(
-          (user) => user.name.toLowerCase().contains(query.toLowerCase()),
-        )
-        .toList();
+    List<UserData> filteredUsers = [];
+    if (query.isNotEmpty) {
+      filteredUsers = userList.where((user) {
+        final String lowercaseQuery = query.toLowerCase();
+        final String lowercaseName = user.name.toLowerCase();
+        return lowercaseName.contains(lowercaseQuery);
+      }).toList();
+    } else {
+      filteredUsers = List.from(userList);
+    }
     setState(() {
       filteredUserList = filteredUsers;
     });
@@ -43,7 +48,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
   Widget buildSearchResults() {
     if (filteredUserList.isEmpty) {
       return Center(
-        child: Text('No search results'),
+        child: Image.asset('assets/search.png', height: 300.0),
       );
     } else {
       return ListView.builder(
@@ -72,6 +77,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Friends'),
+        backgroundColor: Colors.yellow[800],
       ),
       body: Column(
         children: [
@@ -81,7 +87,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
               controller: searchController,
               onChanged: filterUsers,
               decoration: InputDecoration(
-                labelText: 'Search',
+                labelText: 'Search for friends',
                 prefixIcon: Icon(Icons.search),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),

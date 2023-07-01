@@ -70,7 +70,7 @@ class DatabaseService {
   }
 
   // UserData from snapshot
-  UserData _userDataFromSnapshot(DocumentSnapshot snapshot) {
+  UserData userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
       uid: uid,
       name: snapshot['name'],
@@ -79,8 +79,7 @@ class DatabaseService {
       listOfCards: List<Cards>.from(
         (snapshot['cards'] as List<dynamic> ?? []).map(
           (card) => Cards(
-            imageUrl:
-                card['imageUrl'] ?? '', // Replace with the actual image file
+            imageUrl: card['imageUrl'] ?? '',
             cardName: card['cardName'] ?? '',
             companyName: card['companyName'] ?? '',
             jobTitle: card['jobTitle'] ?? '',
@@ -112,7 +111,10 @@ class DatabaseService {
 
   Future<List<UserData>> getAllUsers() async {
     QuerySnapshot snapshot = await profileCollection.get();
-    return snapshot.docs.map((doc) => _userDataFromSnapshot(doc)).toList();
+    return snapshot.docs
+        .map((doc) => userDataFromSnapshot(doc))
+        .where((user) => user.uid != uid)
+        .toList();
   }
 
   // get cards stream
@@ -133,7 +135,7 @@ class DatabaseService {
   // get user profile stream
   // to get the object of the user profile
   Stream<UserData> get userProfile {
-    return profileCollection.doc(uid).snapshots().map(_userDataFromSnapshot);
+    return profileCollection.doc(uid).snapshots().map(userDataFromSnapshot);
   }
 
   String get userId {

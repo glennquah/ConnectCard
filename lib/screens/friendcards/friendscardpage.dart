@@ -1,5 +1,5 @@
 import 'package:connectcard/models/TheUser.dart';
-import 'package:connectcard/screens/originalcards/addfriendspage.dart';
+import 'package:connectcard/screens/friendcards/addfriendspage.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';

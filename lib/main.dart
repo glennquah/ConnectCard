@@ -1,8 +1,8 @@
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/profile/profilepage.dart';
+import 'package:connectcard/screens/friendcards/friendscardpage.dart';
 import 'package:connectcard/screens/home/home.dart';
 import 'package:connectcard/screens/ogcards/displayphysicalcardspage.dart';
-import 'package:connectcard/screens/originalcards/friendscardpage.dart';
 import 'package:connectcard/screens/scan/ocr/ocr.dart';
 import 'package:connectcard/screens/wrapper.dart';
 import 'package:connectcard/services/auth.dart';
