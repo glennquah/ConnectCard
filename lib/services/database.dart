@@ -109,12 +109,16 @@ class DatabaseService {
     );
   }
 
-  Future<List<UserData>> getAllUsers() async {
+  Future<List<UserData>> getAllUsersExceptCurrent() async {
     QuerySnapshot snapshot = await profileCollection.get();
-    return snapshot.docs
-        .map((doc) => userDataFromSnapshot(doc))
-        .where((user) => user.uid != uid)
-        .toList();
+    List<UserData> users = [];
+    for (var doc in snapshot.docs) {
+      if (doc.id != uid) {
+        UserData user = userDataFromSnapshot(doc);
+        users.add(user);
+      }
+    }
+    return users;
   }
 
   // get cards stream

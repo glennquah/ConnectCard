@@ -7,7 +7,6 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// OriginalCardsPage class
 class OriginalCardsPage extends StatefulWidget {
   @override
   _OriginalCardsPageState createState() => _OriginalCardsPageState();
@@ -52,11 +51,15 @@ class _OriginalCardsPageState extends State<OriginalCardsPage> {
             backgroundColor: Colors.yellow[800],
             bottomNavigationBar: NaviBar(currentIndex: 3),
             floatingActionButton: FloatingActionButton(
-              onPressed: () {
+              onPressed: () async {
+                DatabaseService databaseService =
+                    DatabaseService(uid: user!.uid);
+                List<UserData> users =
+                    await databaseService.getAllUsersExceptCurrent();
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => AddFriendsPage(),
+                    builder: (context) => AddFriendsPage(users: users),
                   ),
                 );
               },
