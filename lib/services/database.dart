@@ -48,7 +48,7 @@ class DatabaseService {
         companyWebsite: doc['companyWebsite'] ?? '',
         companyAddress: doc['companyAddress'] ?? '',
         personalStatement: doc['personalStatement'] ?? '',
-        moreInfo: doc['moreInfo1'] ?? '',
+        moreInfo: doc['moreInfo'] ?? '',
       );
     }).toList();
   }
@@ -88,7 +88,7 @@ class DatabaseService {
             companyWebsite: card['companyWebsite'] ?? '',
             companyAddress: card['companyAddress'] ?? '',
             personalStatement: card['personalStatement'] ?? '',
-            moreInfo: card['moreInfo1'] ?? '',
+            moreInfo: card['moreInfo'] ?? '',
           ),
         ),
       ),
