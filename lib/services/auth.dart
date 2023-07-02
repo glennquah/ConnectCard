@@ -1,32 +1,28 @@
 import 'package:connectcard/models/Cards.dart';
-import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-// This class is used to handle the authentication of the user
 class Auth {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  // Create user object based on User
-  TheUser? _userFromFirebaseUser(User user) {
+  TheUser? _userFromFirebaseUser(User? user) {
     return user != null ? TheUser(uid: user.uid) : null;
   }
 
   User? get currentUser => _firebaseAuth.currentUser;
 
-  // Auth change user stream
   Stream<TheUser?> get user {
-    return _firebaseAuth
-        .authStateChanges()
-        .map((User? user) => _userFromFirebaseUser(user!));
+    return _firebaseAuth.authStateChanges().map(_userFromFirebaseUser);
   }
 
   Future<User?> signInWithEmailAndPassword(
       String email, String password) async {
     try {
       UserCredential result = await _firebaseAuth.signInWithEmailAndPassword(
-          email: email, password: password);
+        email: email,
+        password: password,
+      );
       User user = result.user!;
       return user;
     } catch (error) {
@@ -42,7 +38,6 @@ class Auth {
           .createUserWithEmailAndPassword(email: email, password: password);
       User user = result.user!;
 
-      // create a new document for the user with the uid
       await DatabaseService(uid: user.uid).updateUserData(
         'name',
         '',
@@ -59,18 +54,14 @@ class Auth {
             companyAddress: '',
             personalStatement: '',
             moreInfo: '',
-          )
+          ),
         ],
-        [
-          Friends(
-            uid: '',
-          )
-        ],
-        [
-          Friends(
-            uid: '',
-          )
-        ],
+      );
+
+      await DatabaseService(uid: user.uid).updateFriendDatabase(
+        [],
+        [],
+        [],
       );
 
       return _userFromFirebaseUser(user);

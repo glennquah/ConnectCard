@@ -126,8 +126,6 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                 ? profilepicUrl
                                 : userData.profilePic,
                             userData.listOfCards,
-                            userData.listOfFriends,
-                            userData.listOfFriendRequests,
                           );
                           Navigator.pop(
                               context); // Navigate back to the previous page

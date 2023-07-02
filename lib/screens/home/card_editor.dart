@@ -438,8 +438,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     userData.headLine,
                                     userData.profilePic,
                                     newListOfCards,
-                                    userData.listOfFriends,
-                                    userData.listOfFriendRequests,
                                   );
                                   Navigator.pushReplacement(
                                     context,
@@ -503,9 +501,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                     userData.headLine,
                                                     userData.profilePic,
                                                     updatedListOfCards,
-                                                    userData.listOfFriends,
-                                                    userData
-                                                        .listOfFriendRequests,
                                                   );
                                                   // Navigate to the Home screen
                                                   Navigator.pushReplacement(

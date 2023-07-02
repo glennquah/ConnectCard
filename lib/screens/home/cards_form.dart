@@ -115,9 +115,7 @@ class _CardsFormState extends State<CardsForm> {
                                             userData.name,
                                             userData.headLine,
                                             userData.profilePic,
-                                            userData.listOfCards,
-                                            userData.listOfFriends,
-                                            userData.listOfFriendRequests);
+                                            userData.listOfCards);
 
                                     ScaffoldMessenger.of(context).showSnackBar(
                                       SnackBar(

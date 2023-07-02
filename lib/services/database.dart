@@ -1,45 +1,54 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/Friends.dart';
+import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 
-// This class is used to update the user's data in the database
 class DatabaseService {
   final String uid;
 
   DatabaseService({required this.uid});
 
-  // Collection reference
   final CollectionReference profileCollection =
       FirebaseFirestore.instance.collection('profile');
 
-  Future<void> updateUserData(
-      String name,
-      String headLine,
-      String profilePic,
-      List<Cards> listOfCards,
-      List<Friends> listOfFriends,
-      List<Friends> listOfFriendRequests) async {
+  CollectionReference get friendCollection {
+    return FirebaseFirestore.instance.collection('profile/$uid/friends');
+  }
+
+  Future<void> updateUserData(String name, String headLine, String profilePic,
+      List<Cards> listOfCards) async {
     final cardsData = listOfCards.map((card) => card.toJson()).toList();
-    final friendsData = listOfFriends.map((friend) => friend.toJson()).toList();
-    final friendRequestsData =
-        listOfFriendRequests.map((friend) => friend.toJson()).toList();
 
     await profileCollection.doc(uid).set({
       'name': name,
       'headLine': headLine,
       'profilePic': profilePic,
       'cards': cardsData,
-      'friends': friendsData,
-      'friendRequests': friendRequestsData,
     });
   }
 
-  // Get card list from snapshot
+  Future<void> updateFriendDatabase(
+      List<Friends> listOfFriends,
+      List<Friends> listOfFriendRequests,
+      List<Friends> listOfFriendsPhysicalCard) async {
+    final friendsData = listOfFriends.map((friend) => friend.toJson()).toList();
+    final friendRequestsData =
+        listOfFriendRequests.map((friend) => friend.toJson()).toList();
+    final friendsPhysicalCardData =
+        listOfFriendsPhysicalCard.map((friend) => friend.toJson()).toList();
+
+    await friendCollection.doc(uid).set({
+      'friends': friendsData,
+      'friendRequests': friendRequestsData,
+      'friendsPhysicalCard': friendsPhysicalCardData,
+    });
+  }
+
   List<Cards> _cardListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Cards(
-        imageUrl: doc['imageUrl'] ?? '', // Replace with the actual image file
+        imageUrl: doc['imageUrl'] ?? '',
         cardName: doc['companyName'] ?? '',
         companyName: doc['companyName'] ?? '',
         jobTitle: doc['jobTitle'] ?? '',
@@ -69,10 +78,35 @@ class DatabaseService {
     }).toList();
   }
 
-  // UserData from snapshot
+  FriendsData friendsDataFromSnapshot(DocumentSnapshot snapshot) {
+    return FriendsData(
+      uid: uid,
+      listOfFriends: List<Friends>.from(
+        (snapshot.reference.collection('friends').get().then((subSnapshot) {
+          return _friendListFromSnapshot(subSnapshot);
+        }) as List<dynamic>),
+      ),
+      listOfFriendRequests: List<Friends>.from(
+        (snapshot.reference
+            .collection('friendRequests')
+            .get()
+            .then((subSnapshot) {
+          return _friendRequestListFromSnapshot(subSnapshot);
+        }) as List<dynamic>),
+      ),
+      listOfFriendsPhysicalCard: List<Friends>.from(
+        (snapshot['friendsPhysicalCard'] as List<dynamic> ?? []).map(
+          (friend) => Friends(
+            uid: friend['uid'] ?? '',
+          ),
+        ),
+      ),
+    );
+  }
+
   UserData userDataFromSnapshot(DocumentSnapshot snapshot) {
     return UserData(
-      uid: uid,
+      uid: snapshot.id, // Use the document ID as the UID
       name: snapshot['name'],
       headLine: snapshot['headLine'],
       profilePic: snapshot['profilePic'],
@@ -92,20 +126,6 @@ class DatabaseService {
           ),
         ),
       ),
-      listOfFriends: List<Friends>.from(
-        (snapshot['friends'] as List<dynamic> ?? []).map(
-          (friend) => Friends(
-            uid: friend['uid'] ?? '',
-          ),
-        ),
-      ),
-      listOfFriendRequests: List<Friends>.from(
-        (snapshot['friendRequests'] as List<dynamic> ?? []).map(
-          (friend) => Friends(
-            uid: friend['uid'] ?? '',
-          ),
-        ),
-      ),
     );
   }
 
@@ -121,25 +141,24 @@ class DatabaseService {
     return users;
   }
 
-  // get cards stream
   Stream<List<Cards>> get cardList {
     return profileCollection.snapshots().map(_cardListFromSnapshot);
   }
 
-  // get friends stream
   Stream<List<Friends>> get friendList {
-    return profileCollection.snapshots().map(_friendListFromSnapshot);
+    return friendCollection.snapshots().map(_friendListFromSnapshot);
   }
 
-  // get friend requests stream
   Stream<List<Friends>> get friendRequestList {
-    return profileCollection.snapshots().map(_friendRequestListFromSnapshot);
+    return friendCollection.snapshots().map(_friendRequestListFromSnapshot);
   }
 
-  // get user profile stream
-  // to get the object of the user profile
   Stream<UserData> get userProfile {
     return profileCollection.doc(uid).snapshots().map(userDataFromSnapshot);
+  }
+
+  Stream<FriendsData> get friendData {
+    return friendCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
   }
 
   String get userId {
