@@ -36,10 +36,10 @@ class NaviBar extends StatelessWidget {
                 Navigator.pushReplacementNamed(context, '/scan');
                 break;
               case 2:
-                Navigator.pushReplacementNamed(context, '/rewardcards');
+                Navigator.pushReplacementNamed(context, '/physicalcards');
                 break;
               case 3:
-                Navigator.pushReplacementNamed(context, '/contacts');
+                Navigator.pushReplacementNamed(context, '/friends');
                 break;
             }
           },

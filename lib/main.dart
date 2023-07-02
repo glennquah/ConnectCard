@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
         routes: {
           '/home': (context) => Home(),
           '/scan': (context) => OcrScreen(),
-          '/rewardcards': (context) => FriendCardsPage(),
-          '/contacts': (context) => OriginalCardsPage(),
+          '/physicalcards': (context) => PhysicalCardPage(),
+          '/friends': (context) => FriendsCardsPage(),
           '/profile': (context) => ProfilePage(),
         },
       ),

@@ -7,12 +7,12 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class OriginalCardsPage extends StatefulWidget {
+class FriendsCardsPage extends StatefulWidget {
   @override
-  _OriginalCardsPageState createState() => _OriginalCardsPageState();
+  _FriendsCardsPageState createState() => _FriendsCardsPageState();
 }
 
-class _OriginalCardsPageState extends State<OriginalCardsPage> {
+class _FriendsCardsPageState extends State<FriendsCardsPage> {
   final List<String> friends = [
     'John',
     'Alice',

@@ -6,13 +6,13 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// FriendCardsPage class
-class FriendCardsPage extends StatefulWidget {
+// PhyssicalCard class
+class PhysicalCardPage extends StatefulWidget {
   @override
-  _FriendCardsPageState createState() => _FriendCardsPageState();
+  _PhysicalCardPageState createState() => _PhysicalCardPageState();
 }
 
-class _FriendCardsPageState extends State<FriendCardsPage> {
+class _PhysicalCardPageState extends State<PhysicalCardPage> {
   final List<String> rewardCards = [
     'acai',
     'mac',
