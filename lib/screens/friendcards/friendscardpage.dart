@@ -22,6 +22,12 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     'Sarah',
   ];
   List<String> filteredFriends = [];
+  List<String> pendingRequests = [
+    'Tom',
+    'Mary',
+  ];
+  bool showFriends = true;
+  TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -38,6 +44,12 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
   }
 
   @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     TheUser? user;
     user = Provider.of<TheUser?>(context);
@@ -46,70 +58,95 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           UserData? userData = snapshot.data;
-          return Scaffold(
-            appBar: ProfileBar(userData: userData!),
-            backgroundColor: Colors.yellow[800],
-            bottomNavigationBar: NaviBar(currentIndex: 3),
-            floatingActionButton: FloatingActionButton(
-              onPressed: () async {
-                DatabaseService databaseService =
-                    DatabaseService(uid: user!.uid);
-                List<UserData> users =
-                    await databaseService.getAllUsersExceptCurrent();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => AddFriendsPage(users: users),
-                  ),
-                );
-              },
-              child: Icon(Icons.add),
-            ),
-            body: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: TextField(
-                    onChanged: filterFriends,
-                    decoration: InputDecoration(
-                      labelText: 'Search',
-                      prefixIcon: Icon(Icons.search),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
+          return DefaultTabController(
+            length: 2,
+            child: Scaffold(
+              appBar: ProfileBar(userData: userData!),
+              backgroundColor: Colors.yellow[800],
+              bottomNavigationBar: NaviBar(currentIndex: 3),
+              floatingActionButton: FloatingActionButton(
+                onPressed: () async {
+                  DatabaseService databaseService =
+                      DatabaseService(uid: user!.uid);
+                  List<UserData> users =
+                      await databaseService.getAllUsersExceptCurrent();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AddFriendsPage(users: users),
+                    ),
+                  );
+                },
+                child: Icon(Icons.add),
+              ),
+              body: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Align(
+                      alignment: Alignment.centerLeft,
+                      child: TabBar(
+                        onTap: (index) {
+                          setState(() {
+                            showFriends = index == 0;
+                          });
+                        },
+                        tabs: [
+                          Tab(text: 'Friends'),
+                          Tab(text: 'Pending Requests'),
+                        ],
                       ),
                     ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: Text(
-                      'Your Friends',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                      ),
+                  Expanded(
+                    child: Stack(
+                      children: [
+                        TabBarView(
+                          children: [
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: TextField(
+                                    controller: _searchController,
+                                    onChanged: filterFriends,
+                                    decoration: InputDecoration(
+                                      labelText: 'Search',
+                                      prefixIcon: Icon(Icons.search),
+                                      border: OutlineInputBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(20.0),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: ListView.builder(
+                                    itemCount: filteredFriends.length,
+                                    itemBuilder: (context, index) {
+                                      return ListTile(
+                                        title: Text(filteredFriends[index]),
+                                      );
+                                    },
+                                  ),
+                                ),
+                              ],
+                            ),
+                            ListView.builder(
+                              itemCount: pendingRequests.length,
+                              itemBuilder: (context, index) {
+                                return ListTile(
+                                  title: Text(pendingRequests[index]),
+                                );
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                   ),
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: filteredFriends.length,
-                    itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(filteredFriends[index]),
-                        // Add more information about each friend if needed
-                        // subtitle: Text('Friend details'),
-                        // trailing: Icon(Icons.arrow_forward),
-                        // onTap: () {
-                        //   // Handle friend tap
-                        // },
-                      );
-                    },
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         } else {
