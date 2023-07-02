@@ -73,7 +73,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => AddFriendsPage(users: users),
+                      builder: (context) =>
+                          AddFriendsPage(users: users, uid: user!.uid),
                     ),
                   );
                 },

@@ -165,3 +165,35 @@ class DatabaseService {
     return uid;
   }
 }
+/*
+//Future<FriendsData> friendsDataFromSnapshot(DocumentSnapshot snapshot) async {
+  final friendCollection = snapshot.reference.collection('friends');
+  final friendRequestsCollection = snapshot.reference.collection('friendRequests');
+
+  List<Friends> listOfFriends = [];
+  List<Friends> listOfFriendRequests = [];
+  List<Friends> listOfFriendsPhysicalCard = [];
+
+  final friendsSnapshot = await friendCollection.get();
+  final friendRequestsSnapshot = await friendRequestsCollection.get();
+
+  if (friendsSnapshot.docs.isNotEmpty) {
+    listOfFriends = _friendListFromSnapshot(friendsSnapshot);
+  }
+
+  if (friendRequestsSnapshot.docs.isNotEmpty) {
+    listOfFriendRequests = _friendRequestListFromSnapshot(friendRequestsSnapshot);
+  }
+
+  final friendsPhysicalCardData = snapshot['friendsPhysicalCard'] as List<dynamic> ?? [];
+  listOfFriendsPhysicalCard = friendsPhysicalCardData.map<Friends>((friend) {
+    return Friends(uid: friend['uid'] ?? '');
+  }).toList();
+
+  return FriendsData(
+    uid: uid,
+    listOfFriends: listOfFriends,
+    listOfFriendRequests: listOfFriendRequests,
+    listOfFriendsPhysicalCard: listOfFriendsPhysicalCard,
+  );
+}*/

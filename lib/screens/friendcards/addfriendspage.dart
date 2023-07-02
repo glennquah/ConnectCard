@@ -6,8 +6,9 @@ import 'package:flutter/material.dart';
 
 class AddFriendsPage extends StatefulWidget {
   final List<UserData> users;
+  final String uid;
 
-  AddFriendsPage({required this.users});
+  AddFriendsPage({required this.users, required this.uid});
 
   @override
   _AddFriendsPageState createState() => _AddFriendsPageState();
@@ -67,24 +68,19 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                 children: [
                   ElevatedButton(
                     onPressed: () async {
-                      TheUser? me;
-                      if (me != null) {
-                        DatabaseService databaseService =
-                            DatabaseService(uid: me.uid);
-                        FriendsData friendsData =
-                            await databaseService.friendData.first;
-                        List<Friends> friendRequests =
-                            List.from(friendsData.listOfFriendRequests);
-                        friendRequests.add(Friends(uid: user.uid));
-                        await databaseService.updateFriendDatabase(
-                          friendsData.listOfFriends,
-                          friendRequests,
-                          friendsData.listOfFriendsPhysicalCard,
-                        );
-                        Navigator.pop(context);
-                      } else {
-                        print("error");
-                      }
+                      DatabaseService databaseService =
+                          DatabaseService(uid: widget.uid);
+                      FriendsData friendsData =
+                          await databaseService.friendData.first;
+                      List<Friends> friendRequests =
+                          List.from(friendsData.listOfFriendRequests);
+                      friendRequests.add(Friends(uid: user.uid));
+                      await databaseService.updateFriendDatabase(
+                        friendsData.listOfFriends,
+                        friendRequests,
+                        friendsData.listOfFriendsPhysicalCard,
+                      );
+                      Navigator.pop(context);
                     },
                     child: Text('Add Friend'),
                   ),
