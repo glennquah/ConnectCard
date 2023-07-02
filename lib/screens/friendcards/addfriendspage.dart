@@ -1,4 +1,7 @@
+import 'package:connectcard/models/Friends.dart';
+import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/services/database.dart';
 import 'package:flutter/material.dart';
 
 class AddFriendsPage extends StatefulWidget {
@@ -39,8 +42,10 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text("Add ${user.name} as a friend?",
-                  style: TextStyle(fontWeight: FontWeight.bold)),
+              Text(
+                "Add ${user.name} as a friend?",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               SizedBox(height: 16.0),
               CircleAvatar(
                 radius: 60.0,
@@ -61,9 +66,25 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      // Add friend logic
-                      Navigator.pop(context);
+                    onPressed: () async {
+                      TheUser? me;
+                      if (me != null) {
+                        DatabaseService databaseService =
+                            DatabaseService(uid: me.uid);
+                        FriendsData friendsData =
+                            await databaseService.friendData.first;
+                        List<Friends> friendRequests =
+                            List.from(friendsData.listOfFriendRequests);
+                        friendRequests.add(Friends(uid: user.uid));
+                        await databaseService.updateFriendDatabase(
+                          friendsData.listOfFriends,
+                          friendRequests,
+                          friendsData.listOfFriendsPhysicalCard,
+                        );
+                        Navigator.pop(context);
+                      } else {
+                        print("error");
+                      }
                     },
                     child: Text('Add Friend'),
                   ),
