@@ -94,7 +94,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                         },
                         tabs: [
                           Tab(text: 'Friends'),
-                          Tab(text: 'Pending Requests'),
+                          Tab(text: 'Friend Requests'),
                         ],
                       ),
                     ),
