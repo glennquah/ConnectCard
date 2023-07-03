@@ -1,7 +1,9 @@
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/profile/editprofilepage.dart';
+import 'package:connectcard/screens/authenticate/authenticate.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -20,6 +22,11 @@ class ProfilePage extends StatelessWidget {
     user = Provider.of<TheUser?>(context);
 
     Color bgColor = const Color(0xffFEAA1B);
+
+    if (user == null) {
+      // User is not logged in, show a different UI
+      return Authenticate(); // Replace with your login screen widget
+    }
 
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: user!.uid).userProfile,
@@ -54,7 +61,7 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Text(
-                    'UID: #${user!.uid.substring(user.uid.length - 4)}',
+                    'UID: #${user?.uid?.substring(user.uid.length - 4) ?? ''}',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(height: 5),
@@ -95,8 +102,14 @@ class ProfilePage extends StatelessWidget {
                     child: OvalButton(
                       icon: Icons.logout,
                       label: 'Log Out',
-                      onPressed: () {
-                        // Handle log out button press
+                      onPressed: () async {
+                        FirebaseAuth auth = FirebaseAuth.instance;
+                        try {
+                          await auth.signOut();
+                          print('User signed out successfully.');
+                        } catch (e) {
+                          print('Error signing out: $e');
+                        }
                       },
                     ),
                   ),
