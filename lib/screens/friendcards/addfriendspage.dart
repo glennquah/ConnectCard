@@ -70,7 +70,6 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
     FriendsData friendsData = await databaseService.friendData.first;
     List<Friends> friendRequestsSent =
         List.from(friendsData.listOfFriendRequestsSent);
-
     return friendRequestsSent.any((friend) => friend.uid == user.uid);
   }
 

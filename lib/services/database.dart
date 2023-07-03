@@ -41,7 +41,7 @@ class DatabaseService {
     final friendsPhysicalCardData =
         listOfFriendsPhysicalCard.map((card) => card.toJson()).toList();
 
-    await friendCollection.doc(uid).update({
+    await friendCollection.doc(uid).set({
       'friends': friendsData,
       'friendRequestsSent': friendRequestsSentData,
       'friendRequestsRec': friendRequestsRecData,
