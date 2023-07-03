@@ -28,7 +28,8 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
       filteredUsers = widget.users
           .where((user) =>
               user.name.toLowerCase().contains(query.toLowerCase()) ||
-              user.headLine.toLowerCase().contains(query.toLowerCase()))
+              user.headLine.toLowerCase().contains(query.toLowerCase()) ||
+              user.uid.toLowerCase().contains(query.toLowerCase()))
           .toList();
     });
   }
@@ -78,7 +79,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       await databaseService.updateFriendDatabase(
                           friendsData.listOfFriends,
                           friendRequests,
-                          [Friends(uid: 'acb')],
+                          friendsData.listOfFriendRequestsRec,
                           friendsData.listOfFriendsPhysicalCard);
                       Navigator.pop(context);
                     },

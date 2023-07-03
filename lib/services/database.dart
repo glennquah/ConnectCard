@@ -13,7 +13,7 @@ class DatabaseService {
       FirebaseFirestore.instance.collection('profile');
 
   CollectionReference get friendCollection {
-    return FirebaseFirestore.instance.collection('profile/$uid/friends');
+    return profileCollection.doc(uid).collection('friends');
   }
 
   Future<void> updateUserData(String name, String headLine, String profilePic,
@@ -41,7 +41,7 @@ class DatabaseService {
     final friendsPhysicalCardData =
         listOfFriendsPhysicalCard.map((card) => card.toJson()).toList();
 
-    await friendCollection.doc(uid).set({
+    await friendCollection.doc(uid).update({
       'friends': friendsData,
       'friendRequestsSent': friendRequestsSentData,
       'friendRequestsRec': friendRequestsRecData,
@@ -111,7 +111,7 @@ class DatabaseService {
     return FriendsData(
       uid: uid,
       listOfFriends: List<Friends>.from(
-        (snapshot['listOfFriends'] as List<dynamic> ?? []).map(
+        (snapshot['friends'] as List<dynamic> ?? []).map(
           (friend) => Friends(
             uid: friend['uid'] ?? '',
           ),
@@ -214,7 +214,7 @@ class DatabaseService {
   }
 
   Stream<FriendsData> get friendData {
-    return profileCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
+    return friendCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
   }
 
   String get userId {
