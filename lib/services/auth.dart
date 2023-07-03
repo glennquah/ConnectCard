@@ -1,4 +1,5 @@
 import 'package:connectcard/models/Cards.dart';
+import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -59,6 +60,7 @@ class Auth {
       );
 
       await DatabaseService(uid: user.uid).updateFriendDatabase(
+        [Friends(uid: 'default')],
         [],
         [],
         [],

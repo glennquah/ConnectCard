@@ -30,17 +30,21 @@ class DatabaseService {
 
   Future<void> updateFriendDatabase(
       List<Friends> listOfFriends,
-      List<Friends> listOfFriendRequests,
-      List<Friends> listOfFriendsPhysicalCard) async {
+      List<Friends> listOfFriendRequestsSent,
+      List<Friends> listOfFriendRequestsRec,
+      List<Cards> listOfFriendsPhysicalCard) async {
     final friendsData = listOfFriends.map((friend) => friend.toJson()).toList();
-    final friendRequestsData =
-        listOfFriendRequests.map((friend) => friend.toJson()).toList();
+    final friendRequestsSentData =
+        listOfFriendRequestsSent.map((friend) => friend.toJson()).toList();
+    final friendRequestsRecData =
+        listOfFriendRequestsRec.map((friend) => friend.toJson()).toList();
     final friendsPhysicalCardData =
-        listOfFriendsPhysicalCard.map((friend) => friend.toJson()).toList();
+        listOfFriendsPhysicalCard.map((card) => card.toJson()).toList();
 
     await friendCollection.doc(uid).set({
       'friends': friendsData,
-      'friendRequests': friendRequestsData,
+      'friendRequestsSent': friendRequestsSentData,
+      'friendRequestsRec': friendRequestsRecData,
       'friendsPhysicalCard': friendsPhysicalCardData,
     });
   }
@@ -70,10 +74,35 @@ class DatabaseService {
     }).toList();
   }
 
-  List<Friends> _friendRequestListFromSnapshot(QuerySnapshot snapshot) {
+  List<Friends> _friendRequestsSentListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.docs.map((doc) {
       return Friends(
         uid: doc['uid'] ?? '',
+      );
+    }).toList();
+  }
+
+  List<Friends> _friendRequestsRecListFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return Friends(
+        uid: doc['uid'] ?? '',
+      );
+    }).toList();
+  }
+
+  List<Cards> _friendsPhysicalCardFromSnapshot(QuerySnapshot snapshot) {
+    return snapshot.docs.map((doc) {
+      return Cards(
+        imageUrl: doc['imageUrl'] ?? '',
+        cardName: doc['companyName'] ?? '',
+        companyName: doc['companyName'] ?? '',
+        jobTitle: doc['jobTitle'] ?? '',
+        phoneNum: doc['phoneNum'] ?? '',
+        email: doc['email'] ?? '',
+        companyWebsite: doc['companyWebsite'] ?? '',
+        companyAddress: doc['companyAddress'] ?? '',
+        personalStatement: doc['personalStatement'] ?? '',
+        moreInfo: doc['moreInfo'] ?? '',
       );
     }).toList();
   }
@@ -82,22 +111,39 @@ class DatabaseService {
     return FriendsData(
       uid: uid,
       listOfFriends: List<Friends>.from(
-        (snapshot.reference.collection('friends').get().then((subSnapshot) {
-          return _friendListFromSnapshot(subSnapshot);
-        }) as List<dynamic>),
-      ),
-      listOfFriendRequests: List<Friends>.from(
-        (snapshot.reference
-            .collection('friendRequests')
-            .get()
-            .then((subSnapshot) {
-          return _friendRequestListFromSnapshot(subSnapshot);
-        }) as List<dynamic>),
-      ),
-      listOfFriendsPhysicalCard: List<Friends>.from(
-        (snapshot['friendsPhysicalCard'] as List<dynamic> ?? []).map(
+        (snapshot['listOfFriends'] as List<dynamic> ?? []).map(
           (friend) => Friends(
             uid: friend['uid'] ?? '',
+          ),
+        ),
+      ),
+      listOfFriendRequestsSent: List<Friends>.from(
+        (snapshot['friendRequestsSent'] as List<dynamic> ?? []).map(
+          (friend) => Friends(
+            uid: friend['uid'] ?? '',
+          ),
+        ),
+      ),
+      listOfFriendRequestsRec: List<Friends>.from(
+        (snapshot['friendRequestsRec'] as List<dynamic> ?? []).map(
+          (friend) => Friends(
+            uid: friend['uid'] ?? '',
+          ),
+        ),
+      ),
+      listOfFriendsPhysicalCard: List<Cards>.from(
+        (snapshot['friendsPhysicalCard'] as List<dynamic> ?? []).map(
+          (card) => Cards(
+            imageUrl: card['imageUrl'] ?? '',
+            cardName: card['cardName'] ?? '',
+            companyName: card['companyName'] ?? '',
+            jobTitle: card['jobTitle'] ?? '',
+            phoneNum: card['phoneNum'] ?? '',
+            email: card['email'] ?? '',
+            companyWebsite: card['companyWebsite'] ?? '',
+            companyAddress: card['companyAddress'] ?? '',
+            personalStatement: card['personalStatement'] ?? '',
+            moreInfo: card['moreInfo'] ?? '',
           ),
         ),
       ),
@@ -149,8 +195,18 @@ class DatabaseService {
     return friendCollection.snapshots().map(_friendListFromSnapshot);
   }
 
-  Stream<List<Friends>> get friendRequestList {
-    return friendCollection.snapshots().map(_friendRequestListFromSnapshot);
+  Stream<List<Friends>> get friendRequestsSentList {
+    return friendCollection
+        .snapshots()
+        .map(_friendRequestsSentListFromSnapshot);
+  }
+
+  Stream<List<Friends>> get friendRequestsRecList {
+    return friendCollection.snapshots().map(_friendRequestsRecListFromSnapshot);
+  }
+
+  Stream<List<Cards>> get friendsPhysicalCardList {
+    return friendCollection.snapshots().map(_friendsPhysicalCardFromSnapshot);
   }
 
   Stream<UserData> get userProfile {
@@ -158,42 +214,10 @@ class DatabaseService {
   }
 
   Stream<FriendsData> get friendData {
-    return friendCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
+    return profileCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
   }
 
   String get userId {
     return uid;
   }
 }
-/*
-//Future<FriendsData> friendsDataFromSnapshot(DocumentSnapshot snapshot) async {
-  final friendCollection = snapshot.reference.collection('friends');
-  final friendRequestsCollection = snapshot.reference.collection('friendRequests');
-
-  List<Friends> listOfFriends = [];
-  List<Friends> listOfFriendRequests = [];
-  List<Friends> listOfFriendsPhysicalCard = [];
-
-  final friendsSnapshot = await friendCollection.get();
-  final friendRequestsSnapshot = await friendRequestsCollection.get();
-
-  if (friendsSnapshot.docs.isNotEmpty) {
-    listOfFriends = _friendListFromSnapshot(friendsSnapshot);
-  }
-
-  if (friendRequestsSnapshot.docs.isNotEmpty) {
-    listOfFriendRequests = _friendRequestListFromSnapshot(friendRequestsSnapshot);
-  }
-
-  final friendsPhysicalCardData = snapshot['friendsPhysicalCard'] as List<dynamic> ?? [];
-  listOfFriendsPhysicalCard = friendsPhysicalCardData.map<Friends>((friend) {
-    return Friends(uid: friend['uid'] ?? '');
-  }).toList();
-
-  return FriendsData(
-    uid: uid,
-    listOfFriends: listOfFriends,
-    listOfFriendRequests: listOfFriendRequests,
-    listOfFriendsPhysicalCard: listOfFriendsPhysicalCard,
-  );
-}*/

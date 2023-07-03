@@ -54,7 +54,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
               ),
               SizedBox(height: 16.0),
               Text(
-                user.name,
+                '${user.name} #${user.uid.substring(user.uid.length - 4)}',
                 style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 8.0),
@@ -73,13 +73,13 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       FriendsData friendsData =
                           await databaseService.friendData.first;
                       List<Friends> friendRequests =
-                          List.from(friendsData.listOfFriendRequests);
+                          List.from(friendsData.listOfFriendRequestsSent);
                       friendRequests.add(Friends(uid: user.uid));
                       await databaseService.updateFriendDatabase(
-                        friendsData.listOfFriends,
-                        friendRequests,
-                        friendsData.listOfFriendsPhysicalCard,
-                      );
+                          friendsData.listOfFriends,
+                          friendRequests,
+                          [Friends(uid: 'acb')],
+                          friendsData.listOfFriendsPhysicalCard);
                       Navigator.pop(context);
                     },
                     child: Text('Add Friend'),
@@ -148,12 +148,21 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       backgroundImage: NetworkImage(user.profilePic),
                     ),
                     title: Text(
-                      user.name,
+                      '${user.name}',
                       style: TextStyle(fontSize: 18.0),
                     ),
-                    subtitle: Text(
-                      user.headLine,
-                      style: TextStyle(fontSize: 14.0),
+                    subtitle: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'UID: #${user.uid.substring(user.uid.length - 4)}',
+                          style: TextStyle(fontSize: 14.0),
+                        ),
+                        Text(
+                          user.headLine,
+                          style: TextStyle(fontSize: 14.0),
+                        ),
+                      ],
                     ),
                   ),
                 );

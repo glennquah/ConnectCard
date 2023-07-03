@@ -54,6 +54,11 @@ class ProfilePage extends StatelessWidget {
                   ),
                   SizedBox(height: 5),
                   Text(
+                    'UID: #${user!.uid.substring(user.uid.length - 4)}',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 5),
+                  Text(
                     userData.headLine,
                     style: TextStyle(fontSize: 18),
                   ),
