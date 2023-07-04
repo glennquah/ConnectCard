@@ -42,7 +42,7 @@ class HomeListView extends StatelessWidget {
                     contentPadding: EdgeInsets.zero,
                     leading: CircleAvatar(
                       radius: 40.0,
-                      backgroundColor: Colors.white,
+                      backgroundColor: Colors.grey,
                       child: card.imageUrl.isNotEmpty
                           ? ClipOval(
                               child: Image.network(
@@ -53,9 +53,9 @@ class HomeListView extends StatelessWidget {
                               ),
                             )
                           : Icon(
-                              Icons.add,
+                              Icons.person,
                               size: 40.0,
-                              color: Colors.black,
+                              color: Colors.white,
                             ),
                     ),
                     title: Column(

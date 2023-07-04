@@ -77,7 +77,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                             children: [
                               CircleAvatar(
                                 radius: 30.0,
-                                backgroundColor: Colors.white,
+                                backgroundColor: Colors.grey,
                                 child: card.imageUrl.isNotEmpty
                                     ? ClipOval(
                                         child: Image.network(
@@ -88,9 +88,9 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                         ),
                                       )
                                     : Icon(
-                                        Icons.add,
+                                        Icons.person,
                                         size: 40.0,
-                                        color: Colors.black,
+                                        color: Colors.white,
                                       ),
                               ),
                               SizedBox(width: 10.0),

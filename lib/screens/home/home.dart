@@ -86,7 +86,7 @@ class _HomeState extends State<Home> {
                   backgroundImage: NetworkImage(
                     userData.profilePic.isNotEmpty ? userData.profilePic : '',
                   ),
-                  backgroundColor: Colors.white,
+                  backgroundColor: Colors.grey,
                   child: userData.profilePic.isNotEmpty
                       ? ClipOval(
                           child: Image.network(
@@ -97,9 +97,9 @@ class _HomeState extends State<Home> {
                           ),
                         )
                       : Icon(
-                          Icons.add,
-                          size: 40.0,
-                          color: Colors.black,
+                          Icons.person,
+                          size: 30.0,
+                          color: Colors.white,
                         ),
                 ),
               ),

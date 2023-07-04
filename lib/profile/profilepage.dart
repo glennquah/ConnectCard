@@ -51,7 +51,7 @@ class ProfilePage extends StatelessWidget {
                         ? NetworkImage(userData.profilePic)
                         : null,
                     child: userData.profilePic.isEmpty
-                        ? Icon(Icons.add, size: 60)
+                        ? Icon(Icons.person, size: 60, color: Colors.white)
                         : null,
                   ),
                   SizedBox(height: 20),

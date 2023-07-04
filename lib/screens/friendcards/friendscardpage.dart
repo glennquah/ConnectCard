@@ -27,6 +27,23 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     fetchData();
   }
 
+  void _filterUsers(String query) {
+    setState(() {
+      filteredFriends = myFriends
+          .where((friend) =>
+              friend.name.toLowerCase().contains(query.toLowerCase()) ||
+              friend.uid.toLowerCase().contains(query.toLowerCase()) ||
+              friend.headLine.toLowerCase().contains(query.toLowerCase()))
+          .toList();
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
   Future<void> fetchData() async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
     DatabaseService databaseService = DatabaseService(uid: user!.uid);
@@ -48,12 +65,6 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
             .toList();
       });
     });
-  }
-
-  @override
-  void dispose() {
-    _searchController.dispose();
-    super.dispose();
   }
 
   Future<void> handleDecline(UserData request) async {
@@ -195,8 +206,18 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                   contentPadding: EdgeInsets.all(10.0),
                                   leading: CircleAvatar(
                                     radius: 30.0,
+                                    backgroundColor: Colors.grey,
                                     backgroundImage:
-                                        NetworkImage(friend.profilePic),
+                                        friend.profilePic.isNotEmpty
+                                            ? NetworkImage(friend.profilePic)
+                                            : null,
+                                    child: friend.profilePic.isNotEmpty
+                                        ? null // If profilePic is available, don't display a child
+                                        : Icon(
+                                            Icons.person,
+                                            size: 30.0,
+                                            color: Colors.white,
+                                          ),
                                   ),
                                   title: Text(
                                     '${friend.name}',
@@ -237,6 +258,15 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                     radius: 30.0,
                                     backgroundImage:
                                         NetworkImage(request.profilePic),
+                                    backgroundColor: Colors
+                                        .grey, // Set a background color for the avatar
+                                    child: request.profilePic.isNotEmpty
+                                        ? null // If profilePic is available, don't display a child
+                                        : Icon(
+                                            Icons.person,
+                                            size: 30.0,
+                                            color: Colors.white,
+                                          ),
                                   ),
                                   title: Text(
                                     '${request.name}',

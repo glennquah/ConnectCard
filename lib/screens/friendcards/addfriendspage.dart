@@ -96,8 +96,17 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
               ),
               SizedBox(height: 16.0),
               CircleAvatar(
-                radius: 60.0,
+                radius: 30.0,
                 backgroundImage: NetworkImage(user.profilePic),
+                backgroundColor:
+                    Colors.grey, // Set a background color for the avatar
+                child: user.profilePic.isNotEmpty
+                    ? null // If profilePic is available, don't display a child
+                    : Icon(
+                        Icons.person,
+                        size: 30.0,
+                        color: Colors.white,
+                      ),
               ),
               SizedBox(height: 16.0),
               Text(
@@ -185,8 +194,17 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
               ),
               SizedBox(height: 16.0),
               CircleAvatar(
-                radius: 60.0,
+                radius: 30.0,
                 backgroundImage: NetworkImage(user.profilePic),
+                backgroundColor:
+                    Colors.grey, // Set a background color for the avatar
+                child: user.profilePic.isNotEmpty
+                    ? null // If profilePic is available, don't display a child
+                    : Icon(
+                        Icons.person,
+                        size: 30.0,
+                        color: Colors.white,
+                      ),
               ),
               SizedBox(height: 16.0),
               Text(
@@ -321,6 +339,15 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                           leading: CircleAvatar(
                             radius: 30.0,
                             backgroundImage: NetworkImage(user.profilePic),
+                            backgroundColor: Colors
+                                .grey, // Set a background color for the avatar
+                            child: user.profilePic.isNotEmpty
+                                ? null // If profilePic is available, don't display a child
+                                : Icon(
+                                    Icons.person,
+                                    size: 30.0,
+                                    color: Colors.white,
+                                  ),
                           ),
                           title: Text(
                             '${user.name}',
@@ -375,6 +402,15 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                             leading: CircleAvatar(
                               radius: 30.0,
                               backgroundImage: NetworkImage(user.profilePic),
+                              backgroundColor: Colors
+                                  .grey, // Set a background color for the avatar
+                              child: user.profilePic.isNotEmpty
+                                  ? null // If profilePic is available, don't display a child
+                                  : Icon(
+                                      Icons.person,
+                                      size: 30.0,
+                                      color: Colors.white,
+                                    ),
                             ),
                             title: Text(
                               '${user.name}',

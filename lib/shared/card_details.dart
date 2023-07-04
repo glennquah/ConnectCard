@@ -42,10 +42,20 @@ class CardDetailsPage extends StatelessWidget {
                     backgroundImage: NetworkImage(card.imageUrl),
                   )
                 else
-                  Icon(
-                    Icons.add,
-                    size: 50.0,
-                    color: Colors.black,
+                  Container(
+                    width: 100.0,
+                    height: 100.0,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.grey,
+                    ),
+                    child: Center(
+                      child: Icon(
+                        Icons.person,
+                        size: 50.0,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                 SizedBox(width: 10.0),
                 Text(

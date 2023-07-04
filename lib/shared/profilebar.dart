@@ -44,7 +44,7 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
           backgroundImage: NetworkImage(
             userData.profilePic.isNotEmpty ? userData.profilePic : '',
           ),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey,
           child: userData.profilePic.isNotEmpty
               ? ClipOval(
                   child: Image.network(
@@ -55,9 +55,9 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 )
               : Icon(
-                  Icons.add,
-                  size: 40.0,
-                  color: Colors.black,
+                  Icons.person,
+                  size: 30.0,
+                  color: Colors.white,
                 ),
         ),
       ),
