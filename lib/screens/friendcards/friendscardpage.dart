@@ -15,14 +15,9 @@ class FriendsCardsPage extends StatefulWidget {
 }
 
 class _FriendsCardsPageState extends State<FriendsCardsPage> {
-  //to be displayed under friends tab
   List<UserData> myFriends = [];
-  //to be displayed under friend requests tab
   List<UserData> pendingRequests = [];
-  //for search history
   List<UserData> filteredFriends = [];
-
-  //to toggle between friends and friend requests
   bool showFriends = true;
   TextEditingController _searchController = TextEditingController();
 
@@ -32,28 +27,26 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     fetchData();
   }
 
-  //fetches data from database
   Future<void> fetchData() async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
     DatabaseService databaseService = DatabaseService(uid: user!.uid);
-    //get all users except current user
     List<UserData> users = await databaseService.getAllUsersExceptCurrent();
-    FriendsData friendsData = await databaseService.friendData.first;
-    //get friend requests that has been received
-    List<Friends> friendRequestsRec =
-        List.from(friendsData.listOfFriendRequestsRec);
-    //get list of friends
-    List<Friends> myfriendsList = List.from(friendsData.listOfFriends);
-    //go thru all the users & filter out the list of friends details based on the req & friends list
-    setState(() {
-      pendingRequests = users
-          .where((friend) =>
-              friendRequestsRec.any((request) => request.uid == friend.uid))
-          .toList();
-      myFriends = users
-          .where((friend) =>
-              myfriendsList.any((myFriend) => myFriend.uid == friend.uid))
-          .toList();
+
+    // Listen to changes in friend data stream
+    databaseService.friendData.listen((friendsData) {
+      List<Friends> friendRequestsRec =
+          List.from(friendsData.listOfFriendRequestsRec);
+      List<Friends> myfriendsList = List.from(friendsData.listOfFriends);
+      setState(() {
+        pendingRequests = users
+            .where((friend) =>
+                friendRequestsRec.any((request) => request.uid == friend.uid))
+            .toList();
+        myFriends = users
+            .where((friend) =>
+                myfriendsList.any((myFriend) => myFriend.uid == friend.uid))
+            .toList();
+      });
     });
   }
 
@@ -61,6 +54,83 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
   void dispose() {
     _searchController.dispose();
     super.dispose();
+  }
+
+  Future<void> handleDecline(UserData request) async {
+    TheUser? user = Provider.of<TheUser?>(context, listen: false);
+    DatabaseService databaseService = DatabaseService(uid: user!.uid);
+
+    // Remove Friend from PERSONAL friendrequestrec
+    FriendsData friendsData = await databaseService.friendData.first;
+    List<Friends> friendRequestsRec =
+        List.from(friendsData.listOfFriendRequestsRec);
+    friendRequestsRec.removeWhere((friend) => friend.uid == request.uid);
+    await databaseService.updateFriendDatabase(
+      friendsData.listOfFriends,
+      friendsData.listOfFriendRequestsSent,
+      friendRequestsRec,
+      friendsData.listOfFriendsPhysicalCard,
+    );
+
+    // Remove req from friend's sent requests
+    DatabaseService databaseServiceFriend = DatabaseService(uid: request.uid);
+    FriendsData friendsDataFriend =
+        await databaseServiceFriend.friendData.first;
+    List<Friends> friendRequestsSent =
+        List.from(friendsDataFriend.listOfFriendRequestsSent);
+    friendRequestsSent.removeWhere((friend) => friend.uid == user.uid);
+    await databaseServiceFriend.updateFriendDatabase(
+      friendsDataFriend.listOfFriends,
+      friendRequestsSent,
+      friendsDataFriend.listOfFriendRequestsRec,
+      friendsDataFriend.listOfFriendsPhysicalCard,
+    );
+
+    setState(() {
+      // Update the UI by removing the declined request from the pendingRequests list
+      pendingRequests.remove(request);
+    });
+  }
+
+  Future<void> handleAccept(UserData request) async {
+    TheUser? user = Provider.of<TheUser?>(context, listen: false);
+    DatabaseService databaseService = DatabaseService(uid: user!.uid);
+
+    // Remove Friend from PERSONAL friendrequestrec
+    FriendsData friendsData = await databaseService.friendData.first;
+    List<Friends> friendRequestsRec =
+        List.from(friendsData.listOfFriendRequestsRec);
+    friendRequestsRec.removeWhere((friend) => friend.uid == request.uid);
+    List<Friends> friendlist = List.from(friendsData.listOfFriends)
+      ..add(Friends(uid: request.uid));
+    await databaseService.updateFriendDatabase(
+      friendlist,
+      friendsData.listOfFriendRequestsSent,
+      friendRequestsRec,
+      friendsData.listOfFriendsPhysicalCard,
+    );
+
+    // Remove req from friend's sent requests
+    DatabaseService databaseServiceFriend = DatabaseService(uid: request.uid);
+    FriendsData friendsDataFriend =
+        await databaseServiceFriend.friendData.first;
+    List<Friends> friendRequestsSent =
+        List.from(friendsDataFriend.listOfFriendRequestsSent);
+    friendRequestsSent.removeWhere((friend) => friend.uid == user.uid);
+    List<Friends> friendlistFriend = List.from(friendsDataFriend.listOfFriends)
+      ..add(Friends(uid: user.uid));
+    await databaseServiceFriend.updateFriendDatabase(
+      friendlistFriend,
+      friendRequestsSent,
+      friendsDataFriend.listOfFriendRequestsRec,
+      friendsDataFriend.listOfFriendsPhysicalCard,
+    );
+
+    setState(() {
+      // Update the UI by removing the declined request from the pendingRequests list
+      pendingRequests.remove(request);
+      myFriends.add(request);
+    });
   }
 
   @override
@@ -113,128 +183,109 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                     ),
                   ),
                   Expanded(
-                    child: Stack(
+                    child: TabBarView(
                       children: [
-                        TabBarView(
-                          children: [
-                            ListView.builder(
-                              itemCount: myFriends.length,
-                              itemBuilder: (context, index) {
-                                UserData friend = myFriends[index];
-                                return ListTile(
-                                  title: Text(friend.name),
-                                  // Add more information about the friend here
-                                );
-                              },
-                            ),
-                            ListView.builder(
-                              itemCount: pendingRequests.length,
-                              itemBuilder: (context, index) {
-                                UserData request = pendingRequests[index];
-                                return Column(
+                        ListView.builder(
+                          itemCount: myFriends.length,
+                          itemBuilder: (context, index) {
+                            UserData friend = myFriends[index];
+                            return Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  leading: CircleAvatar(
+                                    radius: 30.0,
+                                    backgroundImage:
+                                        NetworkImage(friend.profilePic),
+                                  ),
+                                  title: Text(
+                                    '${friend.name}',
+                                    style: TextStyle(fontSize: 18.0),
+                                  ),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'UID: #${friend.uid.substring(friend.uid.length - 4)}',
+                                        style: TextStyle(fontSize: 14.0),
+                                      ),
+                                      Text(
+                                        friend.headLine,
+                                        style: TextStyle(fontSize: 14.0),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Divider(
+                                  color: Colors.black,
+                                  thickness: 1.0,
+                                ),
+                              ],
+                            );
+                          },
+                        ),
+                        ListView.builder(
+                          itemCount: pendingRequests.length,
+                          itemBuilder: (context, index) {
+                            UserData request = pendingRequests[index];
+                            return Column(
+                              children: [
+                                ListTile(
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  leading: CircleAvatar(
+                                    radius: 30.0,
+                                    backgroundImage:
+                                        NetworkImage(request.profilePic),
+                                  ),
+                                  title: Text(
+                                    '${request.name}',
+                                    style: TextStyle(fontSize: 18.0),
+                                  ),
+                                  subtitle: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'UID: #${request.uid.substring(request.uid.length - 4)}',
+                                        style: TextStyle(fontSize: 14.0),
+                                      ),
+                                      Text(
+                                        request.headLine,
+                                        style: TextStyle(fontSize: 14.0),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    ListTile(
-                                      contentPadding: EdgeInsets.all(10.0),
-                                      leading: CircleAvatar(
-                                        radius: 30.0,
-                                        backgroundImage:
-                                            NetworkImage(request.profilePic),
-                                      ),
-                                      title: Text(
-                                        '${request.name}',
-                                        style: TextStyle(fontSize: 18.0),
-                                      ),
-                                      subtitle: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'UID: #${request.uid.substring(request.uid.length - 4)}',
-                                            style: TextStyle(fontSize: 14.0),
-                                          ),
-                                          Text(
-                                            request.headLine,
-                                            style: TextStyle(fontSize: 14.0),
-                                          ),
-                                        ],
-                                      ),
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        handleAccept(request);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          primary: Colors.green),
+                                      child: Text('Accept'),
                                     ),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        ElevatedButton(
-                                          onPressed: () {
-                                            // Handle accept button press for this request
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                              primary: Colors.green),
-                                          child: Text('Accept'),
-                                        ),
-                                        ElevatedButton(
-                                          onPressed: () async {
-                                            // Remove Friend from PERSONAL friendrequestrec
-                                            DatabaseService databaseService =
-                                                DatabaseService(uid: user.uid);
-                                            FriendsData friendsData =
-                                                await databaseService
-                                                    .friendData.first;
-                                            List<Friends> friendRequestsRec =
-                                                List.from(friendsData
-                                                    .listOfFriendRequestsRec);
-                                            friendRequestsRec.removeWhere(
-                                                (friend) =>
-                                                    friend.uid == request.uid);
-                                            await databaseService
-                                                .updateFriendDatabase(
-                                              friendsData.listOfFriends,
-                                              friendsData
-                                                  .listOfFriendRequestsSent,
-                                              friendRequestsRec,
-                                              friendsData
-                                                  .listOfFriendsPhysicalCard,
-                                            );
-
-                                            // Remove req from friends sent req
-                                            DatabaseService
-                                                databaseServiceFriend =
-                                                DatabaseService(
-                                                    uid: request.uid);
-                                            FriendsData friendsDataFriend =
-                                                await databaseServiceFriend
-                                                    .friendData.first;
-                                            List<Friends> friendRequestsSent =
-                                                List.from(friendsDataFriend
-                                                    .listOfFriendRequestsSent);
-                                            friendRequestsSent.removeWhere(
-                                                (friend) =>
-                                                    friend.uid == user.uid);
-                                            await databaseServiceFriend
-                                                .updateFriendDatabase(
-                                              friendsDataFriend.listOfFriends,
-                                              friendRequestsSent,
-                                              friendsDataFriend
-                                                  .listOfFriendRequestsRec,
-                                              friendsDataFriend
-                                                  .listOfFriendsPhysicalCard,
-                                            );
-                                          },
-                                          style: ElevatedButton.styleFrom(
-                                              primary: Colors.red),
-                                          child: Text('Decline'),
-                                        ),
-                                      ],
-                                    ),
-                                    Divider(
-                                      // Add this line
-                                      color: Colors.black,
-                                      thickness: 1.0,
+                                    ElevatedButton(
+                                      onPressed: () {
+                                        handleDecline(request);
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                          primary: Colors.red),
+                                      child: Text('Decline'),
                                     ),
                                   ],
-                                );
-                              },
-                            ),
-                          ],
+                                ),
+                                Divider(
+                                  color: Colors.black,
+                                  thickness: 1.0,
+                                ),
+                              ],
+                            );
+                          },
                         ),
                       ],
                     ),

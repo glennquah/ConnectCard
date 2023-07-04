@@ -64,13 +64,19 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
     });
   }
 
-  //to check if they are already requesteed
+  //to check if its in request or is in my friend list
   Future<bool> _isFriendRequested(UserData user) async {
     DatabaseService databaseService = DatabaseService(uid: widget.uid);
     FriendsData friendsData = await databaseService.friendData.first;
     List<Friends> friendRequestsSent =
         List.from(friendsData.listOfFriendRequestsSent);
-    return friendRequestsSent.any((friend) => friend.uid == user.uid);
+    List<Friends> friendList = List.from(friendsData.listOfFriends);
+
+    bool isFriendRequested =
+        friendRequestsSent.any((friend) => friend.uid == user.uid);
+    bool isFriend = friendList.any((friend) => friend.uid == user.uid);
+
+    return isFriendRequested || isFriend;
   }
 
   //popup to add friends
