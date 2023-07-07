@@ -14,7 +14,8 @@ import 'home.dart';
 // Screen for users to be able to edit the information of their cards
 class CardEditorScreen extends StatefulWidget {
   final String selectedCard;
-  const CardEditorScreen({required this.selectedCard});
+  final String? recognizedText;
+  const CardEditorScreen({required this.selectedCard, this.recognizedText});
 
   @override
   _CardEditorScreenState createState() => _CardEditorScreenState();
@@ -44,9 +45,16 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
   String newAddress = '';
   String newPersonalStatement = '';
   String newMoreInfo = '';
+  String recognizedText = '';
   File? image;
 
   Color bgColor = const Color(0xffFEAA1B);
+
+  @override
+  void initState() {
+    super.initState();
+    recognizedText = widget.recognizedText ?? '';
+  }
 
   // Function to show the image picker dialog (Pop up)
   Future<void> _showImagePickerDialog() async {
@@ -130,6 +138,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
 
   @override
   Widget build(BuildContext context) {
+    recognizedText = widget.recognizedText ?? '';
     user = Provider.of<TheUser?>(context); // Retrieve user object
     if (user != null) {
       return StreamBuilder<UserData>(
@@ -341,7 +350,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                         SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfoKey,
-                          initialValue: selectedCard.moreInfo,
+                          initialValue: recognizedText ?? selectedCard.moreInfo,
                           decoration: InputDecoration(
                             hintText: 'More Information',
                             prefixIcon: Icon(Icons.info),
