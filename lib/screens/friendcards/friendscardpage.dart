@@ -27,14 +27,23 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     fetchData();
   }
 
-  void _filterUsers(String query) {
+  void _filterUsers(String query) async {
     setState(() {
-      filteredFriends = myFriends
-          .where((friend) =>
-              friend.name.toLowerCase().contains(query.toLowerCase()) ||
-              friend.uid.toLowerCase().contains(query.toLowerCase()) ||
-              friend.headLine.toLowerCase().contains(query.toLowerCase()))
-          .toList();
+      filteredFriends = [];
+    });
+
+    List<UserData> dummySearchList = [];
+
+    for (UserData user in myFriends) {
+      if (user.name.toLowerCase().contains(query.toLowerCase()) ||
+          user.headLine.toLowerCase().contains(query.toLowerCase()) ||
+          user.uid.toLowerCase().contains(query.toLowerCase())) {
+        dummySearchList.add(user);
+      }
+    }
+    //to rebuild the user interface
+    setState(() {
+      filteredFriends = dummySearchList;
     });
   }
 
@@ -46,25 +55,27 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
 
   Future<void> fetchData() async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
-    DatabaseService databaseService = DatabaseService(uid: user!.uid);
-    List<UserData> users = await databaseService.getAllUsersExceptCurrent();
+    if (user != null) {
+      DatabaseService databaseService = DatabaseService(uid: user.uid);
+      List<UserData> users = await databaseService.getAllUsersExceptCurrent();
 
-    // Listen to changes in friend data stream
-    databaseService.friendData.listen((friendsData) {
-      List<Friends> friendRequestsRec =
-          List.from(friendsData.listOfFriendRequestsRec);
-      List<Friends> myfriendsList = List.from(friendsData.listOfFriends);
-      setState(() {
-        pendingRequests = users
-            .where((friend) =>
-                friendRequestsRec.any((request) => request.uid == friend.uid))
-            .toList();
-        myFriends = users
-            .where((friend) =>
-                myfriendsList.any((myFriend) => myFriend.uid == friend.uid))
-            .toList();
+      // Listen to changes in friend data stream
+      databaseService.friendData.listen((friendsData) {
+        List<Friends> friendRequestsRec =
+            List.from(friendsData.listOfFriendRequestsRec);
+        List<Friends> myfriendsList = List.from(friendsData.listOfFriends);
+        setState(() {
+          pendingRequests = users
+              .where((friend) =>
+                  friendRequestsRec.any((request) => request.uid == friend.uid))
+              .toList();
+          myFriends = users
+              .where((friend) =>
+                  myfriendsList.any((myFriend) => myFriend.uid == friend.uid))
+              .toList();
+        });
       });
-    });
+    }
   }
 
   Future<void> handleDecline(UserData request) async {
@@ -146,6 +157,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
 
   @override
   Widget build(BuildContext context) {
+    filteredFriends.sort((a, b) => a.name.compareTo(b.name));
     TheUser? user = Provider.of<TheUser?>(context);
     return StreamBuilder<UserData>(
       stream: DatabaseService(uid: user!.uid).userProfile,
@@ -196,55 +208,86 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        ListView.builder(
-                          itemCount: myFriends.length,
-                          itemBuilder: (context, index) {
-                            UserData friend = myFriends[index];
-                            return Column(
-                              children: [
-                                ListTile(
-                                  contentPadding: EdgeInsets.all(10.0),
-                                  leading: CircleAvatar(
-                                    radius: 30.0,
-                                    backgroundColor: Colors.grey,
-                                    backgroundImage:
-                                        friend.profilePic.isNotEmpty
-                                            ? NetworkImage(friend.profilePic)
-                                            : null,
-                                    child: friend.profilePic.isNotEmpty
-                                        ? null // If profilePic is available, don't display a child
-                                        : Icon(
-                                            Icons.person,
-                                            size: 30.0,
-                                            color: Colors.white,
-                                          ),
-                                  ),
-                                  title: Text(
-                                    '${friend.name}',
-                                    style: TextStyle(fontSize: 18.0),
-                                  ),
-                                  subtitle: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'UID: #${friend.uid.substring(friend.uid.length - 4)}',
-                                        style: TextStyle(fontSize: 14.0),
-                                      ),
-                                      Text(
-                                        friend.headLine,
-                                        style: TextStyle(fontSize: 14.0),
-                                      ),
-                                    ],
+                        Column(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: TextField(
+                                onChanged: _filterUsers,
+                                controller: _searchController,
+                                decoration: InputDecoration(
+                                  labelText: 'Search for Friends',
+                                  prefixIcon: Icon(Icons.search),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(20.0),
                                   ),
                                 ),
-                                Divider(
+                              ),
+                            ),
+                            Expanded(
+                              child: ListView.separated(
+                                physics: NeverScrollableScrollPhysics(),
+                                shrinkWrap: true,
+                                itemCount: filteredFriends.isNotEmpty
+                                    ? filteredFriends.length
+                                    : myFriends
+                                        .length, // Display myFriends if filteredFriends is empty
+                                separatorBuilder: (context, index) => Divider(
                                   color: Colors.black,
                                   thickness: 1.0,
                                 ),
-                              ],
-                            );
-                          },
+                                itemBuilder: (context, index) {
+                                  UserData friend;
+                                  if (filteredFriends.isNotEmpty) {
+                                    friend = filteredFriends[index];
+                                  } else {
+                                    friend = myFriends[index];
+                                  }
+                                  return GestureDetector(
+                                    onTap: () {
+                                      //show something
+                                    },
+                                    child: ListTile(
+                                      contentPadding: EdgeInsets.all(10.0),
+                                      leading: CircleAvatar(
+                                        radius: 30.0,
+                                        backgroundColor: Colors.grey,
+                                        backgroundImage: friend
+                                                .profilePic.isNotEmpty
+                                            ? NetworkImage(friend.profilePic)
+                                            : null,
+                                        child: friend.profilePic.isNotEmpty
+                                            ? null // If profilePic is available, don't display a child
+                                            : Icon(
+                                                Icons.person,
+                                                size: 30.0,
+                                                color: Colors.white,
+                                              ),
+                                      ),
+                                      title: Text(
+                                        '${friend.name}',
+                                        style: TextStyle(fontSize: 18.0),
+                                      ),
+                                      subtitle: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'UID: #${friend.uid.substring(friend.uid.length - 4)}',
+                                            style: TextStyle(fontSize: 14.0),
+                                          ),
+                                          Text(
+                                            friend.headLine,
+                                            style: TextStyle(fontSize: 14.0),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                            ),
+                          ],
                         ),
                         ListView.builder(
                           itemCount: pendingRequests.length,
@@ -296,7 +339,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                         handleAccept(request);
                                       },
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.green),
+                                        primary: Colors.green,
+                                      ),
                                       child: Text('Accept'),
                                     ),
                                     ElevatedButton(
@@ -304,7 +348,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                         handleDecline(request);
                                       },
                                       style: ElevatedButton.styleFrom(
-                                          primary: Colors.red),
+                                        primary: Colors.red,
+                                      ),
                                       child: Text('Decline'),
                                     ),
                                   ],
