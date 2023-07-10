@@ -201,7 +201,18 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                         },
                         tabs: [
                           Tab(text: 'Friends'),
-                          Tab(text: 'Friend Requests'),
+                          if (pendingRequests.isEmpty)
+                            Tab(text: 'Friend Requests')
+                          else
+                            Tab(
+                              child: Text(
+                                '${pendingRequests.length} Friend Requests',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.red,
+                                ),
+                              ),
+                            ),
                         ],
                       ),
                     ),
@@ -227,7 +238,6 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                             ),
                             Expanded(
                               child: ListView.separated(
-                                physics: NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: filteredFriends.isNotEmpty
                                     ? filteredFriends.length

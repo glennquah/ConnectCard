@@ -320,7 +320,6 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                     ),
                   ),
                   ListView.separated(
-                    physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: filteredUsers.length,
                     separatorBuilder: (context, index) => Divider(
