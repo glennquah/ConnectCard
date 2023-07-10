@@ -9,8 +9,12 @@ import 'package:url_launcher/url_launcher.dart';
 class CarouselSliderWidget extends StatefulWidget {
   final UserData userData;
   final List<Cards> cards;
+  final Color backgroundColor;
 
-  CarouselSliderWidget({required this.userData, required this.cards});
+  CarouselSliderWidget(
+      {required this.userData,
+      required this.cards,
+      this.backgroundColor = Colors.white});
 
   @override
   _CarouselSliderWidgetState createState() => _CarouselSliderWidgetState();
@@ -62,7 +66,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                 },
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: widget.backgroundColor,
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   margin: EdgeInsets.symmetric(horizontal: 10.0),

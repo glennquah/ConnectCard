@@ -2,6 +2,7 @@ import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/friendcards/addfriendspage.dart';
+import 'package:connectcard/screens/friendcards/friendcards.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
@@ -245,7 +246,15 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                   }
                                   return GestureDetector(
                                     onTap: () {
-                                      //show something
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => FriendCards(
+                                            userData: friend,
+                                            cards: friend.listOfCards,
+                                          ),
+                                        ),
+                                      );
                                     },
                                     child: ListTile(
                                       contentPadding: EdgeInsets.all(10.0),
