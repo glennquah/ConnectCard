@@ -36,7 +36,7 @@ class Cards {
       'companyWebsite': companyWebsite,
       'companyAddress': companyAddress,
       'personalStatement': personalStatement,
-      'moreInfo1': moreInfo,
+      'moreInfo': moreInfo,
     };
   }
 }
