@@ -27,8 +27,7 @@ apply plugin: 'com.google.gms.google-services'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    // changed to 33 to do OCR
-    compileSdkVersion 33
+    compileSdkVersion 33 // changed to 33 to do OCR
     ndkVersion flutter.ndkVersion
 
     compileOptions {
@@ -51,7 +50,7 @@ android {
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
         minSdkVersion 22
         // changed for OCR
-        targetSdkVersion 32
+        targetSdkVersion 32 // changed to 32 to do OCR
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true
