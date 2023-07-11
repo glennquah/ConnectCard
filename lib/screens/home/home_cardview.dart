@@ -1,5 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/services/firebase_dynamic_link.dart';
 import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
 
@@ -26,8 +27,11 @@ class HomeCardView extends StatelessWidget {
                       height: 60,
                       width: 60,
                       child: IconButton(
-                        onPressed: () {
-                          // Handle sharing via WhatsApp
+                        onPressed: () async {
+                          String generatedDeepLink =
+                              await FirebaseDynamicLinkService
+                                  .createDynamicLink(userData);
+                          print(generatedDeepLink);
                         },
                         icon: Image.asset('assets/logo/whatsapp.png'),
                       ),
