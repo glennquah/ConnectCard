@@ -3,6 +3,7 @@ import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/firebase_dynamic_link.dart';
 import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeCardView extends StatelessWidget {
   final UserData userData;
@@ -31,7 +32,10 @@ class HomeCardView extends StatelessWidget {
                           String generatedDeepLink =
                               await FirebaseDynamicLinkService
                                   .createDynamicLink(userData);
-                          print(generatedDeepLink);
+                          // Share link via WhatsApp
+                          String whatsappLink =
+                              'whatsapp://send?text=$generatedDeepLink';
+                          await launch(whatsappLink);
                         },
                         icon: Image.asset('assets/logo/whatsapp.png'),
                       ),
@@ -45,8 +49,16 @@ class HomeCardView extends StatelessWidget {
                       height: 60,
                       width: 60,
                       child: IconButton(
-                        onPressed: () {
-                          // Handle sharing via Telegram
+                        onPressed: () async {
+                          String generatedDeepLink =
+                              await FirebaseDynamicLinkService
+                                  .createDynamicLink(userData);
+
+                          // Share link via Telegram
+                          //String encodedLink = Uri.encodeFull(generatedDeepLink);
+                          String telegramLink =
+                              'https://t.me/share/url?url=$generatedDeepLink';
+                          await launch(telegramLink);
                         },
                         icon: Image.asset('assets/logo/telegram.png'),
                       ),

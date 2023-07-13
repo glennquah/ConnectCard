@@ -6,6 +6,7 @@ import 'package:connectcard/screens/ogcards/displayphysicalcardspage.dart';
 import 'package:connectcard/screens/scan/ocr/ocr.dart';
 import 'package:connectcard/screens/wrapper.dart';
 import 'package:connectcard/services/auth.dart';
+import 'package:connectcard/services/firebase_dynamic_link.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +20,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    FirebaseDynamicLinkService.initDynamicLink(context);
     return StreamProvider<TheUser?>.value(
       value: Auth().user,
       initialData: null,
