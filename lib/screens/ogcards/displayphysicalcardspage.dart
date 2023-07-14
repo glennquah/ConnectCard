@@ -2,6 +2,7 @@ import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
+import 'package:connectcard/shared/friendphysicalcard_details.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
 import 'package:connectcard/shared/profilebar.dart';
@@ -107,8 +108,14 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                       Cards card = filteredFriendCards[index];
                       return InkWell(
                         onTap: () {
-                          // Handle card tap
-                          // You can navigate to a detailed card view or perform any other action here
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => FriendCardDetailsPage(
+                                card: card,
+                              ),
+                            ),
+                          );
                         },
                         child: ListTile(
                           title: Column(

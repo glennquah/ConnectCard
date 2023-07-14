@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:camera/camera.dart';
 import 'package:connectcard/screens/scan/ocr/result_screen.dart';
 import 'package:connectcard/shared/navigationbar.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -186,11 +187,27 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
 
       final inputImage = InputImage.fromFile(file);
       final recognizedText = await textRecognizer.processImage(inputImage);
+      String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
+      Reference referenceRoot = FirebaseStorage.instance.ref();
+      Reference referenceDirImages = referenceRoot.child('images');
+      Reference referenceImageToUpload =
+          referenceDirImages.child(uniqueFileName);
+      String imageUrl = '';
+      try {
+        // Store the file
+        await referenceImageToUpload.putFile(File(file.path));
+
+        // Success: get the download URL
+        imageUrl = await referenceImageToUpload.getDownloadURL();
+      } catch (error) {
+        // Incase some error occured
+        print(error);
+      }
 
       await navigator.push(
         MaterialPageRoute(
           builder: (BuildContext context) =>
-              ResultScreen(text: recognizedText.text, imagePath: file.path),
+              ResultScreen(text: recognizedText.text, imagePath: imageUrl),
         ),
       );
     } catch (e) {
