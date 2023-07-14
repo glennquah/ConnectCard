@@ -6,9 +6,7 @@ import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/ogcards/displayphysicalcardspage.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 // Screen for users to be able to edit the information of their cards
@@ -47,86 +45,6 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
   File? image;
 
   Color bgColor = const Color(0xffFEAA1B);
-
-  // Function to show the image picker dialog (Pop up)
-  Future<void> _showImagePickerDialog() async {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Center(child: Text('Select an Image')),
-          content: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              GestureDetector(
-                onTap: () async {
-                  Navigator.of(context).pop();
-                  await _pickImage(ImageSource.camera);
-                },
-                child: CircleAvatar(
-                  radius: 32.0,
-                  backgroundColor: Colors.transparent,
-                  child: Icon(
-                    Icons.camera_alt,
-                    size: 32.0,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-              SizedBox(width: 16.0),
-              GestureDetector(
-                onTap: () async {
-                  Navigator.of(context).pop();
-                  await _pickImage(ImageSource.gallery);
-                },
-                child: CircleAvatar(
-                  radius: 32.0,
-                  backgroundColor: Colors.transparent,
-                  child: Icon(
-                    Icons.photo_library,
-                    size: 32.0,
-                    color: Colors.black,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  // Pick image from camera or gallery
-  Future<void> _pickImage(ImageSource source) async {
-    ImagePicker imagePicker = ImagePicker();
-    XFile? file = await imagePicker.pickImage(source: source);
-    if (file == null) {
-      return;
-    }
-    String uniqueFileName = DateTime.now().millisecondsSinceEpoch.toString();
-    Reference referenceRoot = FirebaseStorage.instance.ref();
-    Reference referenceDirImages = referenceRoot.child('images');
-    Reference referenceImageToUpload = referenceDirImages.child(uniqueFileName);
-
-    // Upload the file to Firebase Storage
-    try {
-      // Store the file
-      await referenceImageToUpload.putFile(File(file.path));
-
-      // Success: get the download URL
-      imageUrl = await referenceImageToUpload.getDownloadURL();
-    } catch (error) {
-      // Incase some error occured
-      print(error);
-    }
-
-    // Update the UI
-    setState(() {
-      if (file != null) {
-        image = File(file.path);
-      }
-    });
-  }
 
   Future<FriendsData> _getFriendsData() async {
     user = Provider.of<TheUser?>(context);
@@ -185,33 +103,21 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                     key: _formKey, // Add _formKey here
                     child: Column(
                       children: <Widget>[
-                        GestureDetector(
-                          onTap: () => _showImagePickerDialog(),
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: Colors.grey,
-                            ),
-                            child: imageUrl.isNotEmpty
-                                ? ClipOval(
-                                    child: image != null
-                                        ? Image.file(
-                                            image!,
-                                            fit: BoxFit.cover,
-                                          )
-                                        : Image.network(
-                                            imageUrl,
-                                            fit: BoxFit.cover,
-                                          ),
-                                  )
-                                : Icon(
-                                    Icons.add_a_photo,
-                                    size: 50,
-                                    color: Colors.white,
-                                  ),
+                        Container(
+                          width: 150.0,
+                          height: 150.0,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
+                          child: image != null
+                              ? Image.file(
+                                  image!,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.network(
+                                  imageUrl,
+                                  fit: BoxFit.cover,
+                                ),
                         ),
                         SizedBox(height: 12.0),
                         TextFormField(
@@ -449,7 +355,7 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                     friendsData.listOfFriends,
                                     friendsData.listOfFriendRequestsSent,
                                     friendsData.listOfFriendRequestsRec,
-                                    listOfCards,
+                                    newListOfCards,
                                   );
                                   Navigator.pushReplacement(
                                     context,

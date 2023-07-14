@@ -1,6 +1,7 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/screens/scan/friendcardeditor.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/friendphysicalcard_details.dart';
 import 'package:connectcard/shared/loading.dart';
@@ -18,6 +19,67 @@ class PhysicalCardPage extends StatefulWidget {
 class _PhysicalCardPageState extends State<PhysicalCardPage> {
   List<Cards> friendCards = [];
   List<Cards> filteredFriendCards = [];
+
+  void _showCardOptionsDialog(Cards card) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          contentPadding: EdgeInsets.symmetric(vertical: 25.0),
+          content: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Center(child: Text(card.cardName)),
+                SizedBox(height: 25.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FriendCardDetailsPage(
+                                  card: card,
+                                ),
+                              ),
+                            );
+                          },
+                          icon: Icon(Icons.visibility),
+                        ),
+                        Text("View"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => FriendCardEditorScreen(
+                                  selectedCard: card.cardName,
+                                ),
+                              ),
+                            );
+                          },
+                          icon: Icon(Icons.edit),
+                        ),
+                        Text("Edit"),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   void initState() {
@@ -108,14 +170,7 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                       Cards card = filteredFriendCards[index];
                       return InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => FriendCardDetailsPage(
-                                card: card,
-                              ),
-                            ),
-                          );
+                          _showCardOptionsDialog(card);
                         },
                         child: ListTile(
                           title: Column(
