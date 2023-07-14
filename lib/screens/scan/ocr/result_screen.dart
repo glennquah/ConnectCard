@@ -1,6 +1,8 @@
 import 'package:connectcard/models/Cards.dart';
+import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/card_editor.dart';
+import 'package:connectcard/screens/scan/friendcardeditor.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,8 +11,10 @@ Color bgColor = const Color(0xffFEAA1B);
 
 class ResultScreen extends StatelessWidget {
   final String text;
+  final String imagePath;
 
-  const ResultScreen({Key? key, required this.text});
+  const ResultScreen({Key? key, required this.text, required this.imagePath})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +29,18 @@ class ResultScreen extends StatelessWidget {
       );
     }
 
+    void _showFriendEditorPage(String newCard) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FriendCardEditorScreen(selectedCard: newCard),
+        ),
+      );
+    }
+
     final List<String> lines = text.split('\n');
-    final List<String> filteredLines = [];
     final List<String> remainingLines = [];
+    final List<String> filteredLines = [];
 
     for (final line in lines) {
       final trimmedLine = line.trim();
@@ -44,6 +57,16 @@ class ResultScreen extends StatelessWidget {
 
     // Remove duplicate labels from filteredLines
     final uniqueFilteredLines = filteredLines.toSet().toList();
+
+    String getFilteredLineValue(String label) {
+      final index =
+          uniqueFilteredLines.indexWhere((line) => line.startsWith(label));
+      if (index != -1) {
+        final line = uniqueFilteredLines[index];
+        return line.substring(label.length).trim();
+      }
+      return '';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -121,27 +144,11 @@ class ResultScreen extends StatelessWidget {
                                         cardName: cardName,
                                         companyName: '',
                                         jobTitle: '',
-                                        phoneNum: uniqueFilteredLines
-                                                .contains('Phone Number:')
-                                            ? uniqueFilteredLines[
-                                                uniqueFilteredLines.indexOf(
-                                                        'Phone Number:') +
-                                                    1]
-                                            : '',
-                                        email: uniqueFilteredLines
-                                                .contains('Email:')
-                                            ? uniqueFilteredLines[
-                                                uniqueFilteredLines
-                                                        .indexOf('Email:') +
-                                                    1]
-                                            : '',
-                                        companyWebsite: uniqueFilteredLines
-                                                .contains('Website:')
-                                            ? uniqueFilteredLines[
-                                                uniqueFilteredLines
-                                                        .indexOf('Website:') +
-                                                    1]
-                                            : '',
+                                        phoneNum: getFilteredLineValue(
+                                            'Phone Number:'),
+                                        email: getFilteredLineValue('Email:'),
+                                        companyWebsite:
+                                            getFilteredLineValue('Website:'),
                                         companyAddress: '',
                                         personalStatement: '',
                                         moreInfo: remainingLines.join('\n'),
@@ -163,9 +170,45 @@ class ResultScreen extends StatelessWidget {
                                   ListTile(
                                     leading: Icon(Icons.group),
                                     title: const Text('Friend Card'),
-                                    onTap: () {
-                                      // Handle friend card selection
-                                      Navigator.pop(context);
+                                    onTap: () async {
+                                      DatabaseService databaseService =
+                                          DatabaseService(uid: user.uid);
+                                      FriendsData friendsData =
+                                          await databaseService
+                                              .friendData.first;
+                                      List<Cards> friendCards =
+                                          friendsData.listOfFriendsPhysicalCard;
+
+                                      final cardName =
+                                          "Scanned Card ${friendCards.length + 1}";
+
+                                      // Create a new card object
+                                      final newCard = Cards(
+                                        imageUrl: imagePath,
+                                        cardName: cardName,
+                                        companyName: '',
+                                        jobTitle: '',
+                                        phoneNum: getFilteredLineValue(
+                                            'Phone Number:'),
+                                        email: getFilteredLineValue('Email:'),
+                                        companyWebsite:
+                                            getFilteredLineValue('Website:'),
+                                        companyAddress: '',
+                                        personalStatement: '',
+                                        moreInfo: remainingLines.join('\n'),
+                                      );
+
+                                      // Update the list of cards in the user's document
+                                      friendCards.add(newCard);
+                                      await databaseService
+                                          .updateFriendDatabase(
+                                        friendsData.listOfFriends,
+                                        friendsData.listOfFriendRequestsSent,
+                                        friendsData.listOfFriendRequestsRec,
+                                        friendCards,
+                                      );
+
+                                      _showFriendEditorPage(cardName);
                                     },
                                   ),
                                 ],

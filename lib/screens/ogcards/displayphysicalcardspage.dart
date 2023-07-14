@@ -1,3 +1,5 @@
+import 'package:connectcard/models/Cards.dart';
+import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
@@ -6,41 +8,57 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// PhyssicalCard class
+// PhysicalCard class
 class PhysicalCardPage extends StatefulWidget {
   @override
   _PhysicalCardPageState createState() => _PhysicalCardPageState();
 }
 
 class _PhysicalCardPageState extends State<PhysicalCardPage> {
-  final List<String> rewardCards = [
-    'acai',
-    'mac',
-    'soobway',
-    'stuffd',
-    'sbox',
-    'cbtl',
-  ];
-  List<String> filteredRewardCards = [];
+  List<Cards> friendCards = [];
+  List<Cards> filteredFriendCards = [];
 
   @override
   void initState() {
     super.initState();
-    filteredRewardCards = rewardCards;
+    fetchData();
+  }
+
+  Future<void> fetchData() async {
+    TheUser? user = Provider.of<TheUser?>(context, listen: false);
+    if (user != null) {
+      DatabaseService databaseService = DatabaseService(uid: user.uid);
+      FriendsData friendsData = await databaseService.friendData.first;
+      setState(() {
+        friendCards = friendsData.listOfFriendsPhysicalCard;
+        filteredFriendCards = friendCards;
+      });
+    }
   }
 
   void filterCards(String query) {
     setState(() {
-      filteredRewardCards = rewardCards
-          .where((card) => card.toLowerCase().contains(query.toLowerCase()))
-          .toList();
+      filteredFriendCards = [];
+    });
+
+    List<Cards> dummySearchList = [];
+
+    for (Cards card in friendCards) {
+      if (card.cardName.toLowerCase().contains(query.toLowerCase()) ||
+          card.companyName.toLowerCase().contains(query.toLowerCase())) {
+        dummySearchList.add(card);
+      }
+    }
+
+    setState(() {
+      filteredFriendCards = dummySearchList;
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    TheUser? user;
-    user = Provider.of<TheUser?>(context);
+    filteredFriendCards.sort((a, b) => a.cardName.compareTo(b.cardName));
+    TheUser? user = Provider.of<TheUser?>(context);
 
     Color bgColor = const Color(0xffFEAA1B);
 
@@ -57,6 +75,16 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "List of Scanned Cards",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: TextField(
                     onChanged: filterCards,
                     decoration: InputDecoration(
@@ -69,17 +97,52 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                   ),
                 ),
                 Expanded(
-                  child: ListView.builder(
-                    itemCount: filteredRewardCards.length,
+                  child: ListView.separated(
+                    itemCount: filteredFriendCards.length,
+                    separatorBuilder: (context, index) => Divider(
+                      color: Colors.black,
+                      thickness: 1,
+                    ),
                     itemBuilder: (context, index) {
-                      return ListTile(
-                        title: Text(filteredRewardCards[index]),
-                        // Add more information about each card if needed
-                        // subtitle: Text('rewardCards details'),
-                        // trailing: Icon(Icons.arrow_forward),
-                        // onTap: () {
-                        //   // Handle rewardcards tap
-                        // },
+                      Cards card = filteredFriendCards[index];
+                      return InkWell(
+                        onTap: () {
+                          // Handle card tap
+                          // You can navigate to a detailed card view or perform any other action here
+                        },
+                        child: ListTile(
+                          title: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(card.cardName),
+                              Text(
+                                card.companyName.isNotEmpty
+                                    ? card.companyName
+                                    : "Insert Company Name",
+                              ),
+                              Text(
+                                card.jobTitle.isNotEmpty
+                                    ? card.jobTitle
+                                    : "Insert Job Title",
+                              ),
+                            ],
+                          ),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                card.phoneNum.isNotEmpty
+                                    ? card.phoneNum
+                                    : "Insert Phone Number",
+                              ),
+                              Text(
+                                card.email.isNotEmpty
+                                    ? card.email
+                                    : "Insert Email",
+                              ),
+                            ],
+                          ),
+                        ),
                       );
                     },
                   ),

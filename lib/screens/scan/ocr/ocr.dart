@@ -190,7 +190,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
       await navigator.push(
         MaterialPageRoute(
           builder: (BuildContext context) =>
-              ResultScreen(text: recognizedText.text),
+              ResultScreen(text: recognizedText.text, imagePath: file.path),
         ),
       );
     } catch (e) {
