@@ -50,6 +50,13 @@ class ResultScreen extends StatelessWidget {
         filteredLines.add('Phone Number: $trimmedLine');
       } else if (trimmedLine.contains('@')) {
         filteredLines.add('Email: $trimmedLine');
+      } else if (trimmedLine.contains('Singapore')) {
+        final addressPattern = RegExp(r'Singapore \d{6}');
+        if (addressPattern.hasMatch(trimmedLine)) {
+          filteredLines.add('Address: $trimmedLine');
+        } else {
+          remainingLines.add(trimmedLine);
+        }
       } else {
         remainingLines.add(trimmedLine);
       }
@@ -149,7 +156,8 @@ class ResultScreen extends StatelessWidget {
                                         email: getFilteredLineValue('Email:'),
                                         companyWebsite:
                                             getFilteredLineValue('Website:'),
-                                        companyAddress: '',
+                                        companyAddress:
+                                            getFilteredLineValue('Address:'),
                                         personalStatement: '',
                                         moreInfo: remainingLines.join('\n'),
                                       );
@@ -193,7 +201,8 @@ class ResultScreen extends StatelessWidget {
                                         email: getFilteredLineValue('Email:'),
                                         companyWebsite:
                                             getFilteredLineValue('Website:'),
-                                        companyAddress: '',
+                                        companyAddress:
+                                            getFilteredLineValue('Address:'),
                                         personalStatement: '',
                                         moreInfo: remainingLines.join('\n'),
                                       );

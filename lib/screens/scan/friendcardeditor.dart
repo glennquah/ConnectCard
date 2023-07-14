@@ -174,7 +174,7 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                               return 'Enter a phone number';
                             }
                             //(+ and integers only)
-                            RegExp regex = RegExp(r'^\+?[0-9]+$');
+                            RegExp regex = RegExp(r'^\+?[0-9 ]+$');
                             if (!regex.hasMatch(val)) {
                               return 'Invalid phone number';
                             }
