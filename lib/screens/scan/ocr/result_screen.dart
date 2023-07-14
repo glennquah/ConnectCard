@@ -46,7 +46,7 @@ class ResultScreen extends StatelessWidget {
       final trimmedLine = line.trim();
       if (trimmedLine.contains('www.')) {
         filteredLines.add('Website: $trimmedLine');
-      } else if (RegExp(r'\d{4,}').hasMatch(trimmedLine)) {
+      } else if (RegExp(r'\+65 9\d{3} \d{4}').hasMatch(trimmedLine)) {
         filteredLines.add('Phone Number: $trimmedLine');
       } else if (trimmedLine.contains('@')) {
         filteredLines.add('Email: $trimmedLine');
