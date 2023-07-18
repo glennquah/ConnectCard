@@ -51,5 +51,6 @@
 		<false/>
 		<key>NSCameraUsageDescription</key>
 		<string>This app needs access to your camera in order to scan text.</string>
+		<key>com.apple.developer.nfc.readersession.felica.systemcodes</key>
 	</dict>
 </plist>
