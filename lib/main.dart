@@ -30,7 +30,9 @@ class MyApp extends StatelessWidget {
           '/home': (context) => ShowCaseWidget(
                 builder: Builder(builder: (context) => Home()),
               ),
-          '/scan': (context) => OcrScreen(),
+          '/scan': (context) => ShowCaseWidget(
+                builder: Builder(builder: (context) => OcrScreen()),
+              ),
           '/physicalcards': (context) => PhysicalCardPage(),
           '/friends': (context) => FriendsCardsPage(),
           '/profile': (context) => ProfilePage(),
