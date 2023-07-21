@@ -46,7 +46,16 @@ class ProfilePopup extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               ElevatedButton(
-                onPressed: onAddFriend,
+                onPressed: () {
+                  onAddFriend();
+                  Navigator.pop(context);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Friend request sent'),
+                      duration: Duration(seconds: 2),
+                    ),
+                  );
+                },
                 child: Text('Add Friend'),
               ),
               SizedBox(width: 16.0),

@@ -6,6 +6,7 @@ import 'package:connectcard/screens/scan/ocr/result_screen.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/profile_popup.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
 class QRScanScreen extends StatefulWidget {
@@ -22,6 +23,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
   QRViewController? controller;
   bool isScanning = true;
   CameraController? cameraController;
+  final ImagePicker _imagePicker = ImagePicker();
 
   @override
   void initState() {
@@ -136,6 +138,24 @@ class _QRScanScreenState extends State<QRScanScreen> {
     });
   }
 
+  Future<void> _handleGalleryButtonClick() async {
+    final XFile? pickedImage = await _imagePicker.pickImage(
+      source: ImageSource.gallery,
+      imageQuality: 85,
+    );
+
+    if (pickedImage != null) {
+      // Process the pickedImage to scan the QR code
+      try {
+        // TODO: Add your QR code scanning logic here using the pickedImage
+        // For now, let's just print the image path
+        print('Picked Image: ${pickedImage.path}');
+      } catch (e) {
+        print('Error scanning QR code from image: $e');
+      }
+    }
+  }
+
   void _addFriend(UserData friendData) async {
     // Add Friend into PERSONAL friendrequestsent
     DatabaseService databaseService = DatabaseService(uid: widget.myData.uid);
@@ -163,6 +183,15 @@ class _QRScanScreenState extends State<QRScanScreen> {
       friendsDataFriend.listOfFriendRequestsSent,
       friendRequestsReceived,
       friendsDataFriend.listOfFriendsPhysicalCard,
+    );
+
+    // Show snack bar with friend request sent message
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text('Friend request sent'),
+        duration: Duration(
+            seconds: 2), // Optional: Set the duration for the snack bar
+      ),
     );
   }
 
@@ -210,9 +239,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             ElevatedButton(
-              onPressed: () {
-                // Implement view gallery functionality here
-              },
+              onPressed: _handleGalleryButtonClick,
               child: Text('View Gallery'),
             ),
           ],
