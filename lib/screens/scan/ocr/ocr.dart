@@ -83,7 +83,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
               ),
             Scaffold(
               appBar: AppBar(
-                title: const Text('Text Recognition Sample'),
+                title: const Text('Scan a Name Card'),
                 automaticallyImplyLeading: false,
                 backgroundColor: bgColor,
               ),

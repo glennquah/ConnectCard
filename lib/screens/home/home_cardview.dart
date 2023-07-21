@@ -1,5 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/screens/home/qrcode_scanner.dart';
 import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
@@ -125,6 +126,13 @@ class HomeCardView extends StatelessWidget {
                     ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).pop();
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>
+                                QRScanScreen(myData: userData),
+                          ),
+                        );
                       },
                       child: Text('Scan'),
                     ),
