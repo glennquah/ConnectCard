@@ -24,6 +24,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
   bool isScanning = true;
   CameraController? cameraController;
   final ImagePicker _imagePicker = ImagePicker();
+  String _decoded = 'Unknown';
 
   @override
   void initState() {
@@ -138,23 +139,27 @@ class _QRScanScreenState extends State<QRScanScreen> {
     });
   }
 
-  Future<void> _handleGalleryButtonClick() async {
-    final XFile? pickedImage = await _imagePicker.pickImage(
-      source: ImageSource.gallery,
-      imageQuality: 85,
-    );
+  // Future<void> _handleGalleryButtonClick() async {
+  //   final XFile? pickedImage = await _imagePicker.pickImage(
+  //     source: ImageSource.gallery,
+  //     imageQuality: 85,
+  //   );
 
-    if (pickedImage != null) {
-      // Process the pickedImage to scan the QR code
-      try {
-        // TODO: Add your QR code scanning logic here using the pickedImage
-        // For now, let's just print the image path
-        print('Picked Image: ${pickedImage.path}');
-      } catch (e) {
-        print('Error scanning QR code from image: $e');
-      }
-    }
-  }
+  //   if (pickedImage != null) {
+  //     String? decoded;
+  //     // Platform messages may fail, so we use a try/catch PlatformException.
+  //     // We also handle the message potentially returning null.
+  //     try {
+  //       decoded = await QrCodeUtils.decodeFrom(pickedImage.path) ??
+  //           'Unknown platform version';
+  //       if (decoded != null) {
+  //         _decoded = decoded;
+  //       }
+  //     } catch (e) {
+  //       print(e);
+  //     }
+  //   }
+  // }
 
   void _addFriend(UserData friendData) async {
     // Add Friend into PERSONAL friendrequestsent
@@ -238,10 +243,9 @@ class _QRScanScreenState extends State<QRScanScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            ElevatedButton(
-              onPressed: _handleGalleryButtonClick,
-              child: Text('View Gallery'),
-            ),
+            Text(
+              'Hold Camera on QR Code for 2 seconds',
+            )
           ],
         ),
       ),

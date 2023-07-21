@@ -57,6 +57,7 @@ dependencies:
   share: ^2.0.4
   image_gallery_saver: ^2.0.3
   modern_form_esys_flutter_share: ^1.1.2
+  qr_code_utils: ^0.0.1
   
 
 dev_dependencies:
