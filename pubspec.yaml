@@ -54,6 +54,9 @@ dependencies:
   qr_flutter: ^4.1.0
   qr_code_scanner: ^1.0.1
   barcode_scan2: ^4.2.4
+  share: ^2.0.4
+  image_gallery_saver: ^2.0.3
+  modern_form_esys_flutter_share: ^1.1.2
   
 
 dev_dependencies:

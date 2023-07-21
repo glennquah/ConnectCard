@@ -1,11 +1,14 @@
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/qrcode_scanner.dart';
 import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
+import 'package:modern_form_esys_flutter_share/modern_form_esys_flutter_share.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
-// This class is used to display the cards on the home page in cardview
 class HomeCardView extends StatelessWidget {
   final UserData userData;
   final List<Cards> cards;
@@ -32,7 +35,16 @@ class HomeCardView extends StatelessWidget {
                           width: 60,
                           child: IconButton(
                             onPressed: () async {
-                              // Add logic for WhatsApp sharing
+                              // Share the QR code image using WhatsApp
+                              final ByteData? qrCodeByteData = await QrPainter(
+                                data: userData.uid,
+                                version: QrVersions.auto,
+                              ).toImageData(150);
+
+                              if (qrCodeByteData != null) {
+                                _shareToWhatsApp(
+                                    qrCodeByteData.buffer.asUint8List());
+                              }
                             },
                             icon: Image.asset('assets/logo/whatsapp.png'),
                           ),
@@ -47,7 +59,16 @@ class HomeCardView extends StatelessWidget {
                           width: 60,
                           child: IconButton(
                             onPressed: () async {
-                              // Add logic for Telegram sharing
+                              // Share the QR code image using Telegram
+                              final ByteData? qrCodeByteData = await QrPainter(
+                                data: userData.uid,
+                                version: QrVersions.auto,
+                              ).toImageData(150);
+
+                              if (qrCodeByteData != null) {
+                                _shareToTelegram(
+                                    qrCodeByteData.buffer.asUint8List());
+                              }
                             },
                             icon: Image.asset('assets/logo/telegram.png'),
                           ),
@@ -186,5 +207,76 @@ class HomeCardView extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  Future<void> _shareToWhatsApp(Uint8List qrCodeImageData) async {
+    try {
+      // Generate the QR code image with a white background
+      final qrCodeWithWhiteBackground =
+          await _generateQRCodeWithWhiteBackground(qrCodeImageData);
+
+      // Share the image using modern_form_esys_flutter_share package
+      final ByteData data =
+          ByteData.sublistView(qrCodeWithWhiteBackground.buffer.asByteData());
+      await Share.file(
+        'QR Code',
+        'qrcode.png',
+        data.buffer.asUint8List(),
+        'image/png',
+        text:
+            'Hello! To add me as a friend on ConnectCard, Please scan my QR Code!',
+      );
+    } catch (e) {
+      print('Error sharing to WhatsApp: $e');
+    }
+  }
+
+  Future<void> _shareToTelegram(Uint8List qrCodeImageData) async {
+    try {
+      // Generate the QR code image with a white background
+      final qrCodeWithWhiteBackground =
+          await _generateQRCodeWithWhiteBackground(qrCodeImageData);
+
+      // Share the image using modern_form_esys_flutter_share package
+      final ByteData data =
+          ByteData.sublistView(qrCodeWithWhiteBackground.buffer.asByteData());
+      await Share.file(
+        'QR Code',
+        'qrcode.png',
+        data.buffer.asUint8List(),
+        'image/png',
+        text:
+            'Hello! To add me as a friend on ConnectCard, Please scan my QR Code!',
+      );
+    } catch (e) {
+      print('Error sharing to Telegram: $e');
+    }
+  }
+
+  Future<Uint8List> _generateQRCodeWithWhiteBackground(
+      Uint8List qrCodeImageData) async {
+    // Create a blank canvas with a white background
+    final ui.PictureRecorder recorder = ui.PictureRecorder();
+    final Canvas canvas =
+        Canvas(recorder, Rect.fromPoints(Offset.zero, Offset(200, 200)));
+    canvas.drawColor(Colors.white, BlendMode.color);
+
+    // Load the original QR code image onto the canvas
+    final ByteData data =
+        ByteData.sublistView(qrCodeImageData.buffer.asByteData());
+    final ui.Codec codec =
+        await ui.instantiateImageCodec(data.buffer.asUint8List());
+    final ui.FrameInfo frameInfo = await codec.getNextFrame();
+    final ui.Image qrImage = frameInfo.image;
+
+    // Draw the QR code image on the canvas with a white background
+    canvas.drawImage(qrImage, Offset(0, 0), Paint());
+
+    // End drawing
+    final ui.Picture picture = recorder.endRecording();
+    final ui.Image img = await picture.toImage(200, 200);
+    final ByteData? pngBytes =
+        await img.toByteData(format: ui.ImageByteFormat.png);
+    return pngBytes!.buffer.asUint8List();
   }
 }
