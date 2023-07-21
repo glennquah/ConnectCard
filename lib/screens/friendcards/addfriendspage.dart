@@ -2,6 +2,7 @@ import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/services/database.dart';
+import 'package:connectcard/shared/profile_popup.dart';
 import 'package:flutter/material.dart';
 
 class AddFriendsPage extends StatefulWidget {
@@ -80,101 +81,36 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
   }
 
   //popup to add friends
-  void _showProfilePopup(UserData user) async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          contentPadding:
-              EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(
-                "Add ${user.name} as a friend?",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 16.0),
-              CircleAvatar(
-                radius: 30.0,
-                backgroundImage: NetworkImage(user.profilePic),
-                backgroundColor:
-                    Colors.grey, // Set a background color for the avatar
-                child: user.profilePic.isNotEmpty
-                    ? null // If profilePic is available, don't display a child
-                    : Icon(
-                        Icons.person,
-                        size: 30.0,
-                        color: Colors.white,
-                      ),
-              ),
-              SizedBox(height: 16.0),
-              Text(
-                '${user.name} #${user.uid.substring(user.uid.length - 4)}',
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 8.0),
-              Text(
-                user.headLine,
-                style: TextStyle(fontSize: 14.0, color: Colors.grey),
-              ),
-              SizedBox(height: 24.0),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () async {
-                      // Add Friend into PERSONAL friendrequestsent
-                      DatabaseService databaseService =
-                          DatabaseService(uid: widget.uid);
-                      FriendsData friendsData =
-                          await databaseService.friendData.first;
-                      List<Friends> friendRequestsSent =
-                          List.from(friendsData.listOfFriendRequestsSent);
-                      friendRequestsSent.add(Friends(uid: user.uid));
-                      await databaseService.updateFriendDatabase(
-                        friendsData.listOfFriends,
-                        friendRequestsSent,
-                        friendsData.listOfFriendRequestsRec,
-                        friendsData.listOfFriendsPhysicalCard,
-                      );
-
-                      // Friend to receive the request under friendrequestrec
-                      DatabaseService databaseServiceFriend =
-                          DatabaseService(uid: user.uid);
-                      FriendsData friendsDataFriend =
-                          await databaseServiceFriend.friendData.first;
-                      List<Friends> friendRequestsReceived =
-                          List.from(friendsDataFriend.listOfFriendRequestsRec);
-                      friendRequestsReceived.add(Friends(uid: widget.uid));
-                      await databaseServiceFriend.updateFriendDatabase(
-                        friendsDataFriend.listOfFriends,
-                        friendsDataFriend.listOfFriendRequestsSent,
-                        friendRequestsReceived,
-                        friendsDataFriend.listOfFriendsPhysicalCard,
-                      );
-
-                      Navigator.pop(context);
-
-                      // Refresh filtered users list to show changes
-                      _initializeFilteredUsers();
-                    },
-                    child: Text('Add Friend'),
-                  ),
-                  SizedBox(width: 16.0),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Cancel'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
+  void _addFriend(UserData user) async {
+    // Add Friend into PERSONAL friendrequestsent
+    DatabaseService databaseService = DatabaseService(uid: widget.uid);
+    FriendsData friendsData = await databaseService.friendData.first;
+    List<Friends> friendRequestsSent =
+        List.from(friendsData.listOfFriendRequestsSent);
+    friendRequestsSent.add(Friends(uid: user.uid));
+    await databaseService.updateFriendDatabase(
+      friendsData.listOfFriends,
+      friendRequestsSent,
+      friendsData.listOfFriendRequestsRec,
+      friendsData.listOfFriendsPhysicalCard,
     );
+
+    // Friend to receive the request under friendrequestrec
+    DatabaseService databaseServiceFriend = DatabaseService(uid: user.uid);
+    FriendsData friendsDataFriend =
+        await databaseServiceFriend.friendData.first;
+    List<Friends> friendRequestsReceived =
+        List.from(friendsDataFriend.listOfFriendRequestsRec);
+    friendRequestsReceived.add(Friends(uid: widget.uid));
+    await databaseServiceFriend.updateFriendDatabase(
+      friendsDataFriend.listOfFriends,
+      friendsDataFriend.listOfFriendRequestsSent,
+      friendRequestsReceived,
+      friendsDataFriend.listOfFriendsPhysicalCard,
+    );
+
+    // Refresh filtered users list to show changes
+    _initializeFilteredUsers();
   }
 
   //popup to remove friend request
@@ -331,7 +267,13 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       // search friend tab
                       return GestureDetector(
                         onTap: () {
-                          _showProfilePopup(user);
+                          showDialog(
+                            context: context,
+                            builder: (context) => ProfilePopup(
+                              user: user,
+                              onAddFriend: () => _addFriend(user),
+                            ),
+                          );
                         },
                         child: ListTile(
                           contentPadding: EdgeInsets.all(10.0),
