@@ -9,6 +9,7 @@ import 'package:connectcard/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,8 +27,12 @@ class MyApp extends StatelessWidget {
         home: Wrapper(),
         // to route to a page, use Navigator.pushNamed(context, '/pageName')
         routes: {
-          '/home': (context) => Home(),
-          '/scan': (context) => OcrScreen(),
+          '/home': (context) => ShowCaseWidget(
+                builder: Builder(builder: (context) => Home()),
+              ),
+          '/scan': (context) => ShowCaseWidget(
+                builder: Builder(builder: (context) => OcrScreen()),
+              ),
           '/physicalcards': (context) => PhysicalCardPage(),
           '/friends': (context) => FriendsCardsPage(),
           '/profile': (context) => ProfilePage(),

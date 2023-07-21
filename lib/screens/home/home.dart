@@ -3,12 +3,14 @@ import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/screens/home/home_cardview.dart';
 import 'package:connectcard/screens/home/home_listview.dart';
+import 'package:connectcard/screens/showcaseWidget.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 // This class is used to display the home page
 class Home extends StatefulWidget {
@@ -20,6 +22,11 @@ class _HomeState extends State<Home> {
   final Auth _auth = Auth();
   Color bgColor = const Color(0xffFEAA1B);
   bool isCardView = false;
+
+  final GlobalKey globalKeyOne = GlobalKey();
+  final GlobalKey globalKeyTwo = GlobalKey();
+  final GlobalKey globalKeyThree = GlobalKey();
+  final GlobalKey globalKeyFour = GlobalKey();
 
   void toggleView() {
     if (isCardView) {
@@ -63,25 +70,30 @@ class _HomeState extends State<Home> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/profile');
                 },
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      userData.name,
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 16.0,
+                child: ShowcaseView(
+                  title: 'View Profile',
+                  description: 'Click here to edit your profile!',
+                  globalKey: globalKeyOne,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        userData.name,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16.0,
+                        ),
                       ),
-                    ),
-                    Text(
-                      'View Profile',
-                      style: TextStyle(
-                        color: Colors.green[800],
-                        fontSize: 14.0,
+                      Text(
+                        'View Profile',
+                        style: TextStyle(
+                          color: Colors.green[800],
+                          fontSize: 14.0,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
               leading: Padding(
@@ -112,13 +124,37 @@ class _HomeState extends State<Home> {
               elevation: 0.0,
               actions: <Widget>[
                 InkWell(
-                  onTap: () => _showCardsPanel(),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      children: const [
-                        Icon(Icons.edit, color: Colors.black),
-                      ],
+                  onTap: () => ShowCaseWidget.of(context).startShowCase([
+                    globalKeyOne,
+                    globalKeyTwo,
+                    globalKeyThree,
+                    globalKeyFour
+                  ]),
+                  child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.help,
+                            color: Colors.black,
+                          )
+                        ],
+                      )),
+                ),
+                ShowcaseView(
+                  globalKey: globalKeyTwo,
+                  title: 'Edit Card',
+                  description:
+                      'Add or Edit cards by clicking on this pen icon!',
+                  child: InkWell(
+                    onTap: () => _showCardsPanel(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: const [
+                          Icon(Icons.edit, color: Colors.black),
+                        ],
+                      ),
                     ),
                   ),
                 ),
@@ -157,10 +193,16 @@ class _HomeState extends State<Home> {
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Icon(
-                                  Icons.list,
-                                  color:
-                                      isCardView ? Colors.black : Colors.grey,
+                                child: ShowcaseView(
+                                  globalKey: globalKeyThree,
+                                  title: 'List View',
+                                  description:
+                                      'click here to view your cards in a list view!',
+                                  child: Icon(
+                                    Icons.list,
+                                    color:
+                                        isCardView ? Colors.black : Colors.grey,
+                                  ),
                                 ),
                               ),
                             ),
@@ -176,10 +218,16 @@ class _HomeState extends State<Home> {
                               child: Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Icon(
-                                  Icons.credit_card,
-                                  color:
-                                      isCardView ? Colors.grey : Colors.black,
+                                child: ShowcaseView(
+                                  globalKey: globalKeyFour,
+                                  title: 'Card View',
+                                  description:
+                                      'Click here to view your cards in card view!',
+                                  child: Icon(
+                                    Icons.credit_card,
+                                    color:
+                                        isCardView ? Colors.grey : Colors.black,
+                                  ),
                                 ),
                               ),
                             ),

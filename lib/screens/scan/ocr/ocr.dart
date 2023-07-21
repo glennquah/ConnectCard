@@ -2,11 +2,13 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:connectcard/screens/scan/ocr/result_screen.dart';
+import 'package:connectcard/screens/showcaseWidget.dart';
 import 'package:connectcard/shared/navigationbar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class OcrScreen extends StatefulWidget {
   const OcrScreen({super.key});
@@ -24,6 +26,8 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
   CameraController? _cameraController;
 
   final textRecognizer = TextRecognizer();
+
+  final GlobalKey globalKeyOne = GlobalKey();
 
   @override
   void initState() {
@@ -86,6 +90,24 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
                 title: const Text('Scan a Name Card'),
                 automaticallyImplyLeading: false,
                 backgroundColor: bgColor,
+                actions: <Widget>[
+                  InkWell(
+                    onTap: () => ShowCaseWidget.of(context).startShowCase([
+                      globalKeyOne,
+                    ]),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.help,
+                            color: Colors.black,
+                          )
+                        ],
+                      ),
+                    ),
+                  )
+                ],
               ),
               bottomNavigationBar: NaviBar(currentIndex: 1),
               // Set the background to transparent so you can see the camera preview
@@ -99,9 +121,15 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
                         Container(
                           padding: const EdgeInsets.only(bottom: 30.0),
                           child: Center(
-                            child: ElevatedButton(
-                              onPressed: _scanImage,
-                              child: const Text('Scan text'),
+                            child: ShowcaseView(
+                              globalKey: globalKeyOne,
+                              title: 'Scan Text',
+                              description:
+                                  'Click to convert you or your friends\' physical name card to a digital name card!',
+                              child: ElevatedButton(
+                                onPressed: _scanImage,
+                                child: const Text('Scan text'),
+                              ),
                             ),
                           ),
                         ),

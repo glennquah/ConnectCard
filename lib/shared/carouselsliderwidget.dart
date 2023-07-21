@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/screens/showcaseWidget.dart';
 import 'package:connectcard/shared/card_details.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

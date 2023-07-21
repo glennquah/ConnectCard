@@ -14,7 +14,10 @@ class HomeCardView extends StatelessWidget {
   final UserData userData;
   final List<Cards> cards;
 
-  HomeCardView({required this.userData, required this.cards});
+  HomeCardView({
+    required this.userData,
+    required this.cards,
+  });
 
   void _showConnectDialog(BuildContext context) {
     showDialog(
