@@ -8,6 +8,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 import 'home.dart';
 
@@ -442,7 +443,10 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => Home()),
+                                        builder: (context) => ShowCaseWidget(
+                                              builder: Builder(
+                                                  builder: (context) => Home()),
+                                            )),
                                   );
                                 }
                               }
