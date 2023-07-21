@@ -23,35 +23,17 @@ class _HomeState extends State<Home> {
   Color bgColor = const Color(0xffFEAA1B);
   bool isCardView = false;
 
+  final GlobalKey globalKeyOne = GlobalKey();
+  final GlobalKey globalKeyTwo = GlobalKey();
+  final GlobalKey globalKeyThree = GlobalKey();
+  final GlobalKey globalKeyFour = GlobalKey();
+
   void toggleView() {
     if (isCardView) {
       setState(() {
         isCardView = false;
       });
     }
-  }
-
-  bool isShowcaseActive = true;
-
-  void toggleShowcase() {
-    setState(() {
-      isShowcaseActive = !isShowcaseActive;
-    });
-  }
-
-  final GlobalKey globalKeyOne = GlobalKey();
-  final GlobalKey globalKeyTwo = GlobalKey();
-  final GlobalKey globalKeyThree = GlobalKey();
-  final GlobalKey globalKeyFour = GlobalKey();
-  final GlobalKey globalKeyFive = GlobalKey();
-  final GlobalKey globalKeySix = GlobalKey();
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback((_) =>
-        ShowCaseWidget.of(context).startShowCase(
-            [globalKeyOne, globalKeyTwo, globalKeyThree, globalKeyFour]));
-    super.initState();
   }
 
   void _showCardsPanel() {
@@ -136,6 +118,24 @@ class _HomeState extends State<Home> {
               backgroundColor: bgColor,
               elevation: 0.0,
               actions: <Widget>[
+                InkWell(
+                  onTap: () => ShowCaseWidget.of(context).startShowCase([
+                    globalKeyOne,
+                    globalKeyTwo,
+                    globalKeyThree,
+                    globalKeyFour
+                  ]),
+                  child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.help,
+                            color: Colors.black,
+                          )
+                        ],
+                      )),
+                ),
                 ShowcaseView(
                   globalKey: globalKeyTwo,
                   title: 'Edit Card',
