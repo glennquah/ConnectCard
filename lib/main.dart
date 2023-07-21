@@ -27,7 +27,9 @@ class MyApp extends StatelessWidget {
         home: Wrapper(),
         // to route to a page, use Navigator.pushNamed(context, '/pageName')
         routes: {
-          '/home': (context) => Home(),
+          '/home': (context) => ShowCaseWidget(
+                builder: Builder(builder: (context) => Home()),
+              ),
           '/scan': (context) => OcrScreen(),
           '/physicalcards': (context) => PhysicalCardPage(),
           '/friends': (context) => FriendsCardsPage(),
