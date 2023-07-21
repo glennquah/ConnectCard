@@ -51,6 +51,7 @@ dependencies:
   flutter_native_splash: ^2.2.19
   carousel_slider: ^4.2.1
   url_launcher: ^6.1.11
+  showcaseview: ^2.0.3
   
 
 dev_dependencies:

@@ -8,7 +8,10 @@ class HomeCardView extends StatelessWidget {
   final UserData userData;
   final List<Cards> cards;
 
-  HomeCardView({required this.userData, required this.cards});
+  HomeCardView({
+    required this.userData,
+    required this.cards,
+  });
 
   @override
   Widget build(BuildContext context) {
