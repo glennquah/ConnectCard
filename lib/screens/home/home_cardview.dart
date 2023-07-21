@@ -2,6 +2,7 @@ import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 // This class is used to display the cards on the home page in cardview
 class HomeCardView extends StatelessWidget {
@@ -75,17 +76,70 @@ class HomeCardView extends StatelessWidget {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Share Cards'),
-          content: Text('Implement the sharing functionality here.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('OK'),
+        return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: Container(
+            padding: EdgeInsets.all(16.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                CircleAvatar(
+                  radius: 40.0,
+                  backgroundImage: NetworkImage(userData.profilePic),
+                  backgroundColor: Colors.grey,
+                  child: userData.profilePic.isNotEmpty
+                      ? null
+                      : Icon(
+                          Icons.person,
+                          size: 40.0,
+                          color: Colors.white,
+                        ),
+                ),
+                SizedBox(height: 16.0),
+                Text(
+                  userData.name,
+                  style: TextStyle(
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                Container(
+                  padding: EdgeInsets.all(12.0),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey, width: 1.0),
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                  child: QrImageView(
+                    data: userData.uid, // Provide the data here
+                    version: QrVersions.auto,
+                    size: 150.0,
+                  ),
+                ),
+                SizedBox(height: 16.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: Text('Scan'),
+                    ),
+                    SizedBox(width: 16.0),
+                    ElevatedButton(
+                      onPressed: () {
+                        _showShareDialog(context);
+                      },
+                      child: Text('Share'),
+                    ),
+                  ],
+                ),
+              ],
             ),
-          ],
+          ),
         );
       },
     );
