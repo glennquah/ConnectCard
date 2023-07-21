@@ -98,6 +98,8 @@ flutter:
       - assets/logo/LogoName.jpg
       - assets/splash.png
       - assets/search.png
+      - assets/logo/whatsapp.png
+      - assets/logo/telegram.png
 
 
 
