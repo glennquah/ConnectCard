@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
@@ -21,19 +19,11 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
   List<UserData> filteredUsers = [];
   //for toggling between showing requests and showing friends
   bool showRequests = true;
-  StreamSubscription<FriendsData>? friendDataSubscription;
 
   @override
   void initState() {
     super.initState();
     _initializeFilteredUsers();
-    // Start listening to the friend data stream
-    friendDataSubscription =
-        DatabaseService(uid: widget.uid).friendData.listen((friendsData) {
-      // You can update the UI here based on the updated friends data
-      // For example, if you want to refresh the filtered users list when the friends data changes
-      _initializeFilteredUsers();
-    });
   }
 
   //to filter users that are not in request
@@ -92,7 +82,6 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
 
   //popup to add friends
   void _addFriend(UserData user) async {
-    initState();
     // Add Friend into PERSONAL friendrequestsent
     DatabaseService databaseService = DatabaseService(uid: widget.uid);
     FriendsData friendsData = await databaseService.friendData.first;

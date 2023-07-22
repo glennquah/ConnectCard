@@ -112,7 +112,6 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     setState(() {
       // Update the UI by removing the declined request from the pendingRequests list
       pendingRequests.remove(request);
-      fetchData();
     });
   }
 
@@ -125,42 +124,36 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     List<Friends> friendRequestsRec =
         List.from(friendsData.listOfFriendRequestsRec);
     friendRequestsRec.removeWhere((friend) => friend.uid == request.uid);
+    List<Friends> friendlist = List.from(friendsData.listOfFriends)
+      ..add(Friends(uid: request.uid));
+    await databaseService.updateFriendDatabase(
+      friendlist,
+      friendsData.listOfFriendRequestsSent,
+      friendRequestsRec,
+      friendsData.listOfFriendsPhysicalCard,
+    );
 
-    // Check if the friend is already in myFriends list
-    if (!myFriends.any((myFriend) => myFriend.uid == request.uid)) {
-      List<Friends> friendlist = List.from(friendsData.listOfFriends)
-        ..add(Friends(uid: request.uid));
-      await databaseService.updateFriendDatabase(
-        friendlist,
-        friendsData.listOfFriendRequestsSent,
-        friendRequestsRec,
-        friendsData.listOfFriendsPhysicalCard,
-      );
+    // Remove req from friend's sent requests
+    DatabaseService databaseServiceFriend = DatabaseService(uid: request.uid);
+    FriendsData friendsDataFriend =
+        await databaseServiceFriend.friendData.first;
+    List<Friends> friendRequestsSent =
+        List.from(friendsDataFriend.listOfFriendRequestsSent);
+    friendRequestsSent.removeWhere((friend) => friend.uid == user.uid);
+    List<Friends> friendlistFriend = List.from(friendsDataFriend.listOfFriends)
+      ..add(Friends(uid: user.uid));
+    await databaseServiceFriend.updateFriendDatabase(
+      friendlistFriend,
+      friendRequestsSent,
+      friendsDataFriend.listOfFriendRequestsRec,
+      friendsDataFriend.listOfFriendsPhysicalCard,
+    );
 
-      // Remove req from friend's sent requests
-      DatabaseService databaseServiceFriend = DatabaseService(uid: request.uid);
-      FriendsData friendsDataFriend =
-          await databaseServiceFriend.friendData.first;
-      List<Friends> friendRequestsSent =
-          List.from(friendsDataFriend.listOfFriendRequestsSent);
-      friendRequestsSent.removeWhere((friend) => friend.uid == user.uid);
-      List<Friends> friendlistFriend =
-          List.from(friendsDataFriend.listOfFriends)
-            ..add(Friends(uid: user.uid));
-      await databaseServiceFriend.updateFriendDatabase(
-        friendlistFriend,
-        friendRequestsSent,
-        friendsDataFriend.listOfFriendRequestsRec,
-        friendsDataFriend.listOfFriendsPhysicalCard,
-      );
-
-      setState(() {
-        // Update the UI by removing the declined request from the pendingRequests list
-        pendingRequests.remove(request);
-        myFriends.add(request);
-        fetchData();
-      });
-    }
+    setState(() {
+      // Update the UI by removing the declined request from the pendingRequests list
+      pendingRequests.remove(request);
+      myFriends.add(request);
+    });
   }
 
   @override
