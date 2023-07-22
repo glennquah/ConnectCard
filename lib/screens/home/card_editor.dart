@@ -350,183 +350,195 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           },
                         ),
                         SizedBox(height: 12.0),
-                        Row(children: <Widget>[
-                          SizedBox(width: 130.0),
-                          ElevatedButton(
-                            onPressed: () async {
-                              if (_formKey.currentState!.validate()) {
-                                // Check if each field is empty, if not use previous values
-                                final updateImageUrl = imageUrl.isNotEmpty
-                                    ? imageUrl
-                                    : selectedCard.imageUrl;
-                                final updatedCardName = newCardName.isNotEmpty
-                                    ? newCardName
-                                    : selectedCard.cardName;
-                                final updatedCompanyName =
-                                    newCompanyName.isNotEmpty
-                                        ? newCompanyName
-                                        : selectedCard.companyName;
-                                final updatedJobTitle = newJobTitle.isNotEmpty
-                                    ? newJobTitle
-                                    : selectedCard.jobTitle;
-                                final updatedPhoneNum = newPhoneNum.isNotEmpty
-                                    ? newPhoneNum
-                                    : selectedCard.phoneNum;
-                                final updatedEmail = newEmail.isNotEmpty
-                                    ? newEmail
-                                    : selectedCard.email;
-                                final updatedWebsite = newWebsite.isNotEmpty
-                                    ? newWebsite
-                                    : selectedCard.companyWebsite;
-                                final updatedAddress = newAddress.isNotEmpty
-                                    ? newAddress
-                                    : selectedCard.companyAddress;
-                                final updatedPersonalStatement =
-                                    newPersonalStatement.isNotEmpty
-                                        ? newPersonalStatement
-                                        : selectedCard.personalStatement;
-                                final updatedMoreInfo = newMoreInfo.isNotEmpty
-                                    ? newMoreInfo
-                                    : selectedCard.moreInfo;
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              ElevatedButton(
+                                onPressed: () async {
+                                  if (_formKey.currentState!.validate()) {
+                                    // Check if each field is empty, if not use previous values
+                                    final updateImageUrl = imageUrl.isNotEmpty
+                                        ? imageUrl
+                                        : selectedCard.imageUrl;
+                                    final updatedCardName =
+                                        newCardName.isNotEmpty
+                                            ? newCardName
+                                            : selectedCard.cardName;
+                                    final updatedCompanyName =
+                                        newCompanyName.isNotEmpty
+                                            ? newCompanyName
+                                            : selectedCard.companyName;
+                                    final updatedJobTitle =
+                                        newJobTitle.isNotEmpty
+                                            ? newJobTitle
+                                            : selectedCard.jobTitle;
+                                    final updatedPhoneNum =
+                                        newPhoneNum.isNotEmpty
+                                            ? newPhoneNum
+                                            : selectedCard.phoneNum;
+                                    final updatedEmail = newEmail.isNotEmpty
+                                        ? newEmail
+                                        : selectedCard.email;
+                                    final updatedWebsite = newWebsite.isNotEmpty
+                                        ? newWebsite
+                                        : selectedCard.companyWebsite;
+                                    final updatedAddress = newAddress.isNotEmpty
+                                        ? newAddress
+                                        : selectedCard.companyAddress;
+                                    final updatedPersonalStatement =
+                                        newPersonalStatement.isNotEmpty
+                                            ? newPersonalStatement
+                                            : selectedCard.personalStatement;
+                                    final updatedMoreInfo =
+                                        newMoreInfo.isNotEmpty
+                                            ? newMoreInfo
+                                            : selectedCard.moreInfo;
 
-                                bool isDuplicateCardName = userData.listOfCards
-                                    .any((card) =>
-                                        card.cardName == updatedCardName &&
-                                        card.cardName != widget.selectedCard);
+                                    bool isDuplicateCardName =
+                                        userData.listOfCards.any((card) =>
+                                            card.cardName == updatedCardName &&
+                                            card.cardName !=
+                                                widget.selectedCard);
 
-                                //Checker to see if card name already exists
-                                if (isDuplicateCardName) {
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
-                                      content: Text(
-                                          'Card name already exists. Please enter a different card name.'),
-                                    ),
-                                  );
-                                  return;
-                                } else {
-                                  Cards updatedCard = Cards(
-                                    imageUrl: updateImageUrl,
-                                    cardName: updatedCardName,
-                                    companyName: updatedCompanyName,
-                                    jobTitle: updatedJobTitle,
-                                    phoneNum: updatedPhoneNum,
-                                    email: updatedEmail,
-                                    companyWebsite: updatedWebsite,
-                                    companyAddress: updatedAddress,
-                                    personalStatement: updatedPersonalStatement,
-                                    moreInfo: updatedMoreInfo,
-                                  );
-
-                                  List<Cards> newListOfCards =
-                                      userData.listOfCards.map((card) {
-                                    final selectedCardName =
-                                        widget.selectedCard;
-                                    if (card.cardName == selectedCardName) {
-                                      return updatedCard;
-                                    } else {
-                                      return card;
-                                    }
-                                  }).toList();
-
-                                  await DatabaseService(uid: user!.uid)
-                                      .updateUserData(
-                                    userData.name,
-                                    userData.headLine,
-                                    userData.profilePic,
-                                    newListOfCards,
-                                  );
-                                  Navigator.pushReplacement(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ShowCaseWidget(
-                                              builder: Builder(
-                                                  builder: (context) => Home()),
-                                            )),
-                                  );
-                                }
-                              }
-                            },
-                            child: Text(
-                              'Confirm Edit',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                          ),
-                          SizedBox(width: 12.0),
-                          IconButton(
-                            icon: Icon(Icons.delete),
-                            onPressed: () {
-                              showDialog(
-                                context: context,
-                                builder: (BuildContext context) {
-                                  // Pop up to confirm delete
-                                  return AlertDialog(
-                                    title:
-                                        Center(child: Text('Confirm Delete')),
-                                    content: Text(
-                                        'Are you sure you want to delete?'),
-                                    actions: <Widget>[
-                                      Center(
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            TextButton(
-                                              child: Text('Yes'),
-                                              onPressed: () async {
-                                                if (userData
-                                                        .listOfCards.length ==
-                                                    1) {
-                                                  ScaffoldMessenger.of(context)
-                                                      .showSnackBar(
-                                                    SnackBar(
-                                                      content: Text(
-                                                          'You must have at least one card.'),
-                                                    ),
-                                                  );
-                                                  return;
-                                                } else {
-                                                  List<Cards>
-                                                      updatedListOfCards =
-                                                      userData.listOfCards
-                                                          .where((card) =>
-                                                              card.cardName !=
-                                                              widget
-                                                                  .selectedCard)
-                                                          .toList();
-                                                  await DatabaseService(
-                                                          uid: user!.uid)
-                                                      .updateUserData(
-                                                    userData.name,
-                                                    userData.headLine,
-                                                    userData.profilePic,
-                                                    updatedListOfCards,
-                                                  );
-                                                  // Navigate to the Home screen
-                                                  Navigator.pushReplacement(
-                                                    context,
-                                                    MaterialPageRoute(
-                                                        builder: (context) =>
-                                                            Home()),
-                                                  );
-                                                }
-                                              },
-                                            ),
-                                            TextButton(
-                                              child: Text('No'),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                            ),
-                                          ],
+                                    //Checker to see if card name already exists
+                                    if (isDuplicateCardName) {
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(
+                                        SnackBar(
+                                          content: Text(
+                                              'Card name already exists. Please enter a different card name.'),
                                         ),
-                                      ),
-                                    ],
+                                      );
+                                      return;
+                                    } else {
+                                      Cards updatedCard = Cards(
+                                        imageUrl: updateImageUrl,
+                                        cardName: updatedCardName,
+                                        companyName: updatedCompanyName,
+                                        jobTitle: updatedJobTitle,
+                                        phoneNum: updatedPhoneNum,
+                                        email: updatedEmail,
+                                        companyWebsite: updatedWebsite,
+                                        companyAddress: updatedAddress,
+                                        personalStatement:
+                                            updatedPersonalStatement,
+                                        moreInfo: updatedMoreInfo,
+                                      );
+
+                                      List<Cards> newListOfCards =
+                                          userData.listOfCards.map((card) {
+                                        final selectedCardName =
+                                            widget.selectedCard;
+                                        if (card.cardName == selectedCardName) {
+                                          return updatedCard;
+                                        } else {
+                                          return card;
+                                        }
+                                      }).toList();
+
+                                      await DatabaseService(uid: user!.uid)
+                                          .updateUserData(
+                                        userData.name,
+                                        userData.headLine,
+                                        userData.profilePic,
+                                        newListOfCards,
+                                      );
+                                      Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                ShowCaseWidget(
+                                                  builder: Builder(
+                                                      builder: (context) =>
+                                                          Home()),
+                                                )),
+                                      );
+                                    }
+                                  }
+                                },
+                                child: Text(
+                                  'Confirm Edit',
+                                  style: TextStyle(color: Colors.white),
+                                ),
+                              ),
+                              SizedBox(width: 12.0),
+                              IconButton(
+                                icon: Icon(Icons.delete),
+                                onPressed: () {
+                                  showDialog(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      // Pop up to confirm delete
+                                      return AlertDialog(
+                                        title: Center(
+                                            child: Text('Confirm Delete')),
+                                        content: Text(
+                                            'Are you sure you want to delete?'),
+                                        actions: <Widget>[
+                                          Center(
+                                            child: Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.center,
+                                              children: [
+                                                TextButton(
+                                                  child: Text('Yes'),
+                                                  onPressed: () async {
+                                                    if (userData.listOfCards
+                                                            .length ==
+                                                        1) {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                              'You must have at least one card.'),
+                                                        ),
+                                                      );
+                                                      return;
+                                                    } else {
+                                                      List<Cards>
+                                                          updatedListOfCards =
+                                                          userData.listOfCards
+                                                              .where((card) =>
+                                                                  card.cardName !=
+                                                                  widget
+                                                                      .selectedCard)
+                                                              .toList();
+                                                      await DatabaseService(
+                                                              uid: user!.uid)
+                                                          .updateUserData(
+                                                        userData.name,
+                                                        userData.headLine,
+                                                        userData.profilePic,
+                                                        updatedListOfCards,
+                                                      );
+                                                      // Navigate to the Home screen
+                                                      Navigator.pushReplacement(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    Home()),
+                                                      );
+                                                    }
+                                                  },
+                                                ),
+                                                TextButton(
+                                                  child: Text('No'),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      );
+                                    },
                                   );
                                 },
-                              );
-                            },
-                          )
-                        ]),
+                              )
+                            ]),
                       ],
                     ),
                   ),
