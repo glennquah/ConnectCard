@@ -7,8 +7,8 @@ class Cards {
   final String phoneNum;
   final String email;
   final String companyWebsite;
-  final String companyAddress;
-  final String personalStatement;
+  final String? companyAddress;
+  final String? personalStatement;
   final String? moreInfo; // optional as people might not want to add more info
 
 // Cards Constructor

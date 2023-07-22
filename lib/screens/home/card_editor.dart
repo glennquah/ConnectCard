@@ -318,8 +318,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'New Company Address',
                             prefixIcon: Icon(Icons.location_city),
                           ),
-                          validator: (val) =>
-                              val!.isEmpty ? 'Enter a Address' : null,
                           onChanged: (val) {
                             setState(() => newAddress = val);
                           },
@@ -332,9 +330,6 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             hintText: 'New Personal Statement',
                             prefixIcon: Icon(Icons.comment),
                           ),
-                          validator: (val) => val!.isEmpty
-                              ? 'Enter a personal statement'
-                              : null,
                           onChanged: (val) {
                             setState(() => newPersonalStatement = val);
                           },

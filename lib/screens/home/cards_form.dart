@@ -100,8 +100,9 @@ class _CardsFormState extends State<CardsForm> {
                                       cardName: cardName,
                                       companyName: '',
                                       jobTitle: '',
-                                      phoneNum: '',
-                                      email: '',
+                                      phoneNum:
+                                          userData.listOfCards.first.phoneNum,
+                                      email: userData.listOfCards.first.email,
                                       companyWebsite: '',
                                       companyAddress: '',
                                       personalStatement: '',
