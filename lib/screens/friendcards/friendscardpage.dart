@@ -239,6 +239,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                             Expanded(
                               child: ListView.separated(
                                 shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
                                 itemCount: filteredFriends.isNotEmpty
                                     ? filteredFriends.length
                                     : myFriends
@@ -309,6 +310,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                           ],
                         ),
                         ListView.builder(
+                          physics: NeverScrollableScrollPhysics(),
                           itemCount: pendingRequests.length,
                           itemBuilder: (context, index) {
                             UserData request = pendingRequests[index];

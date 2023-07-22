@@ -257,6 +257,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                   ),
                   ListView.separated(
                     shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
                     itemCount: filteredUsers.length,
                     separatorBuilder: (context, index) => Divider(
                       color: Colors.black,
@@ -327,6 +328,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       .toList();
                   return ListView.separated(
                     itemCount: pendingRequestsUsers.length,
+                    physics: NeverScrollableScrollPhysics(),
                     separatorBuilder: (context, index) => Divider(
                       color: Colors.black,
                       thickness: 1.0,
