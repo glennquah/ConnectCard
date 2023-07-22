@@ -208,6 +208,9 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
 
     final navigator = Navigator.of(context);
 
+    // Show loading overlay
+    showLoadingOverlay();
+
     try {
       final pictureFile = await _cameraController!.takePicture();
 
@@ -232,6 +235,9 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
         print(error);
       }
 
+      // Hide loading overlay
+      hideLoadingOverlay();
+
       await navigator.push(
         MaterialPageRoute(
           builder: (BuildContext context) =>
@@ -239,11 +245,37 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
         ),
       );
     } catch (e) {
+      // Hide loading overlay in case of an error
+      hideLoadingOverlay();
+
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('An error occurred when scanning text'),
         ),
       );
     }
+  }
+
+  void showLoadingOverlay() {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) {
+        return WillPopScope(
+          onWillPop: () async => false,
+          child: Dialog(
+            backgroundColor: Colors.transparent,
+            elevation: 0.0,
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void hideLoadingOverlay() {
+    Navigator.of(context, rootNavigator: true).pop();
   }
 }
