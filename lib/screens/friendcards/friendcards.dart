@@ -12,6 +12,7 @@ class FriendCards extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffFEAA1B),
       appBar: AppBar(
         backgroundColor: const Color(0xffFEAA1B),
         title: Text('${userData.name}\'s Cards'),
