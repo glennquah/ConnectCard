@@ -569,7 +569,7 @@ For testing, we have split it into 2, automated testing and user testing.
 
 
 Please visit the link to view more information of our testing done!
-Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/edit#bookmark=id.1d90lqkwji6o
+Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#bookmark=id.1d90lqkwji6o
 
 ## 
 
@@ -577,7 +577,7 @@ Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/edit#
 ## <span style="text-decoration:underline;">13.4 Screenshots of Google Responses</span>
 
 Please visit this link to view more information of our google survey form responses.
-Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/edit#bookmark=id.d6e3y2etbxv
+Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#bookmark=id.d6e3y2etbxv
 
 
 # 14.0 Changes made through development
