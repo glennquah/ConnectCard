@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
@@ -153,6 +155,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
       // Update the UI by removing the declined request from the pendingRequests list
       pendingRequests.remove(request);
       myFriends.add(request);
+      fetchData();
     });
   }
 
