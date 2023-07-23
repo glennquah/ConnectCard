@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+//profile class to edit profile
+//user able to edit name, headline and profile picture
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({super.key});
 
@@ -217,9 +219,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     // Update the UI
     setState(() {
-      if (file != null) {
-        image = File(file.path);
-      }
+      image = File(file.path);
     });
   }
 }

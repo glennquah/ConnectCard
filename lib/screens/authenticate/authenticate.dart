@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 
 // This class is used to toggle between the sign in and register pages
 class Authenticate extends StatefulWidget {
+  const Authenticate({super.key});
+
   @override
   _AuthenticateState createState() => _AuthenticateState();
 }

@@ -7,25 +7,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 // Form for user to see and edit their cards
+// users can also add new cards
 class CardsForm extends StatefulWidget {
+  const CardsForm({super.key});
+
   @override
   _CardsFormState createState() => _CardsFormState();
 }
 
 class _CardsFormState extends State<CardsForm> {
   final _formKey = GlobalKey<FormState>();
-  TheUser? user; // User object
-  List<String> cards = []; // List of available cards
+  TheUser? user;
+  List<String> cards = [];
   String selectedCard = ''; // Selected card
-
-  final _Name = GlobalKey<FormState>();
   String newName = '';
 
   @override
   Widget build(BuildContext context) {
     user = Provider.of<TheUser?>(context); // Retrieve user object
 
-    void _showEditorPage(String selectedCard) {
+    void showEditorPage(String selectedCard) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -36,7 +37,7 @@ class _CardsFormState extends State<CardsForm> {
 
     if (user != null) {
       return Container(
-        constraints: BoxConstraints(maxHeight: 200),
+        constraints: const BoxConstraints(maxHeight: 200),
         child: Scaffold(
           body: SingleChildScrollView(
             child: StreamBuilder<UserData>(
@@ -51,22 +52,21 @@ class _CardsFormState extends State<CardsForm> {
                     selectedCard = cards.first;
                   }
 
-                  //Edit Name
                   return Form(
                     key: _formKey,
                     child: Column(
                       children: <Widget>[
-                        Text(
+                        const Text(
                           'Select your cards',
                           style: TextStyle(fontSize: 18.0),
                         ),
-                        SizedBox(height: 20.0),
+                        const SizedBox(height: 20.0),
                         DropdownButtonFormField<String>(
                           value: selectedCard,
                           items: cards.map<DropdownMenuItem<String>>((card) {
                             return DropdownMenuItem<String>(
                               value: card,
-                              child: Text('$card'),
+                              child: Text(card),
                             );
                           }).toList(),
                           onChanged: (String? value) {
@@ -75,24 +75,25 @@ class _CardsFormState extends State<CardsForm> {
                             });
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         Center(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
-                                onPressed: () => _showEditorPage(selectedCard),
-                                child: Text(
+                                onPressed: () => showEditorPage(selectedCard),
+                                child: const Text(
                                   'Edit Card',
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
-                              SizedBox(width: 12.0),
+                              const SizedBox(width: 12.0),
                               ElevatedButton(
                                 onPressed: () async {
                                   if (_formKey.currentState!.validate()) {
                                     final cardName =
-                                        "New Card ${userData.listOfCards.length + 1}"; // Set the card name
+                                        "New Card ${userData.listOfCards.length + 1}";
+                                    // Set the card name so that it wont be the same as other cards
 
                                     // Create a new card object
                                     final newCard = Cards(
@@ -119,13 +120,13 @@ class _CardsFormState extends State<CardsForm> {
                                             userData.listOfCards);
 
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text('New card added!'),
                                       ),
                                     );
                                   }
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Add Card',
                                   style: TextStyle(color: Colors.white),
                                 ),

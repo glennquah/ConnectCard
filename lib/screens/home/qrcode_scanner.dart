@@ -6,13 +6,13 @@ import 'package:connectcard/screens/scan/ocr/result_screen.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/profile_popup.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 
+// QR code scanner screen
 class QRScanScreen extends StatefulWidget {
   final UserData myData;
 
-  QRScanScreen({required this.myData});
+  const QRScanScreen({super.key, required this.myData});
 
   @override
   _QRScanScreenState createState() => _QRScanScreenState();
@@ -23,8 +23,6 @@ class _QRScanScreenState extends State<QRScanScreen> {
   QRViewController? controller;
   bool isScanning = true;
   CameraController? cameraController;
-  final ImagePicker _imagePicker = ImagePicker();
-  String _decoded = 'Unknown';
 
   @override
   void initState() {
@@ -32,29 +30,24 @@ class _QRScanScreenState extends State<QRScanScreen> {
     _initializeCamera();
   }
 
+  // Initialize the camera
   Future<void> _initializeCamera() async {
-    try {
-      final cameras = await availableCameras();
-      final backCamera = cameras.firstWhere(
-        (camera) => camera.lensDirection == CameraLensDirection.back,
-        orElse: () => cameras.first,
-      );
-      cameraController = CameraController(
-        backCamera,
-        ResolutionPreset.medium,
-      );
+    final cameras = await availableCameras();
+    final backCamera = cameras.firstWhere(
+      (camera) => camera.lensDirection == CameraLensDirection.back,
+      orElse: () => cameras.first,
+    );
+    cameraController = CameraController(
+      backCamera,
+      ResolutionPreset.medium,
+    );
 
-      await cameraController!.initialize();
+    await cameraController!.initialize();
 
-      // Start the camera stream to enable live QR code scanning
-      cameraController!.startImageStream((CameraImage image) {
-        // Process the image here if needed
-      });
+    // To enable live QR code scanning
+    cameraController!.startImageStream((CameraImage image) {});
 
-      setState(() {});
-    } catch (e) {
-      print('Error initializing camera: $e');
-    }
+    setState(() {});
   }
 
   @override
@@ -64,14 +57,13 @@ class _QRScanScreenState extends State<QRScanScreen> {
     super.dispose();
   }
 
+  // Handle the QR code scan result
   void _onQRViewCreated(QRViewController controller) {
     this.controller = controller;
     controller.scannedDataStream.listen((scanData) async {
       if (isScanning) {
-        isScanning = false; // To avoid multiple scans
+        isScanning = false;
 
-        // Validate the scanned data here (you can check if it matches the expected user ID format)
-        // For simplicity, let's assume the scanned data is the user ID for now
         String? scannedUserId = scanData.code;
 
         // Get the list of users (except the current user)
@@ -107,7 +99,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
                     );
                   } else {
                     // Show loading indicator or any other UI while waiting for the data
-                    return CircularProgressIndicator();
+                    return const CircularProgressIndicator();
                   }
                 },
               );
@@ -119,8 +111,8 @@ class _QRScanScreenState extends State<QRScanScreen> {
             context: context,
             builder: (context) {
               return AlertDialog(
-                title: Text('Error'),
-                content: Text('Invalid QR code.'),
+                title: const Text('Error'),
+                content: const Text('Invalid QR code.'),
                 actions: [
                   ElevatedButton(
                     onPressed: () {
@@ -128,7 +120,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
                           true; // Reset the isScanning flag to allow further scans
                       Navigator.of(context).pop();
                     },
-                    child: Text('OK'),
+                    child: const Text('OK'),
                   ),
                 ],
               );
@@ -139,28 +131,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
     });
   }
 
-  // Future<void> _handleGalleryButtonClick() async {
-  //   final XFile? pickedImage = await _imagePicker.pickImage(
-  //     source: ImageSource.gallery,
-  //     imageQuality: 85,
-  //   );
-
-  //   if (pickedImage != null) {
-  //     String? decoded;
-  //     // Platform messages may fail, so we use a try/catch PlatformException.
-  //     // We also handle the message potentially returning null.
-  //     try {
-  //       decoded = await QrCodeUtils.decodeFrom(pickedImage.path) ??
-  //           'Unknown platform version';
-  //       if (decoded != null) {
-  //         _decoded = decoded;
-  //       }
-  //     } catch (e) {
-  //       print(e);
-  //     }
-  //   }
-  // }
-
+  // Add friend logic, by adding the friend's ID into the current user's friendrequestsent and the friend's friendrequestrec
   void _addFriend(UserData friendData) async {
     // Add Friend into PERSONAL friendrequestsent
     DatabaseService databaseService = DatabaseService(uid: widget.myData.uid);
@@ -192,7 +163,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
 
     // Show snack bar with friend request sent message
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Friend request sent'),
         duration: Duration(
             seconds: 2), // Optional: Set the duration for the snack bar
@@ -203,24 +174,23 @@ class _QRScanScreenState extends State<QRScanScreen> {
   @override
   Widget build(BuildContext context) {
     if (cameraController == null || !cameraController!.value.isInitialized) {
-      return Scaffold(
+      return const Scaffold(
         body: Center(
           child: CircularProgressIndicator(),
         ),
       );
     }
 
-    final size = MediaQuery.of(context).size;
     final double aspectRatio = cameraController!.value.previewSize!.height /
         cameraController!.value.previewSize!.width;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Scan QR Code'),
+        title: const Text('Scan QR Code'),
         backgroundColor: bgColor,
       ),
       body: Container(
-        color: Colors.yellow, // Set the background color of the camera preview
+        color: const Color(0xffFEAA1B),
         child: AspectRatio(
           aspectRatio: aspectRatio,
           child: QRView(
@@ -240,7 +210,7 @@ class _QRScanScreenState extends State<QRScanScreen> {
       floatingActionButton: Container(
         width: MediaQuery.of(context).size.width *
             0.8, // Set the width of the buttons
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(

@@ -10,8 +10,10 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// PhysicalCard class
+// class which displays the physical cards of the user's friends after it has been scanned
 class PhysicalCardPage extends StatefulWidget {
+  const PhysicalCardPage({super.key});
+
   @override
   _PhysicalCardPageState createState() => _PhysicalCardPageState();
 }
@@ -20,23 +22,25 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
   List<Cards> friendCards = [];
   List<Cards> filteredFriendCards = [];
 
+  // to either view or edit the card
   void _showCardOptionsDialog(Cards card) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          contentPadding: EdgeInsets.symmetric(vertical: 25.0),
+          contentPadding: const EdgeInsets.symmetric(vertical: 25.0),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Center(child: Text(card.cardName)),
-                SizedBox(height: 25.0),
+                const SizedBox(height: 25.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Column(
                       children: [
+                        // View the card
                         IconButton(
                           onPressed: () {
                             Navigator.push(
@@ -48,13 +52,14 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                               ),
                             );
                           },
-                          icon: Icon(Icons.visibility),
+                          icon: const Icon(Icons.visibility),
                         ),
-                        Text("View"),
+                        const Text("View"),
                       ],
                     ),
                     Column(
                       children: [
+                        // Edit the card
                         IconButton(
                           onPressed: () {
                             Navigator.push(
@@ -66,9 +71,9 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                               ),
                             );
                           },
-                          icon: Icon(Icons.edit),
+                          icon: const Icon(Icons.edit),
                         ),
-                        Text("Edit"),
+                        const Text("Edit"),
                       ],
                     ),
                   ],
@@ -87,6 +92,7 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
     fetchData();
   }
 
+  // Fetch the list of friends' physical cards
   Future<void> fetchData() async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
     if (user != null) {
@@ -136,8 +142,8 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
             bottomNavigationBar: NaviBar(currentIndex: 2),
             body: Column(
               children: [
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
+                const Padding(
+                  padding: EdgeInsets.all(8.0),
                   child: Text(
                     "List of Scanned Cards",
                     style: TextStyle(
@@ -152,7 +158,7 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                     onChanged: filterCards,
                     decoration: InputDecoration(
                       labelText: 'Search',
-                      prefixIcon: Icon(Icons.search),
+                      prefixIcon: const Icon(Icons.search),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
@@ -162,7 +168,7 @@ class _PhysicalCardPageState extends State<PhysicalCardPage> {
                 Expanded(
                   child: ListView.separated(
                     itemCount: filteredFriendCards.length,
-                    separatorBuilder: (context, index) => Divider(
+                    separatorBuilder: (context, index) => const Divider(
                       color: Colors.black,
                       thickness: 1,
                     ),

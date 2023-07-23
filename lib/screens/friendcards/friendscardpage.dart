@@ -12,7 +12,11 @@ import 'package:connectcard/shared/profilebar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+// This class is used to display the user's friends and friend requests
+// There is 2 tabs, one for friends and one for friend requests
 class FriendsCardsPage extends StatefulWidget {
+  const FriendsCardsPage({super.key});
+
   @override
   _FriendsCardsPageState createState() => _FriendsCardsPageState();
 }
@@ -22,7 +26,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
   List<UserData> pendingRequests = [];
   List<UserData> filteredFriends = [];
   bool showFriends = true;
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -81,6 +85,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     }
   }
 
+  // This function is called when the user clicks on the decline button
   Future<void> handleDecline(UserData request) async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
     DatabaseService databaseService = DatabaseService(uid: user!.uid);
@@ -117,6 +122,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
     });
   }
 
+  // This function is called when the user clicks on the accept button
   Future<void> handleAccept(UserData request) async {
     TheUser? user = Provider.of<TheUser?>(context, listen: false);
     DatabaseService databaseService = DatabaseService(uid: user!.uid);
@@ -188,7 +194,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                     ),
                   );
                 },
-                child: Icon(Icons.add),
+                child: const Icon(Icons.add),
               ),
               body: Column(
                 children: [
@@ -203,14 +209,14 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                           });
                         },
                         tabs: [
-                          Tab(text: 'Friends'),
+                          const Tab(text: 'Friends'),
                           if (pendingRequests.isEmpty)
-                            Tab(text: 'Friend Requests')
+                            const Tab(text: 'Friend Requests')
                           else
                             Tab(
                               child: Text(
                                 '${pendingRequests.length} Friend Requests',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Colors.red,
                                 ),
@@ -232,7 +238,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                 controller: _searchController,
                                 decoration: InputDecoration(
                                   labelText: 'Search for Friends',
-                                  prefixIcon: Icon(Icons.search),
+                                  prefixIcon: const Icon(Icons.search),
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(20.0),
                                   ),
@@ -242,12 +248,13 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                             Expanded(
                               child: ListView.separated(
                                 shrinkWrap: true,
-                                physics: NeverScrollableScrollPhysics(),
+                                physics: const NeverScrollableScrollPhysics(),
                                 itemCount: filteredFriends.isNotEmpty
                                     ? filteredFriends.length
                                     : myFriends
                                         .length, // Display myFriends if filteredFriends is empty
-                                separatorBuilder: (context, index) => Divider(
+                                separatorBuilder: (context, index) =>
+                                    const Divider(
                                   color: Colors.black,
                                   thickness: 1.0,
                                 ),
@@ -271,7 +278,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                       );
                                     },
                                     child: ListTile(
-                                      contentPadding: EdgeInsets.all(10.0),
+                                      contentPadding:
+                                          const EdgeInsets.all(10.0),
                                       leading: CircleAvatar(
                                         radius: 30.0,
                                         backgroundColor: Colors.grey,
@@ -280,8 +288,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                             ? NetworkImage(friend.profilePic)
                                             : null,
                                         child: friend.profilePic.isNotEmpty
-                                            ? null // If profilePic is available, don't display a child
-                                            : Icon(
+                                            ? null
+                                            : const Icon(
                                                 Icons.person,
                                                 size: 30.0,
                                                 color: Colors.white,
@@ -289,7 +297,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                       ),
                                       title: Text(
                                         '${friend.name}',
-                                        style: TextStyle(fontSize: 18.0),
+                                        style: const TextStyle(fontSize: 18.0),
                                       ),
                                       subtitle: Column(
                                         crossAxisAlignment:
@@ -297,11 +305,13 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                         children: [
                                           Text(
                                             'UID: #${friend.uid.substring(friend.uid.length - 4)}',
-                                            style: TextStyle(fontSize: 14.0),
+                                            style:
+                                                const TextStyle(fontSize: 14.0),
                                           ),
                                           Text(
                                             friend.headLine,
-                                            style: TextStyle(fontSize: 14.0),
+                                            style:
+                                                const TextStyle(fontSize: 14.0),
                                           ),
                                         ],
                                       ),
@@ -313,23 +323,22 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                           ],
                         ),
                         ListView.builder(
-                          physics: NeverScrollableScrollPhysics(),
+                          physics: const NeverScrollableScrollPhysics(),
                           itemCount: pendingRequests.length,
                           itemBuilder: (context, index) {
                             UserData request = pendingRequests[index];
                             return Column(
                               children: [
                                 ListTile(
-                                  contentPadding: EdgeInsets.all(10.0),
+                                  contentPadding: const EdgeInsets.all(10.0),
                                   leading: CircleAvatar(
                                     radius: 30.0,
                                     backgroundImage:
                                         NetworkImage(request.profilePic),
-                                    backgroundColor: Colors
-                                        .grey, // Set a background color for the avatar
+                                    backgroundColor: Colors.grey,
                                     child: request.profilePic.isNotEmpty
-                                        ? null // If profilePic is available, don't display a child
-                                        : Icon(
+                                        ? null
+                                        : const Icon(
                                             Icons.person,
                                             size: 30.0,
                                             color: Colors.white,
@@ -337,7 +346,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                   ),
                                   title: Text(
                                     '${request.name}',
-                                    style: TextStyle(fontSize: 18.0),
+                                    style: const TextStyle(fontSize: 18.0),
                                   ),
                                   subtitle: Column(
                                     crossAxisAlignment:
@@ -345,11 +354,11 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                     children: [
                                       Text(
                                         'UID: #${request.uid.substring(request.uid.length - 4)}',
-                                        style: TextStyle(fontSize: 14.0),
+                                        style: const TextStyle(fontSize: 14.0),
                                       ),
                                       Text(
                                         request.headLine,
-                                        style: TextStyle(fontSize: 14.0),
+                                        style: const TextStyle(fontSize: 14.0),
                                       ),
                                     ],
                                   ),
@@ -365,7 +374,7 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                       style: ElevatedButton.styleFrom(
                                         primary: Colors.green,
                                       ),
-                                      child: Text('Accept'),
+                                      child: const Text('Accept'),
                                     ),
                                     ElevatedButton(
                                       onPressed: () {
@@ -374,11 +383,11 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                       style: ElevatedButton.styleFrom(
                                         primary: Colors.red,
                                       ),
-                                      child: Text('Decline'),
+                                      child: const Text('Decline'),
                                     ),
                                   ],
                                 ),
-                                Divider(
+                                const Divider(
                                   color: Colors.black,
                                   thickness: 1.0,
                                 ),

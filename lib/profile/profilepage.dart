@@ -8,7 +8,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+//profile class to view profile
+//1. edit profile
+//2. contact customer service thru email or phone
+//3. log out
 class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
   String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
         .map((MapEntry<String, String> e) =>
@@ -36,7 +42,7 @@ class ProfilePage extends StatelessWidget {
           return Scaffold(
             backgroundColor: bgColor,
             appBar: AppBar(
-              title: Text('View Profile'),
+              title: const Text('View Profile'),
               backgroundColor: const Color(0xffFEAA1B),
             ),
             body: Center(
@@ -51,25 +57,28 @@ class ProfilePage extends StatelessWidget {
                         ? NetworkImage(userData.profilePic)
                         : null,
                     child: userData.profilePic.isEmpty
-                        ? Icon(Icons.person, size: 60, color: Colors.white)
+                        ? const Icon(Icons.person,
+                            size: 60, color: Colors.white)
                         : null,
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Text(
                     userData.name,
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 24, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     'UID: #${user?.uid?.substring(user.uid.length - 4) ?? ''}',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.bold),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     userData.headLine,
-                    style: TextStyle(fontSize: 18),
+                    style: const TextStyle(fontSize: 18),
                   ),
-                  SizedBox(height: 40),
+                  const SizedBox(height: 40),
                   SizedBox(
                     width: 200,
                     child: OvalButton(
@@ -79,13 +88,13 @@ class ProfilePage extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => EditProfilePage(),
+                            builder: (context) => const EditProfilePage(),
                           ),
                         );
                       },
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   SizedBox(
                     width: 200,
                     child: OvalButton(
@@ -96,7 +105,7 @@ class ProfilePage extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   SizedBox(
                     width: 200,
                     child: OvalButton(
@@ -129,13 +138,13 @@ class ProfilePage extends StatelessWidget {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Select Contact Method'),
+          title: const Text('Select Contact Method'),
           content: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
               Expanded(
                 child: IconButton(
-                  icon: Icon(Icons.mail, size: 30),
+                  icon: const Icon(Icons.mail, size: 30),
                   onPressed: () {
                     Navigator.pop(context);
                     _sendEmail(context, userData);
@@ -144,7 +153,7 @@ class ProfilePage extends StatelessWidget {
               ),
               Expanded(
                 child: IconButton(
-                  icon: Icon(Icons.phone, size: 30),
+                  icon: const Icon(Icons.phone, size: 30),
                   onPressed: () {
                     Navigator.pop(context);
                     _makePhoneCall(context, userData);
@@ -171,7 +180,7 @@ class ProfilePage extends StatelessWidget {
       await launchUrl(emailUri);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('No email client found'),
         ),
       );
@@ -184,7 +193,7 @@ class ProfilePage extends StatelessWidget {
       await launchUrl(phoneUrl);
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Phone app not found'),
         ),
       );
@@ -198,7 +207,10 @@ class OvalButton extends StatelessWidget {
   final VoidCallback onPressed;
 
   OvalButton(
-      {required this.icon, required this.label, required this.onPressed});
+      {super.key,
+      required this.icon,
+      required this.label,
+      required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -208,14 +220,14 @@ class OvalButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
         ),
-        padding: EdgeInsets.symmetric(vertical: 10),
+        padding: const EdgeInsets.symmetric(vertical: 10),
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Icon(icon, size: 40),
-          SizedBox(width: 8),
-          Text(label, style: TextStyle(fontSize: 16)),
+          const SizedBox(width: 8),
+          Text(label, style: const TextStyle(fontSize: 16)),
         ],
       ),
     );

@@ -1,47 +1,50 @@
 import 'package:connectcard/models/TheUser.dart';
 import 'package:flutter/material.dart';
 
+// Popup widget to show the user's profile and to add user as friend
 class ProfilePopup extends StatelessWidget {
   final UserData user;
   final VoidCallback onAddFriend;
 
-  ProfilePopup({required this.user, required this.onAddFriend});
+  const ProfilePopup(
+      {super.key, required this.user, required this.onAddFriend});
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+      contentPadding:
+          const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Text(
             "Add ${user.name} as a friend?",
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           CircleAvatar(
             radius: 30.0,
             backgroundImage: NetworkImage(user.profilePic),
             backgroundColor: Colors.grey,
             child: user.profilePic.isNotEmpty
                 ? null
-                : Icon(
+                : const Icon(
                     Icons.person,
                     size: 30.0,
                     color: Colors.white,
                   ),
           ),
-          SizedBox(height: 16.0),
+          const SizedBox(height: 16.0),
           Text(
             '${user.name} #${user.uid.substring(user.uid.length - 4)}',
-            style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
           ),
-          SizedBox(height: 8.0),
+          const SizedBox(height: 8.0),
           Text(
             user.headLine,
-            style: TextStyle(fontSize: 14.0, color: Colors.grey),
+            style: const TextStyle(fontSize: 14.0, color: Colors.grey),
           ),
-          SizedBox(height: 24.0),
+          const SizedBox(height: 24.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -57,30 +60,30 @@ class ProfilePopup extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text('Friend request sent to ${user.name}.'),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
                             CircleAvatar(
                               radius: 30.0,
                               backgroundImage: NetworkImage(user.profilePic),
                               backgroundColor: Colors.grey,
                               child: user.profilePic.isNotEmpty
                                   ? null
-                                  : Icon(
+                                  : const Icon(
                                       Icons.person,
                                       size: 30.0,
                                       color: Colors.white,
                                     ),
                             ),
-                            SizedBox(height: 16.0),
+                            const SizedBox(height: 16.0),
                             Text(
                               '${user.name} #${user.uid.substring(user.uid.length - 4)}',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 18.0, fontWeight: FontWeight.bold),
                             ),
-                            SizedBox(height: 8.0),
+                            const SizedBox(height: 8.0),
                             Text(
                               user.headLine,
-                              style:
-                                  TextStyle(fontSize: 14.0, color: Colors.grey),
+                              style: const TextStyle(
+                                  fontSize: 14.0, color: Colors.grey),
                             ),
                           ],
                         ),
@@ -89,21 +92,21 @@ class ProfilePopup extends StatelessWidget {
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('Close'),
+                            child: const Text('Close'),
                           ),
                         ],
                       );
                     },
                   );
                 },
-                child: Text('Add Friend'),
+                child: const Text('Add Friend'),
               ),
-              SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               TextButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                child: Text('Cancel'),
+                child: const Text('Cancel'),
               ),
             ],
           ),

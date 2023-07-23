@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 class FriendCardDetailsPage extends StatelessWidget {
   final Cards card;
 
-  FriendCardDetailsPage({required this.card});
+  const FriendCardDetailsPage({super.key, required this.card});
 
   String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
@@ -22,7 +22,7 @@ class FriendCardDetailsPage extends StatelessWidget {
         backgroundColor: const Color(0xffFEAA1B),
         title: Text(
           card.cardName,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         ),
@@ -67,17 +67,17 @@ class FriendCardDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             Text(
               card.companyName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
               ),
             ),
             Text(card.jobTitle),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Contact Information:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -91,21 +91,21 @@ class FriendCardDetailsPage extends StatelessWidget {
                   await launchUrl(phoneUrl);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Phone app not found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.phone,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.phoneNum.isNotEmpty
                           ? card.phoneNum
@@ -135,21 +135,21 @@ class FriendCardDetailsPage extends StatelessWidget {
                   await launchUrl(emailUri);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('No email client found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.email,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.email.isNotEmpty ? card.email : "Insert Email",
                       style: TextStyle(
@@ -175,21 +175,21 @@ class FriendCardDetailsPage extends StatelessWidget {
                   await launchUrl(_url);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Website not found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.public,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.companyWebsite.isNotEmpty
                           ? card.companyWebsite
@@ -205,8 +205,8 @@ class FriendCardDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Details:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -215,8 +215,8 @@ class FriendCardDetailsPage extends StatelessWidget {
             ),
             Text('Work Address: ${card.companyAddress}'),
             Text('Personal Statement: ${card.personalStatement}'),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'More Information:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,

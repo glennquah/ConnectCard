@@ -15,7 +15,7 @@ import 'home.dart';
 // Screen for users to be able to edit the information of their cards
 class CardEditorScreen extends StatefulWidget {
   final String selectedCard;
-  const CardEditorScreen({required this.selectedCard});
+  const CardEditorScreen({super.key, required this.selectedCard});
 
   @override
   _CardEditorScreenState createState() => _CardEditorScreenState();
@@ -23,7 +23,6 @@ class CardEditorScreen extends StatefulWidget {
 
 class _CardEditorScreenState extends State<CardEditorScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _imageUrl = GlobalKey<FormState>();
   final _cardName = GlobalKey<FormState>();
   final _companyNameKey = GlobalKey<FormState>();
   final _jobTitleKey = GlobalKey<FormState>();
@@ -55,7 +54,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Center(child: Text('Select an Image')),
+          title: const Center(child: Text('Select an Image')),
           content: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -64,7 +63,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                   Navigator.of(context).pop();
                   await _pickImage(ImageSource.camera);
                 },
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 32.0,
                   backgroundColor: Colors.transparent,
                   child: Icon(
@@ -74,13 +73,13 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                   ),
                 ),
               ),
-              SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               GestureDetector(
                 onTap: () async {
                   Navigator.of(context).pop();
                   await _pickImage(ImageSource.gallery);
                 },
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 32.0,
                   backgroundColor: Colors.transparent,
                   child: Icon(
@@ -163,7 +162,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
             return Scaffold(
               backgroundColor: bgColor,
               appBar: AppBar(
-                title: Text('Edit Your Card'),
+                title: const Text('Edit Your Card'),
                 backgroundColor: bgColor,
               ),
               body: SingleChildScrollView(
@@ -178,7 +177,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           child: Container(
                             height: 100,
                             width: 100,
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                               shape: BoxShape.circle,
                               color: Colors.grey,
                             ),
@@ -194,18 +193,18 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                             fit: BoxFit.cover,
                                           ),
                                   )
-                                : Icon(
+                                : const Icon(
                                     Icons.add_a_photo,
                                     size: 50,
                                     color: Colors.white,
                                   ),
                           ),
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _cardName,
                           initialValue: selectedCard.cardName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Card Name',
                             prefixIcon: Icon(Icons.card_membership),
                           ),
@@ -215,11 +214,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newCardName = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _companyNameKey,
                           initialValue: selectedCard.companyName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Company Name',
                             prefixIcon: Icon(Icons.business),
                           ),
@@ -229,11 +228,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newCompanyName = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _jobTitleKey,
                           initialValue: selectedCard.jobTitle,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Job Title',
                             prefixIcon: Icon(Icons.work),
                           ),
@@ -243,11 +242,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newJobTitle = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _phoneNumKey,
                           initialValue: selectedCard.phoneNum,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Phone Number',
                             prefixIcon: Icon(Icons.phone),
                           ),
@@ -266,11 +265,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newPhoneNum = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _emailKey,
                           initialValue: selectedCard.email,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Email',
                             prefixIcon: Icon(Icons.mail),
                           ),
@@ -288,11 +287,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newEmail = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _websiteKey,
                           initialValue: selectedCard.companyWebsite,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Website',
                             prefixIcon: Icon(Icons.language),
                           ),
@@ -310,11 +309,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newWebsite = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _addressKey,
                           initialValue: selectedCard.companyAddress,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Company Address',
                             prefixIcon: Icon(Icons.location_city),
                           ),
@@ -322,11 +321,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newAddress = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _personalStatementKey,
                           initialValue: selectedCard.personalStatement,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Personal Statement',
                             prefixIcon: Icon(Icons.comment),
                           ),
@@ -334,11 +333,11 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newPersonalStatement = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfoKey,
                           initialValue: selectedCard.moreInfo,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'More Information',
                             prefixIcon: Icon(Icons.info),
                           ),
@@ -349,7 +348,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                             setState(() => newMoreInfo = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
@@ -404,7 +403,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     if (isDuplicateCardName) {
                                       ScaffoldMessenger.of(context)
                                           .showSnackBar(
-                                        SnackBar(
+                                        const SnackBar(
                                           content: Text(
                                               'Card name already exists. Please enter a different card name.'),
                                         ),
@@ -456,23 +455,23 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                     }
                                   }
                                 },
-                                child: Text(
+                                child: const Text(
                                   'Confirm Edit',
                                   style: TextStyle(color: Colors.white),
                                 ),
                               ),
-                              SizedBox(width: 12.0),
+                              const SizedBox(width: 12.0),
                               IconButton(
-                                icon: Icon(Icons.delete),
+                                icon: const Icon(Icons.delete),
                                 onPressed: () {
                                   showDialog(
                                     context: context,
                                     builder: (BuildContext context) {
                                       // Pop up to confirm delete
                                       return AlertDialog(
-                                        title: Center(
+                                        title: const Center(
                                             child: Text('Confirm Delete')),
-                                        content: Text(
+                                        content: const Text(
                                             'Are you sure you want to delete?'),
                                         actions: <Widget>[
                                           Center(
@@ -481,7 +480,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                   MainAxisAlignment.center,
                                               children: [
                                                 TextButton(
-                                                  child: Text('Yes'),
+                                                  child: const Text('Yes'),
                                                   onPressed: () async {
                                                     if (userData.listOfCards
                                                             .length ==
@@ -489,7 +488,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                       ScaffoldMessenger.of(
                                                               context)
                                                           .showSnackBar(
-                                                        SnackBar(
+                                                        const SnackBar(
                                                           content: Text(
                                                               'You must have at least one card.'),
                                                         ),
@@ -527,7 +526,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                   },
                                                 ),
                                                 TextButton(
-                                                  child: Text('No'),
+                                                  child: const Text('No'),
                                                   onPressed: () {
                                                     Navigator.of(context).pop();
                                                   },

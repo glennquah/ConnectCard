@@ -5,11 +5,13 @@ import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/profile_popup.dart';
 import 'package:flutter/material.dart';
 
+// This class is used to add friends
+// 2 tabs: search friends which shows list of users using connectcard and pending requests
 class AddFriendsPage extends StatefulWidget {
   final List<UserData> users;
   final String uid;
 
-  AddFriendsPage({required this.users, required this.uid});
+  const AddFriendsPage({super.key, required this.users, required this.uid});
 
   @override
   _AddFriendsPageState createState() => _AddFriendsPageState();
@@ -120,39 +122,39 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
       builder: (context) {
         return AlertDialog(
           contentPadding:
-              EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+              const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
                 "Remove friend request for ${user.name}?",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               CircleAvatar(
                 radius: 30.0,
                 backgroundImage: NetworkImage(user.profilePic),
-                backgroundColor:
-                    Colors.grey, // Set a background color for the avatar
+                backgroundColor: Colors.grey,
                 child: user.profilePic.isNotEmpty
-                    ? null // If profilePic is available, don't display a child
-                    : Icon(
+                    ? null
+                    : const Icon(
                         Icons.person,
                         size: 30.0,
                         color: Colors.white,
                       ),
               ),
-              SizedBox(height: 16.0),
+              const SizedBox(height: 16.0),
               Text(
                 '${user.name} #${user.uid.substring(user.uid.length - 4)}',
-                style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    fontSize: 18.0, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 8.0),
+              const SizedBox(height: 8.0),
               Text(
                 user.headLine,
-                style: TextStyle(fontSize: 14.0, color: Colors.grey),
+                style: const TextStyle(fontSize: 14.0, color: Colors.grey),
               ),
-              SizedBox(height: 24.0),
+              const SizedBox(height: 24.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -195,14 +197,14 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
 
                       Navigator.pop(context);
                     },
-                    child: Text('Remove Request'),
+                    child: const Text('Remove Request'),
                   ),
-                  SizedBox(width: 16.0),
+                  const SizedBox(width: 16.0),
                   TextButton(
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Cancel'),
+                    child: const Text('Cancel'),
                   ),
                 ],
               ),
@@ -228,9 +230,9 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text('Add Friends'),
+          title: const Text('Add Friends'),
           backgroundColor: const Color(0xffFEAA1B),
-          bottom: TabBar(
+          bottom: const TabBar(
             tabs: [
               Tab(text: 'Search Friends'),
               Tab(text: 'Request Pending'),
@@ -248,7 +250,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       onChanged: _filterUsers,
                       decoration: InputDecoration(
                         labelText: 'Search for Friends',
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: const Icon(Icons.search),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -257,9 +259,9 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                   ),
                   ListView.separated(
                     shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: filteredUsers.length,
-                    separatorBuilder: (context, index) => Divider(
+                    separatorBuilder: (context, index) => const Divider(
                       color: Colors.black,
                       thickness: 1.0,
                     ),
@@ -277,15 +279,14 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                           );
                         },
                         child: ListTile(
-                          contentPadding: EdgeInsets.all(10.0),
+                          contentPadding: const EdgeInsets.all(10.0),
                           leading: CircleAvatar(
                             radius: 30.0,
                             backgroundImage: NetworkImage(user.profilePic),
-                            backgroundColor: Colors
-                                .grey, // Set a background color for the avatar
+                            backgroundColor: Colors.grey,
                             child: user.profilePic.isNotEmpty
-                                ? null // If profilePic is available, don't display a child
-                                : Icon(
+                                ? null
+                                : const Icon(
                                     Icons.person,
                                     size: 30.0,
                                     color: Colors.white,
@@ -293,18 +294,18 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                           ),
                           title: Text(
                             '${user.name}',
-                            style: TextStyle(fontSize: 18.0),
+                            style: const TextStyle(fontSize: 18.0),
                           ),
                           subtitle: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'UID: #${user.uid.substring(user.uid.length - 4)}',
-                                style: TextStyle(fontSize: 14.0),
+                                style: const TextStyle(fontSize: 14.0),
                               ),
                               Text(
                                 user.headLine,
-                                style: TextStyle(fontSize: 14.0),
+                                style: const TextStyle(fontSize: 14.0),
                               ),
                             ],
                           ),
@@ -319,7 +320,7 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
               future: _getFriendRequestsSent(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Center(child: CircularProgressIndicator());
+                  return const Center(child: CircularProgressIndicator());
                 } else if (snapshot.hasData) {
                   List<Friends> friendRequestsSent = snapshot.data!;
                   List<UserData> pendingRequestsUsers = widget.users
@@ -328,8 +329,8 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                       .toList();
                   return ListView.separated(
                     itemCount: pendingRequestsUsers.length,
-                    physics: NeverScrollableScrollPhysics(),
-                    separatorBuilder: (context, index) => Divider(
+                    physics: const NeverScrollableScrollPhysics(),
+                    separatorBuilder: (context, index) => const Divider(
                       color: Colors.black,
                       thickness: 1.0,
                     ),
@@ -341,15 +342,14 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                             _removeRequest(user);
                           },
                           child: ListTile(
-                            contentPadding: EdgeInsets.all(10.0),
+                            contentPadding: const EdgeInsets.all(10.0),
                             leading: CircleAvatar(
                               radius: 30.0,
                               backgroundImage: NetworkImage(user.profilePic),
-                              backgroundColor: Colors
-                                  .grey, // Set a background color for the avatar
+                              backgroundColor: Colors.grey,
                               child: user.profilePic.isNotEmpty
-                                  ? null // If profilePic is available, don't display a child
-                                  : Icon(
+                                  ? null
+                                  : const Icon(
                                       Icons.person,
                                       size: 30.0,
                                       color: Colors.white,
@@ -357,18 +357,18 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                             ),
                             title: Text(
                               '${user.name}',
-                              style: TextStyle(fontSize: 18.0),
+                              style: const TextStyle(fontSize: 18.0),
                             ),
                             subtitle: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   'UID: #${user.uid.substring(user.uid.length - 4)}',
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: const TextStyle(fontSize: 14.0),
                                 ),
                                 Text(
                                   user.headLine,
-                                  style: TextStyle(fontSize: 14.0),
+                                  style: const TextStyle(fontSize: 14.0),
                                 ),
                               ],
                             ),
@@ -376,7 +376,8 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
                     },
                   );
                 } else {
-                  return Center(child: Text('No pending friend requests.'));
+                  return const Center(
+                      child: Text('No pending friend requests.'));
                 }
               },
             ),

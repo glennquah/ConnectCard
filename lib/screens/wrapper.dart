@@ -7,18 +7,19 @@ import 'package:showcaseview/showcaseview.dart';
 
 // This class is used to toggle between the sign in and register pages
 class Wrapper extends StatelessWidget {
+  const Wrapper({super.key});
+
   @override
   Widget build(BuildContext context) {
     final user = Provider.of<TheUser?>(context);
-    print(user);
 
     // return either the Home or Authenticate widget
     if (user == null) {
-      return Authenticate();
+      return const Authenticate();
     } else {
       return ShowCaseWidget(
           builder: Builder(
-        builder: (context) => Home(),
+        builder: (context) => const Home(),
       ));
     }
   }

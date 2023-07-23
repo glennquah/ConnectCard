@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // This class is used to register a user
 class Register extends StatefulWidget {
   final Function toggleView;
-  Register({required this.toggleView});
+  const Register({super.key, required this.toggleView});
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -17,7 +17,6 @@ class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
 
-  // text field state
   String email = '';
   String password = '';
   String phoneNum = '';
@@ -32,21 +31,21 @@ class _RegisterState extends State<Register> {
         : Scaffold(
             backgroundColor: bgColor,
             body: SingleChildScrollView(
-              // Wrap with SingleChildScrollView
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 20.0, horizontal: 50.0),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 40.0),
+                    const SizedBox(height: 40.0),
                     Container(
                       width: 200.0,
                       height: 200.0,
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/logo/ConnectCardLogo.jpg'),
                         fit: BoxFit.contain,
                       ),
                     ),
-                    Text(
+                    const Text(
                       'Sign Up',
                       style: TextStyle(
                         color: Colors.white,
@@ -54,18 +53,18 @@ class _RegisterState extends State<Register> {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 20.0),
+                    const SizedBox(height: 20.0),
                     Form(
                       key: _formKey,
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           TextFormField(
                             decoration: textInputDecoration.copyWith(
                               hintText: 'Phone Number',
-                              prefixIcon: Icon(Icons.phone),
+                              prefixIcon: const Icon(Icons.phone),
                             ),
-                            // The validator receives the text that the user has entered, must fulfil the requirement of being integers
+                            // phone number must be integers
                             validator: (val) {
                               if (val!.isEmpty) {
                                 return 'Enter a phone number';
@@ -81,11 +80,11 @@ class _RegisterState extends State<Register> {
                               setState(() => phoneNum = val);
                             },
                           ),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           TextFormField(
                             decoration: textInputDecoration.copyWith(
                                 hintText: 'Email',
-                                prefixIcon: Icon(Icons.email)),
+                                prefixIcon: const Icon(Icons.email)),
                             validator: (val) {
                               if (val == null || val.isEmpty) {
                                 return 'Enter an email';
@@ -96,11 +95,11 @@ class _RegisterState extends State<Register> {
                               setState(() => email = val);
                             },
                           ),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           TextFormField(
                             decoration: textInputDecoration.copyWith(
                               hintText: 'Password',
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: const Icon(Icons.lock),
                             ),
                             obscureText: true,
                             validator: (val) {
@@ -113,13 +112,13 @@ class _RegisterState extends State<Register> {
                               setState(() => password = val);
                             },
                           ),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.black),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Sign Up',
                               style: TextStyle(color: Colors.white),
                             ),
@@ -138,26 +137,27 @@ class _RegisterState extends State<Register> {
                               }
                             },
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Text(
                             error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                            style: const TextStyle(
+                                color: Colors.red, fontSize: 14.0),
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
+                              const Text(
                                 'Already have an account?',
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 14.0),
                               ),
                               TextButton(
-                                child: Text(
+                                child: const Text(
                                   'Login',
                                   style: TextStyle(
-                                    color: Colors.red,
-                                    fontSize: 14.0,
+                                    color: Color.fromARGB(255, 2, 146, 43),
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
