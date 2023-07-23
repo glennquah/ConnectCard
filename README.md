@@ -263,12 +263,14 @@ Users can view their cards in more details by clicking into them.
 
 ## Card Editor Form Page
 ![drop down](readme_assets/app_demo_assets/homepage_cardeditor.png)
+
 Allows users to add new name cards and edit the selected name cards.
 
 Validates the entered information and displays error messages if required fields are not filled.
 
 ## Card Editor Page
 ![card editor](readme_assets/app_demo_assets/homepage_editcardform.png)
+
 Loads the selected name card information from the database.
 
 Allows users to add a display picture and update various information fields.
@@ -284,12 +286,14 @@ When adding new cards, the List of Cards will add on
 
 ## Communication Integration
 ![comm int](readme_assets/app_demo_assets/homepage_glennQR.png)
+
 Each User will have their unique QR Code that can be accessed by clicking on the ‘connect’ button.
 
 Users can choose to scan another user’s QR Code to them as friend or send their QR code via social media
 
 ## Communication Integration (Adding friends by Scanning QR Code)
 ![scan qr](readme_assets/app_demo_assets/addselena.jpg)
+
 After users click the ‘Scan’ button, they can scan other user’s QR code to add them as friend
 
 ## Communication Integration
@@ -302,6 +306,7 @@ In this example, we share the QR code via telegram to nigel.
 
 ## Text Recog Page
 ![text recog](readme_assets/app_demo_assets/ocr_scanAIA.jpg)
+
 Requests permission to use the camera for name card scanning.
 
 Enables users to capture a photo of a name card.
@@ -313,6 +318,7 @@ Users can click onto the help icon at the top right for instructions on how to u
 ## Text Recog Results Page
 ![ocr result](readme_assets/app_demo_assets/ocr_result.jpg)
 ![personal or friend](readme_assets/app_demo_assets/ocr_personalorfriend.png)
+
 Displays the results of the text conversion and extraction process.
 
 Filters out Address, Email and Website and prefills in the scanned card editor page.
@@ -321,6 +327,7 @@ When they click add card, an alert dialog appears and users can choose to add th
 
 ## Edit Scanned Card
 ![ocr edit](readme_assets/app_demo_assets/ocr_editcard.png)
+
 Allows users to Edit the Scanned Card to their preferences.
 
 The Email, website and address are prefilled by the programme.
@@ -330,6 +337,7 @@ All other extracted text will be prefilled inside the more information area and 
 ## Scanned Card Page
 ![scanned card page](readme_assets/app_demo_assets/scannedcard.png)
 ![scanned card pop up](readme_assets/app_demo_assets/scannedcard_popup.png)
+
 Users are able to view the list of scanned cards at the scanned card page.
 
 A search function is also included for users to easily find the scanned card
@@ -338,14 +346,17 @@ Users will be able to edit or view the scanned card in more detail when they cli
 
 ## View Scanned Card Page
 ![scanned card more details](readme_assets/app_demo_assets/scannedcard_moredetails.png)
+
 Users are able to view the scanned card with more detailed information after clicking into the card.
 
 ## Profile Page
 ![profile page](readme_assets/app_demo_assets/profilepage.png)
+
 Allows users to select options such as editing profile, contacting customer support, or logging out.
 
 ## Edit Profile Page
 ![edit profile page](readme_assets/app_demo_assets/profilepage_edit.png)
+
 Allows users to edit their profile picture, name and headline, which will be displayed when other users want to add them as friends. 
 
 
