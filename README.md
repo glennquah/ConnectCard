@@ -345,7 +345,7 @@ A search function is also included for users to easily find the scanned card
 Users will be able to edit or view the scanned card in more detail when they click into each card.
 
 ## View Scanned Card Page
-![scanned card more details](readme_assets/app_demo_assets/scannedcard_moredetails.png)
+![scanned card more details](readme_assets/app_demo_assets/scanedcard_moredetails.png)
 
 Users are able to view the scanned card with more detailed information after clicking into the card.
 
