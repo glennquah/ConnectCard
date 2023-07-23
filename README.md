@@ -96,7 +96,7 @@ App APK: [https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbC
 
 ## <span style="text-decoration:underline;">Milestone 3</span>
 
-A1 Poster: 
+A1 Poster: https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link
 
 Project Demo: [https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=sharing](https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=sharing)
 
@@ -142,8 +142,8 @@ ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for
 
 Currently, there are existing name card applications that provide features such as storing and managing digital name cards of self and others. However, there are some few applications that satisfy some features that are important in a digital name card application.
 
-Existing name card applications have limited functionality in these areas: \
-- Converting current physical name cards into digital name cards easily \
+Existing name card applications have limited functionality in these areas: 
+- Converting current physical name cards into digital name cards easily 
 - Sharing digital name cards with others easily
 
 
