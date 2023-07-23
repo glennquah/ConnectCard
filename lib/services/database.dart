@@ -4,6 +4,7 @@ import 'package:connectcard/models/Friends.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
 
+// Database service to interact with firestore
 class DatabaseService {
   final String uid;
 
@@ -175,6 +176,7 @@ class DatabaseService {
     );
   }
 
+  // Get all users except the current user
   Future<List<UserData>> getAllUsersExceptCurrent() async {
     QuerySnapshot snapshot = await profileCollection.get();
     List<UserData> users = [];
@@ -209,10 +211,12 @@ class DatabaseService {
     return friendCollection.snapshots().map(_friendsPhysicalCardFromSnapshot);
   }
 
+  // Get user doc stream
   Stream<UserData> get userProfile {
     return profileCollection.doc(uid).snapshots().map(userDataFromSnapshot);
   }
 
+  // Get friends doc stream
   Stream<FriendsData> get friendData {
     return friendCollection.doc(uid).snapshots().map(friendsDataFromSnapshot);
   }

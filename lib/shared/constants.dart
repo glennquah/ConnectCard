@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// Colors
+// for the text input decoration when there is an error
 const textInputDecoration = InputDecoration(
   fillColor: Colors.white,
   filled: true,

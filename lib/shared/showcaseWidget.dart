@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:showcaseview/showcaseview.dart';
 
+// ShowcaseView is a widget that wraps around any widget to display a showcase
 class ShowcaseView extends StatelessWidget {
   const ShowcaseView(
       {Key? key,
@@ -23,10 +24,10 @@ class ShowcaseView extends StatelessWidget {
       key: globalKey,
       title: title,
       description: description,
-      titlePadding: EdgeInsets.all(5),
-      tooltipPadding: EdgeInsets.all(10),
-      descriptionPadding: EdgeInsets.all(5),
-      targetPadding: EdgeInsets.all(13),
+      titlePadding: const EdgeInsets.all(5),
+      tooltipPadding: const EdgeInsets.all(10),
+      descriptionPadding: const EdgeInsets.all(5),
+      targetPadding: const EdgeInsets.all(13),
       targetShapeBorder: shapeBorder,
       child: child,
     );

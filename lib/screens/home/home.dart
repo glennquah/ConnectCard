@@ -3,8 +3,7 @@ import 'package:connectcard/models/TheUser.dart';
 import 'package:connectcard/screens/home/cards_form.dart';
 import 'package:connectcard/screens/home/home_cardview.dart';
 import 'package:connectcard/screens/home/home_listview.dart';
-import 'package:connectcard/screens/showcaseWidget.dart';
-import 'package:connectcard/services/auth.dart';
+import 'package:connectcard/shared/showcaseWidget.dart';
 import 'package:connectcard/services/database.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
@@ -14,12 +13,13 @@ import 'package:showcaseview/showcaseview.dart';
 
 // This class is used to display the home page
 class Home extends StatefulWidget {
+  const Home({super.key});
+
   @override
   _HomeState createState() => _HomeState();
 }
 
 class _HomeState extends State<Home> {
-  final Auth _auth = Auth();
   Color bgColor = const Color(0xffFEAA1B);
   bool isCardView = false;
 
@@ -28,6 +28,7 @@ class _HomeState extends State<Home> {
   final GlobalKey globalKeyThree = GlobalKey();
   final GlobalKey globalKeyFour = GlobalKey();
 
+  // Toggle between card view and list view
   void toggleView() {
     if (isCardView) {
       setState(() {
@@ -36,13 +37,14 @@ class _HomeState extends State<Home> {
     }
   }
 
+  // Show the cards panel when the user clicks on the edit icon
   void _showCardsPanel() {
     showModalBottomSheet(
       context: context,
       builder: (context) {
         return Container(
           padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 60.0),
-          child: CardsForm(),
+          child: const CardsForm(),
         );
       },
     );
@@ -80,7 +82,7 @@ class _HomeState extends State<Home> {
                     children: [
                       Text(
                         userData.name,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 16.0,
                         ),
@@ -113,7 +115,7 @@ class _HomeState extends State<Home> {
                             fit: BoxFit.cover,
                           ),
                         )
-                      : Icon(
+                      : const Icon(
                           Icons.person,
                           size: 30.0,
                           color: Colors.white,
@@ -148,10 +150,10 @@ class _HomeState extends State<Home> {
                       'Add or Edit cards by clicking on this pen icon!',
                   child: InkWell(
                     onTap: () => _showCardsPanel(),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 8.0),
                       child: Row(
-                        children: const [
+                        children: [
                           Icon(Icons.edit, color: Colors.black),
                         ],
                       ),
@@ -171,7 +173,7 @@ class _HomeState extends State<Home> {
                         alignment: Alignment.centerLeft,
                         child: Text(
                           isCardView ? '  List View' : '  Card View',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                           ),
@@ -206,7 +208,7 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                            SizedBox(width: 5.0),
+                            const SizedBox(width: 5.0),
                             InkWell(
                               onTap: () {
                                 if (isCardView) {

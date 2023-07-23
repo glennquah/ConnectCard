@@ -8,7 +8,8 @@ class CardDetailsPage extends StatelessWidget {
   final Cards card;
   final UserData userData;
 
-  CardDetailsPage({required this.card, required this.userData});
+  const CardDetailsPage(
+      {super.key, required this.card, required this.userData});
 
   String? encodeQueryParameters(Map<String, String> params) {
     return params.entries
@@ -24,7 +25,7 @@ class CardDetailsPage extends StatelessWidget {
         backgroundColor: const Color(0xffFEAA1B),
         title: Text(
           card.cardName,
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.black,
           ),
         ),
@@ -45,11 +46,11 @@ class CardDetailsPage extends StatelessWidget {
                   Container(
                     width: 100.0,
                     height: 100.0,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       shape: BoxShape.circle,
                       color: Colors.grey,
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Icon(
                         Icons.person,
                         size: 50.0,
@@ -57,27 +58,27 @@ class CardDetailsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                SizedBox(width: 10.0),
+                const SizedBox(width: 10.0),
                 Text(
                   userData.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18.0,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 10.0),
+            const SizedBox(height: 10.0),
             Text(
               card.companyName,
-              style: TextStyle(
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 18.0,
               ),
             ),
             Text(card.jobTitle),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Contact Information:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -91,21 +92,21 @@ class CardDetailsPage extends StatelessWidget {
                   await launchUrl(phoneUrl);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Phone app not found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.phone,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.phoneNum.isNotEmpty
                           ? card.phoneNum
@@ -135,21 +136,21 @@ class CardDetailsPage extends StatelessWidget {
                   await launchUrl(emailUri);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('No email client found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.email,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.email.isNotEmpty ? card.email : "Insert Email",
                       style: TextStyle(
@@ -175,21 +176,21 @@ class CardDetailsPage extends StatelessWidget {
                   await launchUrl(_url);
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
+                    const SnackBar(
                       content: Text('Website not found'),
                     ),
                   );
                 }
               },
               child: Container(
-                padding: EdgeInsets.symmetric(horizontal: 4.0),
+                padding: const EdgeInsets.symmetric(horizontal: 4.0),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.public,
                       color: Colors.blue,
                     ),
-                    SizedBox(width: 4.0),
+                    const SizedBox(width: 4.0),
                     Text(
                       card.companyWebsite.isNotEmpty
                           ? card.companyWebsite
@@ -205,8 +206,8 @@ class CardDetailsPage extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'Details:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -215,8 +216,8 @@ class CardDetailsPage extends StatelessWidget {
             ),
             Text('Work Address: ${card.companyAddress}'),
             Text('Personal Statement: ${card.personalStatement}'),
-            SizedBox(height: 20.0),
-            Text(
+            const SizedBox(height: 20.0),
+            const Text(
               'More Information:',
               style: TextStyle(
                 fontWeight: FontWeight.bold,

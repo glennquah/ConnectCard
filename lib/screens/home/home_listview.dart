@@ -8,7 +8,7 @@ class HomeListView extends StatelessWidget {
   final UserData userData;
   final List<Cards> cards;
 
-  HomeListView({required this.userData, required this.cards});
+  const HomeListView({super.key, required this.userData, required this.cards});
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +32,12 @@ class HomeListView extends StatelessWidget {
                   );
                 },
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     border: Border(
                       bottom: BorderSide(color: Colors.black),
                     ),
                   ),
-                  padding: EdgeInsets.only(bottom: 8.0),
+                  padding: const EdgeInsets.only(bottom: 8.0),
                   child: ListTile(
                     contentPadding: EdgeInsets.zero,
                     leading: CircleAvatar(
@@ -52,7 +52,7 @@ class HomeListView extends StatelessWidget {
                                 fit: BoxFit.cover,
                               ),
                             )
-                          : Icon(
+                          : const Icon(
                               Icons.person,
                               size: 40.0,
                               color: Colors.white,

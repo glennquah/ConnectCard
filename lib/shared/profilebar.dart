@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
   final UserData userData;
 
-  ProfileBar({required this.userData});
+  const ProfileBar({super.key, required this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Text(
               userData.name,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.black,
                 fontSize: 16.0,
               ),
@@ -54,7 +54,7 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
                     fit: BoxFit.cover,
                   ),
                 )
-              : Icon(
+              : const Icon(
                   Icons.person,
                   size: 30.0,
                   color: Colors.white,
@@ -67,5 +67,5 @@ class ProfileBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

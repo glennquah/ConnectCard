@@ -24,18 +24,18 @@ class MyApp extends StatelessWidget {
       value: Auth().user,
       initialData: null,
       child: MaterialApp(
-        home: Wrapper(),
+        home: const Wrapper(),
         // to route to a page, use Navigator.pushNamed(context, '/pageName')
         routes: {
           '/home': (context) => ShowCaseWidget(
-                builder: Builder(builder: (context) => Home()),
+                builder: Builder(builder: (context) => const Home()),
               ),
           '/scan': (context) => ShowCaseWidget(
-                builder: Builder(builder: (context) => OcrScreen()),
+                builder: Builder(builder: (context) => const OcrScreen()),
               ),
-          '/physicalcards': (context) => PhysicalCardPage(),
-          '/friends': (context) => FriendsCardsPage(),
-          '/profile': (context) => ProfilePage(),
+          '/physicalcards': (context) => const PhysicalCardPage(),
+          '/friends': (context) => const FriendsCardsPage(),
+          '/profile': (context) => const ProfilePage(),
         },
       ),
     );

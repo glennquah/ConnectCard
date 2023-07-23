@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:connectcard/screens/scan/ocr/result_screen.dart';
-import 'package:connectcard/screens/showcaseWidget.dart';
+import 'package:connectcard/shared/showcaseWidget.dart';
 import 'package:connectcard/shared/navigationbar.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +10,7 @@ import 'package:google_mlkit_text_recognition/google_mlkit_text_recognition.dart
 import 'package:permission_handler/permission_handler.dart';
 import 'package:showcaseview/showcaseview.dart';
 
+// Screen to scan a name card
 class OcrScreen extends StatefulWidget {
   const OcrScreen({super.key});
 
@@ -22,7 +23,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
 
   late final Future<void> _future;
 
-  // Add this controller to be able to control de camera
+  // To control the camera
   CameraController? _cameraController;
 
   final textRecognizer = TextRecognizer();
@@ -37,7 +38,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
     _future = _requestCameraPermission();
   }
 
-  // We should stop the camera once this widget is disposed
+  // stop the camera once this widget is disposed
   @override
   void dispose() {
     WidgetsBinding.instance.removeObserver(this);
@@ -151,23 +152,27 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
     );
   }
 
+  // Request for camera permission
   Future<void> _requestCameraPermission() async {
     final status = await Permission.camera.request();
     _isPermissionGranted = status == PermissionStatus.granted;
   }
 
+  // Start the camera
   void _startCamera() {
     if (_cameraController != null) {
       _cameraSelected(_cameraController!.description);
     }
   }
 
+  // Stop the camera
   void _stopCamera() {
     if (_cameraController != null) {
       _cameraController?.dispose();
     }
   }
 
+  // Initialize the camera controller
   void _initCameraController(List<CameraDescription> cameras) {
     if (_cameraController != null) {
       return;
@@ -203,12 +208,12 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
     setState(() {});
   }
 
+  // Scan the image
   Future<void> _scanImage() async {
     if (_cameraController == null) return;
 
     final navigator = Navigator.of(context);
 
-    // Show loading overlay
     showLoadingOverlay();
 
     try {
@@ -224,16 +229,11 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
       Reference referenceImageToUpload =
           referenceDirImages.child(uniqueFileName);
       String imageUrl = '';
-      try {
-        // Store the file
-        await referenceImageToUpload.putFile(File(file.path));
+      // Store the file
+      await referenceImageToUpload.putFile(File(file.path));
 
-        // Success: get the download URL
-        imageUrl = await referenceImageToUpload.getDownloadURL();
-      } catch (error) {
-        // Incase some error occured
-        print(error);
-      }
+      // Success: get the download URL
+      imageUrl = await referenceImageToUpload.getDownloadURL();
 
       // Hide loading overlay
       hideLoadingOverlay();
@@ -256,6 +256,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
     }
   }
 
+  // Show a loading overlay when scanning
   void showLoadingOverlay() {
     showDialog(
       context: context,
@@ -263,7 +264,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
       builder: (context) {
         return WillPopScope(
           onWillPop: () async => false,
-          child: Dialog(
+          child: const Dialog(
             backgroundColor: Colors.transparent,
             elevation: 0.0,
             child: Center(
@@ -275,6 +276,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
     );
   }
 
+  // Hide the loading overlay
   void hideLoadingOverlay() {
     Navigator.of(context, rootNavigator: true).pop();
   }

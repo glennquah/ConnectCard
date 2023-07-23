@@ -1,4 +1,4 @@
-// Purpose: Create a Friends class to store UID of the user's friends
+//Friends class to store UID of the user's friends
 class Friends {
   //Only store uid so that we can retrieve the user's data from the database
   final String uid;

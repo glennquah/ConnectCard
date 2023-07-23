@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 // This class is used to sign in the user
 class SignIn extends StatefulWidget {
   final Function? toggleView;
-  SignIn({required this.toggleView});
+  const SignIn({super.key, required this.toggleView});
 
   @override
   _SignInState createState() => _SignInState();
@@ -17,7 +17,6 @@ class _SignInState extends State<SignIn> {
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
 
-  // text field state
   String error = '';
   String email = '';
   String password = '';
@@ -31,21 +30,21 @@ class _SignInState extends State<SignIn> {
         : Scaffold(
             backgroundColor: bgColor,
             body: SingleChildScrollView(
-              // Wrap with SingleChildScrollView
               child: Container(
-                padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+                padding: const EdgeInsets.symmetric(
+                    vertical: 20.0, horizontal: 50.0),
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 40.0),
+                    const SizedBox(height: 40.0),
                     Container(
                       width: 200.0,
                       height: 200.0,
-                      child: Image(
+                      child: const Image(
                         image: AssetImage('assets/logo/ConnectCardLogo.jpg'),
                         fit: BoxFit.contain,
                       ),
                     ),
-                    Text('Login',
+                    const Text('Login',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 30.0,
@@ -54,11 +53,11 @@ class _SignInState extends State<SignIn> {
                       key: _formKey,
                       child: Column(
                         children: <Widget>[
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           TextFormField(
                             decoration: textInputDecoration.copyWith(
                               hintText: 'Email',
-                              prefixIcon: Icon(Icons.email),
+                              prefixIcon: const Icon(Icons.email),
                             ),
                             validator: (val) {
                               if (val == null || val.isEmpty) {
@@ -70,12 +69,12 @@ class _SignInState extends State<SignIn> {
                               setState(() => email = val);
                             },
                           ),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           TextFormField(
                             obscureText: true,
                             decoration: textInputDecoration.copyWith(
                               hintText: 'Password',
-                              prefixIcon: Icon(Icons.lock),
+                              prefixIcon: const Icon(Icons.lock),
                             ),
                             validator: (val) {
                               if (val == null || val.length < 6) {
@@ -87,13 +86,13 @@ class _SignInState extends State<SignIn> {
                               setState(() => password = val);
                             },
                           ),
-                          SizedBox(height: 20.0),
+                          const SizedBox(height: 20.0),
                           ElevatedButton(
                             style: ButtonStyle(
                               backgroundColor:
                                   MaterialStateProperty.all(Colors.black),
                             ),
-                            child: Text(
+                            child: const Text(
                               'Login',
                               style: TextStyle(color: Colors.white),
                             ),
@@ -113,26 +112,27 @@ class _SignInState extends State<SignIn> {
                               }
                             },
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Text(
                             error,
-                            style: TextStyle(color: Colors.red, fontSize: 14.0),
+                            style: const TextStyle(
+                                color: Colors.red, fontSize: 14.0),
                           ),
-                          SizedBox(height: 12.0),
+                          const SizedBox(height: 12.0),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
-                              Text(
+                              const Text(
                                 'Don\'t have an account?',
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 14.0),
                               ),
                               TextButton(
-                                child: Text(
+                                child: const Text(
                                   'Sign Up',
                                   style: TextStyle(
-                                      color: Colors.red,
-                                      fontSize: 14.0,
+                                      color: Color.fromARGB(255, 2, 146, 43),
+                                      fontSize: 16.0,
                                       fontWeight: FontWeight.bold),
                                 ),
                                 onPressed: () => widget.toggleView!(),

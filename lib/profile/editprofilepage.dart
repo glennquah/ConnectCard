@@ -8,19 +8,18 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
+//profile class to edit profile
+//user able to edit name, headline and profile picture
 class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({super.key});
+
   @override
   _EditProfilePageState createState() => _EditProfilePageState();
 }
 
 class _EditProfilePageState extends State<EditProfilePage> {
-  final _editprofileKey = GlobalKey<FormState>();
-
-  final _Name = GlobalKey<FormState>();
   String newName = '';
-  final _Headline = GlobalKey<FormState>();
   String newHeadline = '';
-
   File? image;
   String profilepicUrl = '';
 
@@ -42,11 +41,11 @@ class _EditProfilePageState extends State<EditProfilePage> {
               return Scaffold(
                 backgroundColor: const Color(0xffFEAA1B),
                 appBar: AppBar(
-                  title: Text('Edit Profile'),
+                  title: const Text('Edit Profile'),
                   backgroundColor: const Color(0xffFEAA1B),
                 ),
                 body: SingleChildScrollView(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
@@ -55,7 +54,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                         child: Container(
                           height: 200,
                           width: 200,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                             color: Colors.grey,
                           ),
@@ -71,15 +70,15 @@ class _EditProfilePageState extends State<EditProfilePage> {
                                           fit: BoxFit.cover,
                                         ),
                                 )
-                              : Icon(
+                              : const Icon(
                                   Icons.add_a_photo,
                                   size: 50,
                                   color: Colors.white,
                                 ),
                         ),
                       ),
-                      SizedBox(height: 20.0),
-                      Text(
+                      const SizedBox(height: 20.0),
+                      const Text(
                         'Edit Name',
                         style: TextStyle(
                           fontSize: 18.0,
@@ -88,7 +87,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       ),
                       TextFormField(
                         initialValue: userData!.name,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'New Name',
                           prefixIcon: Icon(Icons.person),
                         ),
@@ -96,8 +95,8 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           setState(() => newName = val);
                         },
                       ),
-                      SizedBox(height: 20.0),
-                      Text(
+                      const SizedBox(height: 20.0),
+                      const Text(
                         'Edit Headline',
                         style: TextStyle(
                           fontSize: 18.0,
@@ -106,7 +105,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                       ),
                       TextFormField(
                         initialValue: userData.headLine,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           hintText: 'New Headline',
                           prefixIcon: Icon(Icons.text_fields),
                         ),
@@ -114,7 +113,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           setState(() => newHeadline = val);
                         },
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       ElevatedButton(
                         onPressed: () async {
                           await DatabaseService(uid: user.uid).updateUserData(
@@ -130,7 +129,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                           Navigator.pop(
                               context); // Navigate back to the previous page
                         },
-                        child: Text(
+                        child: const Text(
                           'Save Changes',
                           style: TextStyle(color: Colors.white),
                         ),
@@ -153,7 +152,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Center(child: Text('Select an Image')),
+          title: const Center(child: Text('Select an Image')),
           content: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -162,7 +161,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   Navigator.of(context).pop();
                   await _pickImage(ImageSource.camera);
                 },
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 32.0,
                   backgroundColor: Colors.transparent,
                   child: Icon(
@@ -172,13 +171,13 @@ class _EditProfilePageState extends State<EditProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(width: 16.0),
+              const SizedBox(width: 16.0),
               GestureDetector(
                 onTap: () async {
                   Navigator.of(context).pop();
                   await _pickImage(ImageSource.gallery);
                 },
-                child: CircleAvatar(
+                child: const CircleAvatar(
                   radius: 32.0,
                   backgroundColor: Colors.transparent,
                   child: Icon(
@@ -220,9 +219,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     // Update the UI
     setState(() {
-      if (file != null) {
-        image = File(file.path);
-      }
+      image = File(file.path);
     });
   }
 }

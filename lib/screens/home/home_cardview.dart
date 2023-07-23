@@ -10,15 +10,18 @@ import 'package:flutter/services.dart';
 import 'package:modern_form_esys_flutter_share/modern_form_esys_flutter_share.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
+// Home page for user to view their cards in cardview by using the carousel slider
 class HomeCardView extends StatelessWidget {
   final UserData userData;
   final List<Cards> cards;
 
-  HomeCardView({
+  const HomeCardView({
+    super.key,
     required this.userData,
     required this.cards,
   });
 
+  // Show the QR code dialog when the user taps on the Connect button
   void _showConnectDialog(BuildContext context) {
     showDialog(
       context: context,
@@ -28,7 +31,7 @@ class HomeCardView extends StatelessWidget {
             borderRadius: BorderRadius.circular(16.0),
           ),
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -38,34 +41,34 @@ class HomeCardView extends StatelessWidget {
                   backgroundColor: Colors.grey,
                   child: userData.profilePic.isNotEmpty
                       ? null
-                      : Icon(
+                      : const Icon(
                           Icons.person,
                           size: 40.0,
                           color: Colors.white,
                         ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Text(
                   userData.name,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Container(
-                  padding: EdgeInsets.all(12.0),
+                  padding: const EdgeInsets.all(12.0),
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey, width: 1.0),
                     borderRadius: BorderRadius.circular(8.0),
                   ),
                   child: QrImageView(
-                    data: userData.uid, // Provide the data here
+                    data: userData.uid, // chaing the uid to QR Code
                     version: QrVersions.auto,
                     size: 150.0,
                   ),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -80,24 +83,23 @@ class HomeCardView extends StatelessWidget {
                           ),
                         );
                       },
-                      child: Text('Scan'),
+                      child: const Text('Scan'),
                     ),
-                    SizedBox(width: 16.0),
+                    const SizedBox(width: 16.0),
                     ElevatedButton(
                       onPressed: () async {
-                        // Share the QR code image using WhatsApp
+                        // convert uid to QR Code
                         final ByteData? qrCodeByteData = await QrPainter(
                           data: userData.uid,
                           version: QrVersions.auto,
-                          gapless:
-                              true, // Set this to true to avoid gaps around the QR code
+                          gapless: true, //to avoid gaps around the QR code
                         ).toImageData(200);
 
                         if (qrCodeByteData != null) {
                           _share(qrCodeByteData.buffer.asUint8List());
                         }
                       },
-                      child: Text('Share'),
+                      child: const Text('Share'),
                     ),
                   ],
                 ),
@@ -118,9 +120,9 @@ class HomeCardView extends StatelessWidget {
           userData: userData,
           cards: cards,
         ),
-        SizedBox(height: 10.0),
+        const SizedBox(height: 10.0),
         Align(
-          alignment: Alignment.center, // Center the Row horizontally
+          alignment: Alignment.center,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -128,7 +130,7 @@ class HomeCardView extends StatelessWidget {
                 onPressed: () {
                   _showConnectDialog(context);
                 },
-                child: Text('Connect'),
+                child: const Text('Connect'),
               ),
             ],
           ),
@@ -137,11 +139,10 @@ class HomeCardView extends StatelessWidget {
     );
   }
 
+  // Share the QR code image to other apps
   Future<void> _share(Uint8List qrCodeImageData) async {
     try {
       final qrCodeWithLogo = await _generateQRCodeWithLogo(qrCodeImageData);
-
-      // Share the image using modern_form_esys_flutter_share package
       final ByteData data =
           ByteData.sublistView(qrCodeWithLogo.buffer.asByteData());
       await Share.file(
@@ -158,13 +159,11 @@ class HomeCardView extends StatelessWidget {
   }
 
   Future<Uint8List> _generateQRCodeWithLogo(Uint8List qrCodeImageData) async {
-    // Create a blank canvas with a white background
     final ui.PictureRecorder recorder = ui.PictureRecorder();
-    final Canvas canvas = Canvas(
-        recorder,
-        Rect.fromPoints(
-            Offset.zero, Offset(250, 250))); // Increased canvas size
-    canvas.drawColor(Colors.yellow[800]!, BlendMode.color);
+    // Create a canvas with a yellow background
+    final Canvas canvas =
+        Canvas(recorder, Rect.fromPoints(Offset.zero, const Offset(250, 250)));
+    canvas.drawColor(const Color(0xffFEAA1B), BlendMode.color);
 
     // Load the original QR code image onto the canvas
     final ByteData data =
@@ -175,11 +174,10 @@ class HomeCardView extends StatelessWidget {
     final ui.Image qrImage = frameInfo.image;
 
     // Calculate the position to centralize the QR code
-    final double qrSize = 200.0; // Adjust the QR code size as needed
-    final double qrX = (250 - qrSize) / 2; // Center the QR code horizontally
-    final double qrY = (250 - qrSize) / 2; // Center the QR code vertically
+    final double qrSize = 200.0;
+    final double qrX = (250 - qrSize) / 2;
+    final double qrY = (250 - qrSize) / 2;
 
-    // Draw the QR code image on the canvas with a white background
     canvas.drawImageRect(
       qrImage,
       Rect.fromLTRB(0, 0, qrImage.width.toDouble(), qrImage.height.toDouble()),
@@ -187,10 +185,8 @@ class HomeCardView extends StatelessWidget {
       Paint(),
     );
 
-    // End drawing
     final ui.Picture picture = recorder.endRecording();
-    final ui.Image img =
-        await picture.toImage(250, 250); // Increased canvas size
+    final ui.Image img = await picture.toImage(250, 250);
     final ByteData? pngBytes =
         await img.toByteData(format: ui.ImageByteFormat.png);
     return pngBytes!.buffer.asUint8List();

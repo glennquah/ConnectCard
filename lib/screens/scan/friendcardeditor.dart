@@ -9,10 +9,10 @@ import 'package:connectcard/shared/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-// Screen for users to be able to edit the information of their cards
+// Screen for users to be able to edit the information of their friend's physical card
 class FriendCardEditorScreen extends StatefulWidget {
   final String selectedCard;
-  const FriendCardEditorScreen({required this.selectedCard});
+  const FriendCardEditorScreen({super.key, required this.selectedCard});
 
   @override
   _FriendCardEditorScreenState createState() => _FriendCardEditorScreenState();
@@ -20,7 +20,6 @@ class FriendCardEditorScreen extends StatefulWidget {
 
 class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _imageUrl = GlobalKey<FormState>();
   final _cardName = GlobalKey<FormState>();
   final _companyNameKey = GlobalKey<FormState>();
   final _jobTitleKey = GlobalKey<FormState>();
@@ -31,7 +30,7 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
   final _personalStatementKey = GlobalKey<FormState>();
   final _moreInfoKey = GlobalKey<FormState>();
 
-  TheUser? user; // User object
+  TheUser? user;
   String imageUrl = '';
   String newCardName = '';
   String newCompanyName = '';
@@ -49,8 +48,6 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
   Future<FriendsData> _getFriendsData() async {
     user = Provider.of<TheUser?>(context);
     if (user != null) {
-      UserData? userData =
-          await DatabaseService(uid: user!.uid).userProfile.first;
       DatabaseService databaseService = DatabaseService(uid: user!.uid);
       return await databaseService.friendData.first;
     } else {
@@ -93,7 +90,7 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
             return Scaffold(
               backgroundColor: bgColor,
               appBar: AppBar(
-                title: Text('Edit Your Card'),
+                title: const Text('Edit Your Card'),
                 backgroundColor: bgColor,
               ),
               body: SingleChildScrollView(
@@ -119,11 +116,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                   fit: BoxFit.cover,
                                 ),
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _cardName,
                           initialValue: selectedCard.cardName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'Insert Name',
                             prefixIcon: Icon(Icons.person),
                           ),
@@ -133,11 +130,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newCardName = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _companyNameKey,
                           initialValue: selectedCard.companyName,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Company Name',
                             prefixIcon: Icon(Icons.business),
                           ),
@@ -147,11 +144,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newCompanyName = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _jobTitleKey,
                           initialValue: selectedCard.jobTitle,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Job Title',
                             prefixIcon: Icon(Icons.work),
                           ),
@@ -161,11 +158,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newJobTitle = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _phoneNumKey,
                           initialValue: selectedCard.phoneNum,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Phone Number',
                             prefixIcon: Icon(Icons.phone),
                           ),
@@ -184,11 +181,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newPhoneNum = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _emailKey,
                           initialValue: selectedCard.email,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Email',
                             prefixIcon: Icon(Icons.mail),
                           ),
@@ -206,11 +203,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newEmail = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _websiteKey,
                           initialValue: selectedCard.companyWebsite,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Website',
                             prefixIcon: Icon(Icons.language),
                           ),
@@ -228,11 +225,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newWebsite = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _addressKey,
                           initialValue: selectedCard.companyAddress,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Company Address',
                             prefixIcon: Icon(Icons.location_city),
                           ),
@@ -240,11 +237,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newAddress = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _personalStatementKey,
                           initialValue: selectedCard.personalStatement,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'New Personal Statement',
                             prefixIcon: Icon(Icons.comment),
                           ),
@@ -252,11 +249,11 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newPersonalStatement = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         TextFormField(
                           key: _moreInfoKey,
                           initialValue: selectedCard.moreInfo,
-                          decoration: InputDecoration(
+                          decoration: const InputDecoration(
                             hintText: 'More Information',
                             prefixIcon: Icon(Icons.info),
                           ),
@@ -267,9 +264,9 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                             setState(() => newMoreInfo = val);
                           },
                         ),
-                        SizedBox(height: 12.0),
+                        const SizedBox(height: 12.0),
                         Row(children: <Widget>[
-                          SizedBox(width: 130.0),
+                          const SizedBox(width: 130.0),
                           ElevatedButton(
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
@@ -315,7 +312,7 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                 //Checker to see if card name already exists
                                 if (isDuplicateCardName) {
                                   ScaffoldMessenger.of(context).showSnackBar(
-                                    SnackBar(
+                                    const SnackBar(
                                       content: Text(
                                           'Card name already exists. Please enter a different card name.'),
                                     ),
@@ -356,28 +353,28 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (context) =>
-                                            PhysicalCardPage()),
+                                            const PhysicalCardPage()),
                                   );
                                 }
                               }
                             },
-                            child: Text(
+                            child: const Text(
                               'Confirm Edit',
                               style: TextStyle(color: Colors.white),
                             ),
                           ),
-                          SizedBox(width: 12.0),
+                          const SizedBox(width: 12.0),
                           IconButton(
-                            icon: Icon(Icons.delete),
+                            icon: const Icon(Icons.delete),
                             onPressed: () {
                               showDialog(
                                 context: context,
                                 builder: (BuildContext context) {
                                   // Pop up to confirm delete
                                   return AlertDialog(
-                                    title:
-                                        Center(child: Text('Confirm Delete')),
-                                    content: Text(
+                                    title: const Center(
+                                        child: Text('Confirm Delete')),
+                                    content: const Text(
                                         'Are you sure you want to delete?'),
                                     actions: <Widget>[
                                       Center(
@@ -386,12 +383,12 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                               MainAxisAlignment.center,
                                           children: [
                                             TextButton(
-                                              child: Text('Yes'),
+                                              child: const Text('Yes'),
                                               onPressed: () async {
                                                 if (listOfCards.length == 1) {
                                                   ScaffoldMessenger.of(context)
                                                       .showSnackBar(
-                                                    SnackBar(
+                                                    const SnackBar(
                                                       content: Text(
                                                           'You must have at least one card.'),
                                                     ),
@@ -421,13 +418,13 @@ class _FriendCardEditorScreenState extends State<FriendCardEditorScreen> {
                                                     context,
                                                     MaterialPageRoute(
                                                         builder: (context) =>
-                                                            PhysicalCardPage()),
+                                                            const PhysicalCardPage()),
                                                   );
                                                 }
                                               },
                                             ),
                                             TextButton(
-                                              child: Text('No'),
+                                              child: const Text('No'),
                                               onPressed: () {
                                                 Navigator.of(context).pop();
                                               },

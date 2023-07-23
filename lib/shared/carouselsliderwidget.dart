@@ -11,8 +11,9 @@ class CarouselSliderWidget extends StatefulWidget {
   final List<Cards> cards;
   final Color backgroundColor;
 
-  CarouselSliderWidget(
-      {required this.userData,
+  const CarouselSliderWidget(
+      {super.key,
+      required this.userData,
       required this.cards,
       this.backgroundColor = Colors.white});
 
@@ -36,17 +37,17 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
       height: 250.0,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Text(
             widget.cards[_currentIndex].cardName,
-            style: TextStyle(
+            style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 15,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           Flexible(
@@ -71,13 +72,13 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                       color: widget.backgroundColor,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(10.0),
                       child: Container(
                         height: 200,
                         child: ListTile(
-                          contentPadding: EdgeInsets.all(8.0),
+                          contentPadding: const EdgeInsets.all(8.0),
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -95,13 +96,13 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                               fit: BoxFit.cover,
                                             ),
                                           )
-                                        : Icon(
+                                        : const Icon(
                                             Icons.person,
                                             size: 40.0,
                                             color: Colors.white,
                                           ),
                                   ),
-                                  SizedBox(width: 10.0),
+                                  const SizedBox(width: 10.0),
                                   Flexible(
                                     child: Align(
                                       alignment: Alignment.topLeft,
@@ -112,7 +113,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                           Text(
                                             widget.userData.name,
                                             overflow: TextOverflow.ellipsis,
-                                            style: TextStyle(
+                                            style: const TextStyle(
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -138,7 +139,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                   )
                                 ],
                               ),
-                              SizedBox(height: 10.0),
+                              const SizedBox(height: 10.0),
                               GestureDetector(
                                 onTap: () async {
                                   final Uri phoneUrl =
@@ -147,22 +148,22 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                     await launchUrl(phoneUrl);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text('Phone app not found'),
                                       ),
                                     );
                                   }
                                 },
                                 child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.phone,
                                         color: Colors.blue,
                                       ),
-                                      SizedBox(width: 4.0),
+                                      const SizedBox(width: 4.0),
                                       Flexible(
                                         child: Container(
                                           child: Text(
@@ -200,22 +201,22 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                     await launchUrl(emailUri);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text('No email client found'),
                                       ),
                                     );
                                   }
                                 },
                                 child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.email,
                                         color: Colors.blue,
                                       ),
-                                      SizedBox(width: 4.0),
+                                      const SizedBox(width: 4.0),
                                       Flexible(
                                         child: Container(
                                           child: Text(
@@ -250,22 +251,22 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                                     await launchUrl(_url);
                                   } else {
                                     ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                         content: Text('Website not found'),
                                       ),
                                     );
                                   }
                                 },
                                 child: Container(
-                                  padding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         Icons.public,
                                         color: Colors.blue,
                                       ),
-                                      SizedBox(width: 4.0),
+                                      const SizedBox(width: 4.0),
                                       Flexible(
                                         child: Container(
                                           child: Text(
@@ -303,8 +304,8 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
                 aspectRatio: 16 / 9,
                 initialPage: 0,
                 autoPlay: false,
-                autoPlayInterval: Duration(seconds: 3),
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayInterval: const Duration(seconds: 3),
+                autoPlayAnimationDuration: const Duration(milliseconds: 800),
                 autoPlayCurve: Curves.fastOutSlowIn,
                 enlargeStrategy: CenterPageEnlargeStrategy.scale,
                 onPageChanged: (index, _) {
@@ -315,7 +316,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
               ),
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: List.generate(
@@ -323,7 +324,7 @@ class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
               (index) => Container(
                 width: 8.0,
                 height: 8.0,
-                margin: EdgeInsets.symmetric(horizontal: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 4.0),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: _currentIndex == index

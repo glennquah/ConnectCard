@@ -9,6 +9,10 @@ import 'package:provider/provider.dart';
 
 Color bgColor = const Color(0xffFEAA1B);
 
+// Form for user to see the result of the OCR scan
+// Result is split into
+// 1. Filtered Information (Phone Number, Email, Website, Address)
+// 2. Remaining Information
 class ResultScreen extends StatelessWidget {
   final String text;
   final String imagePath;
@@ -20,7 +24,8 @@ class ResultScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     TheUser? user = Provider.of<TheUser?>(context);
 
-    void _showEditorPage(String newCard) {
+    // Show personal card editor page
+    void showEditorPage(String newCard) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -29,7 +34,8 @@ class ResultScreen extends StatelessWidget {
       );
     }
 
-    void _showFriendEditorPage(String newCard) {
+    // Show friend card editor page
+    void showFriendEditorPage(String newCard) {
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -42,6 +48,8 @@ class ResultScreen extends StatelessWidget {
     final List<String> remainingLines = [];
     final List<String> filteredLines = [];
 
+    // Filter the lines into filteredLines and remainingLines
+    // prefill for website, phone number, email, address
     for (final line in lines) {
       final trimmedLine = line.trim();
       if (trimmedLine.contains('www.')) {
@@ -90,14 +98,14 @@ class ResultScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
+                  const Text(
                     'Filtered Information:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Expanded(
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -108,15 +116,15 @@ class ResultScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Remaining Information:',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Expanded(
                     child: ListView.builder(
                       shrinkWrap: true,
@@ -126,7 +134,7 @@ class ResultScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Center(
                     child: ElevatedButton(
                       onPressed: () {
@@ -139,13 +147,13 @@ class ResultScreen extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   ListTile(
-                                    leading: Icon(Icons.person),
+                                    leading: const Icon(Icons.person),
                                     title: const Text('Personal Card'),
                                     onTap: () async {
                                       final cardName =
                                           "Scanned Card ${userData!.listOfCards.length + 1}";
 
-                                      // Create a new card object
+                                      // Create a new card object for the user, filling in the prefilled fields
                                       final newCard = Cards(
                                         imageUrl: '',
                                         cardName: cardName,
@@ -172,11 +180,11 @@ class ResultScreen extends StatelessWidget {
                                         userData.listOfCards,
                                       );
 
-                                      _showEditorPage(cardName);
+                                      showEditorPage(cardName);
                                     },
                                   ),
                                   ListTile(
-                                    leading: Icon(Icons.group),
+                                    leading: const Icon(Icons.group),
                                     title: const Text('Friend Card'),
                                     onTap: () async {
                                       DatabaseService databaseService =
@@ -190,7 +198,7 @@ class ResultScreen extends StatelessWidget {
                                       final cardName =
                                           "Scanned Card ${friendCards.length + 1}";
 
-                                      // Create a new card object
+                                      // Create a new card object and filling in the prefilled fields
                                       final newCard = Cards(
                                         imageUrl: imagePath,
                                         cardName: cardName,
@@ -217,7 +225,7 @@ class ResultScreen extends StatelessWidget {
                                         friendCards,
                                       );
 
-                                      _showFriendEditorPage(cardName);
+                                      showFriendEditorPage(cardName);
                                     },
                                   ),
                                 ],
