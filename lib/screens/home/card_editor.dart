@@ -516,9 +516,12 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                                                       Navigator.pushReplacement(
                                                         context,
                                                         MaterialPageRoute(
-                                                            builder:
-                                                                (context) =>
-                                                                    Home()),
+                                                            builder: (context) =>
+                                                                ShowCaseWidget(
+                                                                    builder: Builder(
+                                                                        builder:
+                                                                            (context) =>
+                                                                                Home()))),
                                                       );
                                                     }
                                                   },

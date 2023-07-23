@@ -95,7 +95,7 @@ class _OcrScreenState extends State<OcrScreen> with WidgetsBindingObserver {
                     onTap: () => ShowCaseWidget.of(context).startShowCase([
                       globalKeyOne,
                     ]),
-                    child: const Padding(
+                    child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 8.0),
                       child: Row(
                         children: [
