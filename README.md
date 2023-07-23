@@ -289,12 +289,12 @@ Each User will have their unique QR Code that can be accessed by clicking on the
 Users can choose to scan another user’s QR Code to them as friend or send their QR code via social media
 
 ## Communication Integration (Adding friends by Scanning QR Code)
-![scan qr](readme_assets/app_demo_assets/addselena.png)
+![scan qr](readme_assets/app_demo_assets/addselena.jpg)
 After users click the ‘Scan’ button, they can scan other user’s QR code to add them as friend
 
 ## Communication Integration
-![share QR](readme_assets/app_demo_assets/shareqrcode.png)
-![tele](readme_assets/app_demo_assets/qrcodenigel.png)
+![share QR](readme_assets/app_demo_assets/shareqrcode.jpg)
+![tele](readme_assets/app_demo_assets/qrcodenigel.jpg)
 
 Users can also choose to click the ‘Share’ button to share their personal QR code to other users via social media
 
