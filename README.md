@@ -370,7 +370,7 @@ Allows users to edit their profile picture, name and headline, which will be dis
 
 ## <span style="text-decoration:underline;">11.1 Application Flow</span>
 
-![1](readme_assets/systemdesign_assets/1.png)
+![1](readme_assets/systemdesign_assets/image1.png)
 
 
 
@@ -423,9 +423,9 @@ After the request is accepted, users can click on their friend's profile and loo
 
 ## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
 
-![2](readme_assets/systemdesign_assets/2.png)
+![2](readme_assets/systemdesign_assets/image2.png)
 
-![3](readme_assets/systemdesign_assets/3.png)
+![3](readme_assets/systemdesign_assets/i3.png)
 
 
 Every user document is split into 2 collection. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce impact on existing functionalities when updating user information.
@@ -456,7 +456,7 @@ Splitting data into logical collections can improve the management of user-relat
 ## <span style="text-decoration:underline;">11.3 Software Architecture</span>
 
 
-![4](readme_assets/systemdesign_assets/4.png)
+![4](readme_assets/systemdesign_assets/i4.png)
 
 
 # 12.0 Software Engineering Practices
