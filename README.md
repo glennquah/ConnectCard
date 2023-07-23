@@ -370,7 +370,7 @@ Allows users to edit their profile picture, name and headline, which will be dis
 
 ## <span style="text-decoration:underline;">11.1 Application Flow</span>
 
-![1](readme_assets/systemdesign_asseets/1.png)
+![1](readme_assets/systemdesign_assets/1.png)
 
 
 
@@ -423,9 +423,9 @@ After the request is accepted, users can click on their friend's profile and loo
 
 ## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
 
-![2](readme_assets/systemdesign_asseets/2.png)
+![2](readme_assets/systemdesign_assets/2.png)
 
-![3](readme_assets/systemdesign_asseets/3.png)
+![3](readme_assets/systemdesign_assets/3.png)
 
 
 Every user document is split into 2 collection. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce impact on existing functionalities when updating user information.
@@ -456,7 +456,7 @@ Splitting data into logical collections can improve the management of user-relat
 ## <span style="text-decoration:underline;">11.3 Software Architecture</span>
 
 
-![4](readme_assets/systemdesign_asseets/4.png)
+![4](readme_assets/systemdesign_assets/4.png)
 
 
 # 12.0 Software Engineering Practices
@@ -472,7 +472,7 @@ Here are some of the software engineering practices that we used for our Orbital
 When embarking on a new feature, we establish dedicated milestones that align with the overarching project goals. Each milestone serves as a crucial stepping stone towards the successful completion of the feature, ensuring that our efforts are focused and well-organized.
 
 
-![1](readme_assets/swe_asseets/1.png)
+![1](readme_assets/swe_assets/1.png)
 
 
 
@@ -482,7 +482,7 @@ As part of our milestone-driven development process, we leverage Git issues to e
 
 
 
-![2](readme_assets/swe_asseets/2.png)
+![2](readme_assets/swe_assets/2.png)
 
 
 
@@ -492,7 +492,7 @@ By using Git labels, after creating each issue, we will apply different labels t
 
 
 
-![3](readme_assets/swe_asseets/3.png)
+![3](readme_assets/swe_assets/3.png)
 
 
 
@@ -502,7 +502,7 @@ By utilizing a Git project spreadsheet, we can have an overview of the work allo
 
 
 
-![4](readme_assets/swe_asseets/4.png)
+![4](readme_assets/swe_assets/4.png)
 
 
 
@@ -519,7 +519,7 @@ Only after testing and verification, we proceed with creating a pull request to 
 
 
 
-![5](readme_assets/swe_asseets/5.png)
+![5](readme_assets/swe_assets/5.png)
 
 
 
@@ -529,12 +529,12 @@ We follow a structured approach by first testing our branches thoroughly. Instea
 
 
 
-![6](readme_assets/swe_asseets/6.png)
+![6](readme_assets/swe_assets/6.png)
 
 
 
 
-![7](readme_assets/swe_asseets/7.png)
+![7](readme_assets/swe_assets/7.png)
 
 
 
@@ -544,7 +544,7 @@ By creating releases and tagging them with version numbers via milestones, it be
 
 
 
-![8](readme_assets/swe_asseets/8.png)
+![8](readme_assets/swe_assets/8.png)
 
 
 
@@ -565,10 +565,7 @@ For testing, we have split it into 2, automated testing and user testing.
 
 
 
-<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image35.png "image_tooltip")
+![1](readme_assets/testing/1.png)
 
 
 
