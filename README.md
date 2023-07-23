@@ -263,12 +263,14 @@ Users can view their cards in more details by clicking into them.
 
 ## Card Editor Form Page
 ![drop down](readme_assets/app_demo_assets/homepage_cardeditor.png)
+
 Allows users to add new name cards and edit the selected name cards.
 
 Validates the entered information and displays error messages if required fields are not filled.
 
 ## Card Editor Page
 ![card editor](readme_assets/app_demo_assets/homepage_editcardform.png)
+
 Loads the selected name card information from the database.
 
 Allows users to add a display picture and update various information fields.
@@ -284,24 +286,27 @@ When adding new cards, the List of Cards will add on
 
 ## Communication Integration
 ![comm int](readme_assets/app_demo_assets/homepage_glennQR.png)
+
 Each User will have their unique QR Code that can be accessed by clicking on the ‘connect’ button.
 
 Users can choose to scan another user’s QR Code to them as friend or send their QR code via social media
 
 ## Communication Integration (Adding friends by Scanning QR Code)
-![scan qr](readme_assets/app_demo_assets/addselena.png)
+![scan qr](readme_assets/app_demo_assets/addselena.jpg)
+
 After users click the ‘Scan’ button, they can scan other user’s QR code to add them as friend
 
 ## Communication Integration
-![share QR](readme_assets/app_demo_assets/shareqrcode.png)
-![tele](readme_assets/app_demo_assets/qrcodenigel.png)
+![share QR](readme_assets/app_demo_assets/shareqrcode.jpg)
+![tele](readme_assets/app_demo_assets/qrcodenigel.jpg)
 
 Users can also choose to click the ‘Share’ button to share their personal QR code to other users via social media
 
 In this example, we share the QR code via telegram to nigel.
 
 ## Text Recog Page
-![text recog](readme_assets/app_demo_assets/ocr_scanAIA.png)
+![text recog](readme_assets/app_demo_assets/ocr_scanAIA.jpg)
+
 Requests permission to use the camera for name card scanning.
 
 Enables users to capture a photo of a name card.
@@ -311,8 +316,9 @@ Utilizes Google ML Kit and text recognition technology to convert the image into
 Users can click onto the help icon at the top right for instructions on how to use this feature.
 
 ## Text Recog Results Page
-![ocr result](readme_assets/app_demo_assets/ocr_result.png)
+![ocr result](readme_assets/app_demo_assets/ocr_result.jpg)
 ![personal or friend](readme_assets/app_demo_assets/ocr_personalorfriend.png)
+
 Displays the results of the text conversion and extraction process.
 
 Filters out Address, Email and Website and prefills in the scanned card editor page.
@@ -320,7 +326,8 @@ Filters out Address, Email and Website and prefills in the scanned card editor p
 When they click add card, an alert dialog appears and users can choose to add the scanned card as their own personal card or a friend’s card.
 
 ## Edit Scanned Card
-![ocr edit](readme_assets/app_demo_assets/ocr_editcard.png)
+![ocr edit](readme_assets/app_demo_assets/ocr_editcard.jpg)
+
 Allows users to Edit the Scanned Card to their preferences.
 
 The Email, website and address are prefilled by the programme.
@@ -330,6 +337,7 @@ All other extracted text will be prefilled inside the more information area and 
 ## Scanned Card Page
 ![scanned card page](readme_assets/app_demo_assets/scannedcard.png)
 ![scanned card pop up](readme_assets/app_demo_assets/scannedcard_popup.png)
+
 Users are able to view the list of scanned cards at the scanned card page.
 
 A search function is also included for users to easily find the scanned card
@@ -337,15 +345,18 @@ A search function is also included for users to easily find the scanned card
 Users will be able to edit or view the scanned card in more detail when they click into each card.
 
 ## View Scanned Card Page
-![scanned card more details](readme_assets/app_demo_assets/scannedcard_moredetails.png)
+![scanned card more details](readme_assets/app_demo_assets/scanedcard_moredetails.png)
+
 Users are able to view the scanned card with more detailed information after clicking into the card.
 
 ## Profile Page
 ![profile page](readme_assets/app_demo_assets/profilepage.png)
+
 Allows users to select options such as editing profile, contacting customer support, or logging out.
 
 ## Edit Profile Page
 ![edit profile page](readme_assets/app_demo_assets/profilepage_edit.png)
+
 Allows users to edit their profile picture, name and headline, which will be displayed when other users want to add them as friends. 
 
 
@@ -359,12 +370,7 @@ Allows users to edit their profile picture, name and headline, which will be dis
 
 ## <span style="text-decoration:underline;">11.1 Application Flow</span>
 
-
-
-<p id="gdcalert23" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image23.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert24">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image23.png "image_tooltip")
+![1](readme_assets/systemdesign_assets/image1.png)
 
 
 
@@ -417,20 +423,9 @@ After the request is accepted, users can click on their friend's profile and loo
 
 ## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
 
+![2](readme_assets/systemdesign_assets/image2.png)
 
-
-<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image24.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image24.png "image_tooltip")
-
-
-
-
-<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image25.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image25.png "image_tooltip")
+![3](readme_assets/systemdesign_assets/i3.png)
 
 
 Every user document is split into 2 collection. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce impact on existing functionalities when updating user information.
@@ -458,16 +453,10 @@ Splitting data into logical collections can improve the management of user-relat
 
 ## 
 
-
 ## <span style="text-decoration:underline;">11.3 Software Architecture</span>
 
 
-
-<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image26.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image26.png "image_tooltip")
-
+![4](readme_assets/systemdesign_assets/i4.png)
 
 
 # 12.0 Software Engineering Practices
@@ -483,11 +472,7 @@ Here are some of the software engineering practices that we used for our Orbital
 When embarking on a new feature, we establish dedicated milestones that align with the overarching project goals. Each milestone serves as a crucial stepping stone towards the successful completion of the feature, ensuring that our efforts are focused and well-organized.
 
 
-
-<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image27.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image27.png "image_tooltip")
+![1](readme_assets/swe_assets/1.png)
 
 
 
@@ -497,10 +482,7 @@ As part of our milestone-driven development process, we leverage Git issues to e
 
 
 
-<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image28.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image28.png "image_tooltip")
+![2](readme_assets/swe_assets/2.png)
 
 
 
@@ -510,10 +492,7 @@ By using Git labels, after creating each issue, we will apply different labels t
 
 
 
-<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image29.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image29.png "image_tooltip")
+![3](readme_assets/swe_assets/3.png)
 
 
 
@@ -523,10 +502,7 @@ By utilizing a Git project spreadsheet, we can have an overview of the work allo
 
 
 
-<p id="gdcalert30" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image30.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert31">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image30.png "image_tooltip")
+![4](readme_assets/swe_assets/4.png)
 
 
 
@@ -543,10 +519,7 @@ Only after testing and verification, we proceed with creating a pull request to 
 
 
 
-<p id="gdcalert31" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image31.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert32">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image31.png "image_tooltip")
+![5](readme_assets/swe_assets/5.png)
 
 
 
@@ -556,18 +529,12 @@ We follow a structured approach by first testing our branches thoroughly. Instea
 
 
 
-<p id="gdcalert32" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image32.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert33">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image32.png "image_tooltip")
+![6](readme_assets/swe_assets/6.png)
 
 
 
 
-<p id="gdcalert33" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image33.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert34">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image33.png "image_tooltip")
+![7](readme_assets/swe_assets/7.png)
 
 
 
@@ -577,10 +544,7 @@ By creating releases and tagging them with version numbers via milestones, it be
 
 
 
-<p id="gdcalert34" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image34.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert35">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image34.png "image_tooltip")
+![8](readme_assets/swe_assets/8.png)
 
 
 
@@ -601,10 +565,7 @@ For testing, we have split it into 2, automated testing and user testing.
 
 
 
-<p id="gdcalert35" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image35.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert36">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-![alt_text](images/image35.png "image_tooltip")
+![1](readme_assets/testing/1.png)
 
 
 
