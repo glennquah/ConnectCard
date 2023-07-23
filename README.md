@@ -21,8 +21,8 @@
 
 [TOC]
 # Table of Contents
-- [Foreword by Developers](#forewordbydevelopers)
-- [Poster & Video](#poster&video)
+- [Foreword by Developers](#foreword-by-developers)
+- [Poster & Video](#poster-&-video)
 
 
 # 
