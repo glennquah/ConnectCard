@@ -1,51 +1,46 @@
 ![connect_card_logo](readme_assets/app_demo_assets/connectcardlogo.png)
 
-**National University of Singapore (NUS)**
+## National University of Singapore (NUS)
 
-**CP2106 (Orbital)**
+## CP2106 (Orbital)
 
-**Quah Han Rong, Glenn (Skylab ID: 5132)**
+**Team ID:** 5548
 
-**Tan Zhi Wei (Skylab ID: 5133)**
+**Team Members:**
+1. Quah Han Rong, Glenn (Skylab ID: 5132)
+2. Tan Zhi Wei (Skylab ID: 5133)
 
-**Team ID: <span style="text-decoration:underline;">5548</span>**
+**Proposed Level of Achievement:** Apollo 11
 
-**Proposed Level ofAchievement: <span style="text-decoration:underline;">Apollo 11</span>**
+**Difficulty Attempted:** Advanced
 
-**Difficulty Attempted: <span style="text-decoration:underline;">Advanced</span>**
+**Year:** 2023
 
-**Year: <span style="text-decoration:underline;">2023</span>**
-
-**<span style="text-decoration:underline;">Table of Contents</span>**
-
-# Table of contents
-
-- [](#)
-- [1.0 Foreword by Developers](#10-foreword-by-developers)
-- [2.0 Poster & Video](#20-poster--video)
-- [3.0 Deployment](#30-deployment)
-- [4.0 Motivation](#40-motivation)
-- [5.0 Aim](#50-aim)
-- [6.0 How are we different from Existing Platforms](#60-how-are-we-different-from-existing-platforms)
-- [7.0 Tech Stack](#70-tech-stack)
-- [8.0 User Stories](#80-user-stories)
-- [9.0 Project Scope](#90-project-scope)
-- [10.0 App Demo & Walkthrough](#100-app-demo--walkthrough)
-- [11.0 System Design](#110-system-design)
-- [12.0 Software Engineering Practices](#120-software-engineering-practices)
-- [13.0 Testing](#130-testing)
-- [14.0 Changes made through development](#140-changes-made-through-development)
-- [15.0 Project Log](#150-project-log)
-- [16.0 Sources & References](#160-sources--references)
+- [Foreword by Developers](#foreword-by-developers)
+- [Poster & Video](#poster--video)
+- [Deployment](#deployment)
+- [Motivation](#motivation)
+- [Aim](#aim)
+- [How are we different from Existing Platforms](#how-are-we-different-from-existing-platforms)
+- [Tech Stack](#tech-stack)
+- [User Stories](#user-stories)
+- [Project Scope](#project-scope)
+- [App Demo & Walkthrough](#app-demo--walkthrough)
+- [System Design](#system-design)
+- [Software Engineering Practices](#software-engineering-practices)
+- [Testing](#testing)
+- [Changes made through development](#changes-made-through-development)
+- [Project Log](#project-log)
+- [Sources & References](#sources--references)
 
 
-# 1.0 Foreword by Developers
+# Foreword by Developers
 
-Welcome to ConnectCard! This namecard application is designed to revolutionize the way you exchange and manage contact information.
+Welcome to ConnectCard! This name card application is designed to revolutionize the way you exchange and manage contact information.
 
 As developers, we embarked on this journey with a simple yet powerful idea – to create a seamless and digital solution for sharing your professional identity. In today's fast-paced world, where networking and connections play a vital role, we recognized the need for a modern approach to exchanging contact details. 
 
-Gone are the days where you carry around a physical namecard. With ConnectCard, you are able to showcase your unique brand and professional identity anytime and anywhere. By seamlessly scanning a QR Code, your namecard information can be exchanged easily.
+Gone are the days when you carry around a physical name card. With ConnectCard, you are able to showcase your unique brand and professional identity anytime and anywhere. By seamlessly scanning a QR Code, your name and card information can be exchanged easily.
 
 We have poured our hearts and expertise into every aspect of this application, ensuring that it delivers a delightful user experience. Our focus on simplicity and intuitive design means that anyone, regardless of their technical proficiency, can effortlessly navigate and make the most of our application.
 
@@ -68,19 +63,19 @@ Linkedln: [https://www.linkedin.com/in/zhi-wei-tan-92b02525b/](https://www.linke
 Github: [https://github.com/ZhiWei1010](https://github.com/ZhiWei1010) 
 
 
-# 2.0 Poster & Video
+# Poster & Video
 
 To watch the video of ConnectCard & view the poster, click the following link!
 
 
-## <span style="text-decoration:underline;">2.1 LiftOff</span>
+## <span style="text-decoration:underline;">LiftOff</span>
 
 Elevator Pitch Video: [https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link](https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link)
 
 Poster: [https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link](https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link)
 
 
-## <span style="text-decoration:underline;">2.2 Milestone 1</span>
+## <span style="text-decoration:underline;">Milestone 1</span>
 
 Figma Design: [https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1](https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1)
 
@@ -89,7 +84,7 @@ Project Demo: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm
 Milestone 1 Prototype: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing](https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing)
 
 
-## <span style="text-decoration:underline;">2.3 Milestone 2</span>
+## <span style="text-decoration:underline;">Milestone 2</span>
 
 A1 Poster: [https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing](https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing)
 
@@ -98,7 +93,7 @@ Project Demo: [https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs
 App APK: [https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl](https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl)
 
 
-## <span style="text-decoration:underline;">2.4 Milestone 3</span>
+## <span style="text-decoration:underline;">Milestone 3</span>
 
 A1 Poster: 
 
@@ -107,42 +102,42 @@ Project Demo: [https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG
 App APK: [https://drive.google.com/drive/folders/1sdKgctwhZuty5yzFxVUUMiuW6nRoqbCH?usp=drive_lin](https://drive.google.com/drive/folders/1sdKgctwhZuty5yzFxVUUMiuW6nRoqbCH?usp=drive_link)
 
 
-# 3.0 Deployment
+# Deployment
 
-ConnectCard is currently only available on android. For users without an android device, you may download the app through an Android Emulator which can be downloaded from Android Studio. Otherwise, you may read the App Demo/Walkthrough or watch our App Demo Video which can be accessed under Poster & Video.
+ConnectCard is currently only available on Android. For users without an Android device, you may download the app through an Android Emulator which can be downloaded from Android Studio. Otherwise, you may read the App Demo/Walkthrough or watch our App Demo Video which can be accessed under Poster & Video.
 
-ConnectCard is packaged into an APK file, where you can download and install the APK on your android device directly.
+ConnectCard is packaged into an APK file, where you can download and install the APK on your Android device directly.
 
 Link to APK: [https://drive.google.com/drive/folders/1sdKgctwhZuty5yzFxVUUMiuW6nRoqbCH?usp=drive_lin](https://drive.google.com/drive/folders/1sdKgctwhZuty5yzFxVUUMiuW6nRoqbCH?usp=drive_link)
 
 
-# 4.0 Motivation
+# Motivation
 
 
-## <span style="text-decoration:underline;">4.1 Problem:</span>
+## <span style="text-decoration:underline;">Problem:</span>
 
 Carrying physical name cards and membership/loyalty cards can be **burdensome**, leading to **lost contact information and a cluttered wallet**. It is **inconvenient** for individuals who meet new people, engage in business interactions, or collect various membership cards to **manage and access these cards efficiently.**
 
 
-## <span style="text-decoration:underline;">4.2 Solution:</span>
+## <span style="text-decoration:underline;">Solution:</span>
 
-ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly, through sending it through a link and using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
+ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to exchange digital name cards effortlessly, by sending them through a link and using NFC technology. Furthermore, users can store and track their membership or loyalty reward cards digitally, while vendors can update customers' progress in real-time. With our app, individuals can simplify their wallets, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
 
 
-# 5.0 Aim
+# Aim
 
 The primary objective of our Orbital project is to develop a sophisticated mobile application that facilitates effortless storage and management of personal name cards, along with seamless user connectivity. Our ultimate vision is to eliminate the reliance on physical name cards and alleviate the inconvenience of carrying a bulky wallet through the streamlined functionality of this app. Designed for recruiters, professionals, job seekers, and everyone else. Simplify networking, all in one place.
 
 
-# 6.0 How are we different from Existing Platforms
+# How are we different from Existing Platforms
 
 
-## <span style="text-decoration:underline;">6.1 Description</span>
+## <span style="text-decoration:underline;">Description</span>
 
 ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for the user interface design. It offers various features such as scanning and storing name card information, linking the app to communication platforms like Telegram, Whatsapp, Phone, and Email, updating existing data, and QR Code technology for easy name card exchange.
 
 
-## <span style="text-decoration:underline;">6.2 Need:</span>
+## <span style="text-decoration:underline;">Need:</span>
 
 Currently, there are existing name card applications that provide features such as storing and managing digital name cards of self and others. However, there are some few applications that satisfy some features that are important in a digital name card application.
 
@@ -151,40 +146,40 @@ Existing name card applications have limited functionality in these areas: \
 - Sharing digital name cards with others easily
 
 
-## <span style="text-decoration:underline;">6.3 Key Technologies</span>
+## <span style="text-decoration:underline;">Key Technologies</span>
 
 
-### 6.3.1 Optical Character Recognition (OCR)
+### Optical Character Recognition (OCR)
 
 ConnectCard utilizes OCR technology to extract text and relevant information from scanned name cards. This technology enables automatic data entry and ensures accurate digitization of the name card details.
 
 
-### 6.3.2 Image Processing
+### Image Processing
 
 Image processing techniques are employed to enhance the scanned name card images, improve readability, and optimize the visual quality of the digitized cards. This helps in creating clear and professional-looking digital name cards.
 
 
-### 6.3.3 **Mobile Camera Integration**
+### **Mobile Camera Integration**
 
 ConnectCard seamlessly integrates with the mobile device's camera functionality, allowing users to capture images of physical name cards directly within the app. This integration simplifies the scanning process, making it convenient for users to convert physical cards into digital format effortlessly.
 
 
-### 6.3.4 **Cloud Storage and Synchronization (Firebase)**
+### **Cloud Storage and Synchronization (Firebase)**
 
 To ensure data accessibility across multiple devices, our application integrates with cloud storage services. The digital name cards and associated data are securely stored in the cloud, enabling users to access and manage their cards from any device with the application installed. Synchronization functionality ensures that any updates made to the cards are reflected across all devices.
 
 
-### 6.3.5 **QR Code Sharing**
+### **QR Code Sharing**
 
-ConnectCard leverages QR code technology for the seamless exchange of digital name cards between users. Users can instantly add other users as friends by scanning their QR code, or even share their own personal QR code via social media such as telegram and whatsapp, fostering efficient networking and eliminating the need for manual contact input.
+ConnectCard leverages QR code technology for the seamless exchange of digital name cards between users. Users can instantly add other users as friends by scanning their QR code, or even sharing their own personal QR code via social media such as Telegram and WhatsApp, fostering efficient networking and eliminating the need for manual contact input.
 
 
-### 6.3.6 **Notes:**
+### **Notes:**
 
 We decided to swap out the initially planned out NFC technology for the seamless exchange of digital name cards for QR Code Sharing. This is because QR Code is a widely used technology that users are used to using. Additionally, we are also using the camera for other functions such as the OCR to convert physical name cards into digital name cards, which means users would be more familiar with the scanning action with the camera, allowing easier familiarization of the app.
 
 
-# 7.0 Tech Stack
+# Tech Stack
 
 
 
@@ -193,15 +188,12 @@ We decided to swap out the initially planned out NFC technology for the seamless
 3. **<span style="text-decoration:underline;">Firebase:</span> **Authentication & Database (Backend)
 
 
-# 
-
-
-# 8.0 User Stories
+# User Stories
 
 
 
-1. As a working adult, I want to be able to** sign up to have my own account, login and logout of the application.**
-2. As a working adult, I want to be able to have a **profile page where I can upload my profile picture, name and headline.**
+1. As a working adult, I want to be able to** sign up to have my own account, log in, and logout of the application.**
+2. As a working adult, I want to be able to have a **profile page where I can upload my profile picture, name, and headline.**
 3. As a working adult, I want to be able to **get customer support easily.**
 4. As a working adult, I want to be able to **create, edit and delete digital name cards** **easily.**
 5. As a working adult, I want to be able to **connect with other users easily.**
@@ -209,10 +201,10 @@ We decided to swap out the initially planned out NFC technology for the seamless
 7. As a working adult, I want to be able to view the **scanned named cards easily.**
 
 
-# 9.0 Project Scope
+# Project Scope
 
 
-## <span style="text-decoration:underline;">9.1 Milestone 1</span>
+## <span style="text-decoration:underline;">Milestone 1</span>
 
 
 
@@ -220,25 +212,25 @@ We decided to swap out the initially planned out NFC technology for the seamless
 2. **Login / Registration:** By using an email & password to login
 
 
-## <span style="text-decoration:underline;">9.2 Milestone 2</span>
+## <span style="text-decoration:underline;">Milestone 2</span>
 
 
 
 1. **Database:** The app uses Firebase as the backend database to store and manipulate data, ensuring efficient data management and retrieval.
 2. **Updating existing Data:** Users have the flexibility to update their personal digital name cards at any time. This feature is especially useful when users experience changes in their job positions or roles within their existing company.
-3. **Scanning Feature:** Users can use their device's camera to scan name cards and extract relevant information. Users cannot do anything with the extracted text just yet, but in Milestone 3, Users will be able to use the extracted information to create their own personal name cards or a friends’ name card.
+3. **Scanning Feature:** Users can use their device's camera to scan name cards and extract relevant information. Users cannot do anything with the extracted text just yet, but in Milestone 3, Users will be able to use the extracted information to create their own personal name cards or a friend’s name card.
 
 
-## <span style="text-decoration:underline;">9.3 Milestone 3</span>
+## <span style="text-decoration:underline;">Milestone 3</span>
 
 
 
-1. **Friends system** The app uses Firebase as a backend database to store friend's card. Users can send, accept or reject friend requests.
-2. **Communication Integration (QR Code):** The app allows users to add other users as friends seamlessly by scanning their personal QR code. The app is also integrated with popular communication platforms such as Telegram, Whatsapp, Phone, and Email, where they can send their personal QR code easily . This enables users to easily connect with their clients directly from the app.
-3. **Scanning and storing feature (continuation from Milestone 2): **Users can now use the extracted text from the OCR feature to create new personal name cards or friend’s name cards which will be stored in the firebase.
+1. **Friends system** The app uses Firebase as a backend database to store friends' cards. Users can send, accept or reject friend requests.
+2. **Communication Integration (QR Code):** The app allows users to add other users as friends seamlessly by scanning their personal QR code. The app is also integrated with popular communication platforms such as Telegram, Whatsapp, Phone, and Email, where they can send their personal QR code easily. This enables users to easily connect with their clients directly from the app.
+3. **Scanning and storing feature (continuation from Milestone 2): **Users can now use the extracted text from the OCR feature to create new personal name cards or friend’s name cards which will be stored in the Firebase.
 
 
-# 10.0 App Demo & Walkthrough
+# App Demo & Walkthrough
 ## Login Page
 ![login](readme_assets/app_demo_assets/login.png)
 
@@ -272,7 +264,7 @@ Provides an edit icon at the top right, bringing them to the card editor form pa
 ## More Details Card Page
 ![more details](readme_assets/app_demo_assets/homepage_moredetails.png)
 
-Users can view their cards in more details by clicking into them.
+Users can view their cards in more detail by clicking on them.
 
 ## Card Editor Form Page
 ![drop down](readme_assets/app_demo_assets/homepage_cardeditor.png)
@@ -302,20 +294,18 @@ When adding new cards, the List of Cards will add on
 
 Each User will have their unique QR Code that can be accessed by clicking on the ‘connect’ button.
 
-Users can choose to scan another user’s QR Code to them as friend or send their QR code via social media
+Users can choose to scan another user’s QR Code to them as a friend or send their QR code via social media
 
 ## Communication Integration (Adding friends by Scanning QR Code)
 ![scan qr](readme_assets/app_demo_assets/addselena.jpg)
 
-After users click the ‘Scan’ button, they can scan other user’s QR code to add them as friend
+After users click the ‘Scan’ button, they can scan other user’s QR codes to add them as friend
 
 ## Communication Integration
 ![share QR](readme_assets/app_demo_assets/shareqrcode.jpg)
 ![tele](readme_assets/app_demo_assets/qrcodenigel.jpg)
 
-Users can also choose to click the ‘Share’ button to share their personal QR code to other users via social media
-
-In this example, we share the QR code via telegram to nigel.
+Users can also choose to click the ‘Share’ button to share their personal QR code with other users via social media
 
 ## Text Recog Page
 ![text recog](readme_assets/app_demo_assets/ocr_scanAIA.jpg)
@@ -326,7 +316,7 @@ Enables users to capture a photo of a name card.
 
 Utilizes Google ML Kit and text recognition technology to convert the image into text and extract relevant information.
 
-Users can click onto the help icon at the top right for instructions on how to use this feature.
+Users can click on the help icon at the top right for instructions on how to use this feature.
 
 ## Text Recog Results Page
 ![ocr result](readme_assets/app_demo_assets/ocr_result.jpg)
@@ -334,7 +324,7 @@ Users can click onto the help icon at the top right for instructions on how to u
 
 Displays the results of the text conversion and extraction process.
 
-Filters out Address, Email and Website and prefills in the scanned card editor page.
+Filters out Address, Email, and Website and prefills in the scanned card editor page.
 
 When they click add card, an alert dialog appears and users can choose to add the scanned card as their own personal card or a friend’s card.
 
@@ -343,7 +333,7 @@ When they click add card, an alert dialog appears and users can choose to add th
 
 Allows users to Edit the Scanned Card to their preferences.
 
-The Email, website and address are prefilled by the programme.
+The Email, website, and address are prefilled by the program.
 
 All other extracted text will be prefilled inside the more information area and users can cut and paste the information into the relevant fields.
 
@@ -351,145 +341,140 @@ All other extracted text will be prefilled inside the more information area and 
 ![scanned card page](readme_assets/app_demo_assets/scannedcard.png)
 ![scanned card pop up](readme_assets/app_demo_assets/scannedcard_popup.png)
 
-Users are able to view the list of scanned cards at the scanned card page.
+Users are able to view the list of scanned cards on the scanned card page.
 
 A search function is also included for users to easily find the scanned card
 
-Users will be able to edit or view the scanned card in more detail when they click into each card.
+Users will be able to edit or view the scanned card in more detail when they click on each card.
 
 ## View Scanned Card Page
 ![scanned card more details](readme_assets/app_demo_assets/scanedcard_moredetails.png)
 
-Users are able to view the scanned card with more detailed information after clicking into the card.
+Users are able to view the scanned card with more detailed information after clicking on the card.
 
 ## Profile Page
 ![profile page](readme_assets/app_demo_assets/profilepage.png)
 
-Allows users to select options such as editing profile, contacting customer support, or logging out.
+Allows users to select options such as editing profiles, contacting customer support, or logging out.
 
 ## Edit Profile Page
 ![edit profile page](readme_assets/app_demo_assets/profilepage_edit.png)
 
-Allows users to edit their profile picture, name and headline, which will be displayed when other users want to add them as friends. 
+Allows users to edit their profile picture, name, and headline, which will be displayed when other users want to add them as friends. 
 
 
+# System Design
 
 
-## 
-
-
-# 11.0 System Design
-
-
-## <span style="text-decoration:underline;">11.1 Application Flow</span>
+## <span style="text-decoration:underline;">Application Flow</span>
 
 ![1](readme_assets/systemdesign_assets/image1.png)
 
 
 
-### 11.1.1 Authentication
+### Authentication
 
 When the ConnectCard app is opened, it checks for persistent login information. If the user is already logged in, they are directed to the Home Page. Otherwise, they are brought to the Login Page to authenticate their credentials.
 
 On the Login Page, users have the option to toggle between the Login and Register pages. After inputting the correct email and password values, the app authenticates these values with Firebase. If the email and password are correct, the user is directed to the Home Page. If the authentication fails, the user is given the opportunity to try again.
 
 
-### 11.1.2 View Profile
+### View Profile
 
 By pressing the top app bar button, the user is able to edit their profile, including their name, headline, and profile picture. Users can also click the "Contact Us" button to get in touch with customer service via email or phone or log out of the application.
 
 
-### 11.1.3 Card Editing
+### Card Editing
 
-Users have the ability to edit their card information, add and delete new cards.
+Users have the ability to edit their card information and add and delete new cards.
 
 
-### 11.1.4 Home Page
+### Home Page
 
 On the Home Page, users can view their existing cards in either a list or card view. The cards display basic information such as name, organization, position, phone number, and email address. By clicking on a card, they will be directed to another screen showing detailed information, with the ability to interact with the phone number, email, and website for communication.
 
 
-### 11.1.5 Connect
+### Connect
 
 By clicking on the "Connect" button, the QR Code generator will be triggered, and a personalized QR Code will appear. Users can choose to scan other users' QR Codes to add them as friends or share them via social media, enabling others to connect with them.
 
 
-### 11.1.6 OCR Image to Text converter
+### OCR Image to Text converter
 
 The Scan Cards Page requires permission from the user to access the camera. Once permission is granted, users can take a photo of a name card. The app utilizes Google ML Kit and text recognition technology to convert the image into text, extracting relevant information from the name card. It filters the phone number, email address, website, and address. Users can choose to add the information as a personal card, which will be reflected in their list of cards, or as a friend's card, which will appear in the cards tab for easy reference. This allows users to digitize all their name cards, capturing them as pictures for convenient access in case of discrepancies.
 
 
-### 11.1.7 Card Tab
+### Card Tab
 
 After scanning other users' physical name cards, the user can view or edit the following cards.
 
 
-### 11.1.8 **Adding friend**
+### **Adding friend**
 
-By clicking on the blue button, users can easily search for friends as it displays the full list of users using ConnectCard. Additionally, they can search for friends through their UID, name, and headline. After finding their profile, users can send a friend request. Upon receiving a friend request, the friend request tab turns red, indicating the number of requests. Users are able to accept or decline the friend requests.
+By clicking on the blue button, users can easily search for friends as it displays the full list of users using ConnectCard. Additionally, they can search for friends through their UID, name, and headline. After finding their profile, users can send a friend request. Upon receiving a friend request, the friend request tab turns red, indicating the number of requests. Users are able to accept or decline friend requests.
 
 
-### 11.1.9 **Viewing friend cards**
+### **Viewing friend cards**
 
 After the request is accepted, users can click on their friend's profile and look through their list of cards. The color of the card will be different to indicate that it belongs to the friend, not the user.
 
 
-## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
+## <span style="text-decoration:underline;">Class Relationship / Database ER Diagram</span>
 
 ![2](readme_assets/systemdesign_assets/image2.png)
 
 ![3](readme_assets/systemdesign_assets/i3.png)
 
 
-Every user document is split into 2 collection. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce impact on existing functionalities when updating user information.
+Every user document is split into 2 collections. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce the impact on existing functionalities when updating user information.
 
 
-### 11.2.1 Enhanced Security
+### Enhanced Security
 
-To separate sensitive data, ensuring that users only have access to the information they are authorized to see. This prevent potential security breaches and unauthorized access to sensitive ser relationship
-
-
-### 11.2.2 Easier access to specific Data
-
-By having a dedicated “Friends” collection, it allows for efficient querying and retrieval of friend related information. When a user wants to retrieve their list of friends, accept or decline friend requests, or perform any action related to their friends, the system can directly access the "Friends" collection without needing to fetch unnecessary data from the "UserData" collection. This separation simplifies data retrieval and improves the overall performance of friend-related operations.
+To separate sensitive data, ensuring that users only have access to the information they are authorized to see. This prevents potential security breaches and unauthorized access to sensitive user relationship
 
 
-### 11.2.3 Reduced impact on updates
+### Easier access to specific Data
+
+Having a dedicated “Friends” collection allows for efficient querying and retrieval of friend-related information. When a user wants to retrieve their list of friends, accept or decline friend requests, or perform any action related to their friends, the system can directly access the "Friends" collection without needing to fetch unnecessary data from the "UserData" collection. This separation simplifies data retrieval and improves the overall performance of friend-related operations.
+
+
+### Reduced impact on updates
 
 When a user updates their profile information (e.g., name, headline, profile picture), having a separate "UserData" collection ensures that changes to user-specific data won't interfere with friend-related data. This separation minimizes the risk of accidental data corruption or inconsistencies. Additionally, it simplifies the process of updating user data without affecting friend connections or vice versa.
 
 
-### 11.2.4 Simplified User Management
+### Simplified User Management
 
 Splitting data into logical collections can improve the management of user-related data. Administrators or developers can focus on specific tasks related to friends and friend requests without having to navigate through unrelated user data. This compartmentalization streamlines maintenance and development processes.
 
 
 ## 
 
-## <span style="text-decoration:underline;">11.3 Software Architecture</span>
+## <span style="text-decoration:underline;">Software Architecture</span>
 
 
 ![4](readme_assets/systemdesign_assets/i4.png)
 
 
-# 12.0 Software Engineering Practices
+# Software Engineering Practices
 
 Here are some of the software engineering practices that we used for our Orbital project.
 
 
-## <span style="text-decoration:underline;">12.1 Project Management with GitHub Projects</span>
+## <span style="text-decoration:underline;">Project Management with GitHub Projects</span>
 
 
-### 12.1.1 Github Milestones
+### Github Milestones
 
-When embarking on a new feature, we establish dedicated milestones that align with the overarching project goals. Each milestone serves as a crucial stepping stone towards the successful completion of the feature, ensuring that our efforts are focused and well-organized.
+When embarking on a new feature, we establish dedicated milestones that align with the overarching project goals. Each milestone serves as a crucial stepping stone toward the successful completion of the feature, ensuring that our efforts are focused and well-organized.
 
 
 ![1](readme_assets/swe_assets/1.png)
 
 
 
-### 12.1.2 Issues
+### Issues
 
 As part of our milestone-driven development process, we leverage Git issues to effectively manage and track the progress of our work. Once we have established milestones, we break down feature development into smaller, manageable tasks and create Git issues to encapsulate them. This granular breakdown enables us to focus on specific aspects of the feature, promoting efficiency and collaboration among team members. Moreover, we will delegate the tasks, apply labels for easy categorization, and assign them to our project for efficient project management.
 
@@ -499,7 +484,7 @@ As part of our milestone-driven development process, we leverage Git issues to e
 
 
 
-### 12.1.3 Labels
+### Labels
 
 By using Git labels, after creating each issue, we will apply different labels to categorize it based on its content. This will help us easily understand what each issue is about and organize them accordingly.
 
@@ -509,7 +494,7 @@ By using Git labels, after creating each issue, we will apply different labels t
 
 
 
-### 12.1.4 Work allocation
+### Work allocation
 
 By utilizing a Git project spreadsheet, we can have an overview of the work allocation. All the issues are listed down as tasks, and we can track the status of each task. This provides a clear picture of how the work is distributed among team members and helps us monitor progress efficiently. The spreadsheet allows us to keep track of completed tasks, ongoing work, and pending items, ensuring that the project stays on track and all team members are aligned with their assigned tasks.
 
@@ -519,10 +504,10 @@ By utilizing a Git project spreadsheet, we can have an overview of the work allo
 
 
 
-## <span style="text-decoration:underline;">12.2 Version Control</span>
+## <span style="text-decoration:underline;">Version Control</span>
 
 
-### 12.2.1 Branching
+### Branching
 
 By utilizing the branching feature in Git, we ensure a structured and organized development process. Whenever we work on a new feature or bug fix, we create a separate branch for it. This approach allows multiple team members to work on different features concurrently without causing conflicts or discrepancies in the codebase.
 
@@ -536,7 +521,7 @@ Only after testing and verification, we proceed with creating a pull request to 
 
 
 
-### 12.2.2 Pull request
+### Pull request
 
 We follow a structured approach by first testing our branches thoroughly. Instead of directly updating the main branch, we utilize Git pull requests. This enables others to review the code and helps prevent any discrepancies before merging. This collaborative process ensures code quality and maintains a stable main branch.
 
@@ -551,7 +536,7 @@ We follow a structured approach by first testing our branches thoroughly. Instea
 
 
 
-### 12.2.3 Releases / Tags
+### Releases / Tags
 
 By creating releases and tagging them with version numbers via milestones, it becomes easy to track and manage different versions of the software. This helps in keeping a clear record of each release and allows us to revert to specific versions if needed.
 
@@ -563,37 +548,37 @@ By creating releases and tagging them with version numbers via milestones, it be
 
 
 
-# 13.0 Testing
+# Testing
 
 For testing, we have split it into 2, automated testing and user testing.
 
 
 
-1. Automated TestingUnit test: To test a single function, method or class
+1. Automated TestingUnit test: To test a single function, method, or class
 2. Integration test: to test the complete app or a large part of the app
 3. User Testing
-* Scenario based testing: design test scenarios that replicate real-world situation that users might encounter
-* Diverse user representation: including different demographics, skill levels and backgrounds
-* Bug reporting and tracking: provide a simple and clear way for users to report bus and issues through a google  form
+* Scenario-based testing: design test scenarios that replicate the real-world situations that users might encounter
+* Diverse user representation: including different demographics, skill levels, and backgrounds
+* Bug reporting and tracking: provide a simple and clear way for users to report bugs and issues through a Google  form
 
 
 
 ![1](readme_assets/testing/1.png)
 
 
-Please visit the link to view more information of our testing done!
+Please visit the link to view more information on our testing!
 Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#bookmark=id.1d90lqkwji6o
 
 ## 
 
 
-## <span style="text-decoration:underline;">13.4 Screenshots of Google Responses</span>
+## <span style="text-decoration:underline;">Screenshots of Google Responses</span>
 
-Please visit this link to view more information of our google survey form responses.
+Please visit this link to view more information on our Google survey form responses.
 Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#bookmark=id.d6e3y2etbxv
 
 
-# 14.0 Changes made through development
+# Changes made through the development
 
 
 <table>
@@ -614,7 +599,7 @@ Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#
    </td>
    <td>Remove the digital membership loyalty rewards card feature.
    </td>
-   <td>We decided to narrow our focus down to name cards, sticking by our vision ‘networking made easy’.
+   <td>We decided to narrow our focus down to name cards, sticking by our vision of ‘networking made easy’.
    </td>
   </tr>
   <tr>
@@ -630,9 +615,9 @@ Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#
   <tr>
    <td>3
    </td>
-   <td>No segregation of sub collections in firebase.
+   <td>No segregation of sub-collections in Firebase.
    </td>
-   <td>create a sub collection named ‘friends’ to segregate all the friends’ data and friends name card
+   <td> Create a sub-collection named ‘friends’ to segregate all the friends’ data and friends' name card
    </td>
    <td>When updating the firebase for the different collections, only 1 collection needs to be updated instead of the entire database under a document.
    </td>
@@ -654,7 +639,7 @@ Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#
    </td>
    <td>Friend request system is set up. Users will have to accept and
    </td>
-   <td>Friend request system allows user to have more privacy and control over who they want their name cards to be shared with.
+   <td>Friend request system allows users to have more privacy and control over who they want their name cards to be shared with.
    </td>
   </tr>
 </table>
