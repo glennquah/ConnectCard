@@ -1,6 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 
-// TheUser class
+// TheUser class to store the user's UID
 class TheUser {
   final String uid;
 

@@ -1,4 +1,4 @@
-// Purpose: Create a Cards class to store the data of the Name card
+// Card class to store the data of the Name card
 class Cards {
   final String imageUrl;
   final String cardName;
@@ -7,8 +7,8 @@ class Cards {
   final String phoneNum;
   final String email;
   final String companyWebsite;
-  final String? companyAddress;
-  final String? personalStatement;
+  final String? companyAddress; // optional
+  final String? personalStatement; // optional
   final String? moreInfo; // optional as people might not want to add more info
 
 // Cards Constructor
