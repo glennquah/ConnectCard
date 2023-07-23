@@ -60,6 +60,8 @@ dependencies:
   qr_code_utils: ^0.0.1
 
 dev_dependencies:
+  integration_test:
+    sdk: flutter
   flutter_test:
     sdk: flutter
 
