@@ -20,9 +20,6 @@
 
 
 [TOC]
-# Table of Contents
-- [Foreword by Developers](#foreword-by-developers)
-- [Poster & Video](#poster-&-video)
 
 
 # 
