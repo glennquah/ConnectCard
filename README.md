@@ -326,7 +326,7 @@ Filters out Address, Email and Website and prefills in the scanned card editor p
 When they click add card, an alert dialog appears and users can choose to add the scanned card as their own personal card or a friend’s card.
 
 ## Edit Scanned Card
-![ocr edit](readme_assets/app_demo_assets/ocr_editcard.png)
+![ocr edit](readme_assets/app_demo_assets/ocr_editcard.jpg)
 
 Allows users to Edit the Scanned Card to their preferences.
 
