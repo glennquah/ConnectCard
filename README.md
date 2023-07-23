@@ -1,5 +1,4 @@
-![alt_text](readme_assets/app_demo_assets/connectcardlogo.png "image_tooltip")
-
+![connect_card_logo](readme_assets/app_demo_assets/connectcardlogo.png)
 
 **National University of Singapore (NUS)**
 
@@ -227,346 +226,128 @@ We decided to swap out the initially planned out NFC technology for the seamless
 
 
 # 10.0 App Demo & Walkthrough
+## Login Page
+![login](readme_assets/app_demo_assets/login.png)
 
-
-<table>
-  <tr>
-   <td>
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image2.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Login Page</span></strong>
-<p>
 Allows users to log in to their ConnectCard account using their email and password.
-<p>
+
 Provides a toggle option to switch to the Registration page for new users.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## Registration Page
+![signup](readme_assets/app_demo_assets/signup.png)
 
-
-<img src="images/image3.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Registration Page</span></strong>
-<p>
 Allows new users to create a Connect Card account by providing their email and password.
-<p>
+
 Validates the user's email and password to ensure they meet the necessary requirements.
-   </td>
-  </tr>
-</table>
 
+## Home Page
+### Card View
+![Card View](readme_assets/app_demo_assets/homepage_cardview.png)
+### List View
+![List View](readme_assets/app_demo_assets/homepage_listview.png)
 
-
-
-
-<table>
-  <tr>
-   <td><strong><span style="text-decoration:underline;">List View</span></strong>
-<p>
-
-
-<p id="gdcalert4" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image4.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert5">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image4.png" width="" alt="alt_text" title="image_tooltip">
-
-<p>
-<strong><span style="text-decoration:underline;">Card View</span></strong>
-<p>
-
-
-<p id="gdcalert5" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image5.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert6">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image5.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Home Page</span></strong>
-<p>
 Displays a list or card view of the user's stored name cards, showing basic information such as name, organization, position, phone number, and email address for each card.
-<p>
+
 Includes a bottom navigation bar to access other pages.
-<p>
+
 Provides a profile bar at the top to access the user's profile page.
-<p>
+
 Provides a help icon at the top right for instructions on how to use the app.
-<p>
+
 Provides an edit icon at the top right, bringing them to the card editor form page.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert6" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image6.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert7">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## More Details Card Page
+![more details](readme_assets/app_demo_assets/homepage_moredetails.png)
 
-
-<img src="images/image6.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">More Details Card Page</span></strong>
-<p>
 Users can view their cards in more details by clicking into them.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert7" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image7.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert8">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image7.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Card Editor Form Page</span></strong>
-<p>
+## Card Editor Form Page
+![drop down](readme_assets/app_demo_assets/homepage_cardeditor.png)
 Allows users to add new name cards and edit the selected name cards.
-<p>
+
 Validates the entered information and displays error messages if required fields are not filled.
-   </td>
-  </tr>
-</table>
 
-
-
-<table>
-  <tr>
-   <td>
-
-<p id="gdcalert8" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image8.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert9">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image8.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td colspan="2" ><strong><span style="text-decoration:underline;">Card Editor Page</span></strong>
-<p>
+## Card Editor Page
+![card editor](readme_assets/app_demo_assets/homepage_editcardform.png)
 Loads the selected name card information from the database.
-<p>
+
 Allows users to add a display picture and update various information fields.
-<p>
+
 Provides an option to delete name cards, with a snack box appearing when attempting to delete the last card.
-   </td>
-  </tr>
-  <tr>
-   <td colspan="2" >
 
-<p id="gdcalert9" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image9.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert10">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## Updated Data in Firebase
+![firebase](readme_assets/app_demo_assets/firebase_ss.png)
 
-
-<img src="images/image9.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Updated Data in Firebase</span></strong>
-<p>
 After editing the card details, it is automatically updated on Firebase.
-<p>
+
 When adding new cards, the List of Cards will add on
-   </td>
-  </tr>
-</table>
 
-
-
-<table>
-  <tr>
-   <td>
-
-<p id="gdcalert10" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image10.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert11">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image10.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Communication Integration (QR Code Scanning)</span></strong>
-<p>
+## Communication Integration
+![comm int](readme_assets/app_demo_assets/homepage_glennQR.png)
 Each User will have their unique QR Code that can be accessed by clicking on the ‘connect’ button.
-<p>
+
 Users can choose to scan another user’s QR Code to them as friend or send their QR code via social media
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert11" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image11.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert12">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image11.jpg" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Communication Integration (Adding friends by Scanning QR Code)</span></strong>
-<p>
+## Communication Integration (Adding friends by Scanning QR Code)
+![scan qr](readme_assets/app_demo_assets/addselena.png)
 After users click the ‘Scan’ button, they can scan other user’s QR code to add them as friend
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert12" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image12.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert13">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## Communication Integration
+![share QR](readme_assets/app_demo_assets/shareqrcode.png)
+![tele](readme_assets/app_demo_assets/qrcodenigel.png)
 
-
-<img src="images/image12.jpg" width="" alt="alt_text" title="image_tooltip">
-
-
-<p id="gdcalert13" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image13.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert14">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image13.jpg" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Communication Integration (Sharing QR code to friends)</span></strong>
-<p>
 Users can also choose to click the ‘Share’ button to share their personal QR code to other users via social media
-<p>
+
 In this example, we share the QR code via telegram to nigel.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert14" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image14.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert15">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image14.jpg" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Text Recog Page</span></strong>
-<p>
+## Text Recog Page
+![text recog](readme_assets/app_demo_assets/ocr_scanAIA.png)
 Requests permission to use the camera for name card scanning.
-<p>
+
 Enables users to capture a photo of a name card.
-<p>
+
 Utilizes Google ML Kit and text recognition technology to convert the image into text and extract relevant information.
-<p>
+
 Users can click onto the help icon at the top right for instructions on how to use this feature.
-   </td>
-  </tr>
-</table>
 
-
-
-<table>
-  <tr>
-   <td>
-
-<p id="gdcalert15" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image15.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert16">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image15.jpg" width="" alt="alt_text" title="image_tooltip">
-
-<p>
-
-
-<p id="gdcalert16" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image16.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert17">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image16.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Text Recog Result Page</span></strong>
-<p>
+## Text Recog Results Page
+![ocr result](readme_assets/app_demo_assets/ocr_result.png)
+![personal or friend](readme_assets/app_demo_assets/ocr_personalorfriend.png)
 Displays the results of the text conversion and extraction process.
-<p>
+
 Filters out Address, Email and Website and prefills in the scanned card editor page.
-<p>
+
 When they click add card, an alert dialog appears and users can choose to add the scanned card as their own personal card or a friend’s card.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert17" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image17.jpg). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert18">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image17.jpg" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Edit Scanned Card Page</span></strong>
-<p>
+## Edit Scanned Card
+![ocr edit](readme_assets/app_demo_assets/ocr_editcard.png)
 Allows users to Edit the Scanned Card to their preferences.
-<p>
+
 The Email, website and address are prefilled by the programme.
-<p>
+
 All other extracted text will be prefilled inside the more information area and users can cut and paste the information into the relevant fields.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert18" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image18.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert19">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image18.png" width="" alt="alt_text" title="image_tooltip">
-
-<p>
-
-
-<p id="gdcalert19" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image19.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert20">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image19.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Scanned Card Page</span></strong>
-<p>
+## Scanned Card Page
+![scanned card page](readme_assets/app_demo_assets/scannedcard.png)
+![scanned card pop up](readme_assets/app_demo_assets/scannedcard_popup.png)
 Users are able to view the list of scanned cards at the scanned card page.
-<p>
+
 A search function is also included for users to easily find the scanned card
-<p>
+
 Users will be able to edit or view the scanned card in more detail when they click into each card.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert20" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image20.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert21">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image20.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">View Scanned Card Page</span></strong>
-<p>
+## View Scanned Card Page
+![scanned card more details](readme_assets/app_demo_assets/scannedcard_moredetails.png)
 Users are able to view the scanned card with more detailed information after clicking into the card.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert21" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image21.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert22">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image21.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Profile Page</span></strong>
-<p>
+## Profile Page
+![profile page](readme_assets/app_demo_assets/profilepage.png)
 Allows users to select options such as editing profile, contacting customer support, or logging out.
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert22" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image22.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert23">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image22.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Edit Profile Page</span></strong>
-<p>
+## Edit Profile Page
+![edit profile page](readme_assets/app_demo_assets/profilepage_edit.png)
 Allows users to edit their profile picture, name and headline, which will be displayed when other users want to add them as friends. 
-   </td>
-  </tr>
-</table>
+
 
 
 
