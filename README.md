@@ -301,7 +301,7 @@ Users can also choose to click the ‘Share’ button to share their personal QR
 In this example, we share the QR code via telegram to nigel.
 
 ## Text Recog Page
-![text recog](readme_assets/app_demo_assets/ocr_scanAIA.png)
+![text recog](readme_assets/app_demo_assets/ocr_scanAIA.jpg)
 Requests permission to use the camera for name card scanning.
 
 Enables users to capture a photo of a name card.
@@ -311,7 +311,7 @@ Utilizes Google ML Kit and text recognition technology to convert the image into
 Users can click onto the help icon at the top right for instructions on how to use this feature.
 
 ## Text Recog Results Page
-![ocr result](readme_assets/app_demo_assets/ocr_result.png)
+![ocr result](readme_assets/app_demo_assets/ocr_result.jpg)
 ![personal or friend](readme_assets/app_demo_assets/ocr_personalorfriend.png)
 Displays the results of the text conversion and extraction process.
 
