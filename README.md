@@ -187,9 +187,9 @@ We decided to swap out the initially planned out NFC technology for the seamless
 # Tech Stack
 
 
-1. **<span style="text-decoration:underline;">Figma</span>**: Prototyping and Frontend UI Design
+1. **<span style="text-decoration:underline;">Figma:</span>** Prototyping and Frontend UI Design
 2. **<span style="text-decoration:underline;">Flutter:</span>** Frontend UI Framework
-3. **<span style="text-decoration:underline;">Firebase:</span> **Authentication & Database (Backend)
+3. **<span style="text-decoration:underline;">Firebase:</span>** Authentication & Database (Backend)
 
 
 # User Stories
