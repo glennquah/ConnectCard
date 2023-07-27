@@ -228,7 +228,7 @@ We decided to swap out the initially planned out NFC technology for the seamless
 
 1. **Friends system** The app uses Firebase as a backend database to store friend's card. Users can send, accept or reject friend requests.
 2. **Communication Integration (QR Code):** The app allows users to add other users as friends seamlessly by scanning their personal QR code. The app is also integrated with popular communication platforms such as Telegram, Whatsapp, Phone, and Email, where they can send their personal QR code easily . This enables users to easily connect with their clients directly from the app.
-3. **Scanning and storing feature (continuation from Milestone 2): **Users can now use the extracted text from the OCR feature to create new personal name cards or friend’s name cards which will be stored in the firebase.
+3. **Scanning and storing feature (continuation from Milestone 2):** Users can now use the extracted text from the OCR feature to create new personal name cards or friend’s name cards which will be stored in the firebase.
 
 
 # App Demo & Walkthrough
