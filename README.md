@@ -344,6 +344,9 @@ When they click add card, an alert dialog appears and users can choose to add th
 
 ## Adding Scanned Cards
 
+![edit_scanned_card](readme_assets/app_demo_assets/scan_4.png)
+![editscannedcard](readme_assets/app_demo_assets/scan_5.png)
+
 The phone number, email, website and address are prefilled automatically prefilled.
 
 All other extracted text will be prefilled inside the more information area and users can cut and paste the information into the relevant fields.
@@ -357,9 +360,6 @@ Users are able to select personal card and the card will be added into their lis
 Users are able to select friend card and the card will be added into the cards tab where they can view the information.
 
 This allows users to digitalize their name card, having easy access whenever or wherever they are
-
-
-
 
 
 ## Scanned Card Page
