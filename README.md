@@ -386,10 +386,12 @@ Users list of friends will appear in the friends tab. User is able to press onto
 
 User can click into the card to view more information
 
+![scanned card more details](readme_assets/app_demo_assets/friend_2.png)
+
 
 ## Friend Request Received</span></strong>
 
-![scanned card more details](readme_assets/app_demo_assets/friend_2.png)
+![scanned card more details](readme_assets/app_demo_assets/friend_3.png)
 
 When user receives a friend request, the friend request tab will turn red and indicate the number of request he has.
 
@@ -399,7 +401,7 @@ After accepting the request, the person is now your friend and you are able to v
 
 ## Adding Friend</span></strong>
 
-![scanned card more details](readme_assets/app_demo_assets/friend_3.png)
+
 
 
 User is able to view the list of users using connect card, with the ability to search for their friend via their name, headline or UID.
