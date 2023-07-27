@@ -363,8 +363,8 @@ This allows users to digitalize their name card, having easy access whenever or 
 
 
 ## Scanned Card Page
-![scanned card page](readme_assets/app_demo_assets/scannedcard.png)
-![scanned card pop up](readme_assets/app_demo_assets/scannedcard_popup.png)
+![scanned card page](readme_assets/app_demo_assets/cards_1.png)
+![scanned card pop up](readme_assets/app_demo_assets/cards_2.png)
 
 Users are able to view the list of scanned cards on the scanned card page.
 
@@ -372,78 +372,41 @@ A search function is also included for users to easily find the scanned card
 
 Users will be able to edit or view the scanned card in more detail when they click on each card.
 
-<p id="gdcalert24" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image24.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert25">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
 
 ## View Scanned Card Page
-![scanned card more details](readme_assets/app_demo_assets/scanedcard_moredetails.png)
+![scanned card more details](readme_assets/app_demo_assets/cards_3.png)
 
 Users are able to view the scanned card with more detailed information after clicking on the card.
 
-<p id="gdcalert25" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image25.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert26">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## View Friends
 
+![scanned card more details](readme_assets/app_demo_assets/friend_1.png)
 
-<img src="images/image25.png" width="" alt="alt_text" title="image_tooltip">
-
-<p>
-
-
-<p id="gdcalert26" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image26.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert27">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image26.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td rowspan="2" ><strong><span style="text-decoration:underline;">View Friends</span></strong>
-<p>
 Users list of friends will appear in the friends tab. User is able to press onto the list view to their friends cards
-<p>
+
 User can click into the card to view more information
 
 
-<p id="gdcalert27" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image27.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert28">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## Friend Request Received</span></strong>
 
+![scanned card more details](readme_assets/app_demo_assets/friend_2.png)
 
-<img src="images/image27.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Friend Request Received</span></strong>
-<p>
 When user receives a friend request, the friend request tab will turn red and indicate the number of request he has.
-<p>
+
 User can choose to accept or decline the request
-<p>
+
 After accepting the request, the person is now your friend and you are able to view their cards
-   </td>
-  </tr>
-  <tr>
-   <td>
 
-<p id="gdcalert28" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image28.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert29">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## Adding Friend</span></strong>
+
+![scanned card more details](readme_assets/app_demo_assets/friend_3.png)
 
 
-<img src="images/image28.png" width="" alt="alt_text" title="image_tooltip">
-
-<p>
-
-
-<p id="gdcalert29" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image29.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert30">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-
-<img src="images/image29.png" width="" alt="alt_text" title="image_tooltip">
-
-   </td>
-   <td><strong><span style="text-decoration:underline;">Adding Friend</span></strong>
-<p>
 User is able to view the list of users using connect card, with the ability to search for their friend via their name, headline or UID.
-<p>
-After finding your friend, you can send them a friend request
-<p>
-You can view the request pending tab and you can see that the list of request pending
-   </td>
-  </tr>
-</table>
 
+After finding your friend, you can send them a friend request
+
+You can view the request pending tab and you can see that the list of request pending
 
 
 # System Design
