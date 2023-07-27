@@ -146,8 +146,8 @@ ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for
 
 Currently, there are existing name card applications that provide features such as storing and managing digital name cards of self and others. However, there are some few applications that satisfy some features that are important in a digital name card application.
 
-Existing name card applications have limited functionality in these areas: \
-- Converting current physical name cards into digital name cards easily \
+Existing name card applications have limited functionality in these areas:
+- Converting current physical name cards into digital name cards easily
 - Sharing digital name cards with others easily
 
 
