@@ -531,7 +531,7 @@ When a user updates their profile information (e.g., name, headline, profile pic
 Splitting data into logical collections can improve the management of user-related data. Administrators or developers can focus on specific tasks related to friends and friend requests without having to navigate through unrelated user data. This compartmentalization streamlines maintenance and development processes.
 
 
-## <span style="text-decoration:underline;">11.3 Software Architecture</span>
+## <span style="text-decoration:underline;">Software Architecture</span>
 
 
 ![alt_text](images/image33.png "image_tooltip")
