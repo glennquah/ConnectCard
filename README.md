@@ -1,4 +1,4 @@
-![connect_card_logo](readme_assets/app_demo_assets/connectcard_logo.png)
+![connect_card_logo](readme_assets/connectcard_logo.png)
 
 ## National University of Singapore (NUS)
 
