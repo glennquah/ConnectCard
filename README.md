@@ -277,17 +277,17 @@ Provides an edit icon at the top right, bringing them to the card editor form pa
 ## More Details Card Page
 ![more details](readme_assets/app_demo_assets/homepage_moredetails.png)
 
-Users can view their cards in more detail by clicking on them.
+Users can view their cards in more details by clicking into them.
 
 ## Card Editor Form Page
-![drop down](readme_assets/app_demo_assets/homepage_cardeditor.png)
+![drop down](readme_assets/app_demo_assets/homepage_addcard.png)
 
 Allows users to add new name cards and edit the selected name cards.
 
 Validates the entered information and displays error messages if required fields are not filled.
 
 ## Card Editor Page
-![card editor](readme_assets/app_demo_assets/homepage_editcardform.png)
+![card editor](readme_assets/app_demo_assets/homepage_editcard.png)
 
 Loads the selected name card information from the database.
 
@@ -296,33 +296,33 @@ Allows users to add a display picture and update various information fields.
 Provides an option to delete name cards, with a snack box appearing when attempting to delete the last card.
 
 ## Updated Data in Firebase
-![firebase](readme_assets/app_demo_assets/firebase_ss.png)
+![firebase](readme_assets/app_demo_assets/homepage_firebase.png)
 
 After editing the card details, it is automatically updated on Firebase.
 
 When adding new cards, the List of Cards will add on
 
 ## Communication Integration
-![comm int](readme_assets/app_demo_assets/homepage_glennQR.png)
+![comm int](readme_assets/app_demo_assets/homepage_qrcode.png)
 
 Each User will have their unique QR Code that can be accessed by clicking on the ‘connect’ button.
 
 Users can choose to scan another user’s QR Code to them as a friend or send their QR code via social media
 
 ## Communication Integration (Adding friends by Scanning QR Code)
-![scan qr](readme_assets/app_demo_assets/addselena.jpg)
+![scan qr](readme_assets/app_demo_assets/homepage_addfriend.jpg)
 
 After users click the ‘Scan’ button, they can scan other user’s QR codes to add them as friend
 
 
 ## Communication Integration
-![share QR](readme_assets/app_demo_assets/shareqrcode.jpg)
-![tele](readme_assets/app_demo_assets/qrcodenigel.jpg)
+![share QR](readme_assets/app_demo_assets/homepage_share.jpg)
+![tele](readme_assets/app_demo_assets/homepage_tele.jpg)
 
 Users can also choose to click the ‘Share’ button to share their personal QR code with other users via social media
 
 ## Text Recog Page
-![text recog](readme_assets/app_demo_assets/ocr_scanAIA.jpg)
+![text recog](readme_assets/app_demo_assets/scan_1.png)
 
 Requests permission to use the camera for name card scanning.
 
@@ -331,9 +331,10 @@ Enables users to capture a photo of a name card.
 Utilizes Google ML Kit and text recognition technology to convert the image into text and extract relevant information.
 
 Users can click on the help icon at the top right for instructions on how to use this feature.
+
 ## Text Recog Results Page
-![ocr result](readme_assets/app_demo_assets/ocr_result.jpg)
-![personal or friend](readme_assets/app_demo_assets/ocr_personalorfriend.png)
+![ocr result](readme_assets/app_demo_assets/scan_2.png)
+![personal or friend](readme_assets/app_demo_assets/scan_3.png)
 
 Displays the results of the text conversion and extraction process.
 
