@@ -67,24 +67,20 @@ Github: [https://github.com/ZhiWei1010](https://github.com/ZhiWei1010)
 # Poster & Video
 
 
-## <span style="text-decoration:underline;">2.1 Poster</span>
-
-
-
-<p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+## <span style="text-decoration:underline;">Poster</span>
 
 
 ![poster](readme_assets/app_demo_assets/poster.png)
 
 
-## <span style="text-decoration:underline;">2.2 LiftOff</span>
+## <span style="text-decoration:underline;">LiftOff</span>
 
 Elevator Pitch Video: [https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link](https://drive.google.com/file/d/1KqCCN2fL1QiHnOnuNatBzYJn6tmiY9W4/view?usp=share_link)
 
 Poster: [https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link](https://drive.google.com/file/d/1Xfcv88yRIS-P9JojkY_17qMARUUyWp3c/view?usp=share_link)
 
 
-## <span style="text-decoration:underline;">2.3 Milestone 1</span>
+## <span style="text-decoration:underline;">Milestone 1</span>
 
 Figma Design: [https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1](https://www.figma.com/file/hVvHnTKv5smJBOPmTPnpZP/Connect-Card?type=design&node-id=0%3A1&t=8YLkiicqGAFXCIrQ-1)
 
@@ -93,7 +89,7 @@ Project Demo: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm
 Milestone 1 Prototype: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing](https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-Jp_Hdezmzm/view?usp=sharing)
 
 
-## <span style="text-decoration:underline;">2.4 Milestone 2</span>
+## <span style="text-decoration:underline;">Milestone 2</span>
 
 A1 Poster: [https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing](https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing)
 
@@ -102,7 +98,7 @@ Project Demo: [https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs
 App APK: [https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl](https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl)
 
 
-## <span style="text-decoration:underline;">2.5 Milestone 3</span>
+## <span style="text-decoration:underline;">Milestone 3</span>
 
 A1 Poster: [https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link](https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link) 
 
@@ -123,12 +119,12 @@ Link to APK: [https://drive.google.com/drive/folders/1sdKgctwhZuty5yzFxVUUMiuW6n
 # Motivation
 
 
-## <span style="text-decoration:underline;">4.1 Problem:</span>
+## <span style="text-decoration:underline;">Problem:</span>
 
 Carrying physical name cards and membership/loyalty cards can be **burdensome**, leading to **lost contact information and a cluttered wallet**. It is **inconvenient** for individuals who meet new people, engage in business interactions, or collect various membership cards to **manage and access these cards efficiently.**
 
 
-## <span style="text-decoration:underline;">4.2 Solution:</span>
+## <span style="text-decoration:underline;">Solution:</span>
 
 ConnectCard provides a convenient solution by allowing users to scan physical name cards using their phone camera and convert them into digital cards stored within the application. Users can easily update their personal digital name cards, keeping their contact information up to date for seamless interactions. The application also enables users to add other users as friends easily by scanning a QR Code and sending the QR code through social media such as telegram and whatsapp. With our app, individuals can simplify their wallet, stay connected with ease, and take full advantage of membership benefits without the hassle of physical cards.
 
@@ -141,12 +137,12 @@ The primary objective of our Orbital project is to develop a sophisticated mobil
 # How are we different from Existing Platforms
 
 
-## <span style="text-decoration:underline;">6.1 Description</span>
+## <span style="text-decoration:underline;">Description</span>
 
 ConnectCard utilizes Firebase for data storage and manipulation, and Flutter for the user interface design. It offers various features such as scanning and storing name card information, linking the app to communication platforms like Telegram, Whatsapp, Phone, and Email, updating existing data, and QR Code technology for easy name card exchange.
 
 
-## <span style="text-decoration:underline;">6.2 Need:</span>
+## <span style="text-decoration:underline;">Need:</span>
 
 Currently, there are existing name card applications that provide features such as storing and managing digital name cards of self and others. However, there are some few applications that satisfy some features that are important in a digital name card application.
 
@@ -155,7 +151,7 @@ Existing name card applications have limited functionality in these areas: \
 - Sharing digital name cards with others easily
 
 
-## <span style="text-decoration:underline;">6.3 Key Technologies</span>
+## <span style="text-decoration:underline;">Key Technologies</span>
 
 
 ### Optical Character Recognition (OCR)
@@ -428,7 +424,7 @@ By clicking on the blue button, users can easily search for friends as it displa
 After the request is accepted, users can click on their friend's profile and look through their list of cards. The color of the card will be different to indicate that it belongs to the friend, not the user.
 
 
-## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
+## <span style="text-decoration:underline;">Class Relationship / Database ER Diagram</span>
 
 ![2](readme_assets/systemdesign_assets/image2.png)
 
@@ -458,7 +454,7 @@ When a user updates their profile information (e.g., name, headline, profile pic
 Splitting data into logical collections can improve the management of user-related data. Administrators or developers can focus on specific tasks related to friends and friend requests without having to navigate through unrelated user data. This compartmentalization streamlines maintenance and development processes.
 
 
-## <span style="text-decoration:underline;">11.3 Software Architecture</span>
+## <span style="text-decoration:underline;">Software Architecture</span>
 
 
 ![4](readme_assets/systemdesign_assets/i4.png)
@@ -470,7 +466,7 @@ Splitting data into logical collections can improve the management of user-relat
 Here are some of the software engineering practices that we used for our Orbital project.
 
 
-## <span style="text-decoration:underline;">12.1 Project Management with GitHub Projects</span>
+## <span style="text-decoration:underline;">Project Management with GitHub Projects</span>
 
 
 ### Github Milestones
@@ -505,7 +501,7 @@ By utilizing a Git project spreadsheet, we can have an overview of the work allo
 ![4](readme_assets/swe_assets/4.png)
 
 
-## <span style="text-decoration:underline;">12.2 Version Control</span>
+## <span style="text-decoration:underline;">Version Control</span>
 
 
 ### Branching
