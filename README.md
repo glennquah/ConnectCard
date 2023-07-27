@@ -338,7 +338,7 @@ Users can click on the help icon at the top right for instructions on how to use
 
 Displays the results of the text conversion and extraction process.
 
-Filters out Address, Email, and Website and prefills in the scanned card editor page.
+Filters out Phone number, Address, Email, and Website and prefills in the scanned card editor page.
 
 When they click add card, an alert dialog appears and users can choose to add the scanned card as their own personal card or a friend’s card.
 
