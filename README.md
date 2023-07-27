@@ -401,8 +401,9 @@ After accepting the request, the person is now your friend and you are able to v
 
 ## Adding Friend</span></strong>
 
+![scanned card more details](readme_assets/app_demo_assets/friend_4.png)
 
-
+![scanned card more details](readme_assets/app_demo_assets/friend_5.png)
 
 User is able to view the list of users using connect card, with the ability to search for their friend via their name, headline or UID.
 
@@ -413,9 +414,9 @@ You can view the request pending tab and you can see that the list of request pe
 
 # System Design
 
-## <span style="text-decoration:underline;">11.1 Application Flow</span>
+## <span style="text-decoration:underline;">Application Flow</span>
 
-![alt_text](images/image30.png "image_tooltip")
+![1](readme_assets/systemdesign_assets/1.png)
 
 
 ### Authentication
@@ -465,14 +466,11 @@ By clicking on the blue button, users can easily search for friends as it displa
 After the request is accepted, users can click on their friend's profile and look through their list of cards. The color of the card will be different to indicate that it belongs to the friend, not the user.
 
 
-## <span style="text-decoration:underline;">11.2 Class Relationship / Database ER Diagram</span>
+## <span style="text-decoration:underline;">Class Relationship / Database ER Diagram</span>
 
+![2](readme_assets/systemdesign_assets/2.png)
 
-![alt_text](images/image31.png "image_tooltip")
-
-
-![alt_text](images/image32.png "image_tooltip")
-
+![3](readme_assets/systemdesign_assets/3.png)
 
 Every user document is split into 2 collection. “Friends” and “UserData”. This is to ensure security, easy access to specific data and to reduce impact on existing functionalities when updating user information.
 
@@ -499,8 +497,8 @@ Splitting data into logical collections can improve the management of user-relat
 
 ## <span style="text-decoration:underline;">Software Architecture</span>
 
+![1](readme_assets/systemdesign_assets/4.png)
 
-![alt_text](images/image33.png "image_tooltip")
 
 # Software Engineering Practices
 
@@ -514,34 +512,31 @@ Here are some of the software engineering practices that we used for our Orbital
 When embarking on a new feature, we establish dedicated milestones that align with the overarching project goals. Each milestone serves as a crucial stepping stone towards the successful completion of the feature, ensuring that our efforts are focused and well-organized.
 
 
-![alt_text](images/image34.png "image_tooltip")
+![1](readme_assets/swe_assets/1.png)
+
 
 ### Issues
 
 As part of our milestone-driven development process, we leverage Git issues to effectively manage and track the progress of our work. Once we have established milestones, we break down feature development into smaller, manageable tasks and create Git issues to encapsulate them. This granular breakdown enables us to focus on specific aspects of the feature, promoting efficiency and collaboration among team members. Moreover, we will delegate the tasks, apply labels for easy categorization, and assign them to our project for efficient project management.
 
-
-![alt_text](images/image35.png "image_tooltip")
+![2](readme_assets/swe_assets/2.png)
 
 
 ### Labels
 
 By using Git labels, after creating each issue, we will apply different labels to categorize it based on its content. This will help us easily understand what each issue is about and organize them accordingly.
 
-
-![alt_text](images/image36.png "image_tooltip")
-
+![3](readme_assets/swe_assets/3.png)
 
 
 ### Work allocation
 
 By utilizing a Git project spreadsheet, we can have an overview of the work allocation. All the issues are listed down as tasks, and we can track the status of each task. This provides a clear picture of how the work is distributed among team members and helps us monitor progress efficiently. The spreadsheet allows us to keep track of completed tasks, ongoing work, and pending items, ensuring that the project stays on track and all team members are aligned with their assigned tasks.
 
+![4](readme_assets/swe_assets/4.png)
 
-![alt_text](images/image37.png "image_tooltip")
 
-
-## <span style="text-decoration:underline;">12.2 Version Control</span>
+## <span style="text-decoration:underline;">Version Control</span>
 
 ### Branching
 
@@ -551,26 +546,23 @@ Each branch represents a specific task or feature, which helps us maintain code 
 
 Only after testing and verification, we proceed with creating a pull request to merge the branch into the main branch. By following this branching workflow, we minimize the risk of introducing bugs and maintain a stable main branch that represents the most up-to-date and tested version of the project. It promotes collaboration, transparency, and effective code management throughout the development process.
 
-![alt_text](images/image38.png "image_tooltip")
+![5](readme_assets/swe_assets/5.png)
 
 
 ### Pull request
 
 We follow a structured approach by first testing our branches thoroughly. Instead of directly updating the main branch, we utilize Git pull requests. This enables others to review the code and helps prevent any discrepancies before merging. This collaborative process ensures code quality and maintains a stable main branch.
 
-![alt_text](images/image39.png "image_tooltip")
+![6](readme_assets/swe_assets/6.png)
 
-![alt_text](images/image40.png "image_tooltip")
+![7](readme_assets/swe_assets/7.png)
 
 
 ### Releases / Tags
 
 By creating releases and tagging them with version numbers via milestones, it becomes easy to track and manage different versions of the software. This helps in keeping a clear record of each release and allows us to revert to specific versions if needed.
 
-![alt_text](images/image41.png "image_tooltip")
-
-
-
+![8](readme_assets/swe_assets/8.png)
 
 
 # Testing
