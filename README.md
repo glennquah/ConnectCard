@@ -620,6 +620,8 @@ For testing, we have split it into 2, automated testing and user testing.
 
 ![1](readme_assets/testing/1.png)
 
+Please visit the link to view more information on our testing!
+Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#bookmark=id.1d90lqkwji6o
 
 ## <span style="text-decoration:underline;">Screenshots of Google Responses</span>
 Please visit this link to view more information on our Google survey form responses.
