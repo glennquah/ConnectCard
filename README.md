@@ -195,7 +195,7 @@ We decided to swap out the initially planned out NFC technology for the seamless
 # User Stories
 
 
-1. As a working adult, I want to be able to** sign up to have my own account, login and logout of the application.**
+1. As a working adult, I want to be able to **sign up to have my own account, login and logout of the application.**
 2. As a working adult, I want to be able to have a **profile page where I can upload my profile picture, name and headline.**
 3. As a working adult, I want to be able to **get customer support easily.**
 4. As a working adult, I want to be able to **create, edit and delete digital name cards** **easily.**
