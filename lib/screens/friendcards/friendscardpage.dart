@@ -229,24 +229,25 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                   Expanded(
                     child: TabBarView(
                       children: [
-                        Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: TextField(
-                                onChanged: _filterUsers,
-                                controller: _searchController,
-                                decoration: InputDecoration(
-                                  labelText: 'Search for Friends',
-                                  prefixIcon: const Icon(Icons.search),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(20.0),
+                        SingleChildScrollView(
+                          // Wrap this in SingleChildScrollView
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: TextField(
+                                  onChanged: _filterUsers,
+                                  controller: _searchController,
+                                  decoration: InputDecoration(
+                                    labelText: 'Search for Friends',
+                                    prefixIcon: const Icon(Icons.search),
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
                                   ),
                                 ),
                               ),
-                            ),
-                            Expanded(
-                              child: ListView.separated(
+                              ListView.separated(
                                 shrinkWrap: true,
                                 physics: const NeverScrollableScrollPhysics(),
                                 itemCount: filteredFriends.isNotEmpty
@@ -319,8 +320,8 @@ class _FriendsCardsPageState extends State<FriendsCardsPage> {
                                   );
                                 },
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                         ListView.builder(
                           physics: const NeverScrollableScrollPhysics(),
