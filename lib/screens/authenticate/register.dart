@@ -16,6 +16,7 @@ class _RegisterState extends State<Register> {
   final Auth _auth = Auth();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
+  bool instructionsShown = false;
 
   String email = '';
   String password = '';
@@ -23,6 +24,29 @@ class _RegisterState extends State<Register> {
   String error = '';
 
   Color bgColor = const Color(0xffFEAA1B);
+
+  Future<void> _showInstructions(BuildContext context) async {
+    await showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text('Instructions'),
+          content: Text('Please follow these instructions before logging in.'),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context); // Close the dialog
+                setState(() {
+                  instructionsShown = true; // Mark instructions as shown
+                });
+              },
+              child: Text('Continue'),
+            ),
+          ],
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -124,15 +148,33 @@ class _RegisterState extends State<Register> {
                             ),
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                setState(() => loading = true);
+                                // Show the instructions first
+                                await _showInstructions(context);
+
+                                if (!instructionsShown) {
+                                  // User didn't complete the instructions, return early
+                                  return;
+                                }
+
+                                setState(() {
+                                  loading = true;
+                                });
+
                                 dynamic result =
                                     await _auth.registerWithEmailAndPassword(
                                         phoneNum, email, password);
+
+                                setState(() {
+                                  loading = false;
+                                });
+
                                 if (result == null) {
                                   setState(() {
                                     error = 'Please supply a valid email';
-                                    loading = false;
                                   });
+                                } else {
+                                  widget
+                                      .toggleView(); // Navigate to the login page
                                 }
                               }
                             },
