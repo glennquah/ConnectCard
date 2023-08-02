@@ -31,6 +31,7 @@
 - [Software Engineering Practices](#software-engineering-practices)
 - [Testing](#testing)
 - [Changes made through development](#changes-made-through-development)
+- [Challenges faced](#challenges-faced)
 - [Project Log](#project-log)
 - [Sources & References](#sources--references)
 
@@ -91,16 +92,16 @@ Milestone 1 Prototype: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-J
 
 ## <span style="text-decoration:underline;">Milestone 2</span>
 
-A1 Poster: [https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing](https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing)
+A1 Poster: https://drive.google.com/file/d/1ClhH5edK67TUENlC-zsqnikMv52tSPE3/view?usp=sharing
 
 Project Demo: [https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs/view?usp=sharing](https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs/view?usp=sharing)
 
 App APK: [https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl](https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl)
 
 
-## <span style="text-decoration:underline;">ilestone 3</span>
+## <span style="text-decoration:underline;">Milestone 3</span>
 
-A1 Poster: [https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link](https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link) 
+A1 Poster: https://drive.google.com/file/d/1ClhH5edK67TUENlC-zsqnikMv52tSPE3/view?usp=sharing
 
 Project Demo: [https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=drive_link](https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=drive_link) 
 
@@ -587,70 +588,73 @@ Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/view#
 
 
 # Changes made through development
+Please visit this link to see the changes made through development!
+Link: https://docs.google.com/document/d/1GVsOisbiYp4yAPMlSFgj1nU5VWP4nFaO/edit#bookmark=id.5dnbtaz1ches
+
+
+# Challenges faced
+
+Here are some challenges that we have faced during our journey of creating ConnectCard.
+
 
 <table>
   <tr>
    <td><strong>ID</strong>
    </td>
-   <td><strong>Before</strong>
+   <td><strong>Challenges</strong>
    </td>
-   <td><strong>After</strong>
-   </td>
-   <td><strong>Reason</strong>
+   <td><strong>Explanation and Actions taken</strong>
    </td>
   </tr>
   <tr>
-   <td>1
+   <td><strong>1</strong>
    </td>
-   <td>Store and access membership or loyalty reward cards digitally, eliminating the reliance on physical cards.
+   <td>We had a huge commit issue on github due to a circleci.yaml file that existed in our repo when we did not even set it up.
    </td>
-   <td>Remove the digital membership loyalty rewards card feature.
-   </td>
-   <td>We decided to narrow our focus down to name cards, sticking by our vision ‘networking made easy’.
+   <td>Research on circleci, github commit & also seek advice from our advisor, Ruby. Manage to remove the circleci.yaml file and resolve the commit issue.
    </td>
   </tr>
   <tr>
-   <td>2
+   <td><strong>2</strong>
    </td>
-   <td>Exchange and share personal name cards through NFC integration
+   <td>OCR integration into our app. Using the camera in the phone requires appropriate permissions and life cycles to be set up.
    </td>
-   <td>Add friends through QR Code Scanning, thereafter users can view all of the friends’ cards.
-   </td>
-   <td>QR Code is a widely used technology that users are used to using. Additionally, we are also using the camera for other functions such as the OCR to convert physical name cards into digital name cards, which means users would be more familiar with the scanning action with the camera, allowing easier familiarization of the app.
+   <td>It was not easy to set up the OCR integration into our app. After setting up the appropriate permissions and life cycle for using the phone camera, we were able to recognise the text successfully with rather decent accuracy. However, to filter out the appropriate information that should be used to pre-fill the fields for our name card forms is a huge challenge to us as we were not familiar with AI/ML. Instead we decided to use a simple regex of finding matching patterns to filter out the appropriate information such as ‘+65’ for phone numbers, ‘@’ for email address and 6 digit numbers (postal code) for address. In the future, we are planning to use some Large language models to more accurately filter out the appropriate information to pre-fill the fields correctly and filter out unnecessary information.
    </td>
   </tr>
   <tr>
-   <td>3
+   <td><strong>3</strong>
    </td>
-   <td>No segregation of sub collections in firebase.
+   <td>App crashing bug. During the start of Milestone 3, there was a bug with the app where the app would crash everytime a new page is opened. 
    </td>
-   <td>create a sub collection named ‘friends’ to segregate all the friends’ data and friends name card
-   </td>
-   <td>When updating the firebase for the different collections, only 1 collection needs to be updated instead of the entire database under a document.
+   <td>We explored around with the app to try to find out when the crash happened. Initially, we thought that the cause of the crash was from the inappropriate life cycle set up for using the phone camera in the OCR function. However, we found out that any other tabs also caused the crash of the app, which means that the crash was not due to the inappropriate life cycle. We then decided to trace back the commits to find out when the bug first appeared. This would help us find out which code is causing the crash of the app. We also researched the error message shown. Turns out that there was some dependency issue, and it was solved quickly after.
    </td>
   </tr>
   <tr>
-   <td>4
+   <td><strong>4</strong>
    </td>
-   <td>Converting physical name cards into personal name cards only
+   <td>NFC integration into our app.
    </td>
-   <td>Converting physical name cards into both <strong>personal & friend’s cards.</strong>
-   </td>
-   <td>Not everyone will have a ConnectCard account. For example, businesses such as Dental clinics and salons also carry their own name cards. Therefore, by including a friend’s card option for the conversion of the physical cards, users can now save these name cards easily.
+   <td>Currently, flutter only has packages that support NFC communication between a NFC Device and a NFC tag. For peer to peer communication via NFC, it is basically not possible. Also, after careful consideration, we felt that using QR code is instead a better alternative as compared to NFC as QR code is a widely used technology that almost everyone is familiar with. This allows new users to easily learn how to use the feature without much learning curve. In addition, we are already using the phone camera for the OCR feature, this provides an extra layer of familiarity for the users, allowing them to get familiar with using the app quickly. 
    </td>
   </tr>
   <tr>
-   <td>5
+   <td><strong>5</strong>
    </td>
-   <td>Friends can be added immediately with no friend request function
+   <td>Bluetooth integration into our app.
    </td>
-   <td>Friend request system is set up. Users will have to accept and
+   <td>Bluetooth integration was another alternative that we considered during our discussion to replace the NFC technology. However, after careful considerations, we felt that QR code technology is still the ideal alternative due to the same reasons stated in point 4.
    </td>
-   <td>Friend request system allows user to have more privacy and control over who they want their name cards to be shared with.
+  </tr>
+  <tr>
+   <td><strong>6</strong>
+   </td>
+   <td>Deployment of app in both Android and IOS.
+   </td>
+   <td>Initially, our app is supposed to be deployed on both IOS and Android. However, due to many dependency, permissions conflicts as well as time constraints, we were only able to deploy the app on android devices. We decided to follow through the development in Android devices and only fix up the IOS deployment in the future when we have more time.
    </td>
   </tr>
 </table>
-
 
 
 # Project Log
