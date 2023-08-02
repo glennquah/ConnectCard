@@ -1,27 +1,29 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
-import 'package:connectcard/shared/card_details.dart';
+import 'package:connectcard/screens/friendcards/friendcard_details.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // This class is used to display the carousel slider widget
-class CarouselSliderWidget extends StatefulWidget {
+class FriendCarouselSliderWidget extends StatefulWidget {
   final UserData userData;
   final List<Cards> cards;
   final Color backgroundColor;
 
-  const CarouselSliderWidget(
+  const FriendCarouselSliderWidget(
       {super.key,
       required this.userData,
       required this.cards,
       this.backgroundColor = Colors.white});
 
   @override
-  _CarouselSliderWidgetState createState() => _CarouselSliderWidgetState();
+  _FriendCarouselSliderWidgetState createState() =>
+      _FriendCarouselSliderWidgetState();
 }
 
-class _CarouselSliderWidgetState extends State<CarouselSliderWidget> {
+class _FriendCarouselSliderWidgetState
+    extends State<FriendCarouselSliderWidget> {
   int _currentIndex = 0;
 
   String? encodeQueryParameters(Map<String, String> params) {

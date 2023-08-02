@@ -1,6 +1,6 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
-import 'package:connectcard/shared/carouselsliderwidget.dart';
+import 'package:connectcard/screens/friendcards/friendcarouselwidget.dart';
 import 'package:flutter/material.dart';
 
 // This class is used to display the cards of a friend by using the CarouselSliderWidget
@@ -19,7 +19,7 @@ class FriendCards extends StatelessWidget {
       ),
       body: Material(
         // Wrap the widget with Material
-        child: CarouselSliderWidget(
+        child: FriendCarouselSliderWidget(
           userData: userData,
           cards: cards,
           backgroundColor: const Color(0xffFEAA1B),

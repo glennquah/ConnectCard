@@ -1,9 +1,9 @@
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/FriendsDatabase.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/screens/ogcards/friendphysicalcard_details.dart';
 import 'package:connectcard/screens/scan/friendcardeditor.dart';
 import 'package:connectcard/services/database.dart';
-import 'package:connectcard/shared/friendphysicalcard_details.dart';
 import 'package:connectcard/shared/loading.dart';
 import 'package:connectcard/shared/navigationbar.dart';
 import 'package:connectcard/shared/profilebar.dart';

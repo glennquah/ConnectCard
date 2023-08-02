@@ -3,8 +3,8 @@ import 'dart:ui' as ui;
 
 import 'package:connectcard/models/Cards.dart';
 import 'package:connectcard/models/TheUser.dart';
+import 'package:connectcard/screens/home/carouselsliderwidget.dart';
 import 'package:connectcard/screens/home/qrcode_scanner.dart';
-import 'package:connectcard/shared/carouselsliderwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:modern_form_esys_flutter_share/modern_form_esys_flutter_share.dart';

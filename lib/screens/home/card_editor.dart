@@ -205,7 +205,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _cardName,
                           initialValue: selectedCard.cardName,
                           decoration: const InputDecoration(
-                            hintText: 'New Card Name',
+                            hintText: 'New Card Name *',
                             prefixIcon: Icon(Icons.card_membership),
                           ),
                           validator: (val) =>
@@ -219,7 +219,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _companyNameKey,
                           initialValue: selectedCard.companyName,
                           decoration: const InputDecoration(
-                            hintText: 'New Company Name',
+                            hintText: 'New Company Name *',
                             prefixIcon: Icon(Icons.business),
                           ),
                           validator: (val) =>
@@ -233,7 +233,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _jobTitleKey,
                           initialValue: selectedCard.jobTitle,
                           decoration: const InputDecoration(
-                            hintText: 'New Job Title',
+                            hintText: 'New Job Title *',
                             prefixIcon: Icon(Icons.work),
                           ),
                           validator: (val) =>
@@ -247,7 +247,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _phoneNumKey,
                           initialValue: selectedCard.phoneNum,
                           decoration: const InputDecoration(
-                            hintText: 'New Phone Number',
+                            hintText: 'New Phone Number *',
                             prefixIcon: Icon(Icons.phone),
                           ),
                           validator: (val) {
@@ -270,7 +270,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _emailKey,
                           initialValue: selectedCard.email,
                           decoration: const InputDecoration(
-                            hintText: 'New Email',
+                            hintText: 'New Email *',
                             prefixIcon: Icon(Icons.mail),
                           ),
                           validator: (val) {
@@ -292,7 +292,7 @@ class _CardEditorScreenState extends State<CardEditorScreen> {
                           key: _websiteKey,
                           initialValue: selectedCard.companyWebsite,
                           decoration: const InputDecoration(
-                            hintText: 'New Website',
+                            hintText: 'New Website *',
                             prefixIcon: Icon(Icons.language),
                           ),
                           validator: (val) {
