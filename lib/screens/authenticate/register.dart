@@ -1,6 +1,8 @@
+import 'package:connectcard/screens/authenticate/onboarding.dart';
 import 'package:connectcard/services/auth.dart';
 import 'package:connectcard/shared/constants.dart';
 import 'package:connectcard/shared/loading.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 // This class is used to register a user
@@ -25,27 +27,35 @@ class _RegisterState extends State<Register> {
 
   Color bgColor = const Color(0xffFEAA1B);
 
-  Future<void> _showInstructions(BuildContext context) async {
+  Future<void> _showOnboarding(BuildContext context) async {
     await showDialog(
       context: context,
+      barrierDismissible: false,
       builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text('Instructions'),
-          content: Text('Please follow these instructions before logging in.'),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.pop(context); // Close the dialog
-                setState(() {
-                  instructionsShown = true; // Mark instructions as shown
-                });
-              },
-              child: Text('Continue'),
-            ),
-          ],
-        );
+        return CustomOnboarding();
       },
     );
+    // Onboarding completed, mark instructions as shown
+    setState(() {
+      instructionsShown = true;
+    });
+  }
+
+  bool isEmailValid(String email) {
+    String emailRegex =
+        r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$'; // Regular expression for email format
+    return RegExp(emailRegex).hasMatch(email);
+  }
+
+  // Check if the email is already registered with Firebase
+  Future<bool> isEmailAlreadyRegistered(String email) async {
+    try {
+      List<String> signInMethods =
+          await FirebaseAuth.instance.fetchSignInMethodsForEmail(email);
+      return signInMethods.isNotEmpty;
+    } catch (e) {
+      return false; // Return false on error (email is not registered)
+    }
   }
 
   @override
@@ -148,11 +158,30 @@ class _RegisterState extends State<Register> {
                             ),
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
-                                // Show the instructions first
-                                await _showInstructions(context);
+                                // Check if the email is valid
+                                if (!isEmailValid(email)) {
+                                  setState(() {
+                                    error = 'Invalid email, please try again';
+                                  });
+                                  return;
+                                }
 
+                                // Check if the email is already registered
+                                bool isRegistered =
+                                    await isEmailAlreadyRegistered(email);
+                                if (isRegistered) {
+                                  setState(() {
+                                    error = 'Email is already registered';
+                                  });
+                                  return;
+                                }
+
+                                // Show the onboarding only if the email is valid and not registered
+                                await _showOnboarding(context);
+
+                                // Check if the user completed the onboarding
                                 if (!instructionsShown) {
-                                  // User didn't complete the instructions, return early
+                                  // User didn't complete the onboarding, return early
                                   return;
                                 }
 
