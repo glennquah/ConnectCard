@@ -99,9 +99,9 @@ Project Demo: [https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs
 App APK: [https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl](https://drive.google.com/drive/folders/1gHe2YpPyJYLERWdhZ95dpLA-nPWfbCxl)
 
 
-## <span style="text-decoration:underline;">ilestone 3</span>
+## <span style="text-decoration:underline;">Milestone 3</span>
 
-A1 Poster: [https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link](https://drive.google.com/file/d/1cfL-NQB0Ivjrkav68-N3gH1Q04b3ZxAS/view?usp=drive_link) 
+A1 Poster: https://drive.google.com/file/d/1ClhH5edK67TUENlC-zsqnikMv52tSPE3/view?usp=sharing
 
 Project Demo: [https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=drive_link](https://drive.google.com/file/d/1bNgsbRKgLQ5-xu79HLYNc3w_j2NT44GG/view?usp=drive_link) 
 
