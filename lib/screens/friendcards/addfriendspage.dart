@@ -53,8 +53,9 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
 
     for (UserData user in widget.users) {
       bool isRequested = await _isFriendRequested(user);
-      //to sort out the users that are already requested
+      // Check if the user is not already requested or a friend and matches the query
       if (!isRequested &&
+          !filteredUsers.contains(user) &&
           (user.name.toLowerCase().contains(query.toLowerCase()) ||
               user.headLine.toLowerCase().contains(query.toLowerCase()) ||
               user.uid.toLowerCase().contains(query.toLowerCase()))) {
@@ -103,13 +104,19 @@ class _AddFriendsPageState extends State<AddFriendsPage> {
         await databaseServiceFriend.friendData.first;
     List<Friends> friendRequestsReceived =
         List.from(friendsDataFriend.listOfFriendRequestsRec);
-    friendRequestsReceived.add(Friends(uid: widget.uid));
-    await databaseServiceFriend.updateFriendDatabase(
-      friendsDataFriend.listOfFriends,
-      friendsDataFriend.listOfFriendRequestsSent,
-      friendRequestsReceived,
-      friendsDataFriend.listOfFriendsPhysicalCard,
-    );
+
+    // Check if the user is not already a friend, then add to friendRequestsReceived
+    bool isFriend = friendsDataFriend.listOfFriends
+        .any((friend) => friend.uid == widget.uid);
+    if (!isFriend) {
+      friendRequestsReceived.add(Friends(uid: widget.uid));
+      await databaseServiceFriend.updateFriendDatabase(
+        friendsDataFriend.listOfFriends,
+        friendsDataFriend.listOfFriendRequestsSent,
+        friendRequestsReceived,
+        friendsDataFriend.listOfFriendsPhysicalCard,
+      );
+    }
 
     // Refresh filtered users list to show changes
     _initializeFilteredUsers();
