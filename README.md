@@ -92,7 +92,7 @@ Milestone 1 Prototype: [https://drive.google.com/file/d/1_FYtio2JPChTIyvzL8KLP-J
 
 ## <span style="text-decoration:underline;">Milestone 2</span>
 
-A1 Poster: [https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing](https://drive.google.com/file/d/1MQJMPrQ37ZrNrq_ALeu95r2SLRX-Vr9Z/view?usp=sharing)
+A1 Poster: https://drive.google.com/file/d/1ClhH5edK67TUENlC-zsqnikMv52tSPE3/view?usp=sharing
 
 Project Demo: [https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs/view?usp=sharing](https://drive.google.com/file/d/1rrZD2IqqNtiWg3TsZ2e1fOy9HcUg8kcs/view?usp=sharing)
 
