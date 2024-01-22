@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-01-22T13:30:53.293Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="qWPxs1f9WQDJnvUcReKp" version="22.1.21" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2024-01-22T14:20:21.669Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36" etag="k5OiMYXasA0gI-KQPRJ7" version="22.1.21" type="github" pages="2">
   <diagram name="Page-1" id="wMAPx3yTiH1eF6Wl2l4H">
     <mxGraphModel dx="2455" dy="1352" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -210,7 +210,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="lzjcIF9TVeBw9JDe_xe-" name="Urban Sharing">
-    <mxGraphModel dx="2284" dy="-208" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="1642" dy="30" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -248,14 +248,11 @@
         <mxCell id="qRmGJIryvlm8GTq_RDU9-23" value="Front-end" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
           <mxGeometry x="168.99" y="1780" width="80" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qRmGJIryvlm8GTq_RDU9-24" value="Backend" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
-          <mxGeometry x="528.1" y="1779.12" width="70" height="30" as="geometry" />
+        <mxCell id="qRmGJIryvlm8GTq_RDU9-24" value="Backendish" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontStyle=1" parent="1" vertex="1">
+          <mxGeometry x="518.1" y="1779.12" width="90" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="qRmGJIryvlm8GTq_RDU9-25" value="" style="shape=image;verticalLabelPosition=bottom;labelBackgroundColor=default;verticalAlign=top;aspect=fixed;imageAspect=0;image=https://jsonapi.org/images/jsonapi.png;" parent="1" vertex="1">
-          <mxGeometry x="655" y="1778.92" width="194.99" height="61.08" as="geometry" />
-        </mxCell>
-        <mxCell id="qRmGJIryvlm8GTq_RDU9-26" value="&lt;b&gt;No DB (Mostly static)&lt;/b&gt;&lt;br&gt;Using JSON to dynamically display features on the website. This involve fetching JSON data from an AP&lt;b style=&quot;&quot;&gt;I&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="646.24" y="1840" width="212.51" height="130" as="geometry" />
+        <mxCell id="qRmGJIryvlm8GTq_RDU9-26" value="&lt;b&gt;central feature page which is in rmd convert to json and is being query to show the dynamic page&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="646.24" y="1760" width="212.51" height="130" as="geometry" />
         </mxCell>
         <mxCell id="qRmGJIryvlm8GTq_RDU9-27" value="&lt;b&gt;&lt;u&gt;SANITY&lt;/u&gt;&lt;/b&gt;&lt;br&gt;Helps to structure and manage content while providing flexibility in how it is delivered. It is headless, meaning it decouples the content management from the presentation layer." style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="284.99" y="2150" width="200.01" height="150" as="geometry" />
