@@ -499,12 +499,12 @@
     </mxGraphModel>
   </diagram>
   <diagram id="k3JRjVCXiyV7rrcamDQ_" name="BLOCKCHAIN DIAGRAM">
-    <mxGraphModel dx="3334" dy="1242" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="4990" dy="2070" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
         <mxCell id="WDU81NSrrPum_Vb7NUAy-11" value="IS4302" style="rhombus;whiteSpace=wrap;html=1;shadow=0;fontFamily=Helvetica;fontSize=12;align=center;strokeWidth=1;spacing=6;spacingTop=-4;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
-          <mxGeometry x="1890" y="700" width="100" height="80" as="geometry" />
+          <mxGeometry x="1080" y="860" width="100" height="80" as="geometry" />
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-12" target="WDU81NSrrPum_Vb7NUAy-41">
           <mxGeometry relative="1" as="geometry" />
@@ -517,18 +517,6 @@
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-12" value="Chapter 1&lt;div&gt;Blockchain Basics&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
           <mxGeometry x="-250" y="1000" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-14" value="&lt;div&gt;Chapter 8&lt;/div&gt;&lt;div&gt;Scalability in Blockchain&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="2370" y="870" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-15" value="&lt;div&gt;Chapter 7&lt;/div&gt;&lt;div&gt;The Blockchain Ecosystem&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="2230" y="870" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-16" value="&lt;div&gt;Chapter 6&lt;/div&gt;&lt;div&gt;Cryptocurrencies and NFTs&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="2090" y="870" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-17" value="&lt;div&gt;Chapter 5&lt;/div&gt;&lt;div&gt;Blockchain Application Ideation&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
-          <mxGeometry x="1950" y="870" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-23" target="WDU81NSrrPum_Vb7NUAy-26">
           <mxGeometry relative="1" as="geometry" />
@@ -817,6 +805,306 @@
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-122" value="Life cycle" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="777" y="880" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-123" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-144">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-124" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-137">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-125" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-130">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-126" value="&lt;div&gt;Chapter 5&lt;/div&gt;&lt;div&gt;Blockchain Application Ideation&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="488" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-127" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-128" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-133">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-129" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-131">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-130" value="Decentralized Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="578" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-131" value="Runs on blockchain network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-132" value="Built using smart contracts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1290" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-133" value="Communicates through a wallet which serves as a bridge" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1430" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-134" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-135" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-136" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-138">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-137" value="Types of IP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1748" y="578" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-138" value="Patents" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1608" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-139" value="Copyright" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1748" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-140" value="Trademarks" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1888" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-141" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-146">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-142" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-147">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-143" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-145">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-144" value="Blockchain Oracle Usecases" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="768" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-145" value="DeFI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1378" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-146" value="Dynamic NFTs and Gaming" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1518" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-147" value="Insurance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1658" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-152" target="WDU81NSrrPum_Vb7NUAy-170">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-150" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-152" target="WDU81NSrrPum_Vb7NUAy-163">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-151" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-152" target="WDU81NSrrPum_Vb7NUAy-156">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-152" value="&lt;div&gt;Chapter 6&lt;/div&gt;&lt;div&gt;Cryptocurrencies and NFTs&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1517" y="999" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-153" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-156" target="WDU81NSrrPum_Vb7NUAy-158">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-154" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-156" target="WDU81NSrrPum_Vb7NUAy-159">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-155" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-156" target="WDU81NSrrPum_Vb7NUAy-157">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-156" value="NFTs" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1289" y="1089" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-157" value="Unique Digital Assets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1149" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-158" value="Non-Fungible" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1289" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-159" value="Stored on blockchain" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1429" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-160" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-163" target="WDU81NSrrPum_Vb7NUAy-165">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-161" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-163" target="WDU81NSrrPum_Vb7NUAy-166">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-162" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-163" target="WDU81NSrrPum_Vb7NUAy-164">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-163" value="Types of blockchains" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1747" y="1089" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-164" value="Public blockchain" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1607" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-165" value="Private blockchain" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1747" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-166" value="Permissioned blockchain" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1887" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-167" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-170" target="WDU81NSrrPum_Vb7NUAy-172">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-168" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-170" target="WDU81NSrrPum_Vb7NUAy-173">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-169" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-170" target="WDU81NSrrPum_Vb7NUAy-171">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-170" value="Stablecoins" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1517" y="1279" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-171" value="Backing Mechanism" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1377" y="1389" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-172" value="Flat-backed" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1517" y="1389" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-173" value="Crypto-backed" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1657" y="1389" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-174" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-177" target="WDU81NSrrPum_Vb7NUAy-195">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-175" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-177" target="WDU81NSrrPum_Vb7NUAy-188">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-176" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-177" target="WDU81NSrrPum_Vb7NUAy-181">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-177" value="&lt;div&gt;Chapter 7&lt;/div&gt;&lt;div&gt;The Blockchain Ecosystem&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="2399" y="488" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-178" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-181" target="WDU81NSrrPum_Vb7NUAy-183">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-179" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-181" target="WDU81NSrrPum_Vb7NUAy-184">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-180" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-181" target="WDU81NSrrPum_Vb7NUAy-182">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-181" value="Mutex (Mutual Exclusive)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2171" y="578" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-182" value="Problem: Re-entrancy Attack" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2031" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-183" value="Contract calling another contract (hands control)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2171" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-184" value="Solution: Mutex to hinder external call" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2311" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-185" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-188" target="WDU81NSrrPum_Vb7NUAy-190">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-186" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-188" target="WDU81NSrrPum_Vb7NUAy-191">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-187" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-188" target="WDU81NSrrPum_Vb7NUAy-189">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-188" value="Emergency Stop" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2629" y="578" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-189" value="Problem: No option to halt its execuse incase of major bug" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2489" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-190" value="Incorporate emergency stop functionality in contract" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2629" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-191" value="Permission: Only executable by authenticated party" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2769" y="688" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-192" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-195" target="WDU81NSrrPum_Vb7NUAy-197">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-193" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-195" target="WDU81NSrrPum_Vb7NUAy-198">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-194" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-195" target="WDU81NSrrPum_Vb7NUAy-196">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-195" value="IPFS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2399" y="768" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-196" value="Protocol, hypermedia, file sharing P2P network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2259" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-197" value="Stores and share data in a distributed file system" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2399" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-198" value="Stored in private cloud or in public storage" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2539" y="878" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-199" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-202" target="WDU81NSrrPum_Vb7NUAy-220">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-200" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-202" target="WDU81NSrrPum_Vb7NUAy-213">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-201" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-202" target="WDU81NSrrPum_Vb7NUAy-206">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-202" value="&lt;div&gt;Chapter 8&lt;/div&gt;&lt;div&gt;Scalability in Blockchain&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="2398" y="999" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-203" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-206" target="WDU81NSrrPum_Vb7NUAy-208">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-204" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-206" target="WDU81NSrrPum_Vb7NUAy-209">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-205" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-206" target="WDU81NSrrPum_Vb7NUAy-207">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-206" value="Blockchain Trilemma (Vitalik Buterin)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2170" y="1089" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-207" value="Decentralization" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2030" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-208" value="Scalability" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2170" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-209" value="Security" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2310" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-210" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-213" target="WDU81NSrrPum_Vb7NUAy-215">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-211" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-213" target="WDU81NSrrPum_Vb7NUAy-216">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-212" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-213" target="WDU81NSrrPum_Vb7NUAy-214">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-213" value="Data structures" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2628" y="1089" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-214" value="Blockchains" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2488" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-215" value="GHOST" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2628" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-216" value="BlockDAG" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2768" y="1199" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-217" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-220" target="WDU81NSrrPum_Vb7NUAy-222">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-218" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-220" target="WDU81NSrrPum_Vb7NUAy-223">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-219" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-220" target="WDU81NSrrPum_Vb7NUAy-221">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-220" value="GHOST" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="2398" y="1279" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-221" value="Uncle block" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2258" y="1389" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-222" value="Heaviest branch is considered VALID" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2398" y="1389" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-223" value="Allows concurrent work, allowing shorter inter-block times." style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="2538" y="1389" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
