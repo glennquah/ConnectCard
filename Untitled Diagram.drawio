@@ -499,7 +499,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="k3JRjVCXiyV7rrcamDQ_" name="BLOCKCHAIN DIAGRAM">
-    <mxGraphModel dx="3425" dy="2372" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="3894" dy="2604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -647,7 +647,7 @@
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-51" target="WDU81NSrrPum_Vb7NUAy-69">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-51" value="&lt;div&gt;Chapter 2&lt;/div&gt;&lt;div&gt;Solidity Language Basics&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-51" value="&lt;div&gt;Chapter 2&lt;/div&gt;&lt;div&gt;Solidity Language Basics&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#99CCFF;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="-251" y="270" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-55" target="WDU81NSrrPum_Vb7NUAy-57">
@@ -659,16 +659,16 @@
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-55" target="WDU81NSrrPum_Vb7NUAy-56">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-55" value="Hard Forks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-55" value="Hard Forks" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-469" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-56" value="Divergence" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-56" value="Divergence" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-609" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-57" value="Two separate chains" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-57" value="Two separate chains" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-469" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-58" value="Requires consensus to resolve" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-58" value="Requires consensus to resolve" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-329" y="70" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-62" target="WDU81NSrrPum_Vb7NUAy-64">
@@ -680,16 +680,16 @@
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-62" target="WDU81NSrrPum_Vb7NUAy-63">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-62" value="Components in a block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-62" value="Components in a block" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-20" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-63" value="Header: Metadata (timestamp)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-63" value="Header: Metadata (timestamp)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-161" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-64" value="Data Section: Main info" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-64" value="Data Section: Main info" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-21" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-65" value="Hash: Unique cryptographic value" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-65" value="Hash: Unique cryptographic value" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="119" y="70" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-69" target="WDU81NSrrPum_Vb7NUAy-72">
@@ -701,16 +701,16 @@
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-69" target="WDU81NSrrPum_Vb7NUAy-70">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-69" value="Consensus Mechanisms" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-69" value="Consensus Mechanisms" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#3399FF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="-250" y="-50" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-70" value="Proof of work (POW)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-70" value="Proof of work (POW)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-391" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-71" value="Proof of Stake (POS)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-71" value="Proof of Stake (POS)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-251" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-72" value="Proof of Capacity (POC)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-72" value="Proof of Capacity (POC)" style="ellipse;whiteSpace=wrap;html=1;fillColor=#0066CC;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="-111" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="WDU81NSrrPum_Vb7NUAy-76" target="WDU81NSrrPum_Vb7NUAy-94" edge="1">
@@ -797,83 +797,146 @@
         <mxCell id="IPdn5l3VZj6mPdXNFLhG-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-101" target="WDU81NSrrPum_Vb7NUAy-119">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-101" value="&lt;div&gt;Chapter 4&lt;/div&gt;&lt;div&gt;Ethereum Clients, Security&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-101" value="&lt;div&gt;Chapter 4&lt;/div&gt;&lt;div&gt;Ethereum Clients, Security&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#66FFFF;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="638" y="270" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-105" value="Ethereum Name Service (ENS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-105" target="WDU81NSrrPum_Vb7NUAy-107">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-105" target="WDU81NSrrPum_Vb7NUAy-108">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-105" target="WDU81NSrrPum_Vb7NUAy-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-105" value="Ethereum Name Service (ENS)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00FFFF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="410" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-106" value="ENS Registry: Smart Contract" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-106" value="ENS Registry: Smart Contract" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="270" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-107" value="On the Ethereum Network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-107" value="On the Ethereum Network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="410" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-108" value="ERC137 &amp;amp; ERC181" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-108" value="ERC137 &amp;amp; ERC181" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="550" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-112" value="Crypto Wallets" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-50" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-112" target="WDU81NSrrPum_Vb7NUAy-114">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-51" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-112" target="WDU81NSrrPum_Vb7NUAy-115">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-52" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-112" target="WDU81NSrrPum_Vb7NUAy-113">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-112" value="Crypto Wallets" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00FFFF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="868" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-113" value="Custodial wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-113" value="Custodial wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="728" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-114" value="Cold storage wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-114" value="Cold storage wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="868" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-115" value="Hot storage wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-115" value="Hot storage wallets" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1008" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-119" value="Smart contract design patterns" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-119" target="WDU81NSrrPum_Vb7NUAy-121">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-119" target="WDU81NSrrPum_Vb7NUAy-122">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-119" target="WDU81NSrrPum_Vb7NUAy-120">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-119" value="Smart contract design patterns" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#00FFFF;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="638" y="-50" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-120" value="Authorization" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-120" value="Authorization" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="498" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-121" value="Action and Control" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-121" value="Action and Control" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="638" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-122" value="Life cycle" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-122" value="Life cycle" style="ellipse;whiteSpace=wrap;html=1;fillColor=#009999;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="778" y="-160" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-126" value="&lt;div&gt;Chapter 5&lt;/div&gt;&lt;div&gt;Blockchain Application Ideation&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-144">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-130">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-126" target="WDU81NSrrPum_Vb7NUAy-137">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-126" value="&lt;div&gt;Chapter 5&lt;/div&gt;&lt;div&gt;Blockchain Application Ideation&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFB366;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="1528" y="270" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-130" value="Decentralized Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-133">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-130" target="WDU81NSrrPum_Vb7NUAy-131">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-130" value="Decentralized Application" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1299" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-131" value="Runs on blockchain network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1148" y="70" width="120" height="60" as="geometry" />
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-131" value="Runs on blockchain network" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1159" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-132" value="Built using smart contracts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1288" y="70" width="120" height="60" as="geometry" />
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-132" value="Built using smart contracts" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1299" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-133" value="Communicates through a wallet which serves as a bridge" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1428" y="70" width="120" height="60" as="geometry" />
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-133" value="Communicates through a wallet which serves as a bridge" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1439" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-137" value="Types of IP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-139">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-138">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-64" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-137" target="WDU81NSrrPum_Vb7NUAy-140">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-137" value="Types of IP" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="1747" y="190" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-138" value="Patents" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-138" value="Patents" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1606" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-139" value="Copyright" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-139" value="Copyright" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1746" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-140" value="Trademarks" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-140" value="Trademarks" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1886" y="70" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-144" value="Blockchain Oracle Usecases" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
-          <mxGeometry x="1517" y="-50" width="120" height="60" as="geometry" />
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-146">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-145" value="DeFI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1377" y="-150" width="120" height="60" as="geometry" />
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-59" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-147">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-146" value="Dynamic NFTs and Gaming" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1517" y="-150" width="120" height="60" as="geometry" />
+        <mxCell id="IPdn5l3VZj6mPdXNFLhG-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="WDU81NSrrPum_Vb7NUAy-144" target="WDU81NSrrPum_Vb7NUAy-145">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="WDU81NSrrPum_Vb7NUAy-147" value="Insurance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
-          <mxGeometry x="1657" y="-150" width="120" height="60" as="geometry" />
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-144" value="Blockchain Oracle Usecases" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FF8000;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="1528" y="-50" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-145" value="DeFI" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1388" y="-150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-146" value="Dynamic NFTs and Gaming" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1528" y="-150" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WDU81NSrrPum_Vb7NUAy-147" value="Insurance" style="ellipse;whiteSpace=wrap;html=1;fillColor=#CC6600;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1668" y="-150" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="WDU81NSrrPum_Vb7NUAy-149" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="WDU81NSrrPum_Vb7NUAy-152" target="WDU81NSrrPum_Vb7NUAy-170" edge="1">
           <mxGeometry relative="1" as="geometry" />
